@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* import font family */
+@import "./assets/fonts.css";
+
+/* font family */
+body{
+    /* @apply font-inter; */
+    font-weight: normal;
+    font-size: 40px;
+}
+
+/* btn style */
+.btn-primary{
+    display: flex;
+    align-items: center;
+}
+
+.btn-primary span{
+    font-size: 16px;
+    background-color: #181D27;
+    color: #FAFAFA !important;
+    padding: 8px 18px;
+    border-radius: 32px;
+}
+
+.btn-primary .btn-arrow {
+    background-color: #181D27;
+    color: #FAFAFA !important;
+    padding: 10px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-left: -10px;
+}

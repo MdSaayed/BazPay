@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../../public/fonts/Inter/Inter-VariableFont_slnt,wght.ttf') format('truetype'), /* Adjust the path according to your font files */
+         url('../../public/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype'); /* Include other font styles if needed */
+    font-weight: 100 900; /* Define the weight range for the variable font */
+    font-style: normal; /* Normal style */
+  }
+  
+  
+  @font-face {
+    font-family: 'Inter';
+    src: url('../../public/fonts/Inter/Inter-VariableFont_slnt,wght.ttf') format('truetype'), /* Adjust the path according to your font files */
+         url('../../public/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype'); /* Include other font styles if needed */
+    font-weight: 100 900; /* Define the weight range for the variable font */
+    font-style: italic;
+  }
+  

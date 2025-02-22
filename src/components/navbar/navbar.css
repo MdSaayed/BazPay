@@ -1,0 +1,10 @@
+.nav{
+  height: 90px;
+}
+
+.desktop-menu a{
+  color: #181D27;
+  font-weight: normal;
+  line-height: 1.5;
+  font-size: 16px;
+}
