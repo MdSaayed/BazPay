@@ -7,9 +7,9 @@
 
 /* font family */
 body{
-    /* @apply font-inter; */
+    @apply font-inter;
+    color:#252B37;
     font-weight: normal;
-    font-size: 40px;
 }
 
 /* btn style */
