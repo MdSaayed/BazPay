@@ -1,0 +1,65 @@
+@import url('/src/assets/fonts.css'); /* Use an absolute path */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* font family */
+body {
+    @apply font-inter;
+    color: #252B37;
+    font-weight: normal;
+}
+
+/* btn style */
+.btn-primary {
+    display: flex;
+    align-items: center;
+}
+
+.btn-primary span {
+    font-size: 16px;
+    background-color: #181D27;
+    color: #FAFAFA !important;
+    padding: 8px 18px;
+    border-radius: 32px;
+}
+
+.btn-primary .btn-arrow {
+    background-color: #181D27;
+    color: #FAFAFA !important;
+    padding: 10px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-left: -10px;
+}
+
+/* Button Secondary */
+.btn-secondary {
+    font-size: 16px;
+    background-color: #BCFC6A;
+    color: #181D27 !important;
+    padding: 8px 18px;
+    border-radius: 32px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-secondary:hover {
+    background-color: #F7F8F8;
+}
+
+/* Button White */
+.btn-white {
+    font-size: 16px;
+    background-color: #F7F8F8;
+    color: #181D27 !important;
+    padding: 8px 18px;
+    border-radius: 32px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-white:hover {
+    background-color: #BCFC6A;
+}
+
+
+  

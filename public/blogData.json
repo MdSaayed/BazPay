@@ -1,0 +1,20 @@
+[
+    {
+      "id": 1,
+      "date": "20 Jan 2025",
+      "title": "Simplifying Financial Journeys",
+      "description": "How do you create compelling presentations that wow your colleagues and impress your managers?",
+      "tags": ["Design", "Research", "Presentation"],
+      "image": "/assets/img/blog/blog-1.png"
+    },
+    {
+      "id": 2,
+      "date": "10 Jan 2025",
+      "title": "Insights That Empower Your Finances",
+      "description": "How do you create compelling presentations that wow your colleagues and impress your managers?",
+      "tags": ["Design", "Research", "Presentation"],
+      "image": "/assets/img/blog/blog-2.png"
+    }
+  ]
+  
+  
