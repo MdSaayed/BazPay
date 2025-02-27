@@ -8,7 +8,7 @@ import featureTwo from '/assets/img/features/feature-1.png';
 import featureThree from '/assets/img/features/feature-3.png';
 import featureFour from '/assets/img/features/feature-4.png';
 import featureFive from '/assets/img/features/feature-5.png';
-import phoneMokup from '/assets/img/global/phone.png';
+import phoneMockup from '/assets/img/global/phone.png';
 import { Link } from "react-router";
 import BrandLogo from '../components/brandLogo/BrandLogo';
 import Subtitle from '../components/subtitle/Subtitle';
@@ -19,6 +19,7 @@ import Description from '../components/description/Description';
 import Cta from '../components/cta/Cta';
 import Faq from '../components/faq/Faq';
 import BlogGrid from '../components/blog/BlogGrid';
+import Pricing from '../components/pricing/Pricing';
 
 
 
@@ -176,7 +177,7 @@ const Home = () => {
                             <h3 className='text-softWhite font-semibold text-center text-4xl leading-[1.3] mb-6' >Real-Time Analytics & Reporting</h3>
                             <p className='text-softWhite text-center text-base leading-normal font-normal'>Gain full visibility of your finances with interactive dashboards and reports. Make data-driven decisions with ease.</p>
                             <div className='mt-6'>
-                                <img src={phoneMokup} alt=""/>
+                                <img src={phoneMockup} alt=""/>
                             </div>
                         </div>
 
@@ -185,7 +186,7 @@ const Home = () => {
                             <h3 className='text-primary font-semibold text-center text-4xl leading-[1.3] mb-6' >Real-Time Analytics & Reporting</h3>
                             <p className='text-blueGray text-center text-base leading-normal font-normal'>Gain full visibility of your finances with interactive dashboards and reports. Make data-driven decisions with ease.</p>
                             <div className='mt-6'>
-                                <img src={phoneMokup} alt=""/>
+                                <img src={phoneMockup} alt=""/>
                             </div>
                         </div>
                     </div>
@@ -211,6 +212,9 @@ const Home = () => {
                     <BlogGrid />
                 </div>            
             </section>
+
+            {/* Pricing */}
+            <Pricing />
         </>
     );
 };

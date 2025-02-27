@@ -17,12 +17,12 @@ const BlogCard = ({ blog, index }) => {
 
       {/* Blog Content */}
       <div className="p-4 bg-white border border-[#F5F5F5] rounded-2xl">
-        <p className="text-[#535862] font-semibold text-sm">{blog?.date}</p>
+        <p className="text-[#535862] font-semibold text-sm mb-2">{blog?.date}</p>
         <Link href={blog?.id} className="group">
-          <h2 className="text-2xl text-primary font-semibold my-2 mr-2 inline-block">{blog?.title}</h2>
+          <h2 className="text-2xl text-primary font-semibold mr-2 inline">{blog?.title}</h2>
           <img src={arrowTopRight} alt="Arrow Icon" className="transition-transform duration-300 group-hover:rotate-45 inline-block -mt-1" />
         </Link>
-        <p className="text-[davyGray] font-normal leading-normal">{blog?.description}</p>
+        <p className="text-[davyGray] font-normal leading-normal mt-2">{blog?.description}</p>
 
         {/* Tags */}
         <div className="flex gap-2 mt-6">
