@@ -1,0 +1,42 @@
+/* Font Roboto - Regular */
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto/Roboto-Regular.woff2') format('woff2'),
+       url('/fonts/Roboto/Roboto-Regular.woff') format('woff'),
+       url('/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400; /* Corrected weight */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Font Roboto - Bold */
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto/Roboto-Bold.woff2') format('woff2'),
+       url('/fonts/Roboto/Roboto-Bold.woff') format('woff'),
+       url('/fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+  font-weight: 700; /* Corrected weight */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Font Inter - Add this if you're using Inter */
+/* Regular (Normal) Font */
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900; /* Variable font weight range */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Italic Font */
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900; /* Variable font weight range */
+  font-style: italic;
+  font-display: swap;
+}
+
+ 

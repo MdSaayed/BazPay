@@ -1,9 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css'; 
 import "./brandLogo.css";
-import { Autoplay } from 'swiper/modules';
+import Slider from '../slider/Slider';
 
 const BrandLogo = ({ title, desc }) => {
     // Define an array of brand logo image paths
@@ -23,39 +20,8 @@ const BrandLogo = ({ title, desc }) => {
                     {/* Render title if provided */}
                     {title && <h2 className='title text-center mb-8 text-2xl'>{title}</h2>}
 
-                    <Swiper
-                        loop={true} // Enables infinite loop
-                        speed={3000} // Defines transition speed
-                        autoplay={{
-                            delay: 0, // Removes autoplay delay for seamless scrolling
-                            disableOnInteraction: false,
-                        }}
-                        modules={[Autoplay]}
-                        className="ub-brands__slider-area"
-                        
-                        // 🔥 Responsive settings
-                        breakpoints={{
-                            320: {  // Mobile (small screens)
-                                slidesPerView: 2,
-                                spaceBetween: 20
-                            },
-                            768: {  // Tablets
-                                slidesPerView: 3,
-                                spaceBetween: 30
-                            },
-                            1024: { // Desktop
-                                slidesPerView: 5,
-                                spaceBetween: 40
-                            }
-                        }}
-                    >
-                        {/* Duplicate logos array for seamless infinite loop effect */}
-                        {logos.concat(logos).map((logo, index) => ( 
-                            <SwiperSlide key={index}>
-                                <img src={logo} alt={`Logo ${index + 1}`} />
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                    {/* Brand Logo Slider */}
+                    <Slider items={logos} speed={4000} />
 
                     {/* Render description if provided */}
                     {desc && <p className='text-center font-normal text-base mt-8'>{desc}</p>}

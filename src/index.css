@@ -1,4 +1,4 @@
-@import url('/src/assets/fonts.css'); /* Use an absolute path */
+@import url('/fonts/fonts.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -61,5 +61,11 @@ body {
     background-color: #BCFC6A;
 }
 
+/* Swiper Slider Wrapper */
+.swiper-wrapper {
+    transition-timing-function: linear !important;
+    display: flex;
+    align-items: center;
+}
 
   
