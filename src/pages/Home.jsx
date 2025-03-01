@@ -8,7 +8,8 @@ import featureTwo from '/assets/img/features/feature-1.png';
 import featureThree from '/assets/img/features/feature-3.png';
 import featureFour from '/assets/img/features/feature-4.png';
 import featureFive from '/assets/img/features/feature-5.png';
-import phoneMockup from '/assets/img/global/phone.png';
+import phoneMockup from '/assets/img/global/phone-mockup-with-card.png';
+import barChat from '/assets/img/global/bar-chat.png';
 import { Link } from "react-router";
 import BrandLogo from '../components/brandLogo/BrandLogo';
 import Subtitle from '../components/subtitle/Subtitle';
@@ -20,11 +21,35 @@ import Cta from '../components/cta/Cta';
 import Faq from '../components/faq/Faq';
 import BlogGrid from '../components/blog/BlogGrid';
 import Pricing from '../components/pricing/Pricing';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules'; // ✅ Import Autoplay from 'swiper/modules'
+import 'swiper/css'; // ✅ Import Swiper core styles
+import 'swiper/css/autoplay';
+
 
 
 
 
 const Home = () => {
+
+    const cards = [
+        '/assets/img/cards/credit-card-1.png',
+        '/assets/img/cards/credit-card-2.png',
+        '/assets/img/cards/credit-card-3.png',
+    ];
+
+    const integrationLogos =[
+        '/assets/img/global/integrations-logo-1.png',
+        '/assets/img/global/integrations-logo-2.png',
+        '/assets/img/global/integrations-logo-3.png',
+        '/assets/img/global/integrations-logo-4.png',
+        '/assets/img/global/integrations-logo-5.png',
+        '/assets/img/global/integrations-logo-6.png',
+        '/assets/img/global/integrations-logo-7.png',
+        '/assets/img/global/integrations-logo-8.png'
+    ]
+
+
     return (
         <>
             {/* Hero */}
@@ -100,10 +125,49 @@ const Home = () => {
           
             {/* Premium Cards */}
             <section className="">
-                <div className="container py-20 px-10 bg-primary rounded-2xl">
-                    <Subtitle subTitle="Security" color="text-[#FAFAFA]" bgColor="bg-[#181D27]" borderColor='border-[#252B37]'/>
-                    <Title title="Check our premium cards" color="text-softWhite" />
-                    <Description text="Discover a seamless platform designed for easy payments, quick money transfers, and all your financial needs." color='text-[#FAFAFA]' maxWidth="max-w-[694px]" />
+                <div className="container pt-20 px-0 bg-primary rounded-2xl">
+                <div className="px-[10px] sm:px-5 md:px-10 lg:px-14 xl:px-20">
+                        <Subtitle subTitle="Security" color="text-[#FAFAFA]" bgColor="bg-[#181D27]" borderColor='border-[#252B37]'/>
+                        <Title title="Check our premium cards" color="text-softWhite" />
+                        <Description text="Discover a seamless platform designed for easy payments, quick money transfers, and all your financial needs." color='text-[#FAFAFA]' maxWidth="max-w-[694px]" />
+                </div>
+
+                    {/* Cards Slider */}
+                    <div className="rounded-md pt-28 pb-8 mt-10 bg-[url('/assets/img/global/phone-mockup.png')] bg-no-repeat  bg-contain bg-bottom">
+                        <Swiper
+                            loop={true} // Enables infinite loop
+                            speed={3000} // Defines transition speed
+                            autoplay={{
+                                delay: 0, // Removes autoplay delay for seamless scrolling
+                                disableOnInteraction: false,
+                            }}
+                            modules={[Autoplay]}
+                            className="ub-brands__slider-area"
+                            
+                            // 🔥 Responsive settings
+                            breakpoints={{
+                                320: {  // Mobile (small screens)
+                                    slidesPerView: 2,
+                                    spaceBetween: 18
+                                },
+                                768: {  // Tablets
+                                    slidesPerView: 3,
+                                    spaceBetween: 24
+                                },
+                                1024: { // Desktop
+                                    slidesPerView: 5,
+                                    spaceBetween: 28
+                                }
+                            }}
+                        >
+                            {/* Duplicate logos array for seamless infinite loop effect */}
+                            {cards.concat(cards).map((logo, index) => ( 
+                                <SwiperSlide key={index}>
+                                    <img src={logo} alt={`Logo ${index + 1}`} />
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
                 </div>
             </section>
 
@@ -142,7 +206,41 @@ const Home = () => {
                                     <h3 className='text-primary text-4xl font-semibold leading-normal text-center '>Built-in integrations</h3>
                                     <p className='text-lg leading-normal text-blueGray text-center  mt-6 max-w[400px]'>Manage all your bank accounts in one dashboard for easier finances.</p>
                                 </div>
-                                <img src={featureFour} alt="AI Budget Tools" />
+                                <div className="integration-logos overflow-hidden">
+                                   <Swiper
+                                                          loop={true} // Enables infinite loop
+                                                          speed={3000} // Defines transition speed
+                                                          autoplay={{
+                                                              delay: 0, // Removes autoplay delay for seamless scrolling
+                                                              disableOnInteraction: false,
+                                                          }}
+                                                          modules={[Autoplay]}
+                                                          className="ub-brands__slider-area"
+                                                          
+                                                          // 🔥 Responsive settings
+                                                          breakpoints={{
+                                                              320: {  // Mobile (small screens)
+                                                                  slidesPerView: 2,
+                                                                  spaceBetween: 20
+                                                              },
+                                                              768: {  // Tablets
+                                                                  slidesPerView: 3,
+                                                                  spaceBetween: 30
+                                                              },
+                                                              1024: { // Desktop
+                                                                  slidesPerView: 5,
+                                                                  spaceBetween: 40
+                                                              }
+                                                          }}
+                                                      >
+                                                          {/* Duplicate logos array for seamless infinite loop effect */}
+                                                          {integrationLogos.concat(integrationLogos).map((logo, index) => ( 
+                                                              <SwiperSlide key={index}>
+                                                                  <img src={logo} alt={`Logo ${index + 1}`} />
+                                                              </SwiperSlide>
+                                                          ))}
+                                                      </Swiper>
+                                </div>
                             </div>
 
                             {/* Card Four */}
@@ -173,16 +271,16 @@ const Home = () => {
                     {/* Cards */}
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 mt-20'>
                         {/* Card One */}
-                        <div className="bg-primary rounded-3xl px-2 md:px-4 py-10">
+                        <div className="bg-primary rounded-3xl px-4 pt-10">
                             <h3 className='text-softWhite font-semibold text-center text-4xl leading-[1.3] mb-6' >Real-Time Analytics & Reporting</h3>
                             <p className='text-softWhite text-center text-base leading-normal font-normal'>Gain full visibility of your finances with interactive dashboards and reports. Make data-driven decisions with ease.</p>
                             <div className='mt-6'>
-                                <img src={phoneMockup} alt=""/>
+                                <img src={barChat} alt=""/>
                             </div>
                         </div>
 
                         {/* Card Two */}
-                        <div className="bg-lightGreen rounded-3xl px-2 md:px-4 py-10">
+                        <div className="bg-lightGreen rounded-3xl px-4 pt-10">
                             <h3 className='text-primary font-semibold text-center text-4xl leading-[1.3] mb-6' >Real-Time Analytics & Reporting</h3>
                             <p className='text-blueGray text-center text-base leading-normal font-normal'>Gain full visibility of your finances with interactive dashboards and reports. Make data-driven decisions with ease.</p>
                             <div className='mt-6'>
@@ -193,8 +291,8 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* CTA */}
-            <Cta />
+            {/* Pricing */}
+            <Pricing />
 
             {/* Faq */}
             <Faq/>
@@ -213,8 +311,8 @@ const Home = () => {
                 </div>            
             </section>
 
-            {/* Pricing */}
-            <Pricing />
+            {/* CTA */}
+            <Cta />
         </>
     );
 };

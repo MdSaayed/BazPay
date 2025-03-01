@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const Description = ({ text="text-[davyGray]", size="text-lg", color="text-[#535862]",maxWidth="max-w-[694px]", textAlign="text-center"}) => {
-    return <p className={`mx-auto leading-normal mt-4 ${size} ${color} ${maxWidth} ${textAlign}`}> {text} </p>;
+const Description = ({ text="text-[davyGray]", size="text-lg", color="text-[#535862]",maxWidth="max-w-[694px]", textAlign="text-center mx-auto"}) => {
+    return <p className={`leading-normal mt-4 ${size} ${color} ${maxWidth} ${textAlign}`}> {text} </p>;
 };
 
 Description.propTypes = {

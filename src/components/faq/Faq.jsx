@@ -53,7 +53,7 @@ const Faq = () => {
                         <Title title="FAQs" textAlign="text-left" size="text-4xl" />
                         <Description
                             text="Everything you need to know about the product and billing. Can’t find the answer you’re looking for? Please chat with our friendly team."
-                            textAlign="text-left"
+                            textAlign="text-left m-0"
                         />
                     </div>
 
