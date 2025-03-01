@@ -53,7 +53,7 @@ const Home = () => {
     return (
         <>
             {/* Hero */}
-            <section className='hero-home bg-lightGrayishWhite'>
+            <section className='bg-lightGrayishWhite'>
                 <div className='container py-24'>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-20	items-center">
                         <div className="col-1">
@@ -85,7 +85,7 @@ const Home = () => {
             <BrandLogo title={<>Working for innovative <span>companies</span>.</>}  desc="Discover tailored financial solutions that secure your investments." />
 
             {/* Features */}
-            <section className="features bg-lightGrayishWhite">
+            <section className="bg-lightGrayishWhite">
                 <div className="container py-20">
                     <Subtitle subTitle="Total income and payments overview." />
                     <Title title={<>Transforming finance – one <br/> <span>feature</span> at a time</>} size="text-5xl" fontWeight="font-bold" fontFamily='font-inter'  />
@@ -124,7 +124,7 @@ const Home = () => {
             </section>
           
             {/* Premium Cards */}
-            <section className="">
+            <section className="bg-lightGrayishWhite">
                 <div className="container pt-20 px-0 bg-primary rounded-2xl">
                 <div className="px-[10px] sm:px-5 md:px-10 lg:px-14 xl:px-20">
                         <Subtitle subTitle="Security" color="text-[#FAFAFA]" bgColor="bg-[#181D27]" borderColor='border-[#252B37]'/>
@@ -142,7 +142,7 @@ const Home = () => {
                                 disableOnInteraction: false,
                             }}
                             modules={[Autoplay]}
-                            className="ub-brands__slider-area"
+                            className="intergration-logos"
                             
                             // 🔥 Responsive settings
                             breakpoints={{
@@ -172,7 +172,7 @@ const Home = () => {
             </section>
 
             {/* Features */}
-            <section>
+            <section className='bg-lightGrayishWhite'>
                 <div className="container py-24">
                     <div className="content-wrapper bg-[#F0EEF4] py-12 px-2 md:px-10 rounded-2xl">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-5 gap-x-10 justify-between items-center">
@@ -206,40 +206,72 @@ const Home = () => {
                                     <h3 className='text-primary text-4xl font-semibold leading-normal text-center '>Built-in integrations</h3>
                                     <p className='text-lg leading-normal text-blueGray text-center  mt-6 max-w[400px]'>Manage all your bank accounts in one dashboard for easier finances.</p>
                                 </div>
-                                <div className="integration-logos overflow-hidden">
-                                   <Swiper
-                                                          loop={true} // Enables infinite loop
-                                                          speed={3000} // Defines transition speed
-                                                          autoplay={{
-                                                              delay: 0, // Removes autoplay delay for seamless scrolling
-                                                              disableOnInteraction: false,
-                                                          }}
-                                                          modules={[Autoplay]}
-                                                          className="ub-brands__slider-area"
-                                                          
-                                                          // 🔥 Responsive settings
-                                                          breakpoints={{
-                                                              320: {  // Mobile (small screens)
-                                                                  slidesPerView: 2,
-                                                                  spaceBetween: 20
-                                                              },
-                                                              768: {  // Tablets
-                                                                  slidesPerView: 3,
-                                                                  spaceBetween: 30
-                                                              },
-                                                              1024: { // Desktop
-                                                                  slidesPerView: 5,
-                                                                  spaceBetween: 40
-                                                              }
-                                                          }}
-                                                      >
-                                                          {/* Duplicate logos array for seamless infinite loop effect */}
-                                                          {integrationLogos.concat(integrationLogos).map((logo, index) => ( 
-                                                              <SwiperSlide key={index}>
-                                                                  <img src={logo} alt={`Logo ${index + 1}`} />
-                                                              </SwiperSlide>
-                                                          ))}
-                                                      </Swiper>
+
+                                {/* Integration Logos */}
+                                <div className="integration-logos w-full overflow-hidden ">
+                                    <Swiper
+                                    loop={true} // Enables infinite loop
+                                    speed={3000} // Defines transition speed
+                                    autoplay={{
+                                        delay: 0, // Removes autoplay delay for seamless scrolling
+                                        disableOnInteraction: false,
+                                    }}
+                                    modules={[Autoplay]}
+                                    className="intergration-logos"
+                                    breakpoints={{
+                                        320: { // Mobile (small screens)
+                                        slidesPerView: 4,
+                                        spaceBetween: 15,
+                                        },
+                                        768: { // Tablets
+                                        slidesPerView: 6,
+                                        spaceBetween: 15,
+                                        },
+                                        1024: { // Desktop
+                                        slidesPerView: 8,
+                                        spaceBetween: 20,
+                                        },
+                                    }}
+                                    >
+                                    {/* Duplicate logos array for seamless infinite loop effect */}
+                                    {integrationLogos.concat(integrationLogos).map((logo, index) => (
+                                        <SwiperSlide key={index}>
+                                        <img src={logo} alt={`Logo ${index + 1}`} className="w-[60px] h-[60px] object-contain" />
+                                        </SwiperSlide>
+                                    ))}
+                                    </Swiper>
+                                    <Swiper
+                                        loop={true} // Enables infinite loop
+                                        speed={3000} // Defines transition speed
+                                        autoplay={{
+                                        delay: 0, // Removes autoplay delay for seamless scrolling
+                                        disableOnInteraction: false,
+                                        reverseDirection: true, // Scrolls left-to-right
+                                        }}
+                                        modules={[Autoplay]}
+                                        className="intergration-logos"
+                                        breakpoints={{
+                                        320: { // Mobile (small screens)
+                                            slidesPerView: 4,
+                                            spaceBetween: 15,
+                                        },
+                                        768: { // Tablets
+                                            slidesPerView: 6,
+                                            spaceBetween: 15,
+                                        },
+                                        1024: { // Desktop
+                                            slidesPerView: 8,
+                                            spaceBetween: 20,
+                                        },
+                                        }}
+                                    >
+                                        {/* Duplicate logos array for seamless infinite loop effect */}
+                                        {integrationLogos.concat(integrationLogos).map((logo, index) => (
+                                        <SwiperSlide key={index}>
+                                            <img src={logo} alt={`Logo ${index + 1}`} className="w-[60px] h-[60px] object-contain" />
+                                        </SwiperSlide>
+                                        ))}
+                                    </Swiper>
                                 </div>
                             </div>
 
@@ -263,7 +295,7 @@ const Home = () => {
             </section>
 
             {/* Constantly */}
-            <section>
+            <section className='bg-lightGrayishWhite'>
                 <div className="container py-24">
                     <Subtitle subTitle="Investing in your future is crucial."/>
                     <Title title={<>Our team is constantly <br/> innovating.</>} />
@@ -298,7 +330,7 @@ const Home = () => {
             <Faq/>
 
             {/* Blog */}
-            <section className='blog bg-lightGrayishWhite'> 
+            <section className='bg-lightGrayishWhite'> 
                 <div className="container py-24">
                     <div className="flex justify-center">
                         <span className='text-[#535862] font-medium text-sm leading-normal bg-[#ECFFCD] px-4 py-2 rounded-3xl'>Latest posts</span>
