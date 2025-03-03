@@ -6,7 +6,9 @@ import 'swiper/css/autoplay';
 import Subtitle from '../subtitle/Subtitle';
 import Title from '../title/Title';
 import Description from '../description/Description';
-import { Link } from 'react-router-dom'; // Corrected import
+import { FaLinkedin } from "react-icons/fa6";
+import { RiTwitterXFill } from "react-icons/ri";
+import { Link } from 'react-router-dom';
 
 const Team = () => {
   const members = [
@@ -86,21 +88,23 @@ const Team = () => {
           >
             {/* Duplicate members array for seamless infinite loop effect */}
             {members.concat(members).map((member, index) => (
-              <SwiperSlide key={index}>
-                <div className="card bg-white p-4 rounded-lg shadow-md">
+              <SwiperSlide key={`${member.name}-${index}`}>
+                <div className="card p-2 rounded-lg border-2 border-[#F5F5F5]">
                   <img src={member.img} alt={`Member ${index + 1}`} className="w-full h-64 object-cover rounded-lg" />
-                  <div className="profile-info mt-4">
-                    <h3 className="text-xl font-semibold">{member.name}</h3>
-                    <p className="text-gray-600">{member.profession}</p>
-                    <div className="links mt-2">
-                      {member.links.linkedin && (
-                        <Link to={member.links.linkedin} className="text-blue-500 hover:underline mr-2">
-                          LinkedIn
+                  <div className="profile-info mt-6 flex justify-between items-center">
+                    <div>
+                      <h3 className="text-xl font-semibold text-primary">{member.name}</h3>
+                      <p className="text-davyGray  mt-1">{member.profession}</p>
+                    </div>
+                    <div className="links flex items-center gap-2">
+                      {member.links.x && (
+                        <Link to={member.links.x} className="text-white bg-limeGreen p-[5px] text-sm rounded-full hover:underline">
+                          <RiTwitterXFill/>
                         </Link>
                       )}
-                      {member.links.x && (
-                        <Link to={member.links.x} className="text-blue-500 hover:underline">
-                          X
+                      {member.links.linkedin && (
+                        <Link to={member.links.linkedin} className="text-white bg-limeGreen p-[5px] text-sm rounded-full hover:underline mr-2">
+                          <FaLinkedin />
                         </Link>
                       )}
                     </div>

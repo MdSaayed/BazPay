@@ -20,7 +20,6 @@ export default {
         primary: "#181D27",
         limeGreen:"#6BC33F",
         lightGreen:"#BCFC6A",
-        lightGray:"#F7F8F8",
         lightSilver:"#E9EAEB",
         softWhite: "#FAFAFA",
         blueGray:"#252B37",

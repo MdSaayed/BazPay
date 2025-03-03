@@ -3,21 +3,27 @@ import PropTypes from 'prop-types'; // For prop validation
 import { Link } from 'react-router-dom';
 
 const Button = ({
-  text = 'Button', // Button text
-  link = '/', // Link URL
-  bgColor = 'bg-blue-500', // Background color
-  hoverBgColor = 'hover:bg-blue-600', // Hover background color
-  border = 'border border-blue-500', // Border style
-  hoverBorder = 'hover:border-blue-600', // Hover border style
-  className = '', // Additional custom classes
+  text = 'Button', // Default button text
+  link = '/', // Default link URL
+  color = 'text-primary', // Default text color
+  hoverColor = 'hover:text-primary', // Default hover text color
+  bgColor = 'bg-lightGreen', // Default background color
+  hoverBgColor = 'hover:bg-lightGrayishWhite', // Default hover background color
+  border = 'border-lightGreen', // Default border style
+  hoverBorder = 'hover:border-lightGrayishWhite', // Default hover border style
+  fullWidth = false // Button width
 }) => {
   return (
-    <Link
-      to={link}
-      className={`btn-secondary block w-full text-center md:inline-block md:w-fit ${bgColor} ${hoverBgColor} ${border} ${hoverBorder} ${className}`}
-    >
-      {text}
-    </Link>
+    <Link to={link} className={`
+      border px-4 py-2 rounded-[32px] 
+      w-full text-center ${fullWidth? 'block': 'md:inline-block  md:w-fit'} 
+      ${color} ${hoverColor} 
+      ${bgColor} ${hoverBgColor} 
+      ${border} ${hoverBorder}
+      transition-all duration-300 ease-in-out
+    `} >
+    {text}
+  </Link>
   );
 };
 
@@ -30,17 +36,9 @@ Button.propTypes = {
   border: PropTypes.string, // Border class
   hoverBorder: PropTypes.string, // Hover border class
   className: PropTypes.string, // Additional custom classes
-};
-
-// Default props
-Button.defaultProps = {
-  text: 'Button',
-  link: '/',
-  bgColor: 'bg-blue-500',
-  hoverBgColor: 'hover:bg-blue-600',
-  border: 'border border-blue-500',
-  hoverBorder: 'hover:border-blue-600',
-  className: '',
+  color: PropTypes.string, // Additional custom classes
+  hoverColor: PropTypes.string, // Additional custom classes
+  fullWidth: PropTypes.bool // Button width
 };
 
 export default Button;
