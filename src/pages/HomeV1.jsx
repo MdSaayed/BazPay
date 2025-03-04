@@ -10,6 +10,7 @@ import Description from '../components/description/Description';
 import Button from '../components/ui/Button';
 import { FaRegCircleCheck } from "react-icons/fa6";
 import PricingCard from '../components/pricingCard/PricingCard';
+import FinancialDashboard from '../components/financialDashboard/FinancialDashboard';
 
 
 
@@ -163,6 +164,9 @@ const HomeV1 = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Financial Dashboard */}
+            <FinancialDashboard />
 
             {/* Team Section */}
             <Team />
