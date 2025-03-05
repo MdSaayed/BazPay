@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import subtitleIcon from '/assets/icons/subtitle_icon.svg';  
 import "./subtitle.css";
 
-const Subtitle = ({ subTitle, color, bgColor, borderColor, showIcon }) => {
+const Subtitle = ({ subTitle, color, bgColor, borderColor, showIcon, align="justify-center" }) => {
     return (
-        <div className="subtitle-area flex items-center justify-center">
+        <div className={`subtitle-area flex items-center ${align? align : 'justify-center'}`}>
             <div className={`subtitle-wrapper flex items-center justify-center border ${borderColor} ${bgColor}`}>
                 {showIcon && (
                     <div className="img-wrapper">
@@ -26,7 +26,8 @@ Subtitle.propTypes = {
     color: PropTypes.string,
     bgColor: PropTypes.string,
     borderColor: PropTypes.string,
-    showIcon: PropTypes.bool
+    showIcon: PropTypes.bool,
+    align: PropTypes.string
 };
 
 // Default Props
@@ -35,7 +36,8 @@ Subtitle.defaultProps = {
     color: "text-[#53586]", 
     bgColor: "bg-[#FBFEF7]", 
     borderColor: "border-[#F5F5F5]",
-    showIcon: true
+    showIcon: true,
+    align: "justify-center"
 };
 
 export default Subtitle;

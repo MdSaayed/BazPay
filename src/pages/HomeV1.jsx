@@ -11,6 +11,7 @@ import Button from '../components/ui/Button';
 import { FaRegCircleCheck } from "react-icons/fa6";
 import PricingCard from '../components/pricingCard/PricingCard';
 import FinancialDashboard from '../components/financialDashboard/FinancialDashboard';
+import CtaV1 from '../components/cta/CtaV1';
 
 
 
@@ -72,44 +73,44 @@ const HomeV1 = () => {
             <section  className='bg-lightGrayishWhite'>
                 <div className="container py-8 md:py-16">
                     <div className="bg-primary grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-20 p-6 md:p-10 rounded-3xl">
-                    {/* Image Section - Order 1 for mobile/tablet, Order 2 for desktop */}
-                    <div className="order-1 lg:order-2">
-                        <img
-                        src={HeroCard}
-                        alt="Travel Cards"
-                        className="w-full h-auto rounded-lg"
-                        />
-                    </div>
-
-                    {/* Text and Buttons Section - Order 2 for mobile/tablet, Order 1 for desktop */}
-                    <div className="order-2 lg:order-1">
-                        <Title
-                            title="Check out our travel cards!"
-                            maxWidth="max-w-[560px]"
-                            size="text-7xl"
-                            color="text-softWhite"
-                            fontWeight="font-semibold"
-                            textAlign="text-left"
-                            lineHeight="leading-[1.25]"
+                        {/* Image Section - Order 1 for mobile/tablet, Order 2 for desktop */}
+                        <div className="order-1 lg:order-2">
+                            <img
+                            src={HeroCard}
+                            alt="Travel Cards"
+                            className="w-full h-auto rounded-lg"
                             />
-                            <Description
-                            text="At MezPay, we believe managing your money should be easy, safe, and accessible. Our platform combines the best tools for your finances."
-                            textAlign="text-left"
-                            color="text-[#F5F5F5]"
-                            size="text-lg"
-                        />
-                        {/* Buttons */}
-                        <div className="flex flex-col md:flex-row gap-4 mt-6">
-                        <Button text="Contact Us" />
-                        <Button
-                            text="Pricing"
-                            bgColor="bg-softWhite"
-                            hoverBgColor="hover:bg-lightGreen"
-                            border="border-softWhite"
-                            hoverBorder="hover:border-lightGreen"
-                        />
                         </div>
-                    </div>
+
+                        {/* Text and Buttons Section - Order 2 for mobile/tablet, Order 1 for desktop */}
+                        <div className="order-2 lg:order-1">
+                            <Title
+                                title="Check out our travel cards!"
+                                maxWidth="max-w-[560px]"
+                                size="text-7xl"
+                                color="text-softWhite"
+                                fontWeight="font-semibold"
+                                textAlign="text-left"
+                                lineHeight="leading-[1.25]"
+                                />
+                                <Description
+                                text="At MezPay, we believe managing your money should be easy, safe, and accessible. Our platform combines the best tools for your finances."
+                                textAlign="text-left"
+                                color="text-[#F5F5F5]"
+                                size="text-lg"
+                            />
+                            {/* Buttons */}
+                            <div className="flex flex-col md:flex-row gap-4 mt-6">
+                            <Button text="Contact Us" />
+                            <Button
+                                text="Pricing"
+                                bgColor="bg-softWhite"
+                                hoverBgColor="hover:bg-lightGreen"
+                                border="border-softWhite"
+                                hoverBorder="hover:border-lightGreen"
+                            />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -170,6 +171,9 @@ const HomeV1 = () => {
 
             {/* Team Section */}
             <Team />
+
+            {/* CTA */}
+            <CtaV1 />
         </>
     );
 };
