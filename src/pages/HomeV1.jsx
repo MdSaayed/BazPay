@@ -8,10 +8,12 @@ import { SiSecurityscorecard } from "react-icons/si";
 import HeroCard from "/assets/img/hero/hero-card.png";
 import Description from '../components/description/Description';
 import Button from '../components/ui/Button';
-import { FaRegCircleCheck } from "react-icons/fa6";
 import PricingCard from '../components/pricingCard/PricingCard';
-import FinancialDashboard from '../components/financialDashboard/FinancialDashboard';
 import CtaV1 from '../components/cta/CtaV1';
+import Stats from '../components/stats/Stats';
+import FaqV1 from '../components/faq/FaqV1';
+import BlogV1 from '../components/blog/BlogV1';
+import FeaturesSection from '../components/features/Features';
 
 
 
@@ -24,11 +26,11 @@ const HomeV1 = () => {
       title: "Basic item",
       price: "$10",
       duration: "per month",
-      description: "Basic features for up to 10 users.",
+      description: "Basic FeaturesSection for up to 10 users.",
       buttonText: "Get Started",
       highlighted: false,
-      features: [
-        "Access to core features",
+      FeaturesSection: [
+        "Access to core FeaturesSection",
         "Key insights and analytics tools",
         "Support for 10 accounts",
         "20 GB of storage per user",
@@ -39,11 +41,11 @@ const HomeV1 = () => {
       title: "Business item",
       price: "$20",
       duration: "per month",
-      description: "Advanced features for businesses.",
+      description: "Advanced FeaturesSection for businesses.",
       buttonText: "Get Started",
       highlighted: true,
-      features: [
-        "Access to core features",
+      FeaturesSection: [
+        "Access to core FeaturesSection",
         "Key insights and analytics tools",
         "Support for unlimited accounts",
         "100 GB of storage per user",
@@ -57,8 +59,8 @@ const HomeV1 = () => {
       description: "Custom solutions for large teams.",
       buttonText: "Get Started",
       highlighted: false,
-      features: [
-        "All business features",
+      FeaturesSection: [
+        "All business FeaturesSection",
         "Custom analytics and integrations",
         "Dedicated account manager",
         "Unlimited storage",
@@ -115,7 +117,10 @@ const HomeV1 = () => {
                 </div>
             </section>
 
-            {/* Security Features */}
+            {/* Stats */}
+            <Stats/>
+
+            {/* Security Features  */}
             <section className='bg-lightGrayishWhite'>
                 <div className="container py-24">
                     <Subtitle subTitle='Security' bgColor='bg-[#ECFFCD]' borderColor='border-[#F5F5F5]' />
@@ -153,8 +158,17 @@ const HomeV1 = () => {
                 </div>
             </section>
 
+            {/* Features  */}
+            <FeaturesSection />
+
+            {/* Team Section */}
+            <Team />
+
+            {/* Faq */}
+            <FaqV1 />
+
             {/* Pricing */}
-            <section className='bg-[#F0EEF4]'>
+            <section className='bg-lightGrayishWhite'>
                 <div className="container py-24">
                     <Subtitle subTitle='Pricing' borderColor='border-[#ECFFCD]' bgColor='bg-[#ECFFCD]' />
                     <Title title={<>Give it a shot for free and take charge of <span>your finances!</span></>} maxWidth="max-w-[768px]" size='text-5xl' fontWeight='font-medium' />
@@ -166,14 +180,11 @@ const HomeV1 = () => {
                 </div>
             </section>
 
-            {/* Financial Dashboard */}
-            <FinancialDashboard />
-
-            {/* Team Section */}
-            <Team />
-
             {/* CTA */}
             <CtaV1 />
+
+            {/* Blog */}
+            <BlogV1 />
         </>
     );
 };

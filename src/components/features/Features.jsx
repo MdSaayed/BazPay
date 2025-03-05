@@ -10,7 +10,7 @@ import CardImg from "/assets/img/global/cards-payout.png";
 import CardIcon from "/assets/icons/card-icon-payout.svg";
 import LightIcon from "/assets/icons/light-icon-payout.svg";
 
-const FinancialDashboard = () => {
+const FeaturesSection = () => {
 
   return (
     <section className=" bg-lightGrayishWhite">
@@ -79,4 +79,4 @@ const FinancialDashboard = () => {
   );
 };
 
-export default FinancialDashboard;
+export default FeaturesSection;
