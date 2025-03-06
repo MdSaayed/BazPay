@@ -1,7 +1,17 @@
 [
     {
       "id": 1,
-      "title": "How to protect your finances online: security tips for every user",
+      "title": "How to protect your finances online security tips for every user",
+      "author": "Ahsan Habib",
+      "date": "12.3.6",
+      "category": "Technology",
+      "readTime": "10 min read",
+      "content": "Verify this device. Open the app and scan the QR code below to verify this device.",
+      "image":"/assets/img/latest-post/latest-post-6.png"
+    },
+    {
+      "id": 1,
+      "title": "The future of global payments trends to watch in 2025",
       "author": "Ahsan Habib",
       "date": "12.3.6",
       "category": "Technology",
@@ -11,7 +21,7 @@
     },
     {
       "id": 2,
-      "title": "Making smarter money choices starts with knowing your stuff!",
+      "title": "5 ways fintech is changing the way We manage money",
       "author": "MezPay",
       "date": "12.3.6",
       "category": "Finance",
@@ -21,7 +31,7 @@
     },
     {
       "id": 3,
-      "title": "The future of global payments: trends to watch in 2025",
+      "title": "Making smarter money choices starts with knowing your stuff!",
       "author": "MezPay",
       "date": "12.3.6",
       "category": "Technology",
@@ -35,8 +45,18 @@
       "author": "MezPay",
       "date": "12.3.6",
       "category": "Finance",
-      "readTime": "10 min read",
+      "readTime": "7 min read",
       "content": "Welcome to the MezPay: simplifying your financial adventure!",
       "image":"/assets/img/latest-post/latest-post-4.png"
+    },
+    {
+      "id": 4,
+      "title": "Welcome to the MezPay simplifying your financial adventure!",
+      "author": "MezPay",
+      "date": "12.6.6",
+      "category": "Finance",
+      "readTime": "5 min read",
+      "content": "Welcome to the MezPay: simplifying your financial adventure!",
+      "image":"/assets/img/latest-post/latest-post-3.png"
     }
   ]

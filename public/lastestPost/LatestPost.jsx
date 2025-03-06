@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LoadingAnimation from './../../src/components/loadingAnimation/LoadingAnimation';
+import Title from './../../src/components/title/Title';
 
 const LatestPost = () => {
   const [filter, setFilter] = useState('All');
@@ -29,36 +30,36 @@ const LatestPost = () => {
   if (loading) return <LoadingAnimation />;
 
   return (
-    <section className="">
-      <div className="container">
-        <header className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">Latest posts</h1>
-          <div className="flex justify-center space-x-4 flex-wrap">
+    <section className="bg-lightGrayishWhite">
+      <div className="container py-24">
+        <div className="flex items-center flex-col lg:flex-row justify-between mb-10">
+          <Title title="Latest posts" size='text-5xl' textAlign='text-left' />
+          <div className="flex space-x-4 mt-10 lg:mt-4 justify-end lg:justify-center w-full">
             {categories.map(category => (
               <button key={category} onClick={() => setFilter(category)}
                 className={`filter-btn px-5 py-2 rounded-full transition-colors ${
                   filter === category 
-                    ? 'bg-primary-600 text-white' 
-                    : 'bg-white text-gray-700 hover:bg-primary-50'
+                    ? 'bg-limeGreen text-softWhite text-base font-normal' 
+                    : ' text-primary text-base font-normal'
                 }`}
               >
                 {category}
               </button>
             ))}
           </div>
-        </header>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredPosts.map(post => (
             <article key={post.id} className="border border-[#F5F5F5] rounded-3xl overflow-hidden">
               <div className="">
-                <div>
+                <div className='"w-full max-h-[300px] overflow-hidden rounded-3xl'>
                     {post.image && (
-                    <a href={post.slug} className="block overflow-hidden rounded-3xl">
+                    <a href={post.slug} className="">
                         <img 
                         src={post.image} 
                         alt={post.title}
-                        className="w-full max-h-[300px] object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                         />
                     </a>
                     )}
