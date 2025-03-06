@@ -5,6 +5,8 @@ import HomeV1 from "../pages/HomeV1";
 import Features from "../pages/Features";
 import About from "../pages/About";
 import Blog from "../pages/Blog";
+import Pricing from "../pages/Pricing";
+import Contact from "../pages/Contact";
 
 
 
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog />
+            },
+            {
+                path: '/pricing',
+                element: <Pricing />
+            },
+            {
+                path: '/contact',
+                element: <Contact />
             },
         ]
     },

@@ -15,7 +15,7 @@ const Button = ({
 }) => {
   return (
     <Link to={link} className={`
-      border px-4 py-2 rounded-[32px] 
+      border px-4 py-[6px] rounded-[32px] 
       w-full text-center ${fullWidth? 'block': 'md:inline-block  md:w-fit'} 
       ${color} ${hoverColor} 
       ${bgColor} ${hoverBgColor} 

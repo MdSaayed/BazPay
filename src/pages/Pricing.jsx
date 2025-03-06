@@ -1,0 +1,47 @@
+import React from 'react';
+import PricingCard from '../components/pricingCard/PricingCard';
+import Subtitle from '../components/subtitle/Subtitle';
+import Title from '../components/title/Title';
+import CtaV1 from '../components/cta/CtaV1';
+import Description from '../components/description/Description';
+import BlogGrid from '../components/blog/BlogGrid';
+import ComparePlans from '../components/comparePlans/ComparePlans';
+
+const Pricing = () => {
+    return (
+        <>
+            {/* Pricing */}
+            <section className='bg-lightGrayishWhite'>
+                <div className="container py-24 bg-[#F0EEF4] rounded-3xl">
+                    <Subtitle subTitle='Pricing' borderColor='border-[#ECFFCD]' bgColor='bg-[#ECFFCD]' />
+                    <Title title={<>Give it a shot for free and take charge of <span>your finances!</span></>} maxWidth="max-w-[768px]" size='text-5xl' fontWeight='font-medium' />
+
+                    {/* Cards */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
+                        <PricingCard />
+                    </div>
+                </div>
+            </section>
+
+            {/* Compare Plans */}
+            <ComparePlans />
+
+            {/* CTA */}
+            <CtaV1 />
+
+            {/* Blog Section */}
+            <section className="bg-lightGrayishWhite">
+                <div className="container py-24">
+                    <Subtitle subTitle='Latest posts' color='text-[#535862]' bgColor='bg-[#ECFFCD]' borderColor='border-[#ECFFCD]' />
+                    <Title title="Latest blog posts" />
+                    <Description text={<>Discover the latest trends, insights, and tips in the world of finance and technology with the MezPay Blog.</> } maxWidth='max-w-[650px]'/>
+
+                    {/* Blog Grid */}
+                    <BlogGrid />
+                </div>
+            </section>
+        </>
+    );
+};
+
+export default Pricing;

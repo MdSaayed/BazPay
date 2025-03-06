@@ -5,7 +5,7 @@ import Title from '../components/title/Title';
 import Description from '../components/description/Description';
 import CtaV1 from '../components/cta/CtaV1';
 import FaqV1 from '../components/faq/FaqV1';
-import LatestPost from '../../public/lastestPost/LatestPost';
+import LatestPost from '../components/lastestPost/LatestPost';
 
 const Blog = () => {
     return (
@@ -13,12 +13,12 @@ const Blog = () => {
             {/* Blog Section */}
             <section className="bg-lightGrayishWhite">
                 <div className="container py-24">
-                <Subtitle subTitle='Latest posts' color='text-[#535862]' bgColor='bg-[#ECFFCD]' borderColor='border-[#ECFFCD]' />
-                <Title title="Latest blog posts" />
-                <Description text={<>Discover the latest trends, insights, and tips in the world of finance and technology with the MezPay Blog.</> } maxWidth='max-w-[650px]'/>
+                    <Subtitle subTitle='Latest posts' color='text-[#535862]' bgColor='bg-[#ECFFCD]' borderColor='border-[#ECFFCD]' />
+                    <Title title="Latest blog posts" />
+                    <Description text={<>Discover the latest trends, insights, and tips in the world of finance and technology with the MezPay Blog.</> } maxWidth='max-w-[650px]'/>
 
-                {/* Blog Grid */}
-                <BlogGrid />
+                    {/* Blog Grid */}
+                    <BlogGrid />
                 </div>
             </section>
 
