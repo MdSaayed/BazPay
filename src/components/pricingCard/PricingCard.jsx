@@ -1,40 +1,72 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import Button from "../ui/Button";
+import PropTypes from 'prop-types'; // Import PropTypes for validation
+import LoadingAnimation from "../loadingAnimation/LoadingAnimation";
 
-const PricingCard = ({plan}) => {
+const PricingCard = ( ) => {
+  const [data, setData] = useState( []); // Default data can be passed via props
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
 
+  // Fetch Data
+  useEffect(() => {
+      fetch("/pricingV1.json")
+        .then((res) => {
+          if (!res.ok) throw new Error("Failed to fetch pricing data");
+          return res.json();
+        })
+        .then((data) => {
+          setData(data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          setError(error.message);
+          setLoading(false);
+        });
+  }, []);
+
+
+  if (loading) {
+    return  <LoadingAnimation />;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <>
-      {plan?.map((item, index) => (
-        <div key={index}
-          className={`rounded-3xl bg-white`}
-        >
-          <div className={`${item?.highlighted ? 'bg-primary': 'bg-davyGray'} rounded-3xl p-8`}>
-          <div className="flex items-center justify-between">
-            <span className="font-semibold text-lg text-softWhite">
-                {item.title}
+      {data?.map((item, index) => (
+        <div key={index} className="rounded-3xl bg-white shadow-lg">
+          <div
+            className={`${
+              item?.highlighted ? 'bg-primary' : 'bg-davyGray'
+            } rounded-3xl p-8`}
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-semibold text-lg text-softWhite">
+                {item?.title}
               </span>
-              {item.highlighted && (
-                <span className=" bg-limeGreen text-softWhite text-xs font-bold px-3 py-1 rounded-full">
+              {item?.highlighted && (
+                <span className="bg-limeGreen text-softWhite text-xs font-bold px-3 py-1 rounded-full">
                   Popular
                 </span>
               )}
-          </div>
+            </div>
             <div className="flex items-end gap-1 mt-4">
               <h3 className="text-5xl font-semibold text-softWhite">
-                {item.price}
+                {item?.price}
               </h3>
               <span className="font-medium text-base text-softWhite">
-                {item.duration}
+                {item?.duration}
               </span>
             </div>
             <p className="text-[#F5F5F5] text-base font-normal mt-6 mb-8">
-              {item.description}
+              {item?.description}
             </p>
 
-            <Button text={item.buttonText} fullWidth={true} />
+            <Button text={item?.buttonText} fullWidth={true} />
           </div>
 
           <div className="p-8">
@@ -44,7 +76,7 @@ const PricingCard = ({plan}) => {
             </p>
 
             <ul>
-              {item.features.map((feature, index) => (
+              {item?.features?.map((feature, index) => (
                 <li key={index} className="flex items-center gap-3 mb-4">
                   <FaRegCircleCheck className="text-[#9CFA6D] text-xl" />
                   <span className="font-normal text-base text-davyGray">
@@ -59,5 +91,6 @@ const PricingCard = ({plan}) => {
     </>
   );
 };
+
 
 export default PricingCard;

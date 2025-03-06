@@ -1,0 +1,48 @@
+[
+    {
+      "title": "Basic item",
+      "price": "$10",
+      "duration": "per month",
+      "description": "Basic features for up to 10 users.",
+      "buttonText": "Get Started",
+      "highlighted": false,
+      "features": [
+        "Access to core features",
+        "Key insights and analytics tools",
+        "Support for 10 accounts",
+        "20 GB of storage per user",
+        "Basic chat and email support"
+      ]
+    },
+    {
+      "title": "Business item",
+      "price": "$20",
+      "duration": "per month",
+      "description": "Advanced features for businesses.",
+      "buttonText": "Get Started",
+      "highlighted": true,
+      "features": [
+        "Access to core features",
+        "Key insights and analytics tools",
+        "Support for unlimited accounts",
+        "100 GB of storage per user",
+        "Priority support"
+      ]
+    },
+    {
+      "title": "Enterprise item",
+      "price": "$50",
+      "duration": "per month",
+      "description": "Custom solutions for large teams.",
+      "buttonText": "Get Started",
+      "highlighted": false,
+      "features": [
+        "All business features",
+        "Custom analytics and integrations",
+        "Dedicated account manager",
+        "Unlimited storage",
+        "24/7 premium support"
+      ]
+    }
+  ]
+  

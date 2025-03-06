@@ -1,0 +1,72 @@
+import React from 'react';
+import Team from '../components/team/Team';
+import FaqV1 from '../components/faq/FaqV1';
+import BlogV1 from '../components/blog/BlogV1';
+import Cta from '../components/cta/Cta';
+import Stats from '../components/stats/Stats';
+import Subtitle from '../components/subtitle/Subtitle';
+import Title from '../components/title/Title';
+import Description from '../components/description/Description';
+import Button from '../components/ui/Button';
+import HeroImg from "/assets/img/global/about-hero.png";
+
+const About = () => {
+    return (
+        <>
+            {/* Hero Section */}
+            <section className="bg-lightGrayishWhite">
+                <div className="container py-24">
+                    {/* Subtitle */}
+                    <Subtitle 
+                        subTitle="About us" 
+                        borderColor="border-[#ECFFCD]" 
+                        bgColor="bg-[#FBFEF7]" 
+                    />
+
+                    {/* Title */}
+                    <Title 
+                        title={<>Say hi to the awesome crew at <span className="text-primary">MezPay!</span></>} 
+                        maxWidth="max-w-[650px]" 
+                    />
+
+                    {/* Description */}
+                    <Description 
+                        text="Welcome to FinTech Solutions, where our core principles guide us in creating an innovative platform that revolutionizes your financial management experience."  
+                        maxWidth="max-w-[768px]" 
+                    />
+
+                    {/* Button */}
+                    <div className="flex justify-center mt-14 mb-20">
+                        <Button text="Contact Us" ariaLabel="Contact MezPay team" />
+                    </div>
+
+                    {/* Hero Image */}
+                    <div className="flex justify-center">
+                        <img 
+                            src={HeroImg} 
+                            alt="Hero section showing MezPay team" 
+                            className="w-full h-auto mx-auto"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* Stats */}
+            <Stats bgColor='bg-primary' textColor='text-softWhite'/>
+
+            {/* Team Section */}
+            <Team />
+
+            {/* Faq */}
+            <FaqV1 />
+
+            {/* CTA */}
+            <Cta />
+
+            {/* Blog */}
+            <BlogV1 />
+        </>
+    );
+};
+
+export default About;

@@ -13,61 +13,13 @@ import CtaV1 from '../components/cta/CtaV1';
 import Stats from '../components/stats/Stats';
 import FaqV1 from '../components/faq/FaqV1';
 import BlogV1 from '../components/blog/BlogV1';
-import FeaturesSection from '../components/features/Features';
+import FeaturesSection from '../components/features/Features'; 
 
 
 
 
 const HomeV1 = () => {
 
-    // Pricing Data
-  const pricingData = [
-    {
-      title: "Basic item",
-      price: "$10",
-      duration: "per month",
-      description: "Basic FeaturesSection for up to 10 users.",
-      buttonText: "Get Started",
-      highlighted: false,
-      FeaturesSection: [
-        "Access to core FeaturesSection",
-        "Key insights and analytics tools",
-        "Support for 10 accounts",
-        "20 GB of storage per user",
-        "Basic chat and email support",
-      ],
-    },
-    {
-      title: "Business item",
-      price: "$20",
-      duration: "per month",
-      description: "Advanced FeaturesSection for businesses.",
-      buttonText: "Get Started",
-      highlighted: true,
-      FeaturesSection: [
-        "Access to core FeaturesSection",
-        "Key insights and analytics tools",
-        "Support for unlimited accounts",
-        "100 GB of storage per user",
-        "Priority support",
-      ],
-    },
-    {
-      title: "Enterprise item",
-      price: "$50",
-      duration: "per month",
-      description: "Custom solutions for large teams.",
-      buttonText: "Get Started",
-      highlighted: false,
-      FeaturesSection: [
-        "All business FeaturesSection",
-        "Custom analytics and integrations",
-        "Dedicated account manager",
-        "Unlimited storage",
-        "24/7 premium support",
-      ],
-    },
-  ];
       
     return (
         <>
@@ -157,7 +109,7 @@ const HomeV1 = () => {
                     </div>
                 </div>
             </section>
-
+ 
             {/* Features  */}
             <FeaturesSection />
 
@@ -175,7 +127,7 @@ const HomeV1 = () => {
 
                     {/* Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
-                        <PricingCard plan={pricingData} />
+                        <PricingCard />
                     </div>
                 </div>
             </section>

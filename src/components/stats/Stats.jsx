@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Title from '../title/Title';
+import PropTypes from 'prop-types';
 
-const Stats = () => {
+const Stats = ({bgColor="bg-transparent",textColor="text-primary"}) => {
   const [count1, setCount1] = useState(0);
   const [count2, setCount2] = useState(0);
   const [count3, setCount3] = useState(0);
@@ -23,20 +24,20 @@ const Stats = () => {
   return (
     <section className='bg-lightGrayishWhite'>
         <div className='container py-9'>
-            <div className="grid grid-cols-1 lg:grid-cols-3 items-center justify-between gap-6 md:gap-12 lg:gap-20  px-8">
-                <Title title={<>Backed by a bunch of well-known <span>finance services from</span> around the world.</>} maxWidth='max-w-[368px]' size='text-2xl' textAlign='text-center md:text-left'  /> 
-                <div className="flex flex-wrap items-center justify-center md:justify-between gap-4 lg:gap-10 col-span-2">
+            <div className={`${bgColor} ${bgColor? 'text-softWhite' : 'text-primary' } grid grid-cols-1 lg:grid-cols-3 items-center justify-between gap-12 lg:gap-20 py-9 px-8 rounded-3xl`}>
+                <Title title={<>Backed by a bunch of well-known <span>finance services from</span> around the world.</>} maxWidth='md:max-w-[368px]' size='text-2xl' textAlign='text-center md:text-left' color={textColor}/> 
+                <div className="flex flex-wrap items-center justify-center md:justify-between gap-10 col-span-2">
                     <div className="text-center md:text-left">
-                        <h3 className="text-5xl font-semibold">{count1.toLocaleString()}+</h3>
-                        <p className="text-gray-600 mt-2">Happy Customers</p>
+                        <h3 className={`${textColor} text-5xl font-semibold`}>{count1.toLocaleString()}+</h3>
+                        <p className={`${textColor} opacity-90 mt-4`}>Happy Customers</p>
                     </div>
                     <div className="text-center md:text-left">
-                        <h3 className="text-5xl font-semibold">${count2.toLocaleString()} Billion+</h3>
-                        <p className="text-gray-600 mt-2">Secure Transactions</p>
+                        <h3 className={`${textColor} text-5xl font-semibold`}>${count2.toLocaleString()} Billion+</h3>
+                        <p className={`${textColor} opacity-90 mt-4`}>Secure Transactions</p>
                     </div>
                     <div className="text-center md:text-left">
-                        <h3 className="text-5xl font-semibold">{count3.toFixed(1)}%</h3>
-                        <p className="text-gray-600 mt-2">Smooth Uptime</p>
+                        <h3 className={`${textColor} text-5xl font-semibold`}>{count3.toFixed(1)}%</h3>
+                        <p className={`${textColor} opacity-90 mt-4`}>Smooth Uptime</p>
                     </div>
                 </div>
             </div>
@@ -44,5 +45,11 @@ const Stats = () => {
     </section>
   );
 };
+
+// PropTypes Validation
+Stats.propTypes = {
+  bgColor: PropTypes.string
+};
+
 
 export default Stats;

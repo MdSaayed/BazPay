@@ -4,6 +4,7 @@ import { motion } from "framer-motion"; // Import Framer Motion
 import Title from "../title/Title";
 import Subtitle from "../subtitle/Subtitle";
 import Button from "../ui/Button";
+import { Link } from "react-router-dom";
 
 const BlogV1 = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -47,15 +48,20 @@ const BlogV1 = () => {
           initial={{ opacity: 0, y: 20 }} // Fade-up animation
           animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
           transition={{ duration: 0.7 }}
-          className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10"
-        >
+          className="flex flex-col gap-20 lg:gap-4 lg:flex-row justify-between items-start lg:items-center mb-10">
           <div>
             <Subtitle subTitle='Blog' borderColor='border-[#F5F5F5] bg-[#ECFFCD]' align="justify-start"/>
-            <Title title={<>Our latest News & <br/> Recources</>} textAlign="text-left" />
+            <Title title='Our latest News &   Recources' textAlign="text-left" maxWidth="max-w-[560px]" />
           </div>
-          <Button text="Browse all articles" hoverBorder="hover:border-primary">
-            Browse all articles
-          </Button>
+
+          {/* Button */}
+          <div className='mt-10 lg:mt-0 flex justify-end w-full lg:w-fit'>
+            <Link to='/blog' className={`
+                  border px-4 py-2 rounded-[32px] bg-lightGreen hover:border-primary hover:bg-transparent w-fit 
+                text-center transition-all duration-300 ease-in-out`} >
+              Browse all articles
+            </Link>
+          </div>
         </motion.div>
 
         {/* Grid Layout */}
