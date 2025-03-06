@@ -1,0 +1,42 @@
+[
+    {
+      "id": 1,
+      "title": "How to protect your finances online: security tips for every user",
+      "author": "Ahsan Habib",
+      "date": "12.3.6",
+      "category": "Technology",
+      "readTime": "10 min read",
+      "content": "Verify this device. Open the app and scan the QR code below to verify this device.",
+      "image":"/assets/img/latest-post/latest-post-1.png"
+    },
+    {
+      "id": 2,
+      "title": "Making smarter money choices starts with knowing your stuff!",
+      "author": "MezPay",
+      "date": "12.3.6",
+      "category": "Finance",
+      "readTime": "10 min read",
+      "content": "Primary account: Current balance $40,206.20. Secondary account: $25,000.50.",
+      "image":"/assets/img/latest-post/latest-post-2.png"
+    },
+    {
+      "id": 3,
+      "title": "The future of global payments: trends to watch in 2025",
+      "author": "MezPay",
+      "date": "12.3.6",
+      "category": "Technology",
+      "readTime": "10 min read",
+      "content": "Recent deposits: Stripe deposit, billing@mezpay.com. VISA: Visa ending in 1234, Equity 06/2025. Samsung Pay: emma@mezpay.com.",
+      "image":"/assets/img/latest-post/latest-post-3.png"
+    },
+    {
+      "id": 4,
+      "title": "Steer your financial future with a little confidence!",
+      "author": "MezPay",
+      "date": "12.3.6",
+      "category": "Finance",
+      "readTime": "10 min read",
+      "content": "Welcome to the MezPay: simplifying your financial adventure!",
+      "image":"/assets/img/latest-post/latest-post-4.png"
+    }
+  ]

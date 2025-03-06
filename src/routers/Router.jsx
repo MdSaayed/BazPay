@@ -4,6 +4,7 @@ import Layout from "../layout/Layout";
 import HomeV1 from "../pages/HomeV1";
 import Features from "../pages/Features";
 import About from "../pages/About";
+import Blog from "../pages/Blog";
 
 
 
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             {
                 path: '/about',
                 element: <About />
+            },
+            {
+                path: '/blog',
+                element: <Blog />
             },
         ]
     },

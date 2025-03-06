@@ -263,20 +263,9 @@ const Home = () => {
       {/* Blog Section */}
       <section className="bg-lightGrayishWhite">
         <div className="container py-24">
-          <div className="flex justify-center">
-            <span className="text-[#535862] font-medium text-sm leading-normal bg-[#ECFFCD] px-4 py-2 rounded-3xl">
-              Latest posts
-            </span>
-          </div>
+          <Subtitle subTitle='Latest posts' color='text-[#535862]' bgColor='bg-[#ECFFCD]' borderColor='border-[#ECFFCD]' />
           <Title title="Latest blog posts" />
-          <Description
-            text={
-              <>
-                Discover the latest trends, insights, and tips in the world of finance and
-                <br /> technology with the MezPay Blog.
-              </>
-            }
-          />
+          <Description text={<>Discover the latest trends, insights, and tips in the world of finance and technology with the MezPay Blog.</> } maxWidth='max-w-[650px]'/>
 
           {/* Blog Grid */}
           <BlogGrid />
