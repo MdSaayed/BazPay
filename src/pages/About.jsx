@@ -9,6 +9,7 @@ import Title from '../components/title/Title';
 import Description from '../components/description/Description';
 import Button from '../components/ui/Button';
 import HeroImg from "/assets/img/global/about-hero.png";
+import CoreValues from '../components/coreValues/CoreValues';
 
 const About = () => {
     return (
@@ -53,6 +54,9 @@ const About = () => {
 
             {/* Stats */}
             <Stats bgColor='bg-primary' textColor='text-softWhite'/>
+
+            {/* Core Values */}
+            <CoreValues />
 
             {/* Team Section */}
             <Team />
