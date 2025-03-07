@@ -12,6 +12,7 @@ import Licenses from "../pages/Licenses";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
 import TermsOfServices from "../pages/TermsOfServices";
 import PricingDetails from "../pages/PricingDetails";
+import BlogDetails from "../pages/BlogDetails";
 
 
 
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
             {
                 path: '/pricingdetails',
                 element: <PricingDetails />
+            },
+            {
+                path: '/blogDetails/:id',
+                element: <BlogDetails />
             },
         ]
     },

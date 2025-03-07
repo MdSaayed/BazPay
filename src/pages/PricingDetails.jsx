@@ -74,7 +74,7 @@ const PricingDetails = () => {
                                 </div>
 
                                 <div className="space-y-4 my-6">
-                                    <select className="w-full px-0 py-3 border-b border-gray-300 text-davyGray text-lg font-medium focus:outline-none">
+                                    <select className="w-full px-0 py-3 border-b bg-transparent border-gray-300 text-davyGray text-lg font-medium focus:outline-none">
                                         <option>Select Plan Duration</option>
                                         <option>Monthly</option>
                                         <option>Yearly</option>

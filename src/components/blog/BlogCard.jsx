@@ -1,32 +1,45 @@
 import PropTypes from "prop-types";
 import arrowTopRight from "/assets/icons/arrow-up-right.svg";
 import { Link } from "react-router-dom";
-import { RxArrowTopRight } from "react-icons/rx";
-
 
 const BlogCard = ({ blog, index }) => {
+  const { image, title, date, id, excerpt, tags } = blog;
+
   return (
     <div className={`flex flex-col gap-3 ${index === 2 ? "md:flex-col-reverse" : ""}`}>
       {/* Blog Image With Link */}
-      <Link href={blog?.id} className="rounded-2xl block overflow-hidden">
-        <img className="w-full max-h-96 object-cover rounded-2xl transition-transform duration-300 hover:scale-105" 
-             src={blog?.image} 
-             alt={blog?.title} 
-             loading="lazy" />
+      <Link to={`/blogDetails/${id}`} className="rounded-2xl block overflow-hidden">
+        <img
+          className="w-full max-h-96 object-cover rounded-2xl transition-transform duration-300 hover:scale-105"
+          src={image || "/assets/img/default-image.png"}
+          alt={title || "Blog Image"}
+          loading="lazy"
+        />
       </Link>
 
       {/* Blog Content */}
       <div className="p-4 bg-white border border-[#F5F5F5] rounded-2xl">
-        <p className="text-[#535862] font-semibold text-sm mb-2">{blog?.date}</p>
-        <Link href={blog?.id} className="group">
-          <h2 className="text-2xl text-primary font-semibold mr-2 inline">{blog?.title}</h2>
-          <img src={arrowTopRight} alt="Arrow Icon" className="transition-transform duration-300 group-hover:rotate-45 inline-block -mt-1" />
+        <p className="text-[#535862] font-semibold text-sm mb-2">{date}</p>
+        <Link to={`/blogDetails/${id}`} className="group">
+          <h2 className="text-2xl text-primary font-semibold mr-2 inline">
+            {title?.length > 40 ? `${title?.slice(0, 40)}...` : title}
+          </h2>
+          <img
+            src={arrowTopRight}
+            alt="Arrow Icon"
+            className="transition-transform duration-300 group-hover:rotate-45 inline-block -mt-1"
+          />
         </Link>
-        <p className="text-[davyGray] font-normal leading-normal mt-2">{blog?.description}</p>
+
+       {/* Blog Excerpt */}
+        <p className="text-[davyGray] font-normal leading-normal mt-2">
+          {excerpt?.length > 100 ? `${excerpt.slice(0, 100)}...` : excerpt}
+        </p>
+
 
         {/* Tags */}
         <div className="flex gap-2 mt-6">
-          {blog?.tags?.map((tag, i) => (
+          {tags?.map((tag, i) => (
             <span
               key={i}
               className={`text-sm font-medium px-3 py-1 rounded-full
@@ -47,15 +60,22 @@ const BlogCard = ({ blog, index }) => {
 // ✅ Prop Types for Validation
 BlogCard.propTypes = {
   blog: PropTypes.shape({
-    image: PropTypes.string.isRequired,
+    image: PropTypes.string,
     title: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
-    description: PropTypes.string,
+    excerpt: PropTypes.string,
     tags: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
   index: PropTypes.number.isRequired,
+};
+
+BlogCard.defaultProps = {
+  blog: {
+    image: "/assets/img/default-image.png",
+    excerpt: "",
+    tags: [],
+  },
 };
 
 export default BlogCard;
