@@ -10,6 +10,7 @@ import Contact from "../pages/Contact";
 import Error from './../pages/Error';
 import Licenses from "../pages/Licenses";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
+import TermsOfServices from "../pages/TermsOfServices";
 
 
 
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
             {
                 path: '/privacypolicy',
                 element: <PrivacyPolicy />
+            },
+            {
+                path: '/terms',
+                element: <TermsOfServices />
             },
         ]
     },

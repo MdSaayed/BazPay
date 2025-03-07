@@ -4,7 +4,7 @@ import Description from '../components/description/Description';
 
 const PrivacyPolicy = () => {
     return (
-        <section>
+        <section className='bg-lightGrayishWhite'>
             <div className="container py-20">
                 <div className='max-w-6xl mx-auto bg-[#F0EEF4] py-12 md:py-24 px-4 md:px-10 rounded-3xl'>
                     <Title title='Privacy Policy' textAlign='text-left' />
