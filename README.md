@@ -13,3 +13,4 @@ Currently, two official plugins are available:
 <!-- blog card -->
 <!-- blog grid -->
 <!-- blog details -->
+<!-- blog v1 -->

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import Button from "../ui/Button";
-import PropTypes from 'prop-types'; // Import PropTypes for validation
 import LoadingAnimation from "../loadingAnimation/LoadingAnimation";
 
 const PricingCard = ( ) => {
@@ -66,7 +65,7 @@ const PricingCard = ( ) => {
               {item?.description}
             </p>
 
-            <Button text={item?.buttonText} fullWidth={true} />
+            <Button text='Get Started' link={`/pricing/${item?.id}`} fullWidth={true} />
           </div>
 
           <div className="p-8">

@@ -64,11 +64,11 @@ const router = createBrowserRouter([
                 element: <TermsOfServices />
             },
             {
-                path: '/pricingdetails',
+                path: '/pricing/:id',
                 element: <PricingDetails />
             },
             {
-                path: '/blogDetails/:id',
+                path: '/blog/:id',
                 element: <BlogDetails />
             },
         ]

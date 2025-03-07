@@ -8,7 +8,7 @@ const BlogCard = ({ blog, index }) => {
   return (
     <div className={`flex flex-col gap-3 ${index === 2 ? "md:flex-col-reverse" : ""}`}>
       {/* Blog Image With Link */}
-      <Link to={`/blogDetails/${id}`} className="rounded-2xl block overflow-hidden">
+      <Link to={`/blog/${id}`} className="rounded-2xl block overflow-hidden">
         <img
           className="w-full max-h-96 object-cover rounded-2xl transition-transform duration-300 hover:scale-105"
           src={image || "/assets/img/default-image.png"}
@@ -20,7 +20,7 @@ const BlogCard = ({ blog, index }) => {
       {/* Blog Content */}
       <div className="p-4 bg-white border border-[#F5F5F5] rounded-2xl">
         <p className="text-[#535862] font-semibold text-sm mb-2">{date}</p>
-        <Link to={`/blogDetails/${id}`} className="group">
+        <Link to={`/blog/${id}`} className="group">
           <h2 className="text-2xl text-primary font-semibold mr-2 inline">
             {title?.length > 40 ? `${title?.slice(0, 40)}...` : title}
           </h2>

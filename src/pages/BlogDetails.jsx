@@ -61,23 +61,29 @@ const BlogDetails = () => {
         </div>
 
         {/* Blog Title */}
-        <div className="mb-20">
-          <Title title={blog?.title} textAlign="text-left" />
-        </div>
+        { 
+          blog?.title && <div className="mb-20">
+            <Title title={blog?.title} textAlign="text-left" />
+          </div>
+        }
 
         {/* Blog Image */}
-        <figure className="mb-16">
-          <img
-            src={blog?.detail_image || blog?.image}
-            alt={blog?.title}
-            className="w-full rounded-lg shadow-md"
-          />
-        </figure>
+        {
+          (blog?.detail_image || blog?.image) && <figure className="mb-16">
+            <img
+              src={blog?.detail_image || blog?.image}
+              alt={blog?.title}
+              className="w-full rounded-lg shadow-md"
+            />
+          </figure>
+        }
 
         {/* Blog Description */}
-        <article className="prose text-davyGray text-base">
-          <p>{blog?.content}</p>
-        </article>
+        {
+          blog?.content && <article className="prose text-davyGray text-base">
+            <p>{blog?.content}</p>
+          </article>
+        }
       </div>
     </section>
   );

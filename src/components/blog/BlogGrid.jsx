@@ -19,11 +19,11 @@ const BlogGrid = () => {
         }
         // Parse the JSON data and update the state
         const data = await res.json();
-        setBlogs(data);
+        setBlogs(data); // Show only two post
         setLoading(false);
       } catch (err) {
         // If an error occurs during fetch, update the error state
-        setError(err.message);
+        setError(err?.message);
         setLoading(false);
       }
     };
@@ -47,8 +47,8 @@ const BlogGrid = () => {
     <div className="mt-20">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Map over the blogs and render a BlogCard for each one */}
-        {blogs.map((blog) => (
-          <BlogCard key={blog.id} blog={blog} />
+        {blogs?.slice(0, 2)?.map((blog) => (
+          <BlogCard key={blog?.id} blog={blog} />
         ))}
       </div>
     </div>
