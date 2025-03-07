@@ -7,6 +7,9 @@ import About from "../pages/About";
 import Blog from "../pages/Blog";
 import Pricing from "../pages/Pricing";
 import Contact from "../pages/Contact";
+import Error from './../pages/Error';
+import Licenses from "../pages/Licenses";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
 
 
 
@@ -15,6 +18,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Layout />,
+        errorElement: <Error />,
         children: [
             {
                 path: '/',
@@ -43,6 +47,14 @@ const router = createBrowserRouter([
             {
                 path: '/contact',
                 element: <Contact />
+            },
+            {
+                path: '/licenses',
+                element: <Licenses />
+            },
+            {
+                path: '/privacypolicy',
+                element: <PrivacyPolicy />
             },
         ]
     },
