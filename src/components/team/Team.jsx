@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -11,99 +11,131 @@ import { RiTwitterXFill } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 
 const Team = () => {
-  const members = [
-    {
-      name: 'Zaid Schwartz',
-      img: '/assets/img/team/team-1.png',
-      profession: 'CEO & Founder',
-      links: {
-        linkedin: 'https://www.linkedin.com/in/zaidschwartz',
-        x: 'https://twitter.com/zaidschwartz',
-      },
-    },
-    {
-      name: 'Sophia Carter',
-      img: '/assets/img/team/team-2.png',
-      profession: 'Lead Designer',
-      links: {
-        linkedin: 'https://www.linkedin.com/in/sophiacarter',
-        x: 'https://twitter.com/sophiacarter',
-      },
-    },
-    {
-      name: 'Liam Johnson',
-      img: '/assets/img/team/team-3.png',
-      profession: 'Senior Developer',
-      links: {
-        linkedin: 'https://www.linkedin.com/in/liamjohnson',
-        x: 'https://twitter.com/liamjohnson',
-      },
-    },
-    {
-      name: 'Emma Williams',
-      img: '/assets/img/team/team-4.png',
-      profession: 'Marketing Manager',
-      links: {
-        linkedin: 'https://www.linkedin.com/in/emmawilliams',
-        x: 'https://twitter.com/emmawilliams',
-      },
-    },
-  ];
+  // State to store team members data
+  const [members, setMembers] = useState([]);
+  // Loading state to track if data is being fetched
+  const [loading, setLoading] = useState(true);
+  // Error state to store any error messages
+  const [error, setError] = useState("");
+  // State to store Swiper instance
+  const [swiper, setSwiper] = useState(null);
+  // Ref to store Swiper wrapper for handling hover events
+  const swiperWrapperRef = useRef(null);
+
+  // Fetch team data from JSON file when the component mounts
+  useEffect(() => {
+    fetch("/team.json")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch team members");
+        return res.json();
+      })
+      .then((data) => {
+        setMembers(data || []); // Ensure data is an array to avoid errors
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(error.message); // Store error message
+        setLoading(false);
+      });
+  }, []);
+
+  // Effect to control Swiper autoplay behavior on hover
+  useEffect(() => {
+    const container = swiperWrapperRef.current;
+    
+    if (!swiper || !container) return;
+
+    // Function to stop autoplay when mouse enters the swiper
+    const stopAutoplay = () => {
+      if (swiper) {
+        const swiperTranslate = swiper.getTranslate(); // Get current translate position
+        swiper.setTranslate(swiperTranslate); // Set the same position to freeze slides
+        swiper?.autoplay?.stop(); // Stop autoplay (optional chaining used)
+      }
+    };
+
+    // Function to start autoplay when mouse leaves the swiper
+    const startAutoplay = () => {
+      if (swiper) {
+        swiper.slideTo(swiper.activeIndex, 3000, false); // Resume from the last active slide
+        swiper?.autoplay?.start(); // Start autoplay again (optional chaining used)
+      }
+    };
+    
+    startAutoplay(); // Ensure autoplay starts initially
+
+    // Add event listeners for hover effects
+    container.addEventListener("mouseenter", stopAutoplay);
+    container.addEventListener("mouseleave", startAutoplay);
+
+    // Cleanup event listeners when component unmounts
+    return () => {
+      container.removeEventListener("mouseenter", stopAutoplay);
+      container.removeEventListener("mouseleave", startAutoplay);
+    };
+  }, [loading]); // Runs only when `loading` state changes
 
   return (
     <section className="bg-lightGrayishWhite py-20">
       <div className="container mx-auto p-0">
         <div className="px-[10px] sm:px-5 md:px-10 xl:px-20">
+          {/* Section heading */}
           <Subtitle subTitle="Team" bgColor="bg-[#ECFFCD]" borderColor="border-[#ECFFCD]" />
           <Title title={<>Meet the incredible <span>team</span></>} />
           <Description text="We pride ourselves of being the best of the best and our team encapsulates that." maxWidth="max-w-[536px]" />
         </div>
 
-        {/* Team Member Slider */}
-        <div className="mt-10">
+        {/* Swiper Slider Container */}
+        <div ref={swiperWrapperRef} className="my-swipper-wrpper mt-10">
           <Swiper
-            loop={true} // Enables infinite loop
-            speed={3000} // Defines transition speed
+            onSwiper={setSwiper} // Store Swiper instance in state
+            loop={true} // Enable infinite looping
+            speed={3000} // Set transition speed
+            slidesPerView={'auto'} // Automatically adjust slides per view
             autoplay={{
-              delay: 0, // Removes autoplay delay for seamless scrolling
-              disableOnInteraction: false,
-              reverseDirection: false, // Scrolls left-to-right
+              delay: 0, // No delay between slides
+              disableOnInteraction: false, // Keep autoplay enabled even when user interacts
+              reverseDirection: false, // Normal slide direction
             }}
             modules={[Autoplay]}
             className="team-swiper w-full"
             breakpoints={{
-              320: { // Mobile (small screens)
-                slidesPerView: 1,
-                spaceBetween: 15,
-              },
-              768: { // Tablets
-                slidesPerView: 2,
-                spaceBetween: 20,
-              },
-              1024: { // Desktop
-                slidesPerView: 4,
-                spaceBetween: 30,
-              },
+              320: { slidesPerView: 1, spaceBetween: 15 }, // Mobile view
+              768: { slidesPerView: 2, spaceBetween: 20 }, // Tablet view
+              1024: { slidesPerView: 4, spaceBetween: 30 }, // Desktop view
             }}
           >
-            {/* Duplicate members array for seamless infinite loop effect */}
+            {/* Duplicating members array to create an infinite loop effect */}
             {members.concat(members).map((member, index) => (
-              <SwiperSlide key={`${member.name}-${index}`}>
-                <div className="card p-2 rounded-lg border-2 border-[#F5F5F5]">
-                  <img src={member.img} alt={`Member ${index + 1}`} className="w-full h-64 object-cover rounded-lg" />
+              <SwiperSlide key={`${member?.name}-${index}`}>
+                <div className="card p-2 rounded-lg border-2 border-[#F5F5F5] hover:shadow-lg transition-shadow duration-300">
+                  {/* Team member image */}
+                  <img 
+                    src={member?.img || "/default-image.jpg"} // Provide a fallback image
+                    alt={member?.name || "Team member"} 
+                    className="w-full h-64 object-cover rounded-lg"
+                  />
+                  {/* Profile info */}
                   <div className="profile-info mt-6 flex justify-between items-center">
                     <div>
-                      <h3 className="text-xl font-semibold text-primary">{member.name}</h3>
-                      <p className="text-davyGray  mt-1">{member.profession}</p>
+                      <h3 className="text-xl font-semibold text-primary">{member?.name || "Unknown"}</h3>
+                      <p className="text-davyGray mt-1">{member?.profession || "N/A"}</p>
                     </div>
+                    {/* Social media links */}
                     <div className="links flex items-center gap-2">
-                      {member.links.x && (
-                        <Link to={member.links.x} className="text-white bg-limeGreen p-[5px] text-sm rounded-full hover:underline">
-                          <RiTwitterXFill/>
+                      {member?.links?.x && (
+                        <Link
+                          to={member.links.x}
+                          className="text-white bg-limeGreen p-[5px] text-sm rounded-full hover:bg-darkLimeGreen transition-colors duration-300"
+                        >
+                          <RiTwitterXFill />
                         </Link>
                       )}
-                      {member.links.linkedin && (
-                        <Link to={member.links.linkedin} className="text-white bg-limeGreen p-[5px] text-sm rounded-full hover:underline mr-2">
+                      {member?.links?.linkedin && (
+                        <Link
+                          to={member.links.linkedin}
+                          className="text-white bg-limeGreen p-[5px] text-sm rounded-full hover:bg-darkLimeGreen transition-colors duration-300"
+                        >
                           <FaLinkedin />
                         </Link>
                       )}

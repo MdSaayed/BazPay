@@ -1,0 +1,39 @@
+[
+    {
+      "name": "Zaid Schwartz",
+      "img": "/assets/img/team/team-1.png",
+      "profession": "CEO & Founder",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/zaidschwartz",
+        "x": "https://twitter.com/zaidschwartz"
+      }
+    },
+    {
+      "name": "Sophia Carter",
+      "img": "/assets/img/team/team-2.png",
+      "profession": "Lead Designer",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/sophiacarter",
+        "x": "https://twitter.com/sophiacarter"
+      }
+    },
+    {
+      "name": "Liam Johnson",
+      "img": "/assets/img/team/team-3.png",
+      "profession": "Senior Developer",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/liamjohnson",
+        "x": "https://twitter.com/liamjohnson"
+      }
+    },
+    {
+      "name": "Emma Williams",
+      "img": "/assets/img/team/team-4.png",
+      "profession": "Marketing Manager",
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/emmawilliams",
+        "x": "https://twitter.com/emmawilliams"
+      }
+    }
+  ]
+  
