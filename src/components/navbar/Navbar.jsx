@@ -64,11 +64,18 @@ const Navbar = () => {
         )}>
           <div className="pb-3 space-y-1">
             <NavLink to="/" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Home</NavLink>
+            <NavLink to="/homev1" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Home V1</NavLink>
             <NavLink to="/features" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Features</NavLink>
             <NavLink to="/about" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">About</NavLink>
             <NavLink to="/blog" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Blog</NavLink>
+            <NavLink to="/pricing" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Pricing</NavLink>
             <NavLink to="/contact" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Contact</NavLink>
-            <NavLink to="/cart" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Cart (0)</NavLink>
+            <NavLink to="/privacypolicy" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Privacy and policy
+            </NavLink>
+            <NavLink to="/licenses" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Licenses
+            </NavLink>
+            <NavLink to="/terms" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Term of services
+            </NavLink>
             <NavLink to="/get-started" className="mob-menu-btn"> Get Started → </NavLink>
           </div>
         </div>

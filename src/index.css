@@ -78,3 +78,9 @@ body {
     overflow: hidden;
     height: 100%;
   }
+
+/* Card Shadow */
+.card-shadow {
+    box-shadow: 0px 32px 64px -12px rgba(10, 13, 18, 0.14), 
+                0px 5px 5px -2.5px rgba(10, 13, 18, 0.04);
+  }

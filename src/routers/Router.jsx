@@ -11,6 +11,7 @@ import Error from './../pages/Error';
 import Licenses from "../pages/Licenses";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
 import TermsOfServices from "../pages/TermsOfServices";
+import PricingDetails from "../pages/PricingDetails";
 
 
 
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
             {
                 path: '/terms',
                 element: <TermsOfServices />
+            },
+            {
+                path: '/pricingdetails',
+                element: <PricingDetails />
             },
         ]
     },
