@@ -9,6 +9,7 @@ const ComparePlans = () => {
   const [plans, setPlans] = useState([]);
   const [error, setError] = useState(""); // State to handle any errors during the fetch
   const [loading, setLoading] = useState(true); // State to manage loading state
+  const [selectedDuration, setSelectedDuration] = useState("perMonth"); // Default to monthly
 
   // Fetch Data when the component mounts
   useEffect(() => {
@@ -44,15 +45,25 @@ const ComparePlans = () => {
         {/* Pricing Cards Grid */}
         <div className="flex flex-wrap items-center justify-end gap-8">
           {plans?.map((plan) => (
-            <div key={plan?.name} className="border rounded-lg p-8 min-w-full md:min-w-[250px]">
+            <div key={plan?.id} className="border rounded-lg p-8 min-w-full md:min-w-[250px]">
               <h3 className="text-2xl text-center font-bold mb-2">{plan?.title}</h3>
-              <p className="text-4xl text-center font-bold mb-6">{plan?.price}</p>
+
+              {/* Showing Price Conditionally */}
+              <div className="flex items-center justify-center">
+                <p className="text-4xl font-bold mb-6">
+                  {selectedDuration === "perMonth" ? plan?.price?.perMonth : plan?.price?.perYear}
+                  <span className="text-lg font-medium text-gray-600">
+                    {selectedDuration === "perMonth" ? " /mon" : " /year"}
+                  </span>
+                </p>
+              </div>
+
               <Button 
-                text='Add to Cart' 
-                bgColor='bg-whiteSmoke' 
-                hoverBgColor='hover:bg-lightGreen' 
-                border='border-whiteSmoke' 
-                hoverBorder='hover:border-lightGreen' 
+                text="Add to Cart" 
+                bgColor="bg-whiteSmoke" 
+                hoverBgColor="hover:bg-lightGreen" 
+                border="border-whiteSmoke" 
+                hoverBorder="hover:border-lightGreen" 
                 fullWidth={true} 
               />
             </div>
@@ -69,7 +80,7 @@ const ComparePlans = () => {
               <div key={feature} className={`grid grid-cols-4 gap-4 px-6 py-4 rounded ${idx % 2 === 0 ? 'bg-lightAloe' : ''}`}>
                 <div className="font-medium min-w-[200px]">{feature}</div>
                 {plans?.map((plan) => (
-                  <div key={`${plan?.name}-${idx}`} className="text-base font-normal text-primary min-w-[150px] text-center">
+                  <div key={`${plan?.id}-${idx}`} className="text-base font-normal text-primary min-w-[150px] text-center">
                     {plan?.features?.includes(feature) ? (
                       <img src={CheckIcon} alt="Included" className="h-6 w-6 mx-auto" />
                     ) : (

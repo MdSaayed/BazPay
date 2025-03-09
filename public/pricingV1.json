@@ -1,9 +1,11 @@
-[
+  [
     {
-      "id":1,
-      "title": "Basic item",
-      "price": "$10",
-      "duration": "per month",
+      "id": 1,
+      "title": "Basic Plan",
+      "price": {
+        "perMonth": "$10",
+        "perYear": "$50"
+      },
       "description": "Basic features for up to 10 users.",
       "buttonText": "Get Started",
       "highlighted": false,
@@ -16,35 +18,39 @@
       ]
     },
     {
-      "id":2,
-      "title": "Business item",
-      "price": "$20",
-      "duration": "per month",
-      "description": "Advanced features for businesses.",
+      "id": 2,
+      "title": "Business Plan",
+      "price": {
+        "perMonth": "$20",
+        "perYear": "$100"
+      },
+      "description": "Advanced features for growing businesses.",
       "buttonText": "Get Started",
       "highlighted": true,
       "features": [
-        "Access to core features",
-        "Key insights and analytics tools",
+        "Everything in Basic Plan",
         "Support for unlimited accounts",
         "100 GB of storage per user",
-        "Priority support"
+        "Priority email and chat support",
+        "Custom integrations available"
       ]
     },
     {
-      "id":3,
-      "title": "Enterprise item",
-      "price": "$50",
-      "duration": "per month",
+      "id": 3,
+      "title": "Enterprise Plan",
+      "price": {
+        "perMonth": "$50",
+        "perYear": "$250"
+      },
       "description": "Custom solutions for large teams.",
-      "buttonText": "Get Started",
+      "buttonText": "Contact Us",
       "highlighted": false,
       "features": [
-        "All business features",
-        "Custom analytics and integrations",
+        "All features in Business Plan",
         "Dedicated account manager",
         "Unlimited storage",
-        "24/7 premium support"
+        "24/7 premium support",
+        "Advanced security & compliance"
       ]
     }
   ]

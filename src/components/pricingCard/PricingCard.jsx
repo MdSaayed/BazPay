@@ -54,9 +54,14 @@ const PricingCard = () => {
             </div>
             {/* Price and Duration */}
             <div className="flex items-end gap-1 mt-4">
-              <h3 className="text-5xl font-semibold text-softWhite">{item?.price}</h3>
-              <span className="font-medium text-base text-softWhite">{item?.duration}</span>
+              <h3 className="text-5xl font-semibold text-softWhite">
+                {item?.price?.perMonth ? item?.price?.perMonth : item?.price?.perYear}
+              </h3>
+              <span className="font-medium text-base text-softWhite">
+                {item?.price?.perMonth ? "Per Month" : "Per Year"}
+              </span>
             </div>
+
             {/* Description */}
             <p className="text-whiteSmoke text-base font-normal mt-6 mb-8">{item?.description}</p>
 
