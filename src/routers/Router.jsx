@@ -13,7 +13,7 @@ import PrivacyPolicy from "../pages/PrivacyPolicy";
 import TermsOfServices from "../pages/TermsOfServices";
 import PricingDetails from "../pages/PricingDetails";
 import BlogDetails from "../pages/BlogDetails";
-import { LoadSinglePricingData } from "./Loader";
+import { loadSingleBlogData, LoadSinglePricingData } from "./Loader";
 
 
 const router = createBrowserRouter([
@@ -38,7 +38,11 @@ const router = createBrowserRouter([
                 loader: LoadSinglePricingData // ✅ Using the reusable loader
             }, // Dynamic Pricing Details
              
-            { path: '/blog/:id', element: <BlogDetails /> } // Dynamic Blog Details 
+            { 
+                path: '/blog/:id', 
+                element: <BlogDetails /> ,
+                loader:loadSingleBlogData
+            } // Dynamic Blog Details 
         ]
     }
 ]);
