@@ -18,8 +18,8 @@ const BlogCard = ({ blog, index }) => {
       </Link>
 
       {/* Blog Content */}
-      <div className="p-4 bg-white border border-[#F5F5F5] rounded-2xl">
-        <p className="text-[#535862] font-semibold text-sm mb-2">{date}</p>
+      <div className="p-4 bg-white border border-whiteSmoke rounded-2xl">
+        <p className="text-davyGray font-semibold text-sm mb-2">{date}</p>
         <Link to={`/blog/${id}`} className="group">
           <h2 className="text-2xl text-primary font-semibold mr-2 inline">
             {title?.length > 40 ? `${title?.slice(0, 40)}...` : title}
@@ -43,9 +43,9 @@ const BlogCard = ({ blog, index }) => {
             <span
               key={i}
               className={`text-sm font-medium px-3 py-1 rounded-full
-                ${i === 0 ? "bg-[#F9F5FF] text-[#535862]" :
-                  i === 1 ? "bg-[#F5F5F5] text-[#3538CD]" :
-                            "bg-[#F5F5F5] text-[#6BC33F]"}
+                ${i === 0 ? "bg-[#F9F5FF] text-davyGray" :
+                  i === 1 ? "bg-whiteSmoke text-[#3538CD]" :
+                            "bg-whiteSmoke text-[#6BC33F]"}
               `}
             >
               {tag}

@@ -9,6 +9,8 @@ import Description from '../description/Description';
 import { FaLinkedin } from "react-icons/fa6";
 import { RiTwitterXFill } from "react-icons/ri";
 import { Link } from 'react-router-dom';
+import LoadingAnimation from './../loadingAnimation/LoadingAnimation';
+import ErrorMessage from '../errorMessage/ErrorMessage';
 
 const Team = () => {
   // State to store team members data
@@ -41,9 +43,9 @@ const Team = () => {
 
   // Effect to control Swiper autoplay behavior on hover
   useEffect(() => {
-    const container = swiperWrapperRef.current;
+    const wrapper = swiperWrapperRef.current;
     
-    if (!swiper || !container) return;
+    if (!swiper || !wrapper) return;
 
     // Function to stop autoplay when mouse enters the swiper
     const stopAutoplay = () => {
@@ -65,28 +67,32 @@ const Team = () => {
     startAutoplay(); // Ensure autoplay starts initially
 
     // Add event listeners for hover effects
-    container.addEventListener("mouseenter", stopAutoplay);
-    container.addEventListener("mouseleave", startAutoplay);
+    wrapper.addEventListener("mouseenter", stopAutoplay);
+    wrapper.addEventListener("mouseleave", startAutoplay);
 
     // Cleanup event listeners when component unmounts
     return () => {
-      container.removeEventListener("mouseenter", stopAutoplay);
-      container.removeEventListener("mouseleave", startAutoplay);
+      wrapper.removeEventListener("mouseenter", stopAutoplay);
+      wrapper.removeEventListener("mouseleave", startAutoplay);
     };
   }, [loading]); // Runs only when `loading` state changes
 
+  // Loading animation and error message
+  if (loading) return <LoadingAnimation />;
+  if (error) return <ErrorMessage />;
+
   return (
     <section className="bg-lightGrayishWhite py-20">
-      <div className="container mx-auto p-0">
+      <div className="wrapper mx-auto p-0">
         <div className="px-[10px] sm:px-5 md:px-10 xl:px-20">
           {/* Section heading */}
-          <Subtitle subTitle="Team" bgColor="bg-[#ECFFCD]" borderColor="border-[#ECFFCD]" />
+          <Subtitle subTitle="Team" bgColor="bg-paleGreen" borderColor="border-paleGreen" />
           <Title title={<>Meet the incredible <span>team</span></>} />
           <Description text="We pride ourselves of being the best of the best and our team encapsulates that." maxWidth="max-w-[536px]" />
         </div>
 
-        {/* Swiper Slider Container */}
-        <div ref={swiperWrapperRef} className="my-swipper-wrpper mt-10">
+        {/* Swiper Slider wrapper */}
+        <div ref={swiperWrapperRef} className="mt-10">
           <Swiper
             onSwiper={setSwiper} // Store Swiper instance in state
             loop={true} // Enable infinite looping
@@ -108,7 +114,7 @@ const Team = () => {
             {/* Duplicating members array to create an infinite loop effect */}
             {members.concat(members).map((member, index) => (
               <SwiperSlide key={`${member?.name}-${index}`}>
-                <div className="card p-2 rounded-lg border-2 border-[#F5F5F5] hover:shadow-lg transition-shadow duration-300">
+                <div className="card p-2 rounded-lg border-2 border-whiteSmoke hover:shadow-lg transition-shadow duration-300">
                   {/* Team member image */}
                   <img 
                     src={member?.img || "/default-image.jpg"} // Provide a fallback image

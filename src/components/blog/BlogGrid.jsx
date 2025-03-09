@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import BlogCard from "./BlogCard";
+import ErrorMessage from "../errorMessage/ErrorMessage";
+import LoadingAnimation from './../loadingAnimation/LoadingAnimation';
 
 const BlogGrid = () => {
   // State to hold the blog data, loading state, and any errors
@@ -32,15 +34,12 @@ const BlogGrid = () => {
     fetchBlogs();
   }, []); // Empty dependency array means this runs only once when the component mounts
 
-  // If loading, show a loading message
-  if (loading) {
-    return <p className="text-center text-gray-500 mt-5">Loading blogs...</p>;
-  }
 
+  
+  // If loading, show a loading message
+  if (loading)  return <LoadingAnimation />;
   // If there's an error, display the error message
-  if (error) {
-    return <p className="text-center text-red-500 mt-5">Error: {error}</p>;
-  }
+  if (error) return <ErrorMessage />; 
 
   // Render the blog cards once the data is fetched
   return (

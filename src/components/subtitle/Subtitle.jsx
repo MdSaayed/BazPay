@@ -34,8 +34,8 @@ Subtitle.propTypes = {
 Subtitle.defaultProps = {
     subTitle: "Replace with your own subtitle.",
     color: "text-[#53586]", 
-    bgColor: "bg-[#FBFEF7]", 
-    borderColor: "border-[#F5F5F5]",
+    bgColor: "bg-mintCream", 
+    borderColor: "border-whiteSmoke",
     showIcon: true,
     align: "justify-center"
 };

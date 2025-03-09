@@ -46,7 +46,7 @@ const SubscribeForm = ({
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className={`w-full px-4 py-1 rounded-l-[32px] border-none focus:outline-none bg-transparent ${
-            error ? "border-red-500" : "border-[#535862]"
+            error ? "border-red-500" : "border-davyGray"
           }`}
           aria-label="Email Address"
           required

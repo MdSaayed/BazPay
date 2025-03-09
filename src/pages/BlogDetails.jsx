@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import LoadingAnimation from "../components/loadingAnimation/LoadingAnimation";
 import Title from "../components/title/Title";
+import ErrorMessage from "../components/errorMessage/ErrorMessage";
 
 const BlogDetails = () => {
   const { id } = useParams(); // Get blog ID from URL
@@ -35,27 +36,21 @@ const BlogDetails = () => {
       });
   }, [id]);
 
+  
   // Show loading animation while data is being fetched
   if (loading) return <LoadingAnimation />;
-
   // Display error message if data fetch fails
-  if (error) {
-    return (
-      <section className="py-24 text-center">
-        <p className="text-red-500 text-lg font-semibold">{error}</p>
-      </section>
-    );
-  }
+  if (error)  return  <ErrorMessage error={error} />
 
   return (
     <section className="bg-lightGrayishWhite py-24">
       <div className="container">
         {/* Blog Meta Information */}
         <div className="flex flex-wrap gap-4 mb-6">
-          <span className="text-davyGray text-base font-normal px-2 py-1 rounded-lg bg-[#F5F5F5]">
+          <span className="text-davyGray text-base font-normal px-2 py-1 rounded-lg bg-whiteSmoke">
             {blog?.category || "Uncategorized"}
           </span>
-          <span className="text-davyGray text-base font-normal px-2 py-1 rounded-lg bg-[#F5F5F5]">
+          <span className="text-davyGray text-base font-normal px-2 py-1 rounded-lg bg-whiteSmoke">
             {blog?.date || "Unknown Date"}
           </span>
         </div>

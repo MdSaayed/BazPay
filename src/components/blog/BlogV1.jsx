@@ -55,7 +55,7 @@ const BlogV1 = () => {
           className="flex flex-col gap-20 lg:gap-4 lg:flex-row justify-between items-start lg:items-center mb-10"
         >
           <div>
-            <Subtitle subTitle="Blog" borderColor="border-[#F5F5F5]" bg="#ECFFCD" align="justify-start" />
+            <Subtitle subTitle="Blog" borderColor="border-whiteSmoke" bg="#ECFFCD" align="justify-start" />
             <Title title="Our latest News & Resources" textAlign="text-left" maxWidth="max-w-[560px]" />
           </div>
 
@@ -91,7 +91,7 @@ const BlogV1 = () => {
                 </div>
                 {/* Category and Arrow Icon */}
                 <div className="flex items-center justify-between mt-6">
-                  <span className="text-[#535862] px-4 py-1 border border-[#E9EAEB] text-base font-medium rounded-[32px]">
+                  <span className="text-davyGray px-4 py-1 border border-[#E9EAEB] text-base font-medium rounded-[32px]">
                     {featuredPost?.category}
                   </span>
                   <motion.div
@@ -123,7 +123,7 @@ const BlogV1 = () => {
                 <Link to={`/blog/${article?.id}`} className="block">
                   {/* Post Category and Arrow Icon */}
                   <div className="flex items-center justify-between">
-                    <span className="text-[#535862] px-4 py-1 border border-[#D5D7DA] text-sm font-medium rounded-[32px]">
+                    <span className="text-davyGray px-4 py-1 border border-[#D5D7DA] text-sm font-medium rounded-[32px]">
                       {article?.category}
                     </span>
                     <motion.div

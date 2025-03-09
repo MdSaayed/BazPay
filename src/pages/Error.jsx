@@ -11,7 +11,7 @@ const Error = () => {
                     
                     {/* Error Image */}
                     <div>
-                        <img className='mx-auto md:max-w-[688px]' src={ErrorImg} alt="Error Page Illustration"/>
+                        <img className='mx-auto md:max-w-[688px]' src={ErrorImg} alt="Error Page Img"/>
                     </div>
 
                     {/* Error Message and Navigation Button */}

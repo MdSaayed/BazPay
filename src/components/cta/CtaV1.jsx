@@ -11,31 +11,70 @@ import FrameImg from "/assets/img/global/ctav1-frame.png";
 
 const CtaV1 = () => {
     return (
-        <section  className='bg-lightGrayishWhite'>
+        <section className="bg-lightGrayishWhite">
             <div className="container py-8 md:py-16">
+                {/* CTA Wrapper */}
                 <div className="bg-primary grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-16 p-6 md:p-10 rounded-3xl">
+                    
+                    {/* Left Content */}
                     <div>
-                        <Subtitle subTitle={"Pricing"} color='text-softWhite' borderColor='border-softWhite' align='justify-start' />
-                        <Title title="Growth performance tracking made easy" color='text-softWhite' textAlign='text-left' size='text-5xl'/>
-                        <div  className="mt-8 flex gap-6 items-center">
-                            <img src={CloudIcon} alt='Cloud Icon' />
+                        {/* Subtitle Component */}
+                        <Subtitle 
+                            subTitle="Pricing" 
+                            color="text-softWhite" 
+                            borderColor="border-softWhite" 
+                            align="justify-start" 
+                        />
+
+                        {/* Main Title */}
+                        <Title 
+                            title="Growth performance tracking made easy" 
+                            color="text-softWhite" 
+                            textAlign="text-left" 
+                            size="text-5xl" 
+                        />
+
+                        {/* Feature: Cloud Sync */}
+                        <div className="mt-8 flex gap-6 items-center">
+                            <img src={CloudIcon} alt="Cloud Sync Icon" />
                             <div className="flex flex-col">
-                                <span className="text-lg font-medium leading-normal text-softWhite">Cross-Platform Sync</span>
-                                <span className="text-sm text-softWhite leading-normal">Real-time sync on all platform & devices.</span>
+                                <span className="text-lg font-medium leading-normal text-softWhite">
+                                    Cross-Platform Sync
+                                </span>
+                                <span className="text-sm text-softWhite leading-normal">
+                                    Real-time sync on all platforms & devices.
+                                </span>
                             </div>
                         </div>
-                        <div  className="mt-8 flex gap-6 items-center">
-                            <Link to="www.google"><img src={PlayStoreImg}/></Link>
-                            <Link><img src={AppleStoreImg}/></Link>
+
+                        {/* App Download Links */}
+                        <div className="mt-8 flex gap-6 items-center">
+                            <Link to="https://play.google.com" target="_blank" rel="noopener noreferrer">
+                                <img src={PlayStoreImg} alt="Download on Google Play Store" />
+                            </Link>
+                            <Link to="https://www.apple.com/app-store/" target="_blank" rel="noopener noreferrer">
+                                <img src={AppleStoreImg} alt="Download on Apple App Store" />
+                            </Link>
                         </div>
-                        <div  className="mt-12">
-                             <img src={UserRatingImg}/> 
+
+                        {/* User Ratings Section */}
+                        <div className="mt-12">
+                            <img src={UserRatingImg} alt="User Ratings and Reviews" />
                         </div>
                     </div>
+
+                    {/* Right Content: Mobile Preview Image */}
                     <div className="-mb-6 md:-mb-10 relative mx-auto">
-                        <img src={PhoneCtaV1} />
-                        <img className="frame absolute top-2 md:top-1/3  right-5 lg:-left-20" src={FrameImg} />
+                        <img src={PhoneCtaV1} alt="App interface preview on mobile" />
+                        
+                        {/* Decorative Frame */}
+                        <img 
+                            className="frame absolute top-2 md:top-1/3 right-5 lg:-left-20" 
+                            src={FrameImg} 
+                            alt="Decorative frame" 
+                        />
                     </div>
+
                 </div>
             </div>
         </section>

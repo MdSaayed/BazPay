@@ -2,85 +2,82 @@ import React, { useEffect, useState } from "react";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import Button from "../ui/Button";
 import LoadingAnimation from "../loadingAnimation/LoadingAnimation";
+import ErrorMessage from "../errorMessage/ErrorMessage";
 
-const PricingCard = ( ) => {
-  const [data, setData] = useState( []); // Default data can be passed via props
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(true);
+const PricingCard = () => {
+  const [data, setData] = useState([]); // State to hold the pricing data
+  const [error, setError] = useState(""); // State to handle any errors during the fetch
+  const [loading, setLoading] = useState(true); // State to manage loading state
 
-  // Fetch Data
+  // Fetch Data when the component mounts
   useEffect(() => {
-      fetch("/pricingV1.json")
-        .then((res) => {
-          if (!res.ok) throw new Error("Failed to fetch pricing data");
-          return res.json();
-        })
-        .then((data) => {
-          setData(data);
-          setLoading(false);
-        })
-        .catch((error) => {
-          setError(error.message);
-          setLoading(false);
-        });
-  }, []);
+    // Fetch pricing data from the JSON file
+    fetch("/pricingV1.json")
+      .then((res) => {
+        // Check if the response is successful
+        if (!res.ok) throw new Error(`Failed to fetch pricing data: ${res.statusText}`);
+        return res.json(); // Parse the response as JSON
+      })
+      .then((data) => {
+        setData(data); // Set the pricing data into state
+        setLoading(false); // Set loading to false once data is fetched
+      })
+      .catch((error) => {
+        setError(error.message); // Set error if the fetch fails
+        setLoading(false); // Set loading to false if there was an error
+      });
+  }, []); // Empty dependency array means this effect runs only once when the component mounts
 
-
-  if (loading) {
-    return  <LoadingAnimation />;
-  }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
+  // Conditional rendering for loading or error state
+  if (loading) return <LoadingAnimation />; // Show loading animation while fetching data
+  if (error) return <ErrorMessage error={error} />; // Show error message if fetch fails
 
   return (
     <>
-      {data?.map((item, index) => (
-        <div key={index} className="rounded-3xl bg-white shadow-lg">
+      {/* Map over each pricing item and display it */}
+      {data?.map((item) => (
+        <div key={item?.id || item?.title} className="rounded-3xl bg-white shadow-lg">
+          {/* Card Header */}
           <div
             className={`${
-              item?.highlighted ? 'bg-primary' : 'bg-davyGray'
+              item?.highlighted ? 'bg-primary' : 'bg-davyGray' // Apply highlight color if highlighted
             } rounded-3xl p-8`}
           >
             <div className="flex items-center justify-between">
-              <span className="font-semibold text-lg text-softWhite">
-                {item?.title}
-              </span>
+              <span className="font-semibold text-lg text-softWhite">{item?.title}</span>
+              {/* Show "Popular" tag if the item is highlighted */}
               {item?.highlighted && (
                 <span className="bg-limeGreen text-softWhite text-xs font-bold px-3 py-1 rounded-full">
                   Popular
                 </span>
               )}
             </div>
+            {/* Price and Duration */}
             <div className="flex items-end gap-1 mt-4">
-              <h3 className="text-5xl font-semibold text-softWhite">
-                {item?.price}
-              </h3>
-              <span className="font-medium text-base text-softWhite">
-                {item?.duration}
-              </span>
+              <h3 className="text-5xl font-semibold text-softWhite">{item?.price}</h3>
+              <span className="font-medium text-base text-softWhite">{item?.duration}</span>
             </div>
-            <p className="text-[#F5F5F5] text-base font-normal mt-6 mb-8">
-              {item?.description}
-            </p>
+            {/* Description */}
+            <p className="text-whiteSmoke text-base font-normal mt-6 mb-8">{item?.description}</p>
 
-            <Button text='Get Started' link={`/pricing/${item?.id}`} fullWidth={true} />
+            {/* "Get Started" Button */}
+            <Button text="Get Started" link={`/pricing/${item?.id}`} fullWidth={true} />
           </div>
 
+          {/* Card Features */}
           <div className="p-8">
             <p className="text-primary text-base font-semibold">FEATURES</p>
-            <p className="text-[#535862] text-base font-normal mt-1 mb-6">
+            <p className="text-davyGray text-base font-normal mt-1 mb-6">
               Standard item grants you access to exclusive features
             </p>
 
+            {/* Loop through the features and display each one */}
             <ul>
               {item?.features?.map((feature, index) => (
                 <li key={index} className="flex items-center gap-3 mb-4">
-                  <FaRegCircleCheck className="text-[#9CFA6D] text-xl" />
-                  <span className="font-normal text-base text-davyGray">
-                    {feature}
-                  </span>
+                  {/* Check icon for features */}
+                  <FaRegCircleCheck className="text-lightGreen text-xl" />
+                  <span className="font-normal text-base text-davyGray">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -90,6 +87,5 @@ const PricingCard = ( ) => {
     </>
   );
 };
-
 
 export default PricingCard;

@@ -47,27 +47,38 @@ const Home = () => {
       <section className="bg-lightGrayishWhite">
         <div className="container py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-20 items-center">
-            <div className="col-1">
+            
+            {/* Left Side - Heading Section */}
+            <div>
               <h1 className="text-6xl font-semibold leading-[1.3] text-primary text-center sm:text-left">
                 Simplify your money game with{' '}
                 <span className="text-limeGreen">BazPay!</span>
               </h1>
             </div>
-            <div className="col-2">
+
+            {/* Right Side - Description & Download Buttons */}
+            <div>
               <p className="mb-6 text-lg leading-7 text-center sm:text-left">
                 Check out our all-in-one solution for easy transactions, quick money transfers, and total financial control!
               </p>
+
+              {/* Download Buttons */}
               <div className="flex gap-6 flex-col sm:flex-row">
+                {/* iOS Download Button */}
                 <Link
-                  to="/download-ios"
+                  to="https://www.apple.com/store"
                   className="flex items-center justify-center gap-2 px-4 py-2 rounded-[32px] bg-lightGreen whitespace-nowrap hover:bg-lightGray border hover:border-lightSilver"
+                  aria-label="Download BazPay for iOS"
                 >
                   <img src={appleIcon} alt="Download on the App Store" />
                   <span>Download for iOS</span>
                 </Link>
+
+                {/* Android Download Button */}
                 <Link
-                  to="/download-android"
+                  to="https://play.google.com/"
                   className="flex items-center justify-center gap-2 px-4 py-2 rounded-[32px] bg-lightGray border border-lightSilver whitespace-nowrap hover:bg-lightGreen hover:border-lightGreen"
+                  aria-label="Download BazPay for Android"
                 >
                   <img src={googleIcon} alt="Get it on Google Play" />
                   <span>Download for Android</span>
@@ -75,20 +86,19 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="img-wrapper mt-20 rounded-md">
+
+          {/* Hero Image Section */}
+          <div className="mt-20 rounded-md overflow-hidden">
             <img src={heroImg} alt="BazPay Dashboard" loading="lazy" />
           </div>
+
         </div>
       </section>
 
       {/* Brands Logos */}
-      <BrandLogo
-        title={
-          <>
-            Working for innovative <span>companies</span>.
-          </>
-        }
-        desc="Discover tailored financial solutions that secure your investments."
+      <BrandLogo 
+          title={ <> Working for innovative <span>companies</span>. </> }
+          desc="Discover tailored financial solutions that secure your investments."
       />
 
       {/* Financial Overview */}
@@ -97,23 +107,26 @@ const Home = () => {
       {/* Premium Cards Section */}
       <section className="bg-lightGrayishWhite">
         <div className="container pt-20 px-0 bg-primary rounded-2xl">
-          <div className="px-[10px] sm:px-5 md:px-10 lg:px-14 xl:px-20">
+          <div className="px-2 sm:px-5 md:px-10 lg:px-14 xl:px-20">
+            {/* Subtitle with theme-based colors */}
             <Subtitle
               subTitle="Security"
-              color="text-[#FAFAFA]"
-              bgColor="bg-[#181D27]"
-              borderColor="border-[#252B37]"
+              color="text-softWhite"
+              bgColor="bg-darkBlue"
+              borderColor="border-darkGrayishBlue"
             />
+            {/* Title */}
             <Title title="Check our premium cards" color="text-softWhite" />
+            {/* Description */}
             <Description
               text="Discover a seamless platform designed for easy payments, quick money transfers, and all your financial needs."
-              color="text-[#FAFAFA]"
-              maxWidth="max-w-[694px]"
+              color="text-softWhite"
+              maxWidth="max-w-lg"
             />
           </div>
 
-          {/* Cards Slider */}
-          <div className="rounded-md pt-28 pb-8 mt-10 bg-[url('/assets/img/global/phone-mockup.png')] bg-no-repeat bg-contain bg-bottom">
+          {/* Cards Slider with Optimized Background Image */}
+          <div className="rounded-md pt-28 pb-8 mt-10 premium-card-bg">
             <Slider items={cards} speed={4000} />
           </div>
         </div>
@@ -122,12 +135,12 @@ const Home = () => {
       {/* Features Section */}
       <section className="bg-lightGrayishWhite">
         <div className="container py-24">
-          <div className="content-wrapper bg-[#F0EEF4] py-12 px-2 md:px-10 rounded-2xl">
+          <div className="content-wrapper bg-lightLavender py-12 px-2 md:px-10 rounded-2xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-5 gap-x-10 justify-between items-center">
-              <Title title="Our features" textAlign="text-left" />
+              <Title title="Our features" textAlign="text-center lg:text-left" />
               <Description
                 text="Explore the powerful tools MezPay offers to simplify and enhance your financial experience."
-                textAlign="text-left"
+                textAlign="text-center lg:text-left"
               />
             </div>
 
@@ -173,7 +186,6 @@ const Home = () => {
                 {/* Integration Logos */}
                 <div className="integration-logos w-full overflow-hidden">
                   <Slider items={integrationLogos} slidesPerViewMobile={4} slidesPerViewTablet={6} slidesPerViewDesktop={8} spaceBetween={20} reverseDirection={false} />
-                  
                   <Slider items={integrationLogos} slidesPerViewMobile={4} slidesPerViewTablet={6} slidesPerViewDesktop={8} spaceBetween={20} reverseDirection={true} />
                 </div>
               </div>
@@ -214,13 +226,17 @@ const Home = () => {
       {/* Constantly Section */}
       <section className="bg-lightGrayishWhite">
         <div className="container py-24">
+          {/* Subtitle */}
           <Subtitle subTitle="Investing in your future is crucial." />
+
+          {/* Title */}
           <Title
             title={
               <>
-                Our team is constantly <br /> innovating.
+                Our team is constantly innovating.
               </>
             }
+            maxWidth='max-w-[768px]'
           />
 
           {/* Cards */}
@@ -257,15 +273,24 @@ const Home = () => {
       {/* Pricing Section */}
       <Pricing />
 
-      {/* FAQ Section */}
+      {/* Faqs Section */}
       <Faq />
 
       {/* Blog Section */}
-      <section className="bg-lightGrayishWhite">
+      <section className="bg-lightGrayishWhite" aria-label="Latest blog posts">
         <div className="container py-24">
-          <Subtitle subTitle='Latest posts' color='text-[#535862]' bgColor='bg-[#ECFFCD]' borderColor='border-[#ECFFCD]' />
+          <Subtitle 
+            subTitle="Latest posts" 
+            color="text-davyGray" 
+            bgColor="bg-lightGreen" 
+            borderColor="border-lightGreen" 
+          />
           <Title title="Latest blog posts" />
-          <Description text={<>Discover the latest trends, insights, and tips in the world of finance and technology with the MezPay Blog.</> } maxWidth='max-w-[650px]'/>
+          <Description 
+            text={<>Discover the latest trends, insights, and tips in the world of finance and technology with the MezPay Blog.</>} 
+            maxWidth="max-w-[650px]" 
+            className="text-center md:text-left"
+          />
 
           {/* Blog Grid */}
           <BlogGrid />

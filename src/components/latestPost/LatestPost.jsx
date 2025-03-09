@@ -1,62 +1,63 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import LoadingAnimation from './../loadingAnimation/LoadingAnimation';
-import Title from './../title/Title';
+import LoadingAnimation from '../loadingAnimation/LoadingAnimation';
+import Title from '../title/Title';
+import ErrorMessage from '../errorMessage/ErrorMessage';
 
 const LatestPost = () => {
-  // State for managing category filter
+  // State Management
   const [filter, setFilter] = useState('All');
-
-  // State for storing fetched posts
   const [posts, setPosts] = useState([]);
-
-  // Loading state while fetching data
   const [loading, setLoading] = useState(true);
-
-  // Categories list, initialized with 'All'
   const [categories, setCategories] = useState(['All']);
+  const [error, setError] = useState(null);
 
-  // Fetching posts from JSON file
+  // Fetching Data from JSON
   useEffect(() => {
     fetch('/latestPost.json')
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) throw new Error("Failed to fetch blog posts");
+        return response.json();
+      })
       .then((data) => {
-        setPosts(data || []); // Ensure data is an array
-
-        // Extract unique categories from posts and update state
+        setPosts(data || []);
         const uniqueCategories = [...new Set(data?.map(post => post?.category))].filter(Boolean);
         setCategories(['All', ...uniqueCategories]);
-
         setLoading(false);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
+        setError(error.message);
         setLoading(false);
       });
   }, []);
 
-  // Filtered posts based on selected category
-  const filteredPosts = useCallback(
-    () => (filter === 'All' ? posts : posts?.filter(post => post?.category === filter)),
-    [filter, posts]
-  );
+  // Filter Posts Based on Category Selection
+  const filteredPosts = useCallback(() => {
+    return filter === 'All' ? posts : posts.filter(post => post?.category === filter);
+  }, [filter, posts]);
 
+  // Show Loading or Error State
   if (loading) return <LoadingAnimation />;
+  if (error) return <ErrorMessage error={error} />;
 
   return (
     <section className="bg-lightGrayishWhite">
       <div className="container py-24">
-        {/* Section Title & Category Filter */}
+        
+        {/* Section Header */}
         <div className="flex flex-col lg:flex-row items-center justify-between mb-10">
-          <Title title="Latest posts" size="text-5xl" textAlign="text-left" />
+          <Title title="Latest Posts" size="text-5xl" textAlign="text-left" />
+          
+          {/* Category Filter Buttons */}
           <div className="flex space-x-4 mt-10 lg:mt-4 justify-end lg:justify-center w-full">
-            {/* Category Filter Buttons */}
-            {categories?.map(category => (
+            {categories.map(category => (
               <button 
                 key={category} 
                 onClick={() => setFilter(category)}
+                aria-label={`Filter by ${category}`}
                 className={`filter-btn px-5 py-2 rounded-full transition-colors ${
                   filter === category 
-                    ? 'bg-limeGreen text-softWhite text-base font-normal' 
+                    ? 'bg-limeGreen text-softWhite text-base font-medium' 
                     : 'text-primary text-base font-normal'
                 }`}
               >
@@ -66,10 +67,10 @@ const LatestPost = () => {
           </div>
         </div>
 
-        {/* Blog Post Grid Layout */}
+        {/* Blog Posts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredPosts()?.map(post => (
-            <article key={post?.id} className="border border-[#F5F5F5] rounded-3xl overflow-hidden">
+          {filteredPosts().map(post => (
+            <article key={post?.id} className="border border-whiteSmoke rounded-3xl overflow-hidden group">
               
               {/* Blog Post Image */}
               {post?.image && (
@@ -83,14 +84,16 @@ const LatestPost = () => {
               )}
               
               {/* Blog Post Content */}
-              <div className="px-4 py-8">
+              <div className="px-6 py-8">
                 <div className="flex items-center gap-4">
+                  
                   {/* Category Tag */}
                   {post?.category && (
                     <span className="text-base font-normal text-davyGray border border-[#E9EAEB] px-3 py-1 rounded-3xl">
                       {post?.category}
                     </span>
                   )}
+                  
                   {/* Read Time */}
                   <span className="text-base font-normal text-davyGray px-3 py-1">
                     {post?.readTime || 'N/A'}
@@ -99,7 +102,7 @@ const LatestPost = () => {
                 
                 {/* Blog Post Title */}
                 <h2 className="text-xl font-semibold text-primary mt-4">
-                  <a href={post?.slug || '#'} className="block">
+                  <a href={post?.slug || '#'} className="block hover:text-limeGreen transition-colors">
                     {post?.title || 'Untitled Post'}
                   </a>
                 </h2>

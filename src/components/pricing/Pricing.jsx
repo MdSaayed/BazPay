@@ -92,25 +92,26 @@ const Pricing = () => {
       <div className="container py-24">
         {/* Pricing Header */}
         <div className="flex justify-center">
-            <span className='text-[#535862] font-medium text-sm leading-normal bg-[#ECFFCD] px-4 py-2 rounded-3xl'>Pricing</span>
+          <span className='text-davyGray font-medium text-sm leading-normal bg-paleGreen px-4 py-2 rounded-3xl'>Pricing</span>
         </div>
         <Title title={<>Plans that fit <span className="text-limeGreen">your scale</span></>} />
         <Description text={<>Simple, transparent pricing that grows with you. Try<br/> any plan free for 30 days.</>} />
 
-
         {/* Pricing Toggle Button */}
         <div className="flex items-center justify-center mt-12">
-          <div className="relative flex items-center bg-[#FBFEF7] gap-2 rounded-full p-2 shadow-md">
+          <div className="relative flex items-center bg-mintCream gap-2 rounded-full p-2 shadow-md">
             <button 
               onClick={() => setIsAnnual(false)} 
-              className={`px-4 py-2 text-base font-normal rounded-full transition-all ${!isAnnual ? "bg-primary text-white shadow" : "text-primary"}`}>
+              className={`px-4 py-2 text-base font-normal rounded-full transition-all ${!isAnnual ? "bg-primary text-white shadow" : "text-primary"}`}
+            >
               Monthly billing
             </button>
             <button 
               onClick={() => setIsAnnual(true)} 
-              className={`px-4 py-2 text-base font-normal rounded-full transition-all ${isAnnual ? "bg-primary text-white shadow" : "text-primary"}`}>
+              className={`px-4 py-2 text-base font-normal rounded-full transition-all ${isAnnual ? "bg-primary text-white shadow" : "text-primary"}`}
+            >
               Annual billing
-              <span className="text-xs ml-2 text-gray-600 bg-softWhite px-2 py-1 border border-[#F5F5F5] rounded-full">
+              <span className="text-xs ml-2 text-gray-600 bg-softWhite px-2 py-1 border border-whiteSmoke rounded-full">
                 Save 20%
               </span>
             </button>
@@ -118,11 +119,11 @@ const Pricing = () => {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-2 md:px-6 py-8 rounded-3xl bg-[#F0EEF4] mt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-2 md:px-6 py-8 rounded-3xl bg-lightLavender mt-20">
           {PRICING_OPTIONS.map((plan, index) => (
             <div 
               key={index} 
-              className="group pricing-card rounded-2xl py-8 text-primary hover:bg-[#181D27] hover:text-softWhite transition-all cursor-pointer"
+                className={`group pricing-card rounded-2xl py-8 text-primary hover:bg-primary hover:text-softWhite transition-all cursor-pointer `}
             >
               {/* Card Header */}
               <div className="flex justify-between flex-wrap gap-4 items-start px-8">
@@ -130,7 +131,7 @@ const Pricing = () => {
                   <div className="flex items-center gap-3">
                     <h2 className="text-2xl font-bold">{plan.name}</h2>
                     {plan.isPopular && (
-                      <span className="px-3 py-1 text-xs border text-primary group-hover:text-softWhite bg-limeGreen group-hover:bg-transparent border-[#ECFFCD] rounded-full transition-all">
+                      <span className="px-3 py-1 text-xs border text-primary group-hover:text-softWhite bg-limeGreen group-hover:bg-transparent border-paleGreen rounded-full transition-all">
                         Popular
                       </span>
                     )}
@@ -149,13 +150,13 @@ const Pricing = () => {
               </div>
 
               {/* Features List */}
-              <div className="feature-list py-8 border-y px-8 mt-2 border-lightSilver group-hover:border-[#252B37] transition-all">
+              <div className="feature-list py-8 border-y px-8 mt-2 border-lightSilver group-hover:border-blueGray transition-all">
                 <h2 className="text-base font-semibold">{plan.featuresTitle}</h2>
                 <p className="text-base">{plan.featuresDescription}</p>
                 <div className="grid md:grid-cols-2 gap-x-6 gap-y-4 mt-6">
                   {plan.features[isAnnual ? "annual" : "monthly"].map((feature, index) => (
                     <div key={index} className="feature-item flex items-start gap-2">
-                      <RxCheck className="w-6 h-6 p-[2px] text-lg rounded-full flex-shrink-0 text-primary bg-[#FBFEF7] group-hover:text-lightGreen group-hover:bg-blueGray transition-all mr-3" />
+                      <RxCheck className="w-6 h-6 p-[2px] text-lg rounded-full flex-shrink-0 text-primary bg-mintCream group-hover:text-lightGreen group-hover:bg-blueGray transition-all mr-3" />
                       <span className="text-base leading-normal font-normal">{feature}</span>
                     </div>
                   ))}
@@ -176,4 +177,4 @@ const Pricing = () => {
   );
 };
 
-export default Pricing;
+export default Pricing; 

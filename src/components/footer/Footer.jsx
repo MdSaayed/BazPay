@@ -21,11 +21,11 @@ const Footer = () => {
                         <div className="footer-links">
                             <h3 className="text-lg mb-4 text-primary font-medium">Product</h3>
                             <ul className="space-y-2">
-                                <li><Link to="/home-v1" className="text-[#535862] text-base font-normal hover:text-primary mb-3 block">Home V1</Link></li>
-                                <li><Link to="/home-v2" className="text-[#535862] text-base font-normal hover:text-primary mb-3 block">Home V2</Link></li>
-                                <li><Link to="/features" className="text-[#535862] text-base font-normal hover:text-primary mb-3 block">Features</Link></li>
-                                <li><Link to="/pricing" className="text-[#535862] text-base font-normal hover:text-primary mb-3 block">Pricing</Link></li>
-                                <li><Link to="/pricing-details" className="text-[#535862] text-base font-normal hover:text-primary mb-3 block">Pricing details (CMS)</Link></li>
+                                <li><Link to="/home-v1" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">Home V1</Link></li>
+                                <li><Link to="/home-v2" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">Home V2</Link></li>
+                                <li><Link to="/features" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">Features</Link></li>
+                                <li><Link to="/pricing" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">Pricing</Link></li>
+                                <li><Link to="/pricing-details" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">Pricing details (CMS)</Link></li>
                             </ul>
                         </div>
 
@@ -33,10 +33,10 @@ const Footer = () => {
                         <div className="footer-links">
                             <h3 className="text-lg mb-4 text-primary font-medium">Resources</h3>
                             <ul className="space-y-2">
-                                <li><Link to="/about" className="text-[#535862] text-base font-normal hover:text-primary mb-3 block">About</Link></li>
-                                <li><Link to="/blog" className="text-[#535862] text-base font-normal hover:text-primary mb-3 block">Blog</Link></li>
-                                <li><Link to="/blog-details" className="text-[#535862] text-base font-normal hover:text-primary mb-3 block">Blog details (CMS)</Link></li>
-                                <li><Link to="/contact" className="text-[#535862] text-base font-normal hover:text-primary mb-3 block">Contact</Link></li>
+                                <li><Link to="/about" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">About</Link></li>
+                                <li><Link to="/blog" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">Blog</Link></li>
+                                <li><Link to="/blog-details" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">Blog details (CMS)</Link></li>
+                                <li><Link to="/contact" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">Contact</Link></li>
                             </ul>
                         </div>
 
@@ -44,11 +44,11 @@ const Footer = () => {
                         <div className="footer-links">
                             <h3 className="text-lg mb-4 text-primary font-medium">Utilities</h3>
                             <ul className="space-y-2">
-                                <li><Link to="/license" className="text-[#535862] text-base font-normal hover:text-primary mb-3 block">License</Link></li>
-                                <li><Link to="/password-protection" className="text-[#535862] text-base font-normal hover:text-primary mb-3 block">Password Protection</Link></li>
-                                <li><Link to="/privacy-policy" className="text-[#535862] text-base font-normal hover:text-primary mb-3 block">Privacy Policy</Link></li>
-                                <li><Link to="/terms-of-services" className="text-[#535862] text-base font-normal hover:text-primary mb-3 block">Terms of Services</Link></li>
-                                <li><Link to="/404" className="text-[#535862] text-base font-normal hover:text-primary mb-3 block">404</Link></li>
+                                <li><Link to="/license" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">License</Link></li>
+                                <li><Link to="/password-protection" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">Password Protection</Link></li>
+                                <li><Link to="/privacy-policy" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">Privacy Policy</Link></li>
+                                <li><Link to="/terms-of-services" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">Terms of Services</Link></li>
+                                <li><Link to="/404" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">404</Link></li>
                             </ul>
                         </div>
                     </div>

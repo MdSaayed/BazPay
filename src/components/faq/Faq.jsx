@@ -81,9 +81,9 @@ const Faq = () => {
                                         transition={{ duration: 0.3 }}
                                     >
                                         {openIndex === index ? (
-                                            <AiOutlineMinus className="border-2 border-[#A4A7AE] text-[#A4A7AE] rounded-full p-1 text-3xl font-semibold" />
+                                            <AiOutlineMinus className="border-2 border-coolGray text-coolGray rounded-full p-1 text-3xl font-semibold" />
                                         ) : (
-                                            <AiOutlinePlus className="border-2 border-[#A4A7AE] text-[#A4A7AE] rounded-full p-1 text-3xl font-semibold" />
+                                            <AiOutlinePlus className="border-2 border-coolGray text-coolGray rounded-full p-1 text-3xl font-semibold" />
                                         )}
                                     </motion.span>
                                 </button>
@@ -97,7 +97,7 @@ const Faq = () => {
                                             transition={{ duration: 0.3 }}
                                             className="overflow-hidden"
                                         >
-                                            <div className="text-[#535862] font-normal leading-normal text-base mt-2">
+                                            <div className="text-davyGray font-normal leading-normal text-base mt-2">
                                                 <p>{faq.answer}</p>
                                             </div>
                                         </motion.div>

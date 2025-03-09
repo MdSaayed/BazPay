@@ -12,8 +12,8 @@ const Pricing = () => {
         <>
             {/* Pricing */}
             <section className='bg-lightGrayishWhite'>
-                <div className="container py-24 bg-[#F0EEF4] rounded-3xl">
-                    <Subtitle subTitle='Pricing' borderColor='border-[#ECFFCD]' bgColor='bg-[#ECFFCD]' />
+                <div className="container py-24 bg-lightLavender rounded-3xl">
+                    <Subtitle subTitle='Pricing' borderColor='border-paleGreen' bgColor='bg-paleGreen' />
                     <Title title={<>Give it a shot for free and take charge of <span>your finances!</span></>} maxWidth="max-w-[768px]" size='text-5xl' fontWeight='font-medium' />
 
                     {/* Cards */}
@@ -32,7 +32,7 @@ const Pricing = () => {
             {/* Blog Section */}
             <section className="bg-lightGrayishWhite">
                 <div className="container py-24">
-                    <Subtitle subTitle='Latest posts' color='text-[#535862]' bgColor='bg-[#ECFFCD]' borderColor='border-[#ECFFCD]' />
+                    <Subtitle subTitle='Latest posts' color='text-davyGray' bgColor='bg-paleGreen' borderColor='border-paleGreen' />
                     <Title title="Latest blog posts" />
                     <Description text={<>Discover the latest trends, insights, and tips in the world of finance and technology with the MezPay Blog.</> } maxWidth='max-w-[650px]'/>
 

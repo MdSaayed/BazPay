@@ -20,8 +20,8 @@ const About = () => {
                     {/* Subtitle */}
                     <Subtitle 
                         subTitle="About us" 
-                        borderColor="border-[#ECFFCD]" 
-                        bgColor="bg-[#FBFEF7]" 
+                        borderColor="border-paleGreen" 
+                        bgColor="bg-mintCream" 
                     />
 
                     {/* Title */}

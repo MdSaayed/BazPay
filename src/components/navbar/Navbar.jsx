@@ -59,8 +59,8 @@ const Navbar = () => {
         </nav>
 
         {/* Mobile menu */}
-        <div className={cn( "mobile-menu absolute top-[70px] left-0 w-full px-[10px] sm:px-5 md:px-10 lg:hidden transition-all duration-300 ease-in-out bg-white",
-          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+        <div className={cn( "mobile-menu absolute z-50 top-[70px] left-0 w-full px-[10px] sm:px-5 md:px-10 pb-4 lg:hidden transition-all duration-300 ease-in-out bg-white",
+          isOpen ? "max-h-auto opacity-100" : "max-h-0 opacity-0 overflow-hidden"
         )}>
           <div className="pb-3 space-y-1">
             <NavLink to="/" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Home</NavLink>
@@ -76,7 +76,9 @@ const Navbar = () => {
             </NavLink>
             <NavLink to="/terms" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Term of services
             </NavLink>
-            <NavLink to="/get-started" className="mob-menu-btn"> Get Started → </NavLink>
+            <div className="">
+              <NavLink to="/get-started" className="mob-menu-btn mt-6"> Get Started → </NavLink>
+            </div>
           </div>
         </div>
       </div>

@@ -42,7 +42,7 @@ const ComparePlans = () => {
 
             {/* Feature Rows */}
             {features.map((feature, idx) => (
-            <div key={feature} className={`grid grid-cols-4 gap-4 px-6 py-4 rounded ${idx % 2 === 0 ? 'bg-[#F8FFEE]' : ''}`}>
+            <div key={feature} className={`grid grid-cols-4 gap-4 px-6 py-4 rounded ${idx % 2 === 0 ? 'bg-lightAloe' : ''}`}>
                 <div className="font-medium min-w-[200px]">{feature}</div>
                 {plans.map((plan) => (
                 <div key={`${plan.name}-${idx}`} className="text-base font-normal text-primary min-w-[150px]">

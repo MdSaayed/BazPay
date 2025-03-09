@@ -10,7 +10,34 @@ Currently, two official plugins are available:
 
 <!-- THEMEFOREST STANDARD -->
 
-<!-- blog card -->
-<!-- blog grid -->
-<!-- blog details -->
-<!-- blog v1 -->
+<!-- Blog Card -->
+<!-- Blog Grid -->
+<!-- Blog Details -->
+<!-- Blog V1 -->
+<!-- Team Slider -->
+<!-- Brand Logo Slider -->
+<!-- Financial Overview -->
+<!-- Premium Cards Section -->
+<!-- Features Section -->
+<!-- Constantly Section -->
+<!-- Pricing Section -->
+<!-- Faqs Section -->#
+<!-- Blog Section -->
+
+<!-- Home cta -->
+<!-- Home V1 Hero -->
+<!-- Home V1 Stats -->
+<!-- Home V1 Security Features  -->
+<!-- Home V1 Security Features  -->
+<!-- Home V1 Features Section -->
+<!-- Home V1 Faqs -->
+<!-- Home V1 PricingCard -->
+<!-- Home V1 Cta -->
+
+<!-- About Hero -->
+<!-- About Stats -->
+<!-- About Stats -->
+<!-- About Core Values -->
+
+<!-- Blog Section -->
+
