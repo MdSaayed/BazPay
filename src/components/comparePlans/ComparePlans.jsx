@@ -1,22 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CheckIcon from "/assets/icons/check-compare.svg";
 import CloseIcon from "/assets/icons/close-compare.svg";
 import Button from '../ui/Button';
+import ErrorMessage from '../errorMessage/ErrorMessage';
+import LoadingAnimation from '../loadingAnimation/LoadingAnimation';
 
 const ComparePlans = () => {
-  // Plan configurations
-  const plans = [
-    { name: 'Basic', price: '$19/mo', features: [0, 2, 4, 6, 8] },
-    { name: 'Business', price: '$99/mo', features: [0, 1, 2, 3, 4, 5, 6, 8] },
-    { name: 'Enterprise', price: '$409/mo', features: Array.from({ length: 9 }, (_, i) => i) },
-  ];
+  const [plans, setPlans] = useState([]);
+  const [error, setError] = useState(""); // State to handle any errors during the fetch
+  const [loading, setLoading] = useState(true); // State to manage loading state
 
-  // Feature list
-  const features = [
-    'Email support', 'Realtime analytics', 'User analytics', 'Funnel optimization', 
-    'Automated', 'Collaboration tools', 'Advanced charts', 'Team goal setting', 
-    'Real-time team reports'
-  ];
+  // Fetch Data when the component mounts
+  useEffect(() => {
+    fetch("/pricingV1.json")
+      .then((res) => {
+        if (!res.ok) throw new Error(`Failed to fetch pricing data: ${res.statusText}`);
+        return res.json();
+      })
+      .then((data) => {
+        setPlans(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(error.message);
+        setLoading(false);
+      });
+  }, []);
+
+  // Extract all unique features from plans
+  const allFeatures = plans.flatMap((plan) => plan?.features || []);
+  const featureConfig = [...new Set(allFeatures)]; // Remove duplicates
+
+  // Conditional rendering for loading or error state
+  if (loading) return <LoadingAnimation />;
+  if (error) return <ErrorMessage error={error} />;
 
   return (
     <section className="bg-lightGrayishWhite">
@@ -26,36 +43,43 @@ const ComparePlans = () => {
 
         {/* Pricing Cards Grid */}
         <div className="flex flex-wrap items-center justify-end gap-8">
-            {plans.map((plan) => (
-                <div key={plan.name} className={`border rounded-lg p-8 block min-w-1/2 md:min-w-[200px]'}`}>
-                    <h3 className="text-2xl text-center font-bold mb-2">{plan.name}</h3>
-                    <p className="text-4xl text-center font-bold mb-6">{plan.price}</p>
-                    <Button text='Add to card' fullWidth={true} />
-                </div>
-            ))}
+          {plans?.map((plan) => (
+            <div key={plan?.name} className="border rounded-lg p-8 min-w-full md:min-w-[250px]">
+              <h3 className="text-2xl text-center font-bold mb-2">{plan?.title}</h3>
+              <p className="text-4xl text-center font-bold mb-6">{plan?.price}</p>
+              <Button 
+                text='Add to Cart' 
+                bgColor='bg-whiteSmoke' 
+                hoverBgColor='hover:bg-lightGreen' 
+                border='border-whiteSmoke' 
+                hoverBorder='hover:border-lightGreen' 
+                fullWidth={true} 
+              />
+            </div>
+          ))}
         </div>
 
         {/* Feature Comparison Table */}
-        <div className="overflow-x-auto">
-        <div className="min-w-[600px]">
-            <h3 className="text-3xl font-semibold text-primary my-8">Feature Category</h3>
+        <div className="overflow-x-auto mt-10">
+          <div className="min-w-[600px]">
+            <h3 className="text-3xl font-semibold text-primary my-8">Feature Comparison</h3>
 
             {/* Feature Rows */}
-            {features.map((feature, idx) => (
-            <div key={feature} className={`grid grid-cols-4 gap-4 px-6 py-4 rounded ${idx % 2 === 0 ? 'bg-lightAloe' : ''}`}>
+            {featureConfig?.map((feature, idx) => (
+              <div key={feature} className={`grid grid-cols-4 gap-4 px-6 py-4 rounded ${idx % 2 === 0 ? 'bg-lightAloe' : ''}`}>
                 <div className="font-medium min-w-[200px]">{feature}</div>
-                {plans.map((plan) => (
-                <div key={`${plan.name}-${idx}`} className="text-base font-normal text-primary min-w-[150px]">
-                    {plan.features.includes(idx) ? (
-                    <img src={CheckIcon} alt="Included" className="h-6 w-6 mx-auto" />
+                {plans?.map((plan) => (
+                  <div key={`${plan?.name}-${idx}`} className="text-base font-normal text-primary min-w-[150px] text-center">
+                    {plan?.features?.includes(feature) ? (
+                      <img src={CheckIcon} alt="Included" className="h-6 w-6 mx-auto" />
                     ) : (
-                    <img src={CloseIcon} alt="Not included" className="h-6 w-6 mx-auto" />
+                      <img src={CloseIcon} alt="Not included" className="h-6 w-6 mx-auto" />
                     )}
-                </div>
+                  </div>
                 ))}
-            </div>
+              </div>
             ))}
-        </div>
+          </div>
         </div>
       </div>
     </section>

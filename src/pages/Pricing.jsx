@@ -32,12 +32,25 @@ const Pricing = () => {
             {/* Blog Section */}
             <section className="bg-lightGrayishWhite">
                 <div className="container py-24">
-                    <Subtitle subTitle='Latest posts' color='text-davyGray' bgColor='bg-paleGreen' borderColor='border-paleGreen' />
-                    <Title title="Latest blog posts" />
-                    <Description text={<>Discover the latest trends, insights, and tips in the world of finance and technology with the MezPay Blog.</> } maxWidth='max-w-[650px]'/>
+                    
+                    {/* Section Header */}
+                    <Subtitle 
+                        subTitle="Latest Posts" 
+                        color="text-davyGray" 
+                        bgColor="bg-paleGreen" 
+                        borderColor="border-paleGreen" 
+                    />
+                    <Title title="Latest Blog Posts" />
 
-                    {/* Blog Grid */}
+                    {/* Blog Section Description */}
+                    <Description 
+                        text={<>Discover the latest trends, insights, and tips in the world of finance and technology with the MezPay Blog.</>} 
+                        maxWidth="max-w-[650px]" 
+                    />
+
+                    {/* Blog Post Grid Component */}
                     <BlogGrid />
+                    
                 </div>
             </section>
         </>
