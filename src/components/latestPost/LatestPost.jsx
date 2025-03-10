@@ -47,7 +47,6 @@ const LatestPost = () => {
   if (error) return <ErrorMessage error={error} />;
 
 
-
   return (
     <section className="bg-lightGrayishWhite">
       <div className="container py-24">
@@ -57,7 +56,7 @@ const LatestPost = () => {
           
           {/* Category Filter Buttons */}
           <div className="flex flex-wrap space-x-4 mt-10 lg:mt-4 w-full gap-2">
-            {categories.map(category => (
+            {categories?.map(category => (
               <button 
                 key={category} 
                 onClick={() => setFilter(category)}
@@ -76,7 +75,7 @@ const LatestPost = () => {
 
         {/* Blog Posts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {getFilteredPosts().map((post, idx) => (
+          {getFilteredPosts()?.map((post, idx) => (
             <article key={idx} className="border border-whiteSmoke rounded-3xl overflow-hidden group">
               {/* Blog Post Image */}
               {post?.image && (
