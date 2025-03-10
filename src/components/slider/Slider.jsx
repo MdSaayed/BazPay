@@ -6,9 +6,9 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 
 const Slider = ({
-  items,
-  imageHeight = 'h-auto', // Height of the images
-  imageWidth = 'w-auto', // Width of the images
+  items = [], // Default empty array to prevent errors
+  imageHeight = 'h-full', // Height of the images
+  imageWidth = 'w-full', // Width of the images
   spaceBetween = 24, // Space between slides
   direction = 'horizontal', // Swiper direction
   slidesPerViewMobile = 2, // Slides per view for mobile
@@ -46,12 +46,12 @@ const Slider = ({
         },
       }}
     >
-      {items.concat(items).map((item, index) => (
+      {(items?.length > 0 ? items.concat(items) : []).map((item, index) => (
         <SwiperSlide key={index}>
           <img
             src={item}
             alt={`Slide ${index + 1}`}
-            className={`${imageHeight} ${imageWidth}`} // Dynamic height and width
+            className={`${imageHeight} ${imageWidth} object-cover`} // Dynamic height and width
           />
         </SwiperSlide>
       ))}
@@ -61,7 +61,7 @@ const Slider = ({
 
 // Props validation
 Slider.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.string).isRequired, // Array of image URLs
+  items: PropTypes.arrayOf(PropTypes.string), // Array of image URLs
   imageHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), // Height of images
   imageWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), // Width of images
   spaceBetween: PropTypes.number, // Space between slides
@@ -77,6 +77,7 @@ Slider.propTypes = {
 
 // Default props
 Slider.defaultProps = {
+  items: [], // Ensures `items` is always defined
   imageHeight: 'auto',
   imageWidth: 'auto',
   spaceBetween: 10,

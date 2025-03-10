@@ -44,7 +44,7 @@ const Pricing = () => {
 
                     {/* Blog Section Description */}
                     <Description 
-                        text={<>Discover the latest trends, insights, and tips in the world of finance and technology with the MezPay Blog.</>} 
+                        text={<>Discover the latest trends, insights, and tips in the world of finance and technology with the BazPay Blog.</>} 
                         maxWidth="max-w-[650px]" 
                     />
 

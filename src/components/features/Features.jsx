@@ -24,7 +24,7 @@ const FeaturesSection = () => {
           
           {/* Description of the section */}
           <Description
-            text="MezPay improves your finances with quick transfers, budgeting tools, and robust security for investing, saving, and managing expenses."
+            text="BazPay improves your finances with quick transfers, budgeting tools, and robust security for investing, saving, and managing expenses."
             maxWidth="max-w-[768px] mx-auto"
           />
         </div>
@@ -36,7 +36,7 @@ const FeaturesSection = () => {
             {/* Card One - Multi-Account Management */}
             <div className="bg-lightAloe p-4 rounded-2xl shadow-sm">
               <img src={LineChartImg} alt="Multi-Account Management" />
-              <div className="mt-4">
+              <div className="my-4">
                 <h4 className="text-primary font-semibold text-xl">Multi-Account Management</h4>
                 <p className="text-primary text-base font-roboto mt-2">View all your bank accounts in one dashboard, simplifying your financial management.</p>
               </div>
@@ -45,7 +45,7 @@ const FeaturesSection = () => {
             {/* Card Two - Live Analytics */}
             <div className="bg-lightLavender p-4 rounded-2xl shadow-sm">
               <img src={BalanceImg} alt="Live Analytics" />
-              <div className="mt-4">
+              <div className="my-4">
                 <h4 className="text-primary font-semibold text-xl">Live Analytics</h4>
                 <p className="text-primary text-base font-roboto mt-2">Gain financial insights with interactive dashboards and reports for quick, data-driven decisions.</p>
               </div>
@@ -56,8 +56,8 @@ const FeaturesSection = () => {
               <div className="mb-3">
                 <img className="bg-linenWhite rounded p-3 w-12 h-12" src={LightIcon} alt="Light Icon" />
               </div>
-              <div className="mt-4">
-                <h4 className="text-primary font-semibold text-xl">Live Analytics</h4>
+              <div className="my-4">
+                <h4 className="text-primary font-semibold text-xl">Mastercard and credit cards are pretty handy!</h4>
               </div>
               <img src={CardImg} alt="Card Icon" />
             </div>
@@ -67,7 +67,7 @@ const FeaturesSection = () => {
               <div className="mb-3">
                 <img className="bg-linenWhite rounded p-3 w-12 h-12" src={CardIcon} alt="Card Icon" />
               </div>
-              <div className="mt-4">
+              <div className="my-4">
                 <h4 className="text-primary font-semibold text-xl">Send money here to anywhere</h4>
               </div>
               <img src={StatusImg} alt="Status Image" />
@@ -76,10 +76,10 @@ const FeaturesSection = () => {
 
           {/* Right Side Big Card - Secure Transfers */}
           <div className="bg-primary text-white p-5 rounded-3xl">
-            <img src={DashboardImg} alt="Secure Transfers" />
+            <img src={DashboardImg} className="mt-12" alt="Secure Transfers" />
             <div className="mt-20">
               <h3 className="text-3xl text-softWhite font-semibold">Secure Transfers Anytime, Anywhere</h3>
-              <p className="text-softWhite text-base mt-4">Seamlessly send and receive payments with top-notch encryption, ensuring your money stays safe.</p>
+              <p className="text-softWhite text-base my-4">Seamlessly send and receive payments with top-notch encryption, ensuring your money stays safe.</p>
             </div>
           </div>
         </div>

@@ -69,27 +69,17 @@ body {
 }
 
 
-
-
-
-
-/* Loading Time Off Scrolling */
-.no-scroll {
-    overflow: hidden;
-    height: 100%;
-  }
-
 /* Card Shadow */
 .card-shadow {
     box-shadow: 0px 32px 64px -12px rgba(10, 13, 18, 0.14), 
                 0px 5px 5px -2.5px rgba(10, 13, 18, 0.04);
   }
 
-/*  */
-  .premium-card-bg {
-    background-image: url('/assets/img/global/phone-mockup.png');
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: contain;
-  }
+/* Premium Card Slider Bg */
+.premium-card-bg {
+background-image: url('/assets/img/global/phone-mockup.png');
+background-repeat: no-repeat;
+background-position: bottom;
+background-size: contain;
+}
   

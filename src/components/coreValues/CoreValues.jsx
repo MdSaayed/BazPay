@@ -20,11 +20,11 @@ const CoreValues = () => {
           borderColor="border-whiteSmoke" 
         />
         <Title 
-          title={<>What drives MezPay, our core <span>values</span></>} 
+          title={<>What drives BazPay, our core <span>values</span></>} 
           maxWidth="max-w-[560px]" 
         />
         <Description 
-          text="At MezPay, our values shape everything we do, ensuring we deliver a platform that truly transforms how you manage your finances." 
+          text="At BazPay, our values shape everything we do, ensuring we deliver a platform that truly transforms how you manage your finances." 
         />
         
         {/* Grid Layout for Core Values */}
@@ -78,7 +78,7 @@ const CoreValues = () => {
             <img 
               className="w-full h-full object-contain rounded-3xl" 
               src={PhoneImg} 
-              alt="MezPay Mobile Interface"
+              alt="BazPay Mobile Interface"
             />
           </div>
 

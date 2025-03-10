@@ -1,91 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RxCheck } from "react-icons/rx";
 import Description from "../description/Description";
 import Title from "../title/Title";
-
-const PRICING_OPTIONS = [
-  {
-    name: "Basic Plan",
-    description: "Essential tools to get started.",
-    featuresTitle: "FEATURES",
-    featuresDescription: "Perfect for individuals and small businesses.",
-    monthlyPrice: 12,
-    annualPrice: 9,
-    isPopular: false,
-    features: {
-      monthly: [
-        "Access to all core features",
-        "5GB Cloud Storage",
-        "Basic analytics & reports",
-        "Community support",
-        "Limited integrations",
-        "Standard security",
-        "Mobile access",
-        "Basic automation",
-        "Single user account",
-        "Regular updates",
-        "Email notifications",
-        "Basic API access"
-      ],
-      annual: [
-        "Access to all core features",
-        "50GB Cloud Storage",
-        "Advanced analytics & reports",
-        "Priority email support",
-        "All premium integrations",
-        "Enhanced security with SSL",
-        "Offline mode support",
-        "Workflow automation",
-        "Team collaboration",
-        "AI-powered insights",
-        "Early feature access",
-        "Dedicated account manager"
-      ]
-    }
-  },
-  {
-    name: "Business Plan",
-    description: "Advanced features for growing teams.",
-    featuresTitle: "FEATURES",
-    featuresDescription: "Best choice for businesses scaling rapidly.",
-    monthlyPrice: 25,
-    annualPrice: 19,
-    isPopular: true,
-    features: {
-      monthly: [
-        "Everything in Basic Plan",
-        "10 Team Members",
-        "10GB Cloud Storage",
-        "Customizable templates",
-        "Multi-device sync",
-        "24/7 customer support",
-        "Advanced API access",
-        "Role-based permissions",
-        "Custom reports",
-        "Priority email support",
-        "Advanced automation",
-        "Scheduled backups"
-      ],
-      annual: [
-        "Everything in Basic Plan",
-        "Unlimited Team Members",
-        "200GB Cloud Storage",
-        "Advanced workflow automation",
-        "AI-powered analytics",
-        "Dedicated account manager",
-        "SLA-backed uptime guarantee",
-        "Unlimited API access",
-        "White-label branding",
-        "SSO & advanced security",
-        "Custom onboarding",
-        "Priority feature requests"
-      ]
-    }
-  }
-];
+import LoadingAnimation from "../loadingAnimation/LoadingAnimation";
+import ErrorMessage from "../errorMessage/ErrorMessage";
+import { Link } from "react-router-dom";
 
 const Pricing = () => {
   const [isAnnual, setIsAnnual] = useState(false);
+  const [data, setData] = useState([]); // State to hold the pricing data
+  const [error, setError] = useState(""); // State to handle any errors during the fetch
+  const [loading, setLoading] = useState(true); // State to manage loading state
+
+  // Fetch Data when the component mounts
+  useEffect(() => {
+    // Fetch pricing data from the JSON file
+    fetch("/pricingV1.json")
+      .then((res) => {
+        // Check if the response is successful
+        if (!res.ok) throw new Error(`Failed to fetch pricing data: ${res.statusText}`);
+        return res.json(); // Parse the response as JSON
+      })
+      .then((data) => {
+        setData(data); // Set the pricing data into state
+        setLoading(false); // Set loading to false once data is fetched
+      })
+      .catch((error) => {
+        setError(error.message); // Set error if the fetch fails
+        setLoading(false); // Set loading to false if there was an error
+      });
+  }, []); // Empty dependency array means this effect runs only once when the component mounts
+
+  // Conditional rendering for loading or error state
+  if (loading) return <LoadingAnimation />; // Show loading animation while fetching data
+  if (error) return <ErrorMessage error={error} />; // Show error message if fetch fails
 
   return (
     <section className="bg-lightGrayishWhite">
@@ -95,11 +43,11 @@ const Pricing = () => {
           <span className='text-davyGray font-medium text-sm leading-normal bg-paleGreen px-4 py-2 rounded-3xl'>Pricing</span>
         </div>
         <Title title={<>Plans that fit <span className="text-limeGreen">your scale</span></>} />
-        <Description text={<>Simple, transparent pricing that grows with you. Try<br/> any plan free for 30 days.</>} />
+        <Description text={'Simple, transparent pricing that grows with you. Try any plan free for 30 days.'} maxWidth="max-w-[520px]" />
 
         {/* Pricing Toggle Button */}
         <div className="flex items-center justify-center mt-12">
-          <div className="relative flex items-center bg-mintCream gap-2 rounded-full p-2 shadow-md">
+          <div className="relative flex flex-wrap justify-center items-center bg-mintCream gap-2 rounded-3xl p-3 md:p-2">
             <button 
               onClick={() => setIsAnnual(false)} 
               className={`px-4 py-2 text-base font-normal rounded-full transition-all ${!isAnnual ? "bg-primary text-white shadow" : "text-primary"}`}
@@ -120,16 +68,16 @@ const Pricing = () => {
 
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-2 md:px-6 py-8 rounded-3xl bg-lightLavender mt-20">
-          {PRICING_OPTIONS.map((plan, index) => (
+          {data.slice(0,2).map((plan, index) => (
             <div 
               key={index} 
-                className={`group pricing-card rounded-2xl py-8 text-primary hover:bg-primary hover:text-softWhite transition-all cursor-pointer `}
+              className={`group pricing-card rounded-2xl py-8 text-primary hover:bg-primary hover:text-softWhite transition-all cursor-pointer`}
             >
               {/* Card Header */}
               <div className="flex justify-between flex-wrap gap-4 items-start px-8">
                 <div>
                   <div className="flex items-center gap-3">
-                    <h2 className="text-2xl font-bold">{plan.name}</h2>
+                    <h2 className="text-2xl font-bold">{plan.title}</h2>
                     {plan.isPopular && (
                       <span className="px-3 py-1 text-xs border text-primary group-hover:text-softWhite bg-limeGreen group-hover:bg-transparent border-paleGreen rounded-full transition-all">
                         Popular
@@ -142,7 +90,7 @@ const Pricing = () => {
                 <div className="flex items-center">
                   <span className="text-4xl font-medium">$</span>
                   <span className="text-5xl font-medium">
-                    {isAnnual ? plan.annualPrice : plan.monthlyPrice}
+                    {isAnnual ? plan.price.annual : plan.price.monthly}
                   </span>
                   <span className="ml-2 text-base opacity-80">per month</span>
                   {isAnnual && <span className="ml-2 text-sm text-green-500">(Save 20%)</span>}
@@ -165,9 +113,9 @@ const Pricing = () => {
 
               {/* CTA Button */}
               <div className="px-8">
-                <button className="get-started-btn block w-full rounded-3xl p-2 mt-8 text-primary group-hover:bg-lightGreen hover:text-primary border border-primary group-hover:border-lightGreen group-hover:bg-opacity-90 transition-all">
+                <Link to={`/pricing/${plan?.id}`} className="get-started-btn text-center block w-full rounded-3xl p-2 mt-8 text-primary group-hover:bg-lightGreen hover:text-primary border border-primary group-hover:border-lightGreen group-hover:bg-opacity-90 transition-all">
                   Get started
-                </button>
+                </Link>
               </div>
             </div>
           ))}
@@ -177,4 +125,4 @@ const Pricing = () => {
   );
 };
 
-export default Pricing; 
+export default Pricing;

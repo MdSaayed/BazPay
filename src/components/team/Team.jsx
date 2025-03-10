@@ -13,122 +13,117 @@ import LoadingAnimation from './../loadingAnimation/LoadingAnimation';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 
 const Team = () => {
-  // State to store team members data
+  // State hooks for managing the data and status of team members
   const [members, setMembers] = useState([]);
-  // Loading state to track if data is being fetched
   const [loading, setLoading] = useState(true);
-  // Error state to store any error messages
   const [error, setError] = useState("");
-  // State to store Swiper instance
-  const [swiper, setSwiper] = useState(null);
-  // Ref to store Swiper wrapper for handling hover events
-  const swiperWrapperRef = useRef(null);
+  const [swiper, setSwiper] = useState(null); // Store swiper instance
+  const swiperWrapperRef = useRef(null); // Ref to the swiper wrapper DOM element
 
-  // Fetch team data from JSON file when the component mounts
   useEffect(() => {
+    // Fetch team members from the server
     fetch("/team.json")
       .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch team members");
-        return res.json();
+        if (!res.ok) throw new Error("Failed to fetch team members"); // Check if the response is okay
+        return res.json(); // Parse the response JSON
       })
       .then((data) => {
-        setMembers(data || []); // Ensure data is an array to avoid errors
-        setLoading(false);
+        setMembers(data || []); // Store the data in state
+        setLoading(false); // Set loading to false once data is fetched
       })
       .catch((error) => {
-        setError(error.message); // Store error message
-        setLoading(false);
+        setError(error.message); // Set error message if fetching fails
+        setLoading(false); // Stop loading on error
       });
-  }, []);
+  }, []); // Empty dependency array ensures this effect only runs once on mount
 
-  // Effect to control Swiper autoplay behavior on hover
+  // **IMMEDIATE PAUSE ON HOVER**
   useEffect(() => {
-    const wrapper = swiperWrapperRef.current;
-    
-    if (!swiper || !wrapper) return;
+    // Ensure swiper instance and wrapper are available before proceeding
+    if (!swiper || !swiperWrapperRef.current) return;
 
-    // Function to stop autoplay when mouse enters the swiper
+    const wrapper = swiperWrapperRef.current;
+
+    // Stop autoplay immediately when the mouse enters the swiper container
     const stopAutoplay = () => {
       if (swiper) {
-        const swiperTranslate = swiper.getTranslate(); // Get current translate position
-        swiper.setTranslate(swiperTranslate); // Set the same position to freeze slides
-        swiper?.autoplay?.stop(); // Stop autoplay (optional chaining used)
+        swiper.autoplay.stop(); // Stop autoplay instantly
+        swiper.setTranslate(swiper.getTranslate()); // Freeze position immediately (no smooth transition)
       }
     };
 
-    // Function to start autoplay when mouse leaves the swiper
+    // Start autoplay again when mouse leaves the swiper container
     const startAutoplay = () => {
       if (swiper) {
-        swiper.slideTo(swiper.activeIndex, 3000, false); // Resume from the last active slide
-        swiper?.autoplay?.start(); // Start autoplay again (optional chaining used)
+        swiper.slideTo(swiper.activeIndex, 0, false); // Jump to the current slide without transition
+        swiper.autoplay.start(); // Resume autoplay
       }
     };
-    
-    startAutoplay(); // Ensure autoplay starts initially
 
-    // Add event listeners for hover effects
-    wrapper.addEventListener("mouseenter", stopAutoplay);
-    wrapper.addEventListener("mouseleave", startAutoplay);
+    // Add event listeners for mouse enter and leave
+    wrapper.addEventListener("mouseenter", stopAutoplay); // Stop autoplay on hover
+    wrapper.addEventListener("mouseleave", startAutoplay); // Resume autoplay on mouse leave
 
-    // Cleanup event listeners when component unmounts
+    // Cleanup function to remove event listeners when the component unmounts or swiper changes
     return () => {
       wrapper.removeEventListener("mouseenter", stopAutoplay);
       wrapper.removeEventListener("mouseleave", startAutoplay);
     };
-  }, [loading]); // Runs only when `loading` state changes
+  }, [swiper]); // Run this effect whenever the swiper instance is updated
 
-  // Loading animation and error message
-  if (loading) return <LoadingAnimation />;
-  if (error) return <ErrorMessage />;
+  if (loading) return <LoadingAnimation />; // Show loading animation while fetching data
+  if (error) return <ErrorMessage />; // Show error message if fetching fails
 
   return (
     <section className="bg-lightGrayishWhite py-20">
-      <div className="wrapper mx-auto p-0">
+      <div className="max-w-[1440px] mx-auto p-0">
+        {/* Section for title and subtitle */}
         <div className="px-[10px] sm:px-5 md:px-10 xl:px-20">
-          {/* Section heading */}
           <Subtitle subTitle="Team" bgColor="bg-paleGreen" borderColor="border-paleGreen" />
           <Title title={<>Meet the incredible <span>team</span></>} />
-          <Description text="We pride ourselves of being the best of the best and our team encapsulates that." maxWidth="max-w-[536px]" />
+          <Description text="We pride ourselves on being the best of the best, and our team encapsulates that." maxWidth="max-w-[536px]" />
         </div>
 
-        {/* Swiper Slider wrapper */}
+        {/* Swiper component for displaying team members */}
         <div ref={swiperWrapperRef} className="mt-10">
           <Swiper
-            onSwiper={setSwiper} // Store Swiper instance in state
-            loop={true} // Enable infinite looping
-            speed={3000} // Set transition speed
-            slidesPerView={'auto'} // Automatically adjust slides per view
+            onSwiper={setSwiper} // This function will get called with the swiper instance
+            loop={true} // Enable infinite loop
+            speed={3000} // Set speed of transition between slides
+            slidesPerView={'auto'} // Slides per view is auto to make it responsive
             autoplay={{
-              delay: 0, // No delay between slides
-              disableOnInteraction: false, // Keep autoplay enabled even when user interacts
-              reverseDirection: false, // Normal slide direction
+              delay: 0, // No delay to keep it responsive
+              disableOnInteraction: false, // Keep autoplay active even when the user interacts
+              reverseDirection: false, // Keep the default direction (left to right)
             }}
-            modules={[Autoplay]}
+            modules={[Autoplay]} // Enable autoplay module for Swiper
             className="team-swiper w-full"
             breakpoints={{
-              320: { slidesPerView: 1, spaceBetween: 15 }, // Mobile view
-              768: { slidesPerView: 2, spaceBetween: 20 }, // Tablet view
-              1024: { slidesPerView: 4, spaceBetween: 30 }, // Desktop view
+              // Responsive breakpoints for different screen sizes
+              320: { slidesPerView: 1, spaceBetween: 15 },
+              768: { slidesPerView: 2, spaceBetween: 20 },
+              1024: { slidesPerView: 4, spaceBetween: 30 },
             }}
           >
-            {/* Duplicating members array to create an infinite loop effect */}
+            {/* Loop through members and create a SwiperSlide for each one */}
             {members.concat(members).map((member, index) => (
               <SwiperSlide key={`${member?.name}-${index}`}>
+                {/* Each slide represents a team member */}
                 <div className="card p-2 rounded-lg border-2 border-whiteSmoke hover:shadow-lg transition-shadow duration-300">
-                  {/* Team member image */}
+                  {/* Display the team member's image */}
                   <img 
-                    src={member?.img || "/default-image.jpg"} // Provide a fallback image
+                    src={member?.img || "/default-image.jpg"} // Fallback to default image if not available
                     alt={member?.name || "Team member"} 
-                    className="w-full h-64 object-cover rounded-lg"
+                    className="w-full h-full object-cover rounded-lg"
                   />
-                  {/* Profile info */}
+                  {/* Display the member's name, profession, and social links */}
                   <div className="profile-info mt-6 flex justify-between items-center">
                     <div>
                       <h3 className="text-xl font-semibold text-primary">{member?.name || "Unknown"}</h3>
                       <p className="text-davyGray mt-1">{member?.profession || "N/A"}</p>
                     </div>
-                    {/* Social media links */}
                     <div className="links flex items-center gap-2">
+                      {/* Display social links if available */}
                       {member?.links?.x && (
                         <Link
                           to={member.links.x}

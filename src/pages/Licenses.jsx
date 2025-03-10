@@ -39,7 +39,7 @@ const Licenses = () => {
             <section className='bg-lightGrayishWhite'>
                 <div className="container py-24">
                     <Title title='Illustration of the template' size='text-4xl' fontWeight='font-medium' textAlign='text-left' />
-                    <p className='text-limeGreen font-normal text-2xl mt-6'>Made by MezPay</p>
+                    <p className='text-limeGreen font-normal text-2xl mt-6'>Made by BazPay</p>
 
                     <div className="mt-10">
                         {/* Add alt text for image */}

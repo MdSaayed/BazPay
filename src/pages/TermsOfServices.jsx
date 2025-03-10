@@ -13,7 +13,7 @@ const TermsOfServices = () => {
                     {/* Title section */}
                     <Title title='Terms of Services' textAlign='text-left' />
                     <Description 
-                        text='At MezPay, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform.' 
+                        text='At BazPay, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform.' 
                         textAlign='text-left' 
                         size='text-lg' 
                         color='text-davyGray' 

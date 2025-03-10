@@ -1,4 +1,4 @@
-import { Link, useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Title from './../components/title/Title';
 import CtaV1 from './../components/cta/CtaV1';
@@ -10,7 +10,7 @@ const PricingDetails = () => {
   const pricingData = useLoaderData(); // Get data from the loader
   const [loading, setLoading] = useState(true); // State to handle loading state
   const [error, setError] = useState(null); // State to handle errors
-  const [selectedDuration, setSelectedDuration] = useState("perMonth"); // Default selection for pricing duration
+  const [selectedDuration, setSelectedDuration] = useState("monthly"); // Default selection for pricing duration
 
   useEffect(() => {
     // Simulating a loading state based on the fetched data (mocked here)
@@ -24,9 +24,9 @@ const PricingDetails = () => {
 
 
   // Extract prices dynamically from JSON
-  const monthlyPrice = pricingData?.price?.perMonth || "N/A";
-  const yearlyPrice = pricingData?.price?.perYear || "N/A";
-  const isMonthly = selectedDuration === "perMonth";
+  const monthlyPrice = pricingData?.price?.monthly || "N/A";
+  const yearlyPrice = pricingData?.price?.annual || "N/A";
+  const isMonthly = selectedDuration === "monthly";
 
   // Show loading animation until the data is loaded
   if (loading) return <LoadingAnimation />;
@@ -50,7 +50,7 @@ const PricingDetails = () => {
                 <div className="mt-8">
                   {/* Features List */}
                   <ul className="space-y-4 list-none">
-                    {pricingData?.features?.map((item, index) => (
+                    {pricingData?.features?.[selectedDuration]?.map((item, index) => (
                       <li key={index} className="relative text-lg font-normal text-davyGray before:content-['\2022'] before:absolute before:left-0 before:text-black before:text-xl before:leading-none before:top-1/2 before:-translate-y-1/2 pl-5">
                         {item}
                       </li>
@@ -73,7 +73,7 @@ const PricingDetails = () => {
               <div className="bg-white rounded-lg card-shadow px-10 py-12 border border-gray-100">
                 <span className="text-lg text-primary font-normal">Get Your Plan Today</span>
                 <h3 className="text-4xl text-primary font-semibold my-4">
-                  {isMonthly ? monthlyPrice : yearlyPrice} USD
+                  ${isMonthly ? monthlyPrice : yearlyPrice} USD
                 </h3>
                 
                 <div>
@@ -86,17 +86,17 @@ const PricingDetails = () => {
                 {/* Plan Duration Selector */}
                 <div className="space-y-4 my-6">
                   <select
-                    className="w-full px-0 py-3 border-b bg-transparent border-gray-300 text-davyGray text-lg font-medium focus:outline-none"
+                    className="w-full px-0 py-1 border-b bg-transparent border-gray-300 text-davyGray text-lg font-medium focus:outline-none"
                     value={selectedDuration}
                     onChange={(e) => setSelectedDuration(e.target.value)}
                   >
-                    <option value="perMonth">Monthly</option>
-                    <option value="perYear">Yearly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="annual">Yearly</option>
                   </select>
                 </div>
 
                 {/* Add to Cart Button */}
-                <Button text="Add to Cart" fullWidth={true} link="/checkout" />
+                <Button text="Buy Now" fullWidth={true} link="/checkout" />
               </div>
             </div>
           </div>

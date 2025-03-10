@@ -31,7 +31,7 @@ const HomeV1 = () => {
                         <div className="order-1 lg:order-2">
                             <img
                                 src={HeroCard}
-                                alt="MezPay Travel Cards"
+                                alt="BazPay Travel Cards"
                                 className="w-full h-auto rounded-lg"
                                 loading="lazy"
                             />
@@ -49,7 +49,7 @@ const HomeV1 = () => {
                                 lineHeight="leading-tight"
                             />
                             <Description
-                                text="At MezPay, we believe managing your money should be easy, safe, and accessible. Our platform combines the best tools for your finances."
+                                text="At BazPay, we believe managing your money should be easy, safe, and accessible. Our platform combines the best tools for your finances."
                                 textAlign="text-left"
                                 color="text-whiteSmoke"
                                 size="text-lg"

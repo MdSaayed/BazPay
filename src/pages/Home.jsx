@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import appleIcon from '/assets/icons/apple.svg';
 import googleIcon from '/assets/icons/google.svg';
 import heroImg from '/assets/img/hero/hero-dashboard.png';
-
 import featureThree from '/assets/img/features/feature-3.png';
 import featureFour from '/assets/img/features/feature-4.png';
 import featureFive from '/assets/img/features/feature-5.png';
@@ -139,7 +138,7 @@ const Home = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-5 gap-x-10 justify-between items-center">
               <Title title="Our features" textAlign="text-center lg:text-left" />
               <Description
-                text="Explore the powerful tools MezPay offers to simplify and enhance your financial experience."
+                text="Explore the powerful tools BazPay offers to simplify and enhance your financial experience."
                 textAlign="text-center lg:text-left"
               />
             </div>
@@ -198,7 +197,7 @@ const Home = () => {
                     Payment Solutions
                   </h3>
                   <p className="text-lg leading-normal text-blueGray text-center mt-6 max-w-[400px]">
-                    Easily connect globally. MezPay supports 100+ countries with multi-currency options.
+                    Easily connect globally. BazPay supports 100+ countries with multi-currency options.
                   </p>
                 </div>
               </div>
@@ -287,7 +286,7 @@ const Home = () => {
           />
           <Title title="Latest blog posts" />
           <Description 
-            text={<>Discover the latest trends, insights, and tips in the world of finance and technology with the MezPay Blog.</>} 
+            text={<>Discover the latest trends, insights, and tips in the world of finance and technology with the BazPay Blog.</>} 
             maxWidth="max-w-[650px]" 
             className="text-center md:text-left"
           />

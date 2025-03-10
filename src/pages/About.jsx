@@ -26,7 +26,7 @@ const About = () => {
 
                     {/* Title */}
                     <Title 
-                        title={<>Say hi to the awesome crew at <span className="text-primary">MezPay!</span></>} 
+                        title={<>Say hi to the awesome crew at <span className="text-primary">BazPay!</span></>} 
                         maxWidth="max-w-[650px]" 
                     />
 
@@ -38,14 +38,14 @@ const About = () => {
 
                     {/* Button */}
                     <div className="flex justify-center mt-14 mb-20">
-                        <Button text="Contact Us" ariaLabel="Contact MezPay team" />
+                        <Button text="Contact Us" ariaLabel="Contact BazPay team" />
                     </div>
 
                     {/* Hero Image */}
                     <div className="flex justify-center">
                         <img 
                             src={HeroImg} 
-                            alt="Hero section showing MezPay team" 
+                            alt="Hero section showing BazPay team" 
                             className="w-full h-auto mx-auto"
                         />
                     </div>

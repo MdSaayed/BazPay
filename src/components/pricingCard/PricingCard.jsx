@@ -55,10 +55,11 @@ const PricingCard = () => {
             {/* Price and Duration */}
             <div className="flex items-end gap-1 mt-4">
               <h3 className="text-5xl font-semibold text-softWhite">
-                {item?.price?.perMonth ? item?.price?.perMonth : item?.price?.perYear}
+                <span>$</span> 
+                <span>{item?.price?.monthly ? item?.price?.monthly : item?.price?.annual}</span> 
               </h3>
               <span className="font-medium text-base text-softWhite">
-                {item?.price?.perMonth ? "Per Month" : "Per Year"}
+                {item?.price?.monthly ? "Per Month" : "Per Year"}
               </span>
             </div>
 
@@ -78,7 +79,7 @@ const PricingCard = () => {
 
             {/* Loop through the features and display each one */}
             <ul>
-              {item?.features?.map((feature, index) => (
+              {item?.features?.monthly?.map((feature, index) => (
                 <li key={index} className="flex items-center gap-3 mb-4">
                   {/* Check icon for features */}
                   <FaRegCircleCheck className="text-lightGreen text-xl" />

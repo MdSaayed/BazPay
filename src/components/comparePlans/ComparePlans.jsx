@@ -9,7 +9,7 @@ const ComparePlans = () => {
   const [plans, setPlans] = useState([]);
   const [error, setError] = useState(""); // State to handle any errors during the fetch
   const [loading, setLoading] = useState(true); // State to manage loading state
-  const [selectedDuration, setSelectedDuration] = useState("perMonth"); // Default to monthly
+  const [selectedDuration, setSelectedDuration] = useState("monthly"); // Default to monthly
 
   // Fetch Data when the component mounts
   useEffect(() => {
@@ -28,8 +28,11 @@ const ComparePlans = () => {
       });
   }, []);
 
-  // Extract all unique features from plans
-  const allFeatures = plans.flatMap((plan) => plan?.features || []);
+  // Extract all unique features from plans (for both monthly and annual)
+  const allFeatures = plans?.flatMap((plan) => [
+    ...(plan?.features?.monthly || []),
+    ...(plan?.features?.annual || []),
+  ]);
   const featureConfig = [...new Set(allFeatures)]; // Remove duplicates
 
   // Conditional rendering for loading or error state
@@ -51,20 +54,22 @@ const ComparePlans = () => {
               {/* Showing Price Conditionally */}
               <div className="flex items-center justify-center">
                 <p className="text-4xl font-bold mb-6">
-                  {selectedDuration === "perMonth" ? plan?.price?.perMonth : plan?.price?.perYear}
+                  <span>$</span>
+                  <span>{selectedDuration === "monthly" ? plan?.price?.monthly : plan?.price?.annual}</span>
                   <span className="text-lg font-medium text-gray-600">
-                    {selectedDuration === "perMonth" ? " /mon" : " /year"}
+                    {selectedDuration === "monthly" ? " /mon" : " /year"}
                   </span>
                 </p>
               </div>
 
-              <Button 
-                text="Add to Cart" 
-                bgColor="bg-whiteSmoke" 
-                hoverBgColor="hover:bg-lightGreen" 
-                border="border-whiteSmoke" 
-                hoverBorder="hover:border-lightGreen" 
-                fullWidth={true} 
+              <Button
+                text="View Details"
+                bgColor="bg-whiteSmoke"
+                hoverBgColor="hover:bg-lightGreen"
+                border="border-whiteSmoke"
+                hoverBorder="hover:border-lightGreen"
+                fullWidth={true}
+                link={`/pricing/${plan?.id}`}
               />
             </div>
           ))}
@@ -77,11 +82,11 @@ const ComparePlans = () => {
 
             {/* Feature Rows */}
             {featureConfig?.map((feature, idx) => (
-              <div key={feature} className={`grid grid-cols-4 gap-4 px-6 py-4 rounded ${idx % 2 === 0 ? 'bg-lightAloe' : ''}`}>
+              <div key={idx} className={`grid grid-cols-4 gap-4 px-6 py-4 rounded ${idx % 2 === 0 ? 'bg-lightAloe' : ''}`}>
                 <div className="font-medium min-w-[200px]">{feature}</div>
                 {plans?.map((plan) => (
                   <div key={`${plan?.id}-${idx}`} className="text-base font-normal text-primary min-w-[150px] text-center">
-                    {plan?.features?.includes(feature) ? (
+                    {plan?.features?.[selectedDuration]?.includes(feature) ? (
                       <img src={CheckIcon} alt="Included" className="h-6 w-6 mx-auto" />
                     ) : (
                       <img src={CloseIcon} alt="Not included" className="h-6 w-6 mx-auto" />

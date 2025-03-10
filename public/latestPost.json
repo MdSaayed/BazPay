@@ -22,7 +22,7 @@
     {
       "id": 2,
       "title": "5 ways fintech is changing the way We manage money",
-      "author": "MezPay",
+      "author": "BazPay",
       "date": "12.3.6",
       "category": "Finance",
       "readTime": "10 min read",
@@ -32,31 +32,31 @@
     {
       "id": 3,
       "title": "Making smarter money choices starts with knowing your stuff!",
-      "author": "MezPay",
+      "author": "BazPay",
       "date": "12.3.6",
       "category": "Technology",
       "readTime": "10 min read",
-      "content": "Recent deposits: Stripe deposit, billing@mezpay.com. VISA: Visa ending in 1234, Equity 06/2025. Samsung Pay: emma@mezpay.com.",
+      "content": "Recent deposits: Stripe deposit, billing@bazpay.com. VISA: Visa ending in 1234, Equity 06/2025. Samsung Pay: emma@bazpay.com.",
       "image":"/assets/img/latest-post/latest-post-3.png"
     },
     {
       "id": 4,
       "title": "Steer your financial future with a little confidence!",
-      "author": "MezPay",
+      "author": "BazPay",
       "date": "12.3.6",
       "category": "Finance",
       "readTime": "7 min read",
-      "content": "Welcome to the MezPay: simplifying your financial adventure!",
+      "content": "Welcome to the BazPay: simplifying your financial adventure!",
       "image":"/assets/img/latest-post/latest-post-4.png"
     },
     {
       "id": 4,
-      "title": "Welcome to the MezPay simplifying your financial adventure!",
-      "author": "MezPay",
+      "title": "Welcome to the BazPay simplifying your financial adventure!",
+      "author": "BazPay",
       "date": "12.6.6",
       "category": "Finance",
       "readTime": "5 min read",
-      "content": "Welcome to the MezPay: simplifying your financial adventure!",
+      "content": "Welcome to the BazPay: simplifying your financial adventure!",
       "image":"/assets/img/latest-post/latest-post-3.png"
     }
   ]

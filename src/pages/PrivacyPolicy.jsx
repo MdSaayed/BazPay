@@ -13,7 +13,7 @@ const PrivacyPolicy = () => {
                     <Title title='Privacy Policy' textAlign='text-left' />
                     
                     {/* Privacy Policy Introduction Description */}
-                    <Description text='At MezPay, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform.' textAlign='text-left' size='text-lg' color='text-davyGray' />
+                    <Description text='At BazPay, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform.' textAlign='text-left' size='text-lg' color='text-davyGray' />
 
                     {/* Privacy Policy List of Sections */}
                     <div className='mt-12'>
@@ -72,7 +72,7 @@ const PrivacyPolicy = () => {
 
                     {/* Disclaimer Note */}
                     <div className='mt-12'>
-                        <p className='text-base font-normal text-davyGray'><strong>Note:</strong> This privacy policy should be customized to accurately reflect MezPay specific data practices and comply with all applicable laws and regulations in the jurisdictions where MezPay operates.</p>
+                        <p className='text-base font-normal text-davyGray'><strong>Note:</strong> This privacy policy should be customized to accurately reflect BazPay specific data practices and comply with all applicable laws and regulations in the jurisdictions where BazPay operates.</p>
                     </div>
                 </div>
             </div>

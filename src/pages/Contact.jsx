@@ -45,7 +45,7 @@ const Contact = () => {
                 </div>
                 <div className='flex items-start gap-4'>
                   <img src={Email} alt="Email"/>
-                  <Link className='font-normal text-base' to='mailto:mezpay@gmail.com'>mezpay@gmail.com</Link> 
+                  <Link className='font-normal text-base' to='mailto:bazpay@gmail.com'>bazpay@gmail.com</Link> 
                 </div>
                 <div className='flex items-start gap-4'>
                   <img src={Location} alt="Location"/>
@@ -55,13 +55,13 @@ const Contact = () => {
 
               {/* Social Links */}
               <div className='flex gap-6'>
-                <Link to='https://twitter.com/mezpay' target='_blank'>
+                <Link to='https://twitter.com/bazpay' target='_blank'>
                     <FaTwitter className='text-softWhite bg-eerieBlack hover:bg-softWhite w-9 h-9 rounded-full hover:text-primary p-2 transition-all' />
                 </Link>
-                <Link to='https://instagram.com/mezpay' target='_blank'>
+                <Link to='https://instagram.com/bazpay' target='_blank'>
                     <FaInstagram className='text-softWhite bg-eerieBlack hover:bg-softWhite w-9 h-9 rounded-full hover:text-primary p-2 transition-all' />
                 </Link>
-                <Link to='https://discord.com/invite/mezpay' target='_blank'>
+                <Link to='https://discord.com/invite/bazpay' target='_blank'>
                     <BsDiscord className='text-softWhite bg-eerieBlack hover:bg-softWhite w-9 h-9 rounded-full hover:text-primary p-2 transition-all' />
                 </Link>
               </div>
@@ -100,7 +100,7 @@ const Contact = () => {
                         <input
                             type="email" {...register("email", { required: "Email is required", pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Invalid email address" } })}
                             className="w-full px-0 py-1 border-b-2 focus:outline-none bg-transparent"
-                            placeholder="mezpay@gmail.com"
+                            placeholder="bazpay@gmail.com"
                         />
                         {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
                     </div>
