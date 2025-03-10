@@ -35,9 +35,6 @@ const Navbar = () => {
               <NavLink to="/about" className="nav-item px-3 py-2 text-sm font-medium transition-colors">About</NavLink>
               <NavLink to="/blog" className="nav-item px-3 py-2 text-sm font-medium transition-colors">Blog</NavLink>
               <NavLink to="/contact" className="nav-item px-3 py-2 text-sm font-medium transition-colors">Contact</NavLink>
-              <NavLink to="/cart" className="nav-item px-3 py-2 text-sm font-medium transition-colors flex items-center">Cart
-                <span className="ml-1">(0)</span>
-              </NavLink>
             </ul>
 
             {/* nav button */}
