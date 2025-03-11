@@ -5,6 +5,7 @@ import Title from "../title/Title"; // Custom Title component
 import Subtitle from "../subtitle/Subtitle"; // Custom Subtitle component
 import { Link } from "react-router-dom"; // Link for navigation
 import LoadingAnimation from "./../loadingAnimation/LoadingAnimation"; // Loading animation component
+import ErrorMessage from "../errorMessage/ErrorMessage";
 
 const BlogV1 = () => {
   const [isVisible, setIsVisible] = useState(false); // Controls animation visibility
@@ -42,7 +43,7 @@ const BlogV1 = () => {
 
   // Show loading animation or error message if data isn't ready
   if (loading) return <LoadingAnimation />;
-  if (error) return <p className="text-center text-red-500 mt-5">Error: {error}</p>;
+  if (error) return <ErrorMessage error={{error}}/>;
 
   return (
     <section className="bg-lightGrayishWhite">

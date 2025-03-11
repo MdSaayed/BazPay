@@ -1,12 +1,20 @@
 import React from 'react';
 import Subtitle from '../subtitle/Subtitle';
 import Title from '../title/Title';
-import { FaArrowDownLong, FaArrowUpLong } from 'react-icons/fa6'; // Updated import for arrow icons
-import { FaExchangeAlt } from 'react-icons/fa'; // Correct import for FaExchangeAlt icon
-import featureOne from '/assets/img/features/feature-2.png'; // Image for the first feature
-import featureTwo from '/assets/img/features/feature-1.png'; // Image for the second feature
+import { FaArrowDownLong, FaArrowUpLong } from 'react-icons/fa6';
+import { FaExchangeAlt } from 'react-icons/fa';
+import featureOne from '/assets/img/features/feature-2.png';
+import featureTwo from '/assets/img/features/feature-1.png';
+import { motion } from 'framer-motion'; // Importing motion
 
 const FinancialOverview = () => {
+
+    // Framer Motion animation variants
+    const fadeInUp = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    };
+
     return (
         <section className="bg-lightGrayishWhite">
             <div className="container py-20">
@@ -14,21 +22,33 @@ const FinancialOverview = () => {
                 <Subtitle subTitle="Total income and payments overview." />
 
                 {/* Section Title */}
-                <Title
-                    title={<>
-                            Transforming finance – one <span>feature</span> at a time
-                        </>}
-                    size="text-4xl lg:text-5xl"
-                    fontWeight="font-bold"
-                    fontFamily="font-inter"
-                    maxWidth='max-w-[568px]'
-                />
+                <motion.div
+                    className="text-center"
+                    variants={fadeInUp} // Applying the fadeInUp variant
+                    initial="hidden"
+                    whileInView="visible"  // Animation triggered every time it comes into view
+                >
+                    <Title
+                        title={<>
+                                Transforming finance – one <span>feature</span> at a time
+                            </>}
+                        size="text-4xl lg:text-5xl"
+                        fontWeight="font-bold"
+                        fontFamily="font-inter"
+                        maxWidth='max-w-[568px]'
+                    />
+                </motion.div>
 
                 {/* Grid Layout for Financial Overview */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-8 mt-20">
 
                     {/* Financial Overview One - Current Value Card */}
-                    <div className="feature-card md:col-span-6 lg:col-span-5 bg-lightLavender p-6 rounded-2xl shadow-lg">
+                    <motion.div
+                        className="feature-card md:col-span-6 lg:col-span-5 bg-lightLavender p-6 rounded-2xl shadow-lg"
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="visible"  // Animation triggered every time it comes into view
+                    >
                         {/* Current Value Label */}
                         <span className="text-base font-medium leading-normal text-primary text-center block">
                             Current value
@@ -40,12 +60,10 @@ const FinancialOverview = () => {
 
                         {/* Transfer and Exchange Buttons */}
                         <div className="flex justify-center items-center gap-2 mt-4 my-8">
-                            {/* Transfer Up Button */}
                             <button className="px-4 py-2 bg-whiteSmoke text-blueGray text-lg font-medium rounded-lg flex items-center gap-2 shadow-sm transition hover:bg-gray-200">
                                 <FaArrowUpLong /> Transfer
                             </button>
 
-                            {/* Exchange Button */}
                             <button
                                 className="p-2 bg-softWhite text-blueGray text-lg font-medium rounded-full flex items-center shadow-sm h-10 w-10 transition hover:bg-gray-100"
                                 aria-label="Exchange Money"
@@ -53,7 +71,6 @@ const FinancialOverview = () => {
                                 <FaExchangeAlt className="text-limeGreen mx-auto" />
                             </button>
 
-                            {/* Transfer Down Button */}
                             <button className="px-4 py-2 bg-whiteSmoke text-blueGray text-lg font-medium rounded-lg flex items-center gap-2 shadow-sm transition hover:bg-gray-200">
                                 <FaArrowDownLong /> Transfer
                             </button>
@@ -63,10 +80,15 @@ const FinancialOverview = () => {
                         <div className="img-wrapper rounded-2xl overflow-hidden">
                             <img src={featureOne} alt="Financial Overview Feature" className="w-full h-auto" />
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Financial Overview Two - Secure Transfers Card */}
-                    <div className="feature-card md:col-span-6 lg:col-span-7 bg-lightLavender p-6 rounded-2xl shadow-lg">
+                    <motion.div
+                        className="feature-card md:col-span-6 lg:col-span-7 bg-lightLavender p-6 rounded-2xl shadow-lg"
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="visible"  // Animation triggered every time it comes into view
+                    >
                         {/* Feature Image Wrapper */}
                         <div className="img-wrapper rounded-2xl overflow-hidden">
                             <img src={featureTwo} alt="Secure Transfers Feature" className="w-full h-auto" />
@@ -76,7 +98,7 @@ const FinancialOverview = () => {
                         <h3 className="font-semibold text-4xl leading-[1.3] text-primary text-center mt-8">
                             Secure transfers anytime, anywhere
                         </h3>
-                    </div>
+                    </motion.div>
 
                 </div>
             </div>
