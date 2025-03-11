@@ -48,12 +48,10 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-20 items-center">
             
             {/* Left Side - Heading Section */}
-            <div>
-              <h1 className="text-6xl font-semibold leading-[1.3] text-primary text-center sm:text-left">
-                Simplify your money game with{' '}
-                <span className="text-limeGreen">BazPay!</span>
-              </h1>
-            </div>
+            <Title 
+                title={<>Simplify your money game with <span>BazPay!</span></>} 
+                textAlign='text-center md:text-left'
+              />
 
             {/* Right Side - Description & Download Buttons */}
             <div>
@@ -230,11 +228,7 @@ const Home = () => {
 
           {/* Title */}
           <Title
-            title={
-              <>
-                Our team is constantly innovating.
-              </>
-            }
+            title='Our team is constantly innovating.'
             maxWidth='max-w-[768px]'
           />
 

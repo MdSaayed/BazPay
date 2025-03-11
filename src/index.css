@@ -61,6 +61,17 @@ body {
     background-color: #BCFC6A;
 }
 
+/* Section Title */
+.section-title{
+    display: block;
+    margin-top: 1rem;
+}
+
+/* Section title inside span */
+.section-title span{
+    color: #6BC33F; 
+}
+
 /* Swiper Slider Wrapper */
 .swiper-wrapper {
     transition-timing-function: linear !important;

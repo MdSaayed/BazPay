@@ -54,7 +54,7 @@ const PricingCard = () => {
             </div>
             {/* Price and Duration */}
             <div className="flex items-end gap-1 mt-4">
-              <h3 className="text-5xl font-semibold text-softWhite">
+              <h3 className="text-4xl lg:text-5xl font-semibold text-softWhite">
                 <span>$</span> 
                 <span>{item?.price?.monthly ? item?.price?.monthly : item?.price?.annual}</span> 
               </h3>

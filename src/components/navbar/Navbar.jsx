@@ -1,84 +1,330 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import { MdOutlineArrowOutward } from "react-icons/md";
-import "./navbar.css";
+import React, { useState, useRef, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { MdOutlineArrowOutward, MdClose } from "react-icons/md"; // Import close icon
+import { motion } from "framer-motion";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isAllPagesOpen, setAllPagesOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  const timeoutRef = useRef(null);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  // Handles hover interaction for the dropdown
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current); // Prevent hiding if user hovers back quickly
+    }
+    setAllPagesOpen(true);
   };
 
-  // Utility function to combine class names
-  const cn = (...classes) => {
-    return classes.filter(Boolean).join(' ');
+  // Handles mouse leave to hide dropdown
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      if (!dropdownRef.current.contains(document.querySelector(":hover"))) {
+        setAllPagesOpen(false);
+      }
+    }, 200);
+  };
+
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden"; // Disable scrolling
+    } else {
+      document.body.style.overflow = "auto"; // Enable scrolling
+    }
+  
+    // Cleanup to reset the style when component unmounts or when mobile menu is closed
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isMobileMenuOpen]);
+  
+  
+
+  // Handle mobile menu toggle
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
-    <header className='bg-lightGrayishWhite'>
-      <div className='container relative'>
-        <nav className="nav">
-          <div className="desktop-menu flex items-center justify-between">
-            {/* Logo */}
-            <div className="flex-shrink-0 flex items-center">
-              <NavLink to="/" className="flex items-center space-x-2">
-                <img className="max-w-[134px]" src="/Logo.png" alt="Logo" />
-              </NavLink>
-            </div>
-
-            {/* Desktop Navigation */}
-            <ul className="menu hidden lg:flex items-center">
-              <NavLink to="/" className="nav-item px-3 py-2 text-sm font-medium transition-colors">Home</NavLink>
-              <NavLink to="/features" className="nav-item px-3 py-2 text-sm font-medium transition-colors">Features</NavLink>
-              <NavLink to="/about" className="nav-item px-3 py-2 text-sm font-medium transition-colors">About</NavLink>
-              <NavLink to="/blog" className="nav-item px-3 py-2 text-sm font-medium transition-colors">Blog</NavLink>
-              <NavLink to="/contact" className="nav-item px-3 py-2 text-sm font-medium transition-colors">Contact</NavLink>
-            </ul>
-
-            {/* nav button */}
-            <div className='btn-wrapper hidden lg:block'>
-              <NavLink to="/get-started" className="btn-primary"> 
-                <span>Get Started</span> 
-                <MdOutlineArrowOutward className='btn-arrow' />
-              </NavLink>
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="lg:hidden">
-              <button onClick={toggleMenu} className="inline-flex items-center justify-center p-2 rounded-md border-none bg-transparent" >
-                <span className="sr-only">Open main menu</span>
-                {isOpen ? <X className="block h-6 w-6" /> : <Menu className="block h-6 w-6" />}
-              </button>
-            </div>
+    <header className="bg-lightGrayishWhite">
+      <div className="container py-0">
+        <div className="flex items-center justify-between h-20">
+          <div className="flex-shrink-0 flex items-center">
+            <NavLink to="/" className="flex items-center space-x-2">
+              <img className="max-w-[134px]" src="/Logo.png" alt="Logo" />
+            </NavLink>
           </div>
-        </nav>
 
-        {/* Mobile menu */}
-        <div className={cn( "mobile-menu absolute z-50 top-[70px] left-0 w-full px-[10px] sm:px-5 md:px-10 pb-4 lg:hidden transition-all duration-300 ease-in-out bg-white",
-          isOpen ? "max-h-auto opacity-100" : "max-h-0 opacity-0 overflow-hidden"
-        )}>
-          <div className="pb-3 space-y-1">
-            <NavLink to="/" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Home</NavLink>
-            <NavLink to="/homev1" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Home V1</NavLink>
-            <NavLink to="/features" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Features</NavLink>
-            <NavLink to="/about" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">About</NavLink>
-            <NavLink to="/blog" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Blog</NavLink>
-            <NavLink to="/pricing" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Pricing</NavLink>
-            <NavLink to="/contact" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Contact</NavLink>
-            <NavLink to="/privacypolicy" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Privacy and policy
-            </NavLink>
-            <NavLink to="/licenses" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Licenses
-            </NavLink>
-            <NavLink to="/terms" className="block py-2 text-base font-medium hover:bg-gray-50 rounded-md transition-colors">Term of services
-            </NavLink>
-            <div className="">
-              <NavLink to="/get-started" className="mob-menu-btn mt-6"> Get Started → </NavLink>
+          {/* Desktop Menu */}
+          <nav className="hidden lg:flex items-center space-x-6">
+            <Link to="/" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+              Home
+            </Link>
+            <Link to="/features" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+              Features
+            </Link>
+            <Link to="/about" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+              About
+            </Link>
+            <Link to="/blog" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+              Blog
+            </Link>
+
+            {/* Features Dropdown */}
+            <div
+              ref={dropdownRef}
+              className="relative"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button
+                className="nav-item px-3 py-2 text-sm font-medium transition-colors flex items-center gap-1"
+              >
+                All Pages
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  className={`w-4 h-4 transform transition-transform ${
+                    isAllPagesOpen ? "rotate-180" : ""
+                  }`} // Rotate when open
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+
+              {/* Dropdown with Animation */}
+              {isAllPagesOpen && (
+                <motion.div
+                  className="absolute top-full left-0 mt-2 w-56 z-50 bg-white text-primary rounded-lg shadow-lg border"
+                  initial={{ opacity: 0, y: -20 }} // Initial position and opacity
+                  animate={{ opacity: 1, y: 0 }} // Animate to visible
+                  exit={{ opacity: 0, y: -20 }} // Exit animation
+                  transition={{ duration: 0.3 }}
+                >
+                  <ul className="space-y-1 h-full">
+                    <li>
+                      <Link to="/" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                        Home
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/homev1" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                        Home V1
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/features" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                        Features
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/about" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                        About
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/contact" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                      Contact
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/blog" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                      Blog 
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/blog/3" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                      Blog Details  
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/pricing" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                      Pricing
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/pricing/1" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                      Pricing Details  
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/licenses" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                      Licenses   
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/privacypolicy" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                      Privacy & Policy    
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/terms" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                      Terms   
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/error  " className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                       Error     
+                      </Link>
+                    </li>
+                  </ul>
+                </motion.div>
+              )}
             </div>
+
+            <Link to="/contact" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+              Contact
+            </Link>
+          </nav>
+
+          {/* nav button */}
+          <div className="btn-wrapper hidden lg:block">
+            <NavLink to="/pricing" className="btn-primary">
+              <span>Get Started</span>
+              <MdOutlineArrowOutward className="btn-arrow" />
+            </NavLink>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="lg:hidden flex items-center">
+            <button onClick={toggleMobileMenu} className="text-primary">
+              {isMobileMenuOpen ? (
+                <MdClose className="w-6 h-6" />
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+              )}
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Mobile Dropdown Menu with Height Animation */}
+      {isMobileMenuOpen && (
+        <motion.div
+          className="lg:hidden fixed inset-0 top-16 z-40 bg-white"
+          initial={{ opacity: 0, top: "-100%" }} // Initial state (off-screen)
+          animate={{ opacity: 1, top: 80 }} // Animate to top-0 (visible)
+          exit={{ opacity: 0, top: "-100%" }} // Exit animation (move off-screen)
+          transition={{ duration: 0.3 }}
+        >
+          <div className="container px-4 sm:px-6 py-4 h-full overflow-y-auto">
+            <nav className="flex flex-col space-y-2">
+              <Link onClick={() => setIsMobileMenuOpen(false)}  to="/" className="text-primary font-medium py-2">
+                Home
+              </Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} to="/features" className="text-primary font-medium py-2">
+                Features
+              </Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} to="/about" className="text-primary font-medium py-2">
+                About
+              </Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} to="/blog" className="text-primary font-medium py-2">
+                Blog
+              </Link>
+
+              {/* Features Dropdown in Mobile */}
+              <button
+                onClick={() => setAllPagesOpen(!isAllPagesOpen)}
+                className="text-primary font-medium py-2 flex justify-between items-center"
+              >
+                All Pages
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  className={`w-4 h-4 transform transition-transform ${
+                    isAllPagesOpen ? "rotate-180" : ""
+                  }`} // Rotate arrow when open
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+
+                {isAllPagesOpen && (
+                  <div className="bg-softWhite rounded-lg p-3">
+                    <ul className="space-y-1">
+                      <li>
+                        <Link onClick={() => setIsMobileMenuOpen(false)}  to="/" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                          Home
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={() => setIsMobileMenuOpen(false)}  to="/homev1" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                          Home V1
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={() => setIsMobileMenuOpen(false)}  to="/features" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                          Features
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={() => setIsMobileMenuOpen(false)}  to="/about" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                          About
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={() => setIsMobileMenuOpen(false)}  to="/contact" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                          Contact
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={() => setIsMobileMenuOpen(false)}  to="/blog" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                          Blog
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={() => setIsMobileMenuOpen(false)}  to="/blog/4" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                          Blog Details 
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={() => setIsMobileMenuOpen(false)}  to="/pricing" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                          Pricing 
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={() => setIsMobileMenuOpen(false)}  to="/pricing/1" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                          Pricing Details 
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={() => setIsMobileMenuOpen(false)}  to="/licenses" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                          Licenses 
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={() => setIsMobileMenuOpen(false)}  to="/privacypolicy" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                          Privacy & Policy 
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={() => setIsMobileMenuOpen(false)}  to="/terms" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                          Terms 
+                        </Link>
+                      </li>
+                      <li>
+                        <Link onClick={() => setIsMobileMenuOpen(false)}  to="/error" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                          Error 
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              <Link onClick={() => setIsMobileMenuOpen(false)}  to="/contact" className="text-primary font-medium py-2">
+                Contact
+              </Link>
+            </nav>
+          </div>
+        </motion.div>
+      )}
     </header>
   );
 };

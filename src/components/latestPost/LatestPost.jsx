@@ -52,7 +52,7 @@ const LatestPost = () => {
       <div className="container py-24">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row items-center justify-between mb-10">
-          <Title title="Latest Posts" size="text-5xl" textAlign="text-left" />
+          <Title title="Latest Posts" size="text-4xl lg:text-5xl" textAlign="text-left" />
           
           {/* Category Filter Buttons */}
           <div className="flex flex-wrap space-x-4 mt-10 lg:mt-4 w-full gap-2">

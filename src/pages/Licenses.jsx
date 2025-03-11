@@ -38,7 +38,7 @@ const Licenses = () => {
             {/* Illustration Section */}
             <section className='bg-lightGrayishWhite'>
                 <div className="container py-24">
-                    <Title title='Illustration of the template' size='text-4xl' fontWeight='font-medium' textAlign='text-left' />
+                    <Title title='Illustration of the template' size='text-3xl lg:text-4xl' fontWeight='font-medium' textAlign='text-left' />
                     <p className='text-limeGreen font-normal text-2xl mt-6'>Made by BazPay</p>
 
                     <div className="mt-10">
@@ -51,7 +51,7 @@ const Licenses = () => {
             {/* Iconography Section */}
             <section className='bg-lightGrayishWhite'>
                 <div className="container py-24">
-                    <Title title='Iconography' size='text-4xl' fontWeight='font-medium' textAlign='text-left' />
+                    <Title title='Iconography' size='text-3xl lg:text-4xl' fontWeight='font-medium' textAlign='text-left' />
                     <p className='text-davyGray font-normal text-lg mt-12'>
                         Iconography was sourced from <Link to='https://tablericons.com/' className='text-limeGreen underline' title="Link to Tabler Icons website">Tabler icons</Link>, which is available under a CC0 license.
                     </p>
@@ -69,7 +69,7 @@ const Licenses = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div className='flex flex-col justify-between'>
                             <div>
-                                <Title title="Image Collection" size="text-4xl" fontWeight="font-medium" textAlign="text-left" />
+                                <Title title="Image Collection" size="text-3xl lg:text-4xl" fontWeight="font-medium" textAlign="text-left" />
                                 <p className="text-davyGray font-normal text-lg mt-12">
                                     Images collection from: <Link to="https://lummi.ai" className="text-limeGreen underline" title="Link to Lummi.ai website">lummi.ai</Link>
                                 </p>

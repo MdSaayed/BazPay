@@ -31,7 +31,7 @@ const CtaV1 = () => {
                             title="Growth performance tracking made easy" 
                             color="text-softWhite" 
                             textAlign="text-left" 
-                            size="text-5xl" 
+                            size="text-4xl lg:text-5xl" 
                         />
 
                         {/* Feature: Cloud Sync */}

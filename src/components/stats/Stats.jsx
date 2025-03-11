@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Title from '../title/Title';
 import PropTypes from 'prop-types';
+import StatItem from './StatItem';
 
 const Stats = ({ bgColor = "bg-transparent", textColor = "text-primary" }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -72,7 +73,7 @@ const Stats = ({ bgColor = "bg-transparent", textColor = "text-primary" }) => {
           /> 
           
           {/* Stats Counters */}
-          <div className="flex flex-wrap items-center justify-center md:justify-between gap-10 col-span-2">
+          <div className="flex flex-wrap items-center justify-center md:justify-between gap-8 lg:gap-10 col-span-2">
             {/* Happy Customers */}
             <StatItem value={count1} suffix="+" label="Happy Customers" textColor={textColor} />
             
@@ -88,31 +89,10 @@ const Stats = ({ bgColor = "bg-transparent", textColor = "text-primary" }) => {
   );
 };
 
-/** 
- * Reusable StatItem component for cleaner code 
- */
-const StatItem = ({ value, suffix, label, textColor }) => (
-  <div className="text-center md:text-left">
-    <h3 className={`${textColor} text-5xl font-semibold`}>
-      {value}{suffix}
-    </h3>
-    <p className={`${textColor} opacity-90 mt-4`}>
-      {label}
-    </p>
-  </div>
-);
-
-// PropTypes Validation
+// ✅ Corrected PropTypes Validation for `Stats`
 Stats.propTypes = {
   bgColor: PropTypes.string, // Background color class (Tailwind)
   textColor: PropTypes.string // Text color class (Tailwind)
-};
-
-StatItem.propTypes = {
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-  suffix: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  textColor: PropTypes.string
 };
 
 export default Stats;

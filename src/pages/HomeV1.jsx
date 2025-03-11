@@ -42,7 +42,7 @@ const HomeV1 = () => {
                             <Title
                                 title="Check out our travel cards!"
                                 maxWidth="max-w-[560px]"
-                                size="text-6xl md:text-7xl"
+                                size="text-5xl lg:text-7xl "
                                 color="text-softWhite"
                                 fontWeight="font-semibold"
                                 textAlign="text-left"
@@ -126,7 +126,10 @@ const HomeV1 = () => {
             <section className='bg-lightGrayishWhite'>
                 <div className="container py-24">
                     <Subtitle subTitle='Pricing' borderColor='border-paleGreen' bgColor='bg-paleGreen' />
-                    <Title title={<>Give it a shot for free and take charge of <span>your finances!</span></>} maxWidth="max-w-[768px]" size='text-5xl' fontWeight='font-medium' />
+                    <Title 
+                        title={<>Give it a shot for free and take charge of <span>your finances!</span></>} 
+                        maxWidth="max-w-[768px]" size='text-4xl lg:text-5xl' 
+                        fontWeight='font-medium' />
 
                     {/* Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">

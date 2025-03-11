@@ -118,7 +118,7 @@ const Contact = () => {
                 {/* Radio Buttons */}
                 <div className="mt-8">
                     <label className="text-darkGray text-base font-normal mb-4 block">Submit Subject?</label>
-                    <div className="flex gap-10 items-center">
+                    <div className="flex gap-4 md:gap-10 items-center">
                         <label className="flex items-center gap-3">
                             <input
                                 type="radio"

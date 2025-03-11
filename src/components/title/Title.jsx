@@ -1,11 +1,10 @@
 import React from 'react';
-import "./title.css";
 import PropTypes from 'prop-types';
 
 const Title = ({ 
     title, 
     color = "text-primary", 
-    size = "text-4xl md:text-6xl", 
+    size = "text-5xl lg:text-6xl", 
     fontWeight = "font-semibold", 
     lineHeight = "leading-tight", 
     fontFamily = "font-inter", 

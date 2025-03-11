@@ -18,7 +18,7 @@ const FinancialOverview = () => {
                     title={<>
                             Transforming finance – one <span>feature</span> at a time
                         </>}
-                    size="text-5xl"
+                    size="text-4xl lg:text-5xl"
                     fontWeight="font-bold"
                     fontFamily="font-inter"
                     maxWidth='max-w-[568px]'

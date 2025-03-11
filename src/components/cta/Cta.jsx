@@ -16,7 +16,7 @@ const Cta = () => {
             <div className="bg-primary rounded-[32px] py-16 px-4 relative overflow-hidden">
                 <Subtitle subTitle="Pricing" color="text-softWhite" bgColor="bg-primary" borderColor='border-blueGray'/>
 
-                <Title title="Value Packed Newsletter" size='text-5xl' fontWeight='font-medium' color='text-softWhite' />
+                <Title title="Value Packed Newsletter" size='text-4xl lg:text-5xl' fontWeight='font-medium' color='text-softWhite' />
 
                 <Description text="Subscribe to our newsletter for to know big updates before everyone else, and yeah you can unsubscribe anytime!" color='text-softWhite opacity-60' />
 
