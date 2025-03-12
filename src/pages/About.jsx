@@ -10,6 +10,7 @@ import Description from '../components/description/Description';
 import Button from '../components/ui/Button';
 import HeroImg from "/assets/img/global/about-hero.png";
 import CoreValues from '../components/coreValues/CoreValues';
+import Reveal from '../animation/Reveal';
 
 const About = () => {
     return (
@@ -37,18 +38,22 @@ const About = () => {
                     />
 
                     {/* Button */}
-                    <div className="flex justify-center mt-14 mb-20">
-                        <Button text="Contact Us" ariaLabel="Contact BazPay team" />
-                    </div>
+                    <Reveal>
+                        <div className="flex justify-center mt-14 mb-20">
+                            <Button text="Contact Us" ariaLabel="Contact BazPay team" />
+                        </div>
+                    </Reveal>
 
                     {/* Hero Image */}
-                    <div className="flex justify-center">
-                        <img 
-                            src={HeroImg} 
-                            alt="Hero section showing BazPay team" 
-                            className="w-full h-auto mx-auto"
-                        />
-                    </div>
+                    <Reveal>
+                        <div className="flex justify-center">
+                            <img 
+                                src={HeroImg} 
+                                alt="Hero section showing BazPay team" 
+                                className="w-full h-auto mx-auto"
+                            />
+                        </div>
+                    </Reveal>
                 </div>
             </section>
 

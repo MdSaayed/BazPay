@@ -7,6 +7,7 @@ import Rocket from '/assets/icons/rocket-launch.svg';
 import Subtitle from '../subtitle/Subtitle';
 import Title from '../title/Title';
 import Description from '../description/Description';
+import Reveal from '../../animation/Reveal';
 
 const CoreValues = () => {
   return (
@@ -34,57 +35,64 @@ const CoreValues = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-12">
             
             {/* Innovation */}
-            <div>
+            <Reveal>
               <div>
-                <img 
-                  className="bg-lightLavender p-3 rounded-lg w-14 h-14" 
-                  src={Rocket} 
-                  alt="Innovation Icon"
-                />
+                <div>
+                  <img 
+                    className="bg-lightLavender p-3 rounded-lg w-14 h-14" 
+                    src={Rocket} 
+                    alt="Innovation Icon"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-primary text-xl mt-4 mb-6">
+                    Innovation
+                  </h3>
+                  <p className="font-normal text-primary">
+                    We strive to stay ahead by leveraging cutting-edge technology to create smarter, more efficient financial solutions.
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-semibold text-primary text-xl mt-4 mb-6">
-                  Innovation
-                </h3>
-                <p className="font-normal text-primary">
-                  We strive to stay ahead by leveraging cutting-edge technology to create smarter, more efficient financial solutions.
-                </p>
-              </div>
-            </div>
+            </Reveal>
 
             {/* Security */}
-            <div>
+            <Reveal>
               <div>
-                <img 
-                  className="bg-lightLavender p-3 rounded-lg w-14 h-14" 
-                  src={VerifiedBadge} 
-                  alt="Security Icon"
-                />
+                <div>
+                  <img 
+                    className="bg-lightLavender p-3 rounded-lg w-14 h-14" 
+                    src={VerifiedBadge} 
+                    alt="Security Icon"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-primary text-xl mt-4 mb-6">
+                    Security
+                  </h3>
+                  <p className="font-normal text-primary">
+                    Your trust is our priority. We safeguard your financial data with top-notch encryption and fraud protection.
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-semibold text-primary text-xl mt-4 mb-6">
-                  Security
-                </h3>
-                <p className="font-normal text-primary">
-                  Your trust is our priority. We safeguard your financial data with top-notch encryption and fraud protection.
-                </p>
-              </div>
-            </div>
+            </Reveal>
 
           </div>
 
           {/* Center Image - Phone Mockup */}
           <div className="lg:col-span-2">
-            <img 
-              className="w-full h-full object-contain rounded-3xl" 
-              src={PhoneImg} 
-              alt="BazPay Mobile Interface"
-            />
+            <Reveal>
+              <img 
+                className="w-full h-full object-contain rounded-3xl" 
+                src={PhoneImg} 
+                alt="BazPay Mobile Interface"
+              />
+              </Reveal>
           </div>
 
           {/* Right Column - Transparency & Customer-Centricity */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-12">
             
+          <Reveal>
             {/* Transparency */}
             <div>
               <div>
@@ -103,7 +111,8 @@ const CoreValues = () => {
                 </p>
               </div>
             </div>
-
+          </Reveal>
+          <Reveal>
             {/* Customer-Centricity */}
             <div>
               <div>
@@ -122,8 +131,9 @@ const CoreValues = () => {
                 </p>
               </div>
             </div>
-
+          </Reveal>
           </div>
+          
 
         </div>
       </div>

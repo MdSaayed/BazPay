@@ -14,7 +14,7 @@ const fadeUp = {
 };
 
 const staggerContainer = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   visible: {
     opacity: 1,
     transition: { staggerChildren: 0.2, delayChildren: 0.2 },
@@ -24,7 +24,7 @@ const staggerContainer = {
 const Cta = () => {
   return (
     <motion.section 
-      className="cta"
+      className="cta bg-lightGrayishWhite"
       initial="hidden"
       whileInView="visible" // Triggers animation on scroll
       viewport={{ once: false, amount: 0.2 }} // Animate every time section enters viewport
