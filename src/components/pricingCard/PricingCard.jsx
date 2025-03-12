@@ -3,6 +3,7 @@ import { FaRegCircleCheck } from "react-icons/fa6";
 import Button from "../ui/Button";
 import LoadingAnimation from "../loadingAnimation/LoadingAnimation";
 import ErrorMessage from "../errorMessage/ErrorMessage";
+import Reveal from "../../animation/Reveal";
 
 const PricingCard = () => {
   const [data, setData] = useState([]); // State to hold the pricing data
@@ -35,61 +36,63 @@ const PricingCard = () => {
   return (
     <>
       {/* Map over each pricing item and display it */}
-      {data?.map((item) => (
-        <div key={item?.id || item?.title} className="rounded-3xl bg-white shadow-lg">
-          {/* Card Header */}
-          <div
-            className={`${
-              item?.highlighted ? 'bg-primary' : 'bg-davyGray' // Apply highlight color if highlighted
-            } rounded-3xl p-8`}
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-semibold text-lg text-softWhite">{item?.title}</span>
-              {/* Show "Popular" tag if the item is highlighted */}
-              {item?.highlighted && (
-                <span className="bg-limeGreen text-softWhite text-xs font-bold px-3 py-1 rounded-full">
-                  Popular
-                </span>
-              )}
+        {data?.map((item,idx) => (
+          <Reveal  key={item?.id || idx}>
+            <div className="rounded-3xl bg-white shadow-lg">
+              {/* Card Header */}
+              <div
+                className={`${
+                  item?.highlighted ? 'bg-primary' : 'bg-davyGray' // Apply highlight color if highlighted
+                } rounded-3xl p-8`}
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-semibold text-lg text-softWhite">{item?.title}</span>
+                  {/* Show "Popular" tag if the item is highlighted */}
+                  {item?.highlighted && (
+                    <span className="bg-limeGreen text-softWhite text-xs font-bold px-3 py-1 rounded-full">
+                      Popular
+                    </span>
+                  )}
+                </div>
+                {/* Price and Duration */}
+                <div className="flex items-end gap-1 mt-4">
+                  <h3 className="text-4xl lg:text-5xl font-semibold text-softWhite">
+                    <span>$</span> 
+                    <span>{item?.price?.monthly ? item?.price?.monthly : item?.price?.annual}</span> 
+                  </h3>
+                  <span className="font-medium text-base text-softWhite">
+                    {item?.price?.monthly ? "Per Month" : "Per Year"}
+                  </span>
+                </div>
+
+                {/* Description */}
+                <p className="text-whiteSmoke text-base font-normal mt-6 mb-8">{item?.description}</p>
+
+                {/* "Get Started" Button */}
+                <Button text="Get Started" link={`/pricing/${item?.id}`} fullWidth={true} />
+              </div>
+
+              {/* Card Features */}
+              <div className="p-8">
+                <p className="text-primary text-base font-semibold">FEATURES</p>
+                <p className="text-davyGray text-base font-normal mt-1 mb-6">
+                  Standard item grants you access to exclusive features
+                </p>
+
+                {/* Loop through the features and display each one */}
+                <ul>
+                  {item?.features?.monthly?.map((feature, index) => (
+                    <li key={index} className="flex items-center gap-3 mb-4">
+                      {/* Check icon for features */}
+                      <FaRegCircleCheck className="text-lightGreen text-xl" />
+                      <span className="font-normal text-base text-davyGray">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            {/* Price and Duration */}
-            <div className="flex items-end gap-1 mt-4">
-              <h3 className="text-4xl lg:text-5xl font-semibold text-softWhite">
-                <span>$</span> 
-                <span>{item?.price?.monthly ? item?.price?.monthly : item?.price?.annual}</span> 
-              </h3>
-              <span className="font-medium text-base text-softWhite">
-                {item?.price?.monthly ? "Per Month" : "Per Year"}
-              </span>
-            </div>
-
-            {/* Description */}
-            <p className="text-whiteSmoke text-base font-normal mt-6 mb-8">{item?.description}</p>
-
-            {/* "Get Started" Button */}
-            <Button text="Get Started" link={`/pricing/${item?.id}`} fullWidth={true} />
-          </div>
-
-          {/* Card Features */}
-          <div className="p-8">
-            <p className="text-primary text-base font-semibold">FEATURES</p>
-            <p className="text-davyGray text-base font-normal mt-1 mb-6">
-              Standard item grants you access to exclusive features
-            </p>
-
-            {/* Loop through the features and display each one */}
-            <ul>
-              {item?.features?.monthly?.map((feature, index) => (
-                <li key={index} className="flex items-center gap-3 mb-4">
-                  {/* Check icon for features */}
-                  <FaRegCircleCheck className="text-lightGreen text-xl" />
-                  <span className="font-normal text-base text-davyGray">{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      ))}
+          </Reveal>
+        ))}
     </>
   );
 };

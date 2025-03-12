@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Reveal from '../../animation/Reveal';
 
 const Title = ({ 
     title, 
@@ -12,11 +13,13 @@ const Title = ({
     maxWidth = "max-w-[694px]" 
 }) => {
     return (
-        <div className={`w-full ${textAlign === "text-center" ? "flex justify-center" : ""}`}>
-            <h2 className={`section-title ${size} ${color} ${fontWeight} ${lineHeight} ${fontFamily} ${textAlign} ${maxWidth}`}>
-                {title ? title : "Replace with your own title."}
-            </h2>
-        </div>
+        <Reveal>
+            <div className={`w-full ${textAlign === "text-center" ? "flex justify-center" : ""}`}>
+                <h2 className={`section-title ${size} ${color} ${fontWeight} ${lineHeight} ${fontFamily} ${textAlign} ${maxWidth}`}>
+                    {title ? title : "Replace with your own title."}
+                </h2>
+            </div>
+        </Reveal>
     );
 };
 

@@ -44,7 +44,12 @@ const CtaV1 = () => {
                     {/* Left Content */}
                     <div>
                         {/* Subtitle Component */}
-                        <motion.div variants={fadeUp}>
+                        <motion.div 
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: false, amount: 1 }}
+                            variants={fadeUp}
+                            >
                             <Subtitle 
                                 subTitle="Pricing" 
                                 color="text-softWhite" 
@@ -54,7 +59,12 @@ const CtaV1 = () => {
                         </motion.div>
 
                         {/* Main Title */}
-                        <motion.div variants={fadeUp}>
+                        <motion.div 
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: false, amount: 1 }}
+                            variants={fadeUp}
+                        >
                             <Title 
                                 title="Growth performance tracking made easy" 
                                 color="text-softWhite" 
@@ -66,6 +76,9 @@ const CtaV1 = () => {
                         {/* Feature: Cloud Sync */}
                         <motion.div 
                             className="mt-8 flex gap-6 items-center" 
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: false, amount: 1 }}
                             variants={fadeUp}
                         >
                             <motion.img 
@@ -108,6 +121,9 @@ const CtaV1 = () => {
                     {/* Right Content: Mobile Preview Image */}
                     <motion.div 
                         className="-mb-6 md:-mb-10 relative mx-auto" 
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: false, amount: 0.5 }}
                         variants={fadeUp}
                     >
                         <img src={PhoneCtaV1} alt="App interface preview on mobile" />

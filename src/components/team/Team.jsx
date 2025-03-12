@@ -73,6 +73,7 @@ const Team = () => {
 
   if (loading) return <LoadingAnimation />; // Show loading animation while fetching data
   if (error) return <ErrorMessage />; // Show error message if fetching fails
+  
 
   return (
     <section className="bg-lightGrayishWhite py-20">

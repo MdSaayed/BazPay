@@ -1,22 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import subtitleIcon from '/assets/icons/subtitle_icon.svg';  
-import "./subtitle.css";
+import Reveal from '../../animation/Reveal';
 
 const Subtitle = ({ subTitle, color, bgColor, borderColor, showIcon, align="justify-center" }) => {
     return (
-        <div className={`subtitle-area flex items-center ${align? align : 'justify-center'}`}>
-            <div className={`subtitle-wrapper flex items-center justify-center border ${borderColor} ${bgColor}`}>
-                {showIcon && (
-                    <div className="img-wrapper">
-                        <img className="subtitle-icon" src={subtitleIcon} alt="Subtitle Icon" />
-                    </div>
-                )}
-                <h3 className={`subtitle ${color}`}>
-                    {subTitle || "Replace with your own subtitle."}
-                </h3>
+        <Reveal>
+            <div className={`subtitle-area flex items-center ${align? align : 'justify-center'}`}>
+                <div className={`subtitle-wrapper flex items-center justify-center border ${borderColor} ${bgColor}`}>
+                    {showIcon && (
+                        <div className="img-wrapper">
+                            <img className="subtitle-icon" src={subtitleIcon} alt="Subtitle Icon" />
+                        </div>
+                    )}
+                    <h3 className={`subtitle ${color}`}>
+                        {subTitle || "Replace with your own subtitle."}
+                    </h3>
+                </div>
             </div>
-        </div>
+        </Reveal>
     );
 };
 

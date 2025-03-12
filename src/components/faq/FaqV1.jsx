@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import LoadingAnimation from './../loadingAnimation/LoadingAnimation';
 import ErrorMessage from '../errorMessage/ErrorMessage';
+import Reveal from '../../animation/Reveal';
 
 
 const FaqV1 = () => {
@@ -41,59 +42,61 @@ const FaqV1 = () => {
         <section className="FaqV1-section bg-lightGrayishWhite py-12">
             <div className="container max-w-5xl mx-auto">
                 {/* FAQ Wrapper */}
-                <div className="FaqV1s">
-                    {faqs?.map((faq, index) => (
-                        <div
-                            key={index}
-                            className={`FaqV1-item p-3 md:p-6 mb-2 rounded-md ${
-                                openIndex === index ? 'bg-softWhite' : ''
-                            }`}
-                        >
-                            {/* Question Button */}
-                            <button
-                                onClick={() => toggleFaqV1(index)}
-                                className="w-full flex justify-between items-center text-left focus:outline-none"
-                                aria-expanded={openIndex === index} // Accessibility
-                                aria-controls={`FaqV1-answer-${index}`}
-                                role="button"
+                <Reveal>
+                    <div className="FaqV1s">
+                        {faqs?.map((faq, index) => (
+                            <div
+                                key={index}
+                                className={`FaqV1-item p-3 md:p-6 mb-2 rounded-md ${
+                                    openIndex === index ? 'bg-softWhite' : ''
+                                }`}
                             >
-                                <span className="text-lg font-medium text-primary leading-normal mr-2">
-                                    {faq?.question}
-                                </span>
-                                {/* Animated Toggle Icon */}
-                                <motion.span
-                                    className="flex items-center justify-center w-8 h-8 rounded-full"
-                                    animate={{ rotate: openIndex === index ? 180 : 0 }}
-                                    transition={{ duration: 0.3 }}
+                                {/* Question Button */}
+                                <button
+                                    onClick={() => toggleFaqV1(index)}
+                                    className="w-full flex justify-between items-center text-left focus:outline-none"
+                                    aria-expanded={openIndex === index} // Accessibility
+                                    aria-controls={`FaqV1-answer-${index}`}
+                                    role="button"
                                 >
-                                    {openIndex === index ? (
-                                        <AiOutlineMinus className="border-2 border-coolGray text-coolGray rounded-full p-1 text-3xl font-semibold" />
-                                    ) : (
-                                        <AiOutlinePlus className="border-2 border-coolGray text-coolGray rounded-full p-1 text-3xl font-semibold" />
-                                    )}
-                                </motion.span>
-                            </button>
-
-                            {/* Animated Answer Section */}
-                            <AnimatePresence>
-                                {openIndex === index && (
-                                    <motion.div
-                                        id={`FaqV1-answer-${index}`}
-                                        initial={{ opacity: 0, height: 0 }}
-                                        animate={{ opacity: 1, height: 'auto' }}
-                                        exit={{ opacity: 0, height: 0 }}
+                                    <span className="text-lg font-medium text-primary leading-normal mr-2">
+                                        {faq?.question}
+                                    </span>
+                                    {/* Animated Toggle Icon */}
+                                    <motion.span
+                                        className="flex items-center justify-center w-8 h-8 rounded-full"
+                                        animate={{ rotate: openIndex === index ? 180 : 0 }}
                                         transition={{ duration: 0.3 }}
-                                        className="overflow-hidden"
                                     >
-                                        <div className="text-davyGray font-normal leading-normal text-base mt-2">
-                                            <p>{faq?.answer}</p>
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
-                    ))}
-                </div>
+                                        {openIndex === index ? (
+                                            <AiOutlineMinus className="border-2 border-coolGray text-coolGray rounded-full p-1 text-3xl font-semibold" />
+                                        ) : (
+                                            <AiOutlinePlus className="border-2 border-coolGray text-coolGray rounded-full p-1 text-3xl font-semibold" />
+                                        )}
+                                    </motion.span>
+                                </button>
+
+                                {/* Animated Answer Section */}
+                                <AnimatePresence>
+                                    {openIndex === index && (
+                                        <motion.div
+                                            id={`FaqV1-answer-${index}`}
+                                            initial={{ opacity: 0, height: 0 }}
+                                            animate={{ opacity: 1, height: 'auto' }}
+                                            exit={{ opacity: 0, height: 0 }}
+                                            transition={{ duration: 0.3 }}
+                                            className="overflow-hidden"
+                                        >
+                                            <div className="text-davyGray font-normal leading-normal text-base mt-2">
+                                                <p>{faq?.answer}</p>
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        ))}
+                    </div>
+                </Reveal>
             </div>
         </section>
     );

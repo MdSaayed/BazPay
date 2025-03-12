@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Title from '../title/Title';
 import PropTypes from 'prop-types';
 import StatItem from './StatItem';
+import Reveal from '../../animation/Reveal';
 
 const Stats = ({ bgColor = "bg-transparent", textColor = "text-primary" }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -60,29 +61,34 @@ const Stats = ({ bgColor = "bg-transparent", textColor = "text-primary" }) => {
       <div className="container py-9">
         {/* Stats Container */}
         <div className={`${bgColor} ${bgColor !== 'bg-transparent' ? 'text-softWhite' : textColor} 
-                         grid grid-cols-1 lg:grid-cols-3 justify-between gap-y-12 lg:gap-20 
-                         py-9 px-8 rounded-3xl`}>
+            grid grid-cols-1 lg:grid-cols-3 justify-between gap-y-12 lg:gap-20 
+            py-9 px-8 rounded-3xl`}
+          >
           
           {/* Section Title */}
-          <Title 
-            title={<>Backed by a bunch of well-known <span>finance services from</span> around the world.</>}
-            maxWidth="md:max-w-[368px]" 
-            size="text-2xl" 
-            textAlign="text-center md:text-left" 
-            color={textColor}
-          /> 
+            <Title 
+              title={<>Backed by a bunch of well-known <span>finance services from</span> around the world.</>}
+              maxWidth="md:max-w-[368px]" 
+              size="text-2xl" 
+              textAlign="text-center md:text-left" 
+              color={textColor}
+            /> 
           
-          {/* Stats Counters */}
-          <div className="flex flex-wrap items-center justify-center md:justify-between gap-8 lg:gap-10 col-span-2">
-            {/* Happy Customers */}
-            <StatItem value={count1} suffix="+" label="Happy Customers" textColor={textColor} />
-            
-            {/* Secure Transactions */}
-            <StatItem value={`$${count2.toFixed(2)}`} suffix=" Billion+" label="Secure Transactions" textColor={textColor} />
-            
-            {/* Smooth Uptime */}
-            <StatItem value={`${count3.toFixed(1)}`} suffix="%" label="Smooth Uptime" textColor={textColor} />
-          </div>
+              {/* Stats Counters */}
+                <div className="flex flex-wrap items-center justify-center md:justify-between gap-8 lg:gap-10 col-span-2">
+              <Reveal>
+                {/* Happy Customers */}
+                <StatItem value={count1} suffix="+" label="Happy Customers" textColor={textColor} />
+              </Reveal>
+              <Reveal>
+                {/* Secure Transactions */}
+                <StatItem value={`$${count2.toFixed(2)}`} suffix=" Billion+" label="Secure Transactions" textColor={textColor} />
+              </Reveal>
+              <Reveal>
+                  {/* Smooth Uptime */}
+                  <StatItem value={`${count3.toFixed(1)}`} suffix="%" label="Smooth Uptime" textColor={textColor} />
+              </Reveal>
+            </div>
         </div>
       </div>
     </section>

@@ -1,8 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import Reveal from '../../animation/Reveal';
 
 const Description = ({ text="text-[davyGray]", size="text-lg", color="text-davyGray",maxWidth="max-w-[694px]", textAlign="text-center mx-auto"}) => {
-    return <p className={`leading-normal mt-4 ${size} ${color} ${maxWidth} ${textAlign}`}> {text} </p>;
+    return (
+        <>
+            <Reveal>
+                <p className={`leading-normal mt-4 ${size} ${color} ${maxWidth} ${textAlign}`}> {text} </p>;
+            </Reveal>
+        </>
+    )
+    
 };
 
 Description.propTypes = {
