@@ -11,7 +11,7 @@ const FinancialOverview = () => {
 
     // Framer Motion animation variants
     const fadeInUp = {
-        hidden: { opacity: 0, y: 50 },
+        hidden: { opacity: 0, y: 75 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
     };
 
@@ -22,12 +22,6 @@ const FinancialOverview = () => {
                 <Subtitle subTitle="Total income and payments overview." />
 
                 {/* Section Title */}
-                <motion.div
-                    className="text-center"
-                    variants={fadeInUp} // Applying the fadeInUp variant
-                    initial="hidden"
-                    whileInView="visible"  // Animation triggered every time it comes into view
-                >
                     <Title
                         title={<>
                                 Transforming finance – one <span>feature</span> at a time
@@ -37,11 +31,9 @@ const FinancialOverview = () => {
                         fontFamily="font-inter"
                         maxWidth='max-w-[568px]'
                     />
-                </motion.div>
 
                 {/* Grid Layout for Financial Overview */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-8 mt-20">
-
                     {/* Financial Overview One - Current Value Card */}
                     <motion.div
                         className="feature-card md:col-span-6 lg:col-span-5 bg-lightLavender p-6 rounded-2xl shadow-lg"

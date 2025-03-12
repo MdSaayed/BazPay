@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import BlogCard from "./BlogCard";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 import LoadingAnimation from './../loadingAnimation/LoadingAnimation';
+import Reveal from "../../animation/Reveal";
 
 const BlogGrid = () => {
   // State to hold the blog data, loading state, and any errors
@@ -47,7 +48,9 @@ const BlogGrid = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Map over the blogs and render a BlogCard for each one */}
         {blogs?.slice(0, 2)?.map((blog) => (
-          <BlogCard key={blog?.id} blog={blog} />
+          <Reveal key={blog?.id}>
+            <BlogCard blog={blog} />
+          </Reveal>
         ))}
       </div>
     </div>
