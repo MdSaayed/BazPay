@@ -37,19 +37,14 @@ const Cta = () => {
           variants={fadeUp}
         >
           {/* Subtitle */}
-          <motion.div variants={fadeUp}>
-            <Subtitle subTitle="Pricing" color="text-softWhite" bgColor="bg-primary" borderColor="border-blueGray" />
-          </motion.div>
+
+          <Subtitle subTitle="Pricing" color="text-softWhite" bgColor="bg-primary" borderColor="border-blueGray" />
 
           {/* Title */}
-          <motion.div variants={fadeUp}>
-            <Title title="Value Packed Newsletter" size="text-4xl lg:text-5xl" fontWeight="font-medium" color="text-softWhite" />
-          </motion.div>
+          <Title title="Value Packed Newsletter" size="text-4xl lg:text-5xl" fontWeight="font-medium" color="text-softWhite" />
 
           {/* Description */}
-          <motion.div variants={fadeUp}>
-            <Description text="Subscribe to our newsletter for big updates before everyone else, and yeah, you can unsubscribe anytime!" color="text-softWhite opacity-60" />
-          </motion.div>
+          <Description text="Subscribe to our newsletter for big updates before everyone else, and yeah, you can unsubscribe anytime!" color="text-softWhite opacity-60" />
 
           {/* Subscription Form */}
           <motion.div className="mt-12 flex justify-center" variants={fadeUp}>

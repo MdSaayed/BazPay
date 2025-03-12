@@ -38,40 +38,26 @@ const CtaV1 = () => {
             <div className="container py-8 md:py-16">
                 {/* CTA Wrapper */}
                 <motion.div 
-                    className="bg-primary grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-16 p-6 md:p-10 rounded-3xl"
+                    className="bg-primary grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-16 p-6 md:p-10 rounded-3xl overflow-hidden"
                     variants={fadeUp}
                 >
                     {/* Left Content */}
                     <div>
                         {/* Subtitle Component */}
-                        <motion.div 
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: false, amount: 1 }}
-                            variants={fadeUp}
-                            >
-                            <Subtitle 
-                                subTitle="Pricing" 
-                                color="text-softWhite" 
-                                borderColor="border-softWhite" 
-                                align="justify-start" 
-                            />
-                        </motion.div>
+                        <Subtitle 
+                            subTitle="Pricing" 
+                            color="text-softWhite" 
+                            borderColor="border-softWhite" 
+                            align="justify-start" 
+                        />
 
                         {/* Main Title */}
-                        <motion.div 
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: false, amount: 1 }}
-                            variants={fadeUp}
-                        >
-                            <Title 
-                                title="Growth performance tracking made easy" 
-                                color="text-softWhite" 
-                                textAlign="text-left" 
-                                size="text-4xl lg:text-5xl" 
-                            />
-                        </motion.div>
+                        <Title 
+                            title="Growth performance tracking made easy" 
+                            color="text-softWhite" 
+                            textAlign="text-left" 
+                            size="text-4xl lg:text-5xl" 
+                        />
 
                         {/* Feature: Cloud Sync */}
                         <motion.div 

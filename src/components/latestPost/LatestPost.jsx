@@ -3,6 +3,7 @@ import LoadingAnimation from '../loadingAnimation/LoadingAnimation';
 import Title from '../title/Title';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import { Link } from 'react-router-dom';
+import Reveal from '../../animation/Reveal';
 
 const LatestPost = () => {
   // State Management
@@ -57,8 +58,8 @@ const LatestPost = () => {
           {/* Category Filter Buttons */}
           <div className="flex flex-wrap space-x-4 mt-10 lg:mt-4 w-full gap-2">
             {categories?.map(category => (
-              <button 
-                key={category} 
+              <Reveal key={category}>
+              <button  
                 onClick={() => setFilter(category)}
                 aria-label={`Filter by ${category}`}
                 className={`filter-btn px-5 py-2 rounded-full transition-colors ${
@@ -69,6 +70,7 @@ const LatestPost = () => {
               >
                 {category}
               </button>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -76,40 +78,42 @@ const LatestPost = () => {
         {/* Blog Posts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {getFilteredPosts()?.map((post, idx) => (
-            <article key={idx} className="border border-whiteSmoke rounded-3xl overflow-hidden group">
-              {/* Blog Post Image */}
-              {post?.image && (
-                <Link  to={`/blog/${post.id}`}  className="block w-full max-h-[300px] overflow-hidden rounded-3xl">
-                  <img 
-                    src={post?.image} 
-                    alt={post?.title || 'Post Image'} 
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                </Link>
-              )}
-              
-              {/* Blog Post Content */}
-              <div className="px-6 py-8">
-                <div className="flex items-center gap-4">
-                  {/* Category Tag */}
-                  {post?.category && (
-                    <span className="text-base font-normal text-davyGray border border-[#E9EAEB] px-3 py-1 rounded-3xl">
-                      {post?.category}
-                    </span>
-                  )}
-                  {/* Read Time */}
-                  <span className="text-base font-normal text-davyGray px-3 py-1">
-                  <span>{post?.reading_time || 'N/A'}</span>
-                  </span>
-                </div>
-                {/* Blog Post Title */}
-                <h2 className="text-xl font-semibold text-primary mt-4">
-                  <Link  to={`/blog/${post?.id}`} className="block hover:text-limeGreen transition-colors">
-                    {post?.title || 'Untitled Post'}
+           <Reveal key={idx} >
+              <article className="border border-whiteSmoke rounded-3xl overflow-hidden group">
+                {/* Blog Post Image */}
+                {post?.image && (
+                  <Link  to={`/blog/${post.id}`}  className="block w-full max-h-[300px] overflow-hidden rounded-3xl">
+                    <img 
+                      src={post?.image} 
+                      alt={post?.title || 'Post Image'} 
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
                   </Link>
-                </h2>
-              </div>
-            </article>
+                )}
+                
+                {/* Blog Post Content */}
+                <div className="px-6 py-8">
+                  <div className="flex items-center gap-4">
+                    {/* Category Tag */}
+                    {post?.category && (
+                      <span className="text-base font-normal text-davyGray border border-[#E9EAEB] px-3 py-1 rounded-3xl">
+                        {post?.category}
+                      </span>
+                    )}
+                    {/* Read Time */}
+                    <span className="text-base font-normal text-davyGray px-3 py-1">
+                    <span>{post?.reading_time || 'N/A'}</span>
+                    </span>
+                  </div>
+                  {/* Blog Post Title */}
+                  <h2 className="text-xl font-semibold text-primary mt-4">
+                    <Link  to={`/blog/${post?.id}`} className="block hover:text-limeGreen transition-colors">
+                      {post?.title || 'Untitled Post'}
+                    </Link>
+                  </h2>
+                </div>
+              </article>
+           </Reveal>
           ))}
         </div>
       </div>
