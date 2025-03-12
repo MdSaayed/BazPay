@@ -4,6 +4,7 @@ import CloseIcon from "/assets/icons/close-compare.svg";
 import Button from '../ui/Button';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import LoadingAnimation from '../loadingAnimation/LoadingAnimation';
+import Reveal from '../../animation/Reveal';
 
 const ComparePlans = () => {
   const [plans, setPlans] = useState([]);
@@ -46,54 +47,60 @@ const ComparePlans = () => {
         <h2 className="text-5xl font-semibold text-center mb-16">Compare Plans</h2>
 
         {/* Pricing Cards Grid */}
-        <div className="flex flex-wrap items-center justify-end gap-8">
-          {plans?.map((plan) => (
-            <div key={plan?.id} className="border rounded-lg p-8 min-w-full md:min-w-[250px]">
-              <h3 className="text-2xl text-center font-bold mb-2">{plan?.title}</h3>
+        <Reveal>
+          <div className="flex flex-wrap items-center justify-end gap-8">
+            {plans?.map((plan) => (
+              <div  key={plan?.id}  className="border rounded-lg p-8 min-w-full md:min-w-[250px]">
+                <h3 className="text-2xl text-center font-bold mb-2">{plan?.title}</h3>
 
-              {/* Showing Price Conditionally */}
-              <div className="flex items-center justify-center">
-                <p className="text-4xl font-bold mb-6">
-                  <span>$</span>
-                  <span>{selectedDuration === "monthly" ? plan?.price?.monthly : plan?.price?.annual}</span>
-                  <span className="text-lg font-medium text-gray-600">
-                    {selectedDuration === "monthly" ? " /mon" : " /year"}
-                  </span>
-                </p>
+                {/* Showing Price Conditionally */}
+                <div className="flex items-center justify-center">
+                  <p className="text-4xl font-bold mb-6">
+                    <span>$</span>
+                    <span>{selectedDuration === "monthly" ? plan?.price?.monthly : plan?.price?.annual}</span>
+                    <span className="text-lg font-medium text-gray-600">
+                      {selectedDuration === "monthly" ? " /mon" : " /year"}
+                    </span>
+                  </p>
+                </div>
+
+                <Button
+                  text="View Details"
+                  bgColor="bg-whiteSmoke"
+                  hoverBgColor="hover:bg-lightGreen"
+                  border="border-whiteSmoke"
+                  hoverBorder="hover:border-lightGreen"
+                  fullWidth={true}
+                  link={`/pricing/${plan?.id}`}
+                />
               </div>
-
-              <Button
-                text="View Details"
-                bgColor="bg-whiteSmoke"
-                hoverBgColor="hover:bg-lightGreen"
-                border="border-whiteSmoke"
-                hoverBorder="hover:border-lightGreen"
-                fullWidth={true}
-                link={`/pricing/${plan?.id}`}
-              />
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Reveal>
 
         {/* Feature Comparison Table */}
         <div className="overflow-x-auto mt-10">
           <div className="min-w-[600px]">
-            <h3 className="text-3xl font-semibold text-primary my-8">Feature Comparison</h3>
+            <Reveal>
+              <h3 className="text-3xl font-semibold text-primary my-8">Feature Comparison</h3>
+            </Reveal>
 
             {/* Feature Rows */}
             {featureConfig?.map((feature, idx) => (
-              <div key={idx} className={`grid grid-cols-4 gap-4 px-6 py-4 rounded ${idx % 2 === 0 ? 'bg-lightAloe' : ''}`}>
-                <div className="font-medium min-w-[200px]">{feature}</div>
-                {plans?.map((plan) => (
-                  <div key={`${plan?.id}-${idx}`} className="text-base font-normal text-primary min-w-[150px] text-center">
-                    {plan?.features?.[selectedDuration]?.includes(feature) ? (
-                      <img src={CheckIcon} alt="Included" className="h-6 w-6 mx-auto" />
-                    ) : (
-                      <img src={CloseIcon} alt="Not included" className="h-6 w-6 mx-auto" />
-                    )}
-                  </div>
-                ))}
-              </div>
+              <Reveal key={idx}>
+                <div className={`grid grid-cols-4 gap-4 px-6 py-4 rounded ${idx % 2 === 0 ? 'bg-lightAloe' : ''}`}>
+                  <div className="font-medium min-w-[200px]">{feature}</div>
+                  {plans?.map((plan) => (
+                    <div key={`${plan?.id}-${idx}`} className="text-base font-normal text-primary min-w-[150px] text-center">
+                      {plan?.features?.[selectedDuration]?.includes(feature) ? (
+                        <img src={CheckIcon} alt="Included" className="h-6 w-6 mx-auto" />
+                      ) : (
+                        <img src={CloseIcon} alt="Not included" className="h-6 w-6 mx-auto" />
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>

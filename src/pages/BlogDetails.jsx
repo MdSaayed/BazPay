@@ -4,6 +4,7 @@ import LoadingAnimation from "../components/loadingAnimation/LoadingAnimation";
 import Title from "../components/title/Title";
 import ErrorMessage from "../components/errorMessage/ErrorMessage";
 import Blog from "./Blog";
+import Reveal from "../animation/Reveal";
 
 const BlogDetails = () => {
   const blog = useLoaderData(); // Get data from the loader
@@ -39,18 +40,20 @@ const BlogDetails = () => {
     <section className="bg-lightGrayishWhite py-24">
       <div className="container">
         {/* Blog Meta Information */}
-        <div className="flex flex-wrap gap-4 mb-6">
-          {category && (
-            <span className="text-davyGray text-base font-normal px-2 py-1 rounded-lg bg-whiteSmoke">
-              {category}
-            </span>
-          )}
-          {date && (
-            <span className="text-davyGray text-base font-normal px-2 py-1 rounded-lg bg-whiteSmoke">
-              {date}
-            </span>
-          )}
-        </div>
+          <div className="flex flex-wrap gap-4 mb-6">
+            <Reveal>
+                {category && (
+                  <span className="text-davyGray text-base font-normal px-2 py-1 rounded-lg bg-whiteSmoke">
+                    {category}
+                  </span>
+                )}
+                {date && (
+                  <span className="text-davyGray text-base font-normal px-2 py-1 rounded-lg bg-whiteSmoke">
+                    {date}
+                  </span>
+                )}
+            </Reveal>
+          </div>
 
         {/* Blog Title */}
         {title && (
@@ -61,20 +64,24 @@ const BlogDetails = () => {
 
         {/* Blog Image */}
         {(detail_image || image) && (
-          <figure className="mb-16">
-            <img
-              src={detail_image || image}
-              alt={title}
-              className="w-full rounded-lg shadow-md"
-            />
-          </figure>
+          <Reveal>
+            <figure className="mb-16">
+              <img
+                src={detail_image || image}
+                alt={title}
+                className="w-full rounded-lg shadow-md"
+              />
+            </figure>
+          </Reveal>
         )}
 
         {/* Blog Description */}
         {content && (
-          <article className="prose text-davyGray text-base">
-            <p>{content}</p>
-          </article>
+          <Reveal>
+            <article className="prose text-davyGray text-base">
+              <p>{content}</p>
+            </article>
+          </Reveal>
         )}
       </div>
     </section>

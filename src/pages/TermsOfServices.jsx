@@ -1,6 +1,7 @@
 import React from 'react';
 import Title from '../components/title/Title';
 import Description from '../components/description/Description';
+import Reveal from '../animation/Reveal';
 
 const TermsOfServices = () => {
     return (
@@ -20,31 +21,38 @@ const TermsOfServices = () => {
                     />
 
                     {/* Section for Acceptance of Terms */}
-                    <div className="space-y-4 mt-12">
+                    <Reveal>
+                        <div className="space-y-4 mt-12">
                         <h3 className='text-primary font-semibold text-2xl'>1. Acceptance of Terms</h3>
                         <p className='leading-normal mt-4 text-lg text-davyGray text-left'>
                             By accessing or using Enova website, services, or products (collectively, the "Services"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our Services.
                         </p>
-                    </div>
+                        </div>
+                    </Reveal>
 
                     {/* Section for Description of Services */}
-                    <div className="space-y-4 mt-12">
+                    <Reveal>
+                        <div className="space-y-4 mt-12">
                         <h3 className='text-primary font-semibold text-2xl'>2. Description of Services</h3>
                         <p className='leading-normal mt-4 text-lg text-davyGray text-left'>
                             Enova is a digital agency providing web design, development, marketing, and related digital services. The specific services we offer may change over time.
                         </p>
-                    </div>
+                        </div>
+                    </Reveal>
 
                     {/* Section for User Responsibilities */}
-                    <div className="space-y-4 mt-12">
+                    <Reveal>
+                        <div className="space-y-4 mt-12">
                         <h3 className='text-primary font-semibold text-2xl'>3. User Responsibilities</h3>
                         <p className='leading-normal mt-4 text-lg text-davyGray text-left'>
                             You agree to use our Services only for lawful purposes and in accordance with these Terms. You shall not:
                         </p>
-                    </div>
+                        </div>
+                    </Reveal>
 
                     {/* List of User Responsibilities */}
-                    <div className='mt-12'>
+                    <Reveal>
+                        <div className='mt-12'>
                         <ul className="list-none">
                             <li className="relative text-base font-normal text-davyGray before:content-['\2022'] before:absolute before:left-0 before:text-davyGray before:text-xl before:leading-none before:top-3 before:-translate-y-1/2 pl-5">
                                 Use the Services in any way that violates applicable laws or regulations.
@@ -59,51 +67,64 @@ const TermsOfServices = () => {
                                 Reproduce, duplicate, copy, sell, resell, or exploit any portion of the Services without express written permission from Enova.
                             </li>
                         </ul>
-                    </div>
+                        </div>
+                    </Reveal>
 
                     {/* Section for Intellectual Property */}
-                    <div className="space-y-4 mt-12">
+                    <Reveal>
+                        <div className="space-y-4 mt-12">
                         <h3 className='text-primary font-semibold text-2xl'>4. Intellectual Property</h3>
                         <p className='leading-normal mt-4 text-lg text-davyGray text-left'>
                             All content, features, and functionality of our Services are owned by Enova or its licensors and are protected by copyright, trademark, and other intellectual property laws.
                         </p>
-                    </div>
+                        </div>
+                    </Reveal>
 
                     {/* Section for Payment and Billing */}
-                    <div className="space-y-4 mt-12">
+                    <Reveal>
+                        <div className="space-y-4 mt-12">
                         <h3 className='text-primary font-semibold text-2xl'>5. Payment and Billing</h3>
                         <p className='leading-normal mt-4 text-lg text-davyGray text-left'>
                             For paid Services, you agree to pay all fees associated with the Services you select. All fees are non-refundable unless otherwise specified.
                         </p>
-                    </div>
+                        </div>
+                    </Reveal>
 
                     {/* Section for Termination */}
-                    <div className="space-y-4 mt-12">
+                    <Reveal>
+                        <div className="space-y-4 mt-12">
                         <h3 className='text-primary font-semibold text-2xl'>6. Termination</h3>
                         <p className='leading-normal mt-4 text-lg text-davyGray text-left'>
                             We reserve the right to terminate or suspend your access to our Services at our sole discretion, without notice, for conduct that we believe violates these Terms or is harmful to other users, us, or third parties, or for any other reason.
                         </p>
-                    </div>
+                        </div>
+                    </Reveal>
 
                     {/* Section for Governing Law */}
-                    <div className="space-y-4 mt-12">
+                    <Reveal>
+                        <div className="space-y-4 mt-12">
                         <h3 className='text-primary font-semibold text-2xl'>7. Governing Law</h3>
                         <p className='leading-normal mt-4 text-lg text-davyGray text-left'>
                             These Terms shall be governed by and construed in accordance with the laws of [insert applicable jurisdiction], without regard to its conflict of law provisions.
                         </p>
-                    </div>
+                        </div>
+                    </Reveal>
 
                     {/* Footer note */}
-                    <div className='mt-12'>
+                    <Reveal>
+                        <div className='mt-12'>
                         <p className='text-base font-normal text-davyGray'>Enova</p>
-                    </div>
+                        </div>
+                    </Reveal>
 
                     {/* Acknowledgment of the terms */}
-                    <div className='mt-12'>
+                    <Reveal>
+                        <div className='mt-12'>
                         <p className='text-base font-normal text-davyGray'>
                             By using our Services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.
                         </p>
-                    </div>
+                        </div>
+                    </Reveal>
                 </div>
             </div>
         </section>
