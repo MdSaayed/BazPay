@@ -17,7 +17,7 @@ const About = () => {
         <>
             {/* Hero Section */}
             <section className="bg-lightGrayishWhite">
-                <div className="container py-24">
+                <div className="container py-10 lg:py-24">
                     {/* Subtitle */}
                     <Subtitle 
                         subTitle="About us" 

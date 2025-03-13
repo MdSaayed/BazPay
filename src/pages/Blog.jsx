@@ -12,7 +12,7 @@ const Blog = () => {
         < >
             {/* Blog Section */}
             <section className="bg-lightGrayishWhite">
-                <div className="container py-24">
+                <div className="container py-10 lg:py-24">
                     
                     {/* Section Header */}
                     <Subtitle 

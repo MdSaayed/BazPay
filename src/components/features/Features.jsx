@@ -14,7 +14,7 @@ import Reveal from "../../animation/Reveal";
 const SecuritySection = () => {
   return (
     <section className="bg-lightGrayishWhite">
-      <div className="container py-28">
+      <div className="container py-10 lg:py-24">
 
         {/* Subtitle */}
           <Subtitle subTitle="Security and Insights" borderColor="border-blue" bgColor="bg-blue" />

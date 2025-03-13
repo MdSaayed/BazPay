@@ -41,7 +41,7 @@ const PricingDetails = () => {
     <> 
       {/* Pricing Details Section */}
       <section className="bg-lightGrayishWhite">
-        <div className="container py-24">
+        <div className="container py-10 lg:py-24">
           <Reveal>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 md:gap-16 lg:gap-20">
               

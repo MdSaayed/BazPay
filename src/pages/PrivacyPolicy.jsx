@@ -7,7 +7,7 @@ const PrivacyPolicy = () => {
     return (
         // Main section for Privacy Policy
         <section className='bg-lightGrayishWhite'>
-            <div className="container py-20">
+            <div className="container py-10 lg:py-20">
                 {/* Container with a light lavender background for the main content */}
                 <div className='max-w-6xl mx-auto bg-lightLavender py-12 md:py-24 px-4 md:px-10 rounded-3xl'>
                     {/* Privacy Policy Title */}

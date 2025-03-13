@@ -36,8 +36,8 @@ const BlogDetails = () => {
   if (!blog) return <ErrorMessage error={error} />;
 
   return (
-    <section className="bg-lightGrayishWhite py-24">
-      <div className="container">
+    <section className="bg-lightGrayishWhite">
+      <div className="container py-10 lg:py-24">
         {/* Blog Meta Information */}
         <article >
           <Reveal>

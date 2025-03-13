@@ -25,7 +25,7 @@ const Contact = () => {
   
     return (
       <section className="bg-lightGrayishWhite">
-        <div className="container py-20">
+        <div className="container py-10 lg:py-24">
           {/* Page Title */}
           <Title title='Get in touch with us' maxWidth='max-w-[460px]' />
           

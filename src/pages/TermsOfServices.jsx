@@ -7,7 +7,7 @@ const TermsOfServices = () => {
     return (
         <section className='bg-lightGrayishWhite'>
             {/* Container for the content */}
-            <div className="container py-20">
+            <div className="container py-10 lg:py-20">
                 {/* Main content box with padding and rounded corners */}
                 <div className='max-w-6xl mx-auto bg-lightLavender py-12 md:py-24 px-4 md:px-10 rounded-3xl'>
                     

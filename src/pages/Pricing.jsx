@@ -12,7 +12,7 @@ const Pricing = () => {
         <>
             {/* Pricing */}
             <section className='bg-lightGrayishWhite'>
-                <div className="container py-24 bg-lightLavender rounded-3xl">
+                <div className="container py-10 lg:py-24 bg-lightLavender rounded-3xl">
                     <Subtitle subTitle='Pricing' borderColor='border-paleGreen' bgColor='bg-paleGreen' />
                     <Title 
                         title={<>Give it a shot for free and take charge of <span>your finances!</span></>} 

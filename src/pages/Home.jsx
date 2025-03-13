@@ -53,7 +53,7 @@ const Home = () => {
     <>
       {/* Hero */}
       <section className="bg-lightGrayishWhite">
-        <div className="container py-24">
+        <div className="container py-10 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10 gap-x-20 items-center">
             
             {/* Left Side - Heading Section */}
