@@ -21,7 +21,7 @@ const BrandLogo = ({ title, desc }) => {
                     {title && <h2 className='title text-center mb-8 text-2xl'>{title}</h2>}
 
                     {/* Brand Logo Slider */}
-                    <Slider items={logos} speed={4000} />
+                    <Slider items={logos} speed={5000} />
 
                     {/* Render description if provided */}
                     {desc && <p className='text-center font-normal text-base mt-8'>{desc}</p>}

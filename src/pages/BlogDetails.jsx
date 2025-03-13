@@ -39,20 +39,20 @@ const BlogDetails = () => {
     <section className="bg-lightGrayishWhite py-24">
       <div className="container">
         {/* Blog Meta Information */}
-          <div className="flex flex-wrap gap-4 mb-6">
-            <Reveal>
-                {category && (
-                  <span className="text-davyGray text-base font-normal px-2 py-1 rounded-lg bg-whiteSmoke">
-                    {category}
-                  </span>
-                )}
-                {date && (
-                  <span className="text-davyGray text-base font-normal px-2 py-1 rounded-lg bg-whiteSmoke">
-                    {date}
-                  </span>
-                )}
-            </Reveal>
-          </div>
+          <Reveal>
+            <div className="flex flex-wrap gap-4 mb-6">
+                  {category && (
+                    <span className="text-davyGray text-base font-normal px-2 py-1 rounded-lg bg-whiteSmoke">
+                      {category}
+                    </span>
+                  )}
+                  {date && (
+                    <span className="text-davyGray text-base font-normal px-2 py-1 rounded-lg bg-whiteSmoke">
+                      {date}
+                    </span>
+                  )}
+            </div>
+          </Reveal>
 
         {/* Blog Title */}
         {title && (
@@ -68,7 +68,7 @@ const BlogDetails = () => {
               <img
                 src={detail_image || image}
                 alt={title}
-                className="w-full rounded-lg shadow-md"
+                className="w-full rounded-3xl shadow-sm"
               />
             </figure>
           </Reveal>

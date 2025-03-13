@@ -21,6 +21,9 @@ import { motion } from 'framer-motion';
 import Reveal from '../animation/Reveal.jsx';
 import { FaApple } from "react-icons/fa";
 
+import BgImage from '/assets/img/global/phone-mockup.png';
+import BgImageFront from '/assets/img/global/phone-mockup-front.png';
+
 
 
 const Home = () => {
@@ -148,11 +151,12 @@ const Home = () => {
               </div>
 
               {/* Cards Slider with Optimized Background Image */}
-              <div
-                  className="rounded-md pt-28 pb-8 mt-10 premium-card-bg"
-              >
-                  <Slider items={cards} speed={4000} />
+              <div className="relative rounded-md pt-28 pb-8 mt-10 overflow-hidden">
+                <img src={BgImage} className="absolute top-0 left-1/2 -translate-x-1/2 px-16 h-full" />
+                <img src={BgImageFront} className="absolute top-0 left-1/2 -translate-x-1/2 z-20 px-16 h-full" />
+                <Slider items={cards} speed={5000} />
               </div>
+
           </div>
       </section>
 
@@ -301,7 +305,7 @@ const Home = () => {
                                 Gain full visibility of your finances with interactive dashboards and reports. Make data-driven decisions with ease.
                             </p>
                             <div className="mt-6">
-                                <img src={phoneMockup} alt="Phone Mockup" />
+                                <img className='mx-auto' src={phoneMockup} alt="Phone Mockup" />
                             </div>
                         </div>
                     </Reveal>
