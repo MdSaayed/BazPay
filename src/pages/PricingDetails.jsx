@@ -1,7 +1,7 @@
 import { useLoaderData } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Title from './../components/title/Title';
-import CtaV1 from './../components/cta/CtaV1';
+import CtaV1 from '../components/cta/CtaV2';
 import Button from './../components/ui/Button';
 import LoadingAnimation from '../components/loadingAnimation/LoadingAnimation';
 import ErrorMessage from '../components/errorMessage/ErrorMessage';

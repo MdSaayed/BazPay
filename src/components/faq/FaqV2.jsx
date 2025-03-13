@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
-import LoadingAnimation from './../loadingAnimation/LoadingAnimation';
+import LoadingAnimation from '../loadingAnimation/LoadingAnimation';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import Reveal from '../../animation/Reveal';
 
 
-const FaqV1 = () => {
+const FaqV2 = () => {
     // State for FAQ data
     const [faqs, setFaqs] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -15,7 +15,7 @@ const FaqV1 = () => {
     const [openIndex, setOpenIndex] = useState(null);
 
     // Function to toggle FAQ open/close
-    const toggleFaqV1 = (index) => {
+    const toggleFaqV2 = (index) => {
         setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
     };
 
@@ -39,24 +39,24 @@ const FaqV1 = () => {
     if (error) return <ErrorMessage error={error} />;
 
     return (
-        <section className="FaqV1-section bg-lightGrayishWhite py-12">
+        <section className="FaqV2-section bg-lightGrayishWhite py-12">
             <div className="container max-w-5xl mx-auto">
                 {/* FAQ Wrapper */}
                 <Reveal>
-                    <div className="FaqV1s">
+                    <div className="FaqV2s">
                         {faqs?.map((faq, index) => (
                             <div
                                 key={index}
-                                className={`FaqV1-item p-3 md:p-6 mb-2 rounded-md ${
+                                className={`FaqV2-item p-3 md:p-6 mb-2 rounded-md ${
                                     openIndex === index ? 'bg-softWhite' : ''
                                 }`}
                             >
                                 {/* Question Button */}
                                 <button
-                                    onClick={() => toggleFaqV1(index)}
+                                    onClick={() => toggleFaqV2(index)}
                                     className="w-full flex justify-between items-center text-left focus:outline-none"
                                     aria-expanded={openIndex === index} // Accessibility
-                                    aria-controls={`FaqV1-answer-${index}`}
+                                    aria-controls={`FaqV2-answer-${index}`}
                                     role="button"
                                 >
                                     <span className="text-lg font-medium text-primary leading-normal mr-2">
@@ -80,7 +80,7 @@ const FaqV1 = () => {
                                 <AnimatePresence>
                                     {openIndex === index && (
                                         <motion.div
-                                            id={`FaqV1-answer-${index}`}
+                                            id={`FaqV2-answer-${index}`}
                                             initial={{ opacity: 0, height: 0 }}
                                             animate={{ opacity: 1, height: 'auto' }}
                                             exit={{ opacity: 0, height: 0 }}
@@ -102,4 +102,4 @@ const FaqV1 = () => {
     );
 };
 
-export default FaqV1;
+export default FaqV2;

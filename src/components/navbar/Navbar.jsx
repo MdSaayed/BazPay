@@ -108,12 +108,12 @@ const Navbar = () => {
                   <ul className="space-y-1 h-full">
                     <li>
                       <Link to="/" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                        Home
+                        Home V1
                       </Link>
                     </li>
                     <li>
-                      <Link to="/homev1" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                        Home V1
+                      <Link to="/homev2" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                        Home V2
                       </Link>
                     </li>
                     <li>
@@ -251,12 +251,12 @@ const Navbar = () => {
                       <ul className="space-y-1">
                         <li>
                           <Link onClick={() => setIsMobileMenuOpen(false)}  to="/" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                            Home
+                            Home V1
                           </Link>
                         </li>
                         <li>
-                          <Link onClick={() => setIsMobileMenuOpen(false)}  to="/homev1" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                            Home V1
+                          <Link onClick={() => setIsMobileMenuOpen(false)}  to="homev2" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
+                            Home V2
                           </Link>
                         </li>
                         <li>

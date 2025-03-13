@@ -3,8 +3,8 @@ import Subtitle from '../subtitle/Subtitle';
 import Title from '../title/Title';
 import { FaArrowDownLong, FaArrowUpLong } from 'react-icons/fa6';
 import { FaExchangeAlt } from 'react-icons/fa';
-import featureOne from '/assets/img/features/feature-2.png';
-import featureTwo from '/assets/img/features/feature-1.png';
+import MonthlyRevenue from '/assets/img/features/monthly-revenue.png';
+import SecureTransfers from '/assets/img/features/secure-transfers.png';
 import { motion } from 'framer-motion'; // Importing motion
 import PropTypes from 'prop-types';
 
@@ -71,7 +71,7 @@ const FinancialOverview = ({cardBg='bg-lightLavender'}) => {
 
                         {/* Feature Image Wrapper */}
                         <div className="img-wrapper rounded-2xl overflow-hidden">
-                            <img src={featureOne} alt="Financial Overview Feature" className="w-full h-auto" />
+                            <img src={MonthlyRevenue} alt="Financial Overview Feature" className="w-full h-auto" />
                         </div>
                     </motion.div>
 
@@ -84,7 +84,7 @@ const FinancialOverview = ({cardBg='bg-lightLavender'}) => {
                     >
                         {/* Feature Image Wrapper */}
                         <div className="img-wrapper rounded-2xl overflow-hidden">
-                            <img src={featureTwo} alt="Secure Transfers Feature" className="w-full h-auto" />
+                            <img src={SecureTransfers} alt="Secure Transfers Feature" className="w-full h-auto" />
                         </div>
 
                         {/* Secure Transfers Title */}

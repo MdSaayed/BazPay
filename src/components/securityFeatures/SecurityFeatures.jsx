@@ -2,9 +2,11 @@ import React from "react";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import Subtitle from "../subtitle/Subtitle";
 import Title from "../title/Title";
-import { HiOutlineFingerPrint } from "react-icons/hi2";
 import { SiSecurityscorecard } from "react-icons/si";
 import Reveal from "../../animation/Reveal";
+import Notification from "/assets/img/global/notification.png";
+import Finger from "/assets/img/global/finger.png";
+import Zero from "/assets/icons/zero.svg";
 
 const SecurityFeatures = () => {
   return (
@@ -22,7 +24,7 @@ const SecurityFeatures = () => {
           <Reveal>
           <div className="bg-white px-5 py-8 rounded-2xl">
             <div>
-              <HiOutlineFingerPrint className="bg-limeGreen text-[60px] p-3 rounded-2xl text-white" />
+              <img src={Finger} alt="Finger Icon" />
             </div>
             <div className="mt-6">
               <h3 className="mb-2 text-primary font-semibold text-2xl">Your assets insured</h3>
@@ -37,7 +39,7 @@ const SecurityFeatures = () => {
           <Reveal>
             <div className="bg-white px-5 py-8 rounded-2xl">
               <div>
-                <MdOutlineNotificationsActive className="bg-limeGreen text-[60px] p-3 rounded-2xl text-primary" />
+              <img src={Notification} alt="Notification Icon" />
               </div>
               <div className="mt-6">
                 <h3 className="mb-2 text-primary font-semibold text-2xl">Instant Notifications</h3>
@@ -52,7 +54,7 @@ const SecurityFeatures = () => {
           <Reveal>
             <div className="bg-white px-5 py-8 rounded-2xl">
               <div>
-                <SiSecurityscorecard className="bg-primary text-[60px] p-3 rounded-2xl text-white" />
+                <img src={Zero} alt="Zero Icon" />
               </div>
               <div className="mt-6">
                 <h3 className="mb-2 text-primary font-semibold text-2xl">Zero Hidden Fees</h3>

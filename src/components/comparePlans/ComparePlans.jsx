@@ -86,22 +86,24 @@ const ComparePlans = () => {
             </Reveal>
 
             {/* Feature Rows */}
-            {featureConfig?.map((feature, idx) => (
-              <Reveal key={idx}>
-                <div className={`grid grid-cols-4 gap-4 px-6 py-4 rounded ${idx % 2 === 0 ? 'bg-lightAloe' : ''}`}>
-                  <div className="font-medium min-w-[200px]">{feature}</div>
-                  {plans?.map((plan) => (
-                    <div key={`${plan?.id}-${idx}`} className="text-base font-normal text-primary min-w-[150px] text-center">
-                      {plan?.features?.[selectedDuration]?.includes(feature) ? (
-                        <img src={CheckIcon} alt="Included" className="h-6 w-6 mx-auto" />
-                      ) : (
-                        <img src={CloseIcon} alt="Not included" className="h-6 w-6 mx-auto" />
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </Reveal>
-            ))}
+            <div className='overflow-hidden'>
+              {featureConfig?.map((feature, idx) => (
+                <Reveal key={idx}>
+                  <div className={`grid grid-cols-4 gap-4 px-6 py-4 rounded ${idx % 2 === 0 ? 'bg-lightAloe' : ''}`}>
+                    <div className="font-medium min-w-[200px]">{feature}</div>
+                    {plans?.map((plan) => (
+                      <div key={`${plan?.id}-${idx}`} className="text-base font-normal text-primary min-w-[150px] text-center">
+                        {plan?.features?.[selectedDuration]?.includes(feature) ? (
+                          <img src={CheckIcon} alt="Included" className="h-6 w-6 mx-auto" />
+                        ) : (
+                          <img src={CloseIcon} alt="Not included" className="h-6 w-6 mx-auto" />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </div>

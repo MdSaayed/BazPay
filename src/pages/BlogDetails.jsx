@@ -39,8 +39,9 @@ const BlogDetails = () => {
     <section className="bg-lightGrayishWhite py-24">
       <div className="container">
         {/* Blog Meta Information */}
+        <article >
           <Reveal>
-            <div className="flex flex-wrap gap-4 mb-6">
+            <div className="flex justify-center flex-wrap gap-4 mb-6">
                   {category && (
                     <span className="text-davyGray text-base font-normal px-2 py-1 rounded-lg bg-whiteSmoke">
                       {category}
@@ -54,34 +55,33 @@ const BlogDetails = () => {
             </div>
           </Reveal>
 
-        {/* Blog Title */}
-        {title && (
-          <div className="mb-20">
-            <Title title={title} textAlign="text-left" />
-          </div>
-        )}
+          {/* Blog Title */}
+          {title && (
+            <div className="mb-20">
+              <Title title={title} textAlign="text-center" />
+            </div>
+          )}
 
-        {/* Blog Image */}
-        {(detail_image || image) && (
-          <Reveal>
-            <figure className="mb-16">
-              <img
-                src={detail_image || image}
-                alt={title}
-                className="w-full rounded-3xl shadow-sm"
-              />
-            </figure>
-          </Reveal>
-        )}
+          {/* Blog Image */}
+          {(detail_image || image) && (
+            <Reveal>
+              <figure className="mb-16">
+                <img
+                  src={detail_image || image}
+                  alt={title}
+                  className="max-w-full max-h-[497px] mx-auto object-contain rounded-3xl shadow-sm"
+                />
+              </figure>
+            </Reveal>
+          )}
 
-        {/* Blog Description */}
-        {content && (
-          <Reveal>
-            <article className="prose text-davyGray text-base">
-              <p>{content}</p>
-            </article>
-          </Reveal>
-        )}
+          {/* Blog Description */}
+          {content && (
+            <Reveal>
+                <p className="prose text-davyGray text-base px-0 lg:px-40">{content}</p>
+            </Reveal>
+          )}
+        </article>
       </div>
     </section>
   );

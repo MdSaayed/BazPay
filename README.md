@@ -22,14 +22,21 @@
 
 ## Included Pages
 
-- **Home Page**
-- **About Us**
-- **Services**
+- **Home**
+- **Home V2**
+- **About**
+- **Contact**
+- **Features**
+- **Blog**
+- **Blog Details**
 - **Pricing**
+- **Pricing Details**
 - **FAQs**
 - **Contact Us**
-- **Blog** (List & Single Post)
-- **Sign In / Sign Up**
+- **Licenses**
+- **Privacy & Policy**
+- **Terms**
+- **Error**
 
 ## Technologies Used
 

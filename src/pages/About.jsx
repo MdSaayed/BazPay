@@ -1,6 +1,6 @@
 import React from 'react';
 import Team from '../components/team/Team';
-import FaqV1 from '../components/faq/FaqV1';
+import FaqV2 from '../components/faq/FaqV2';
 import BlogV1 from '../components/blog/BlogV1';
 import Cta from '../components/cta/Cta';
 import Stats from '../components/stats/Stats';
@@ -67,7 +67,7 @@ const About = () => {
             <Team />
 
             {/* Faq */}
-            <FaqV1 />
+            <FaqV2 />
 
             {/* CTA */}
             <Cta />

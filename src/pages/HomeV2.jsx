@@ -6,9 +6,9 @@ import HeroCard from "/assets/img/hero/hero-card.png";
 import Description from '../components/description/Description';
 import Button from '../components/ui/Button';
 import PricingCard from '../components/pricingCard/PricingCard';
-import CtaV1 from '../components/cta/CtaV1';
+import CtaV2 from '../components/cta/CtaV2';
 import Stats from '../components/stats/Stats';
-import FaqV1 from '../components/faq/FaqV1';
+import FaqV2 from '../components/faq/FaqV2';
 import BlogV1 from '../components/blog/BlogV1';
 import FeaturesSection from '../components/features/Features'; 
 import { motion } from "framer-motion";
@@ -118,7 +118,7 @@ const HomeV1 = () => {
             <Team />
 
             {/* Faq */}
-            <FaqV1 />
+            <FaqV2 />
 
             {/* Pricing */}
             <section className='bg-lightGrayishWhite'>
@@ -137,7 +137,7 @@ const HomeV1 = () => {
             </section>
 
             {/* CTA */}
-            <CtaV1 />
+            <CtaV2 />
 
             {/* Blog */}
             <BlogV1 />

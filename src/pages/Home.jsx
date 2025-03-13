@@ -186,7 +186,7 @@ const Home = () => {
                                   Real-time sync
                               </h3>
                               <p className="text-lg leading-normal text-blueGray text-center xl:text-left mt-6 max-w-[400px]">
-                                  Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor mattis sit phasellus.
+                                Track your spending and savings with our AI tools for personalized tips!
                               </p>
                           </div>
                           <img className="max-w-[230px] max-h-[230px]" src={featureThree} alt="Real-time sync" />

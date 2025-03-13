@@ -57,7 +57,7 @@ const LatestPost = () => {
           <div className="flex flex-col xl:flex-row items-center justify-between mb-10">
             <Title title="Latest Posts" size="text-4xl lg:text-5xl" textAlign="text-left" />
             {/* Category Filter Buttons */}
-            <div className="flex flex-wrap lg:justify-end space-x-4 mt-10 lg:mt-4 w-full gap-2">
+            <div className="flex flex-wrap lg:justify-end mt-10 lg:mt-4 w-full gap-2">
               {categories?.map(category => (
                 <button
                   key={category}  
@@ -79,19 +79,21 @@ const LatestPost = () => {
 
         {/* Blog Posts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {getFilteredPosts()?.map((post, idx) => (
+          {getFilteredPosts()?.slice(0, 6).map((post, idx) => (
            <Reveal key={idx} >
               <article className="border border-whiteSmoke rounded-3xl overflow-hidden group">
                 {/* Blog Post Image */}
                 {post?.image && (
-                  <Link  to={`/blog/${post.id}`}  className="block w-full max-h-[300px] overflow-hidden rounded-3xl">
-                    <img 
-                      src={post?.image} 
-                      alt={post?.title || 'Post Image'} 
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </Link>
-                )}
+                    <div className="max-h-80 h-72"> {/* Ensure fixed height here */}
+                      <Link to={`/blog/${post.id}`} className="block w-full h-full overflow-hidden rounded-3xl">
+                        <img 
+                          src={post?.image} 
+                          alt={post?.title || 'Post Image'} 
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                      </Link>
+                    </div>
+                  )}
                 
                 {/* Blog Post Content */}
                 <div className="px-6 py-8">

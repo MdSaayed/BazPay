@@ -2,7 +2,7 @@ import React from 'react';
 import PricingCard from '../components/pricingCard/PricingCard';
 import Subtitle from '../components/subtitle/Subtitle';
 import Title from '../components/title/Title';
-import CtaV1 from '../components/cta/CtaV1';
+import CtaV1 from '../components/cta/CtaV2';
 import Description from '../components/description/Description';
 import BlogGrid from '../components/blog/BlogGrid';
 import ComparePlans from '../components/comparePlans/ComparePlans';

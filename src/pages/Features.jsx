@@ -2,8 +2,8 @@ import React from 'react';
 import   FeaturesSection from "../components/features/Features";
 import FinancialOverview from '../components/financialOverview/FinancialOverview';
 import Team from '../components/team/Team';
-import FaqV1 from '../components/faq/FaqV1';
-import CtaV1 from '../components/cta/CtaV1';
+import FaqV2 from '../components/faq/FaqV2';
+import CtaV1 from '../components/cta/CtaV2';
 import BlogV1 from '../components/blog/BlogV1';
 
 const Features = () => {
@@ -19,7 +19,7 @@ const Features = () => {
             <Team />
             
             {/* Faq */}
-            <FaqV1 />
+            <FaqV2 />
 
             {/* CTA */}
             <CtaV1 />

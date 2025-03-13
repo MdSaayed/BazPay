@@ -21,8 +21,8 @@ const Footer = () => {
                         <div className="footer-links">
                             <h3 className="text-lg mb-4 text-primary font-medium">Product</h3>
                             <ul className="space-y-2">
-                                <li><Link to="/" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">Home</Link></li>
-                                <li><Link to="/homev1" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">Home V1</Link></li>
+                                <li><Link to="/" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">Home V1</Link></li>
+                                <li><Link to="homev2" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">Home V2</Link></li>
                                 <li><Link to="/features" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">Features</Link></li>
                                 <li><Link to="/pricing" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">Pricing</Link></li>
                                 <li><Link to="/pricing/1" className="text-davyGray text-base font-normal hover:text-primary mb-3 block">Pricing details (CMS)</Link></li>

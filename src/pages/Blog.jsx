@@ -3,8 +3,8 @@ import BlogGrid from './../components/blog/BlogGrid';
 import Subtitle from '../components/subtitle/Subtitle';
 import Title from '../components/title/Title';
 import Description from '../components/description/Description';
-import CtaV1 from '../components/cta/CtaV1';
-import FaqV1 from '../components/faq/FaqV1';
+import CtaV1 from '../components/cta/CtaV2';
+import FaqV2 from '../components/faq/FaqV2';
 import LatestPost from '../components/latestPost/LatestPost';
 
 const Blog = () => {
@@ -42,7 +42,7 @@ const Blog = () => {
             <LatestPost />
 
             {/* Faqs */}
-            <FaqV1 />
+            <FaqV2 />
         </ >
     );
 };
