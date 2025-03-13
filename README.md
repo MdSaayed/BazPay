@@ -1,24 +1,27 @@
 # BazPay - Premium React Template
 
-![BazPay Screenshot](screenshot.jpg)
+
 
 ## Introduction
-**BazPay** is a modern and fully responsive HTML template designed for financial technology, payment solutions, and banking-related businesses. With a sleek design and intuitive user experience, BazPay ensures a professional online presence for startups, fintech companies, and digital banking platforms.
+
+**BazPay** is a modern and fully responsive **React template** designed for financial technology, payment solutions, and banking-related businesses. With a sleek design and intuitive user experience, BazPay ensures a professional online presence for startups, fintech companies, and digital banking platforms.
 
 ## Features
-- **Fully Responsive** – Works on all devices seamlessly
-- **Modern & Clean Design** – High-quality UI for professional appearance
-- **Built with Bootstrap** – Latest Bootstrap framework for stability and speed
+
+- **Fully Responsive** – Works seamlessly on all devices
+- **Modern & Clean Design** – Professional UI for a high-quality look
+- **Built with React & Vite** – Fast performance and modern development
 - **Dark & Light Mode** – User-friendly theme switching
 - **SEO Optimized** – Best practices for search engine ranking
-- **Well Documented** – Easy-to-understand documentation
+- **Well Documented** – Easy-to-understand code and documentation
 - **Cross-Browser Compatible** – Works on Chrome, Firefox, Safari, Edge, etc.
-- **Smooth Animations & Transitions** – Enhanced user experience
-- **Functional Contact Form** – AJAX-based form submission
+- **Smooth Animations & Transitions** – Enhanced user experience with Framer Motion
+- **Functional Contact Form** – Form handling with React Hook Form
 - **Retina Ready** – High-resolution graphics for crisp visuals
 - **Easy Customization** – Modular and reusable components
 
 ## Included Pages
+
 - **Home Page**
 - **About Us**
 - **Services**
@@ -29,51 +32,92 @@
 - **Sign In / Sign Up**
 
 ## Technologies Used
-- HTML5, CSS3, JavaScript
-- Bootstrap 5
-- jQuery
-- FontAwesome Icons
-- Google Fonts
-- AOS Animation Library
 
-## Dependencies
-This project uses the following key dependencies:
-
-- **UI & Icons**: Font Awesome, Lucide React, React Icons  
-- **Animations**: Framer Motion, Lottie React, Lottie Web  
-- **Forms & Validation**: React Hook Form  
-- **Routing**: React Router DOM  
-- **Notifications**: React Toastify  
-- **Sliders**: Swiper  
-- **Security**: DOMPurify (for sanitizing user input)  
-- **Other Utilities**: React CountUp, Prop Types  
+- React.js + Vite
+- Tailwind CSS
+- React Router DOM
+- Framer Motion (Animations)
+- React Hook Form (Form Handling)
+- React Toastify (Notifications)
+- Swiper.js (Sliders)
+- Lucide React Icons
+- DOMPurify (Security & Sanitization)
+- Lottie React & Lottie Web (Animations)
+- Font Awesome & React Icons
+- React CountUp (Number Animations)
+- Prop Types (Type Checking)
 
 ## Installation & Usage
-1. Download the BazPay template.
-2. Extract the ZIP file.
-3. Open `index.html` in your browser to view the template.
-4. To modify styles, edit `style.css` in the `assets/css` folder.
-5. Update JavaScript functionality in `assets/js/main.js`.
-6. Customize images in the `assets/images` folder.
+
+### Prerequisites
+
+- Node.js (v16 or later)
+- npm or yarn
+
+### Steps to Run
+
+1. **Download and extract the template**
+2. **Navigate to the project folder:**
+   ```sh
+   cd bazpay
+   ```
+3. **Install dependencies:**
+   ```sh
+   npm install  # or yarn install
+   ```
+4. **Start the development server:**
+   ```sh
+   npm run dev  # or yarn dev
+   ```
+5. Open `http://localhost:5173/` in your browser.
 
 ## Customization Guide
-- To change colors, modify the `:root` variables in `style.css`.
-- Edit sections in the HTML files to fit your brand.
-- Add custom scripts inside `main.js`.
+
+- To change colors, modify the `tailwind.config.js` file.
+- Edit components in the `src/components/` folder to fit your needs.
+- Update global styles in `src/index.css`.
+- Modify the `routes` in `src/routes.js` to customize page navigation.
+
+## Build for Production
+
+To create an optimized production build:
+
+```sh
+npm run build  # or yarn build
+```
+
+## Deployment
+
+The generated files in the `dist/` folder can be deployed to:
+
+- **Vercel**
+- **Netlify**
+- **GitHub Pages**
+- **Any static hosting service**
 
 ## Support
-If you have any questions or need support, feel free to contact us at [your support email].
+
+If you have any questions or need support, feel free to contact us at [contact.uibazar@gmail.com](mailto:contact.uibazar@gmail.com).
 
 ## License
+
 This template is licensed under [Your Chosen License]. Redistribution or resale is prohibited.
 
 ## Credits
-- [Bootstrap](https://getbootstrap.com/)
-- [jQuery](https://jquery.com/)
-- [AOS](https://michalsnik.github.io/aos/)
+
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Swiper.js](https://swiperjs.com/)
 - [FontAwesome](https://fontawesome.com/)
 - [Unsplash](https://unsplash.com/) (For images)
 
 ---
-Thank you for choosing BazPay! 🚀
+
+Thank you for choosing **BazPay**! 🚀
+
+## Website
+
+Visit us at [www.uibazar.com](https://www.uibazar.com/)
 

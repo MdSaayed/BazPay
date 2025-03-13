@@ -12,6 +12,7 @@ const BlogV1 = () => {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
 
+  // Fatching data
   useEffect(() => {
     fetch("/blogData.json")
       .then((res) => {
@@ -38,21 +39,22 @@ const BlogV1 = () => {
     <section className="bg-lightGrayishWhite">
       <div className="container py-24">
         {/* Section Header */}
-        <div className="flex flex-col gap-20 lg:gap-4 lg:flex-row justify-between items-start lg:items-center mb-10 transition-opacity duration-700 opacity-100">
-          <div>
-            <Subtitle subTitle="Blog" borderColor="border-whiteSmoke" bg="#ECFFCD" align="justify-start" />
-            <Title title="Our latest News & Resources" textAlign="text-left" maxWidth="max-w-[560px]" />
-          </div>
-
-          {/* Browse all articles button */}
-          <Reveal>
-            <div className="mt-10 lg:mt-0 flex justify-end w-full lg:w-fit">
-              <Link to="/blog" className="border px-4 py-2 rounded-[32px] bg-lightGreen hover:border-primary hover:bg-transparent w-fit text-center transition-all duration-300 ease-in-out">
-                Browse all articles
-              </Link>
+        <Reveal>
+          <div className="flex flex-col gap-20 lg:gap-4 lg:flex-row justify-between items-start lg:items-center mb-10 transition-opacity duration-700 opacity-100">
+            <div>
+              <Subtitle subTitle="Blog" borderColor="border-whiteSmoke" bgColor="bg-paleGreen" align="justify-start" />
+              <Title title="Our latest News & Resources" textAlign="text-left" maxWidth="max-w-[560px]" />
             </div>
-          </Reveal>
-        </div>
+
+            {/* Browse all articles button */}
+              <div className="mt-10 lg:mt-0 flex justify-end w-full lg:w-fit">
+                <Link to="/blog" className="border px-4 py-2 rounded-[32px] bg-lightGreen hover:border-primary hover:bg-transparent w-fit text-center transition-all duration-300 ease-in-out">
+                  Browse all articles
+                </Link>
+              </div>
+          </div>
+        </Reveal>
+
 
         {/* Grid Layout for Featured and Other Posts */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-10 lg:gap-16">

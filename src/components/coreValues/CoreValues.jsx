@@ -10,6 +10,7 @@ import Description from '../description/Description';
 import Reveal from '../../animation/Reveal';
 
 const CoreValues = () => {
+  
   return (
     <section className="bg-lightGrayishWhite">
       <div className="container py-24">

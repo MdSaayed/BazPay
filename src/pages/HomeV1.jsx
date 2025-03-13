@@ -13,7 +13,6 @@ import BlogV1 from '../components/blog/BlogV1';
 import FeaturesSection from '../components/features/Features'; 
 import { motion } from "framer-motion";
 import SecurityFeatures from '../components/securityFeatures/SecurityFeatures';
-import Reveal from '../animation/Reveal';
 
 
 

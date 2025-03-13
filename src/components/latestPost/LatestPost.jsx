@@ -52,28 +52,30 @@ const LatestPost = () => {
     <section className="bg-lightGrayishWhite">
       <div className="container py-24">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row items-center justify-between mb-10">
-          <Title title="Latest Posts" size="text-4xl lg:text-5xl" textAlign="text-left" />
-          
-          {/* Category Filter Buttons */}
-          <div className="flex flex-wrap space-x-4 mt-10 lg:mt-4 w-full gap-2">
-            {categories?.map(category => (
-              <Reveal key={category}>
-              <button  
-                onClick={() => setFilter(category)}
-                aria-label={`Filter by ${category}`}
-                className={`filter-btn px-5 py-2 rounded-full transition-colors ${
-                  filter === category 
-                    ? 'bg-limeGreen text-softWhite text-base font-medium' 
-                    : 'text-primary text-base font-normal'
-                }`}
-              >
-                {category}
-              </button>
-              </Reveal>
-            ))}
+
+        <Reveal >
+          <div className="flex flex-col xl:flex-row items-center justify-between mb-10">
+            <Title title="Latest Posts" size="text-4xl lg:text-5xl" textAlign="text-left" />
+            {/* Category Filter Buttons */}
+            <div className="flex flex-wrap lg:justify-end space-x-4 mt-10 lg:mt-4 w-full gap-2">
+              {categories?.map(category => (
+                <button
+                  key={category}  
+                  onClick={() => setFilter(category)}
+                  aria-label={`Filter by ${category}`}
+                  className={`filter-btn px-5 py-2 rounded-full transition-colors ${
+                    filter === category 
+                      ? 'bg-limeGreen text-softWhite text-base font-medium' 
+                      : 'text-primary text-base font-normal'
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        </Reveal>
+
 
         {/* Blog Posts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

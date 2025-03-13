@@ -13,7 +13,7 @@ const Features = () => {
             <FeaturesSection />
 
             {/* Financial Overview */}
-            <FinancialOverview />
+            <FinancialOverview cardBg='bg-white' />
 
             {/* Team Section*/}
             <Team />

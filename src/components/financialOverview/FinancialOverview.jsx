@@ -6,8 +6,9 @@ import { FaExchangeAlt } from 'react-icons/fa';
 import featureOne from '/assets/img/features/feature-2.png';
 import featureTwo from '/assets/img/features/feature-1.png';
 import { motion } from 'framer-motion'; // Importing motion
+import PropTypes from 'prop-types';
 
-const FinancialOverview = () => {
+const FinancialOverview = ({cardBg='bg-lightLavender'}) => {
 
     // Framer Motion animation variants
     const fadeInUp = {
@@ -36,7 +37,7 @@ const FinancialOverview = () => {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-8 mt-20">
                     {/* Financial Overview One - Current Value Card */}
                     <motion.div
-                        className="feature-card md:col-span-6 lg:col-span-5 bg-lightLavender p-6 rounded-2xl shadow-lg"
+                        className={`feature-card ${cardBg? cardBg:'bg-lightLavender'} md:col-span-6 lg:col-span-5 p-6 rounded-2xl shadow-sm`}
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="visible"  // Animation triggered every time it comes into view
@@ -76,7 +77,7 @@ const FinancialOverview = () => {
 
                     {/* Financial Overview Two - Secure Transfers Card */}
                     <motion.div
-                        className="feature-card md:col-span-6 lg:col-span-7 bg-lightLavender p-6 rounded-2xl shadow-lg"
+                        className={`feature-card ${cardBg? cardBg:'bg-lightLavender'} md:col-span-6 lg:col-span-7 bg-lightLavender p-6 rounded-2xl shadow-sm`}
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="visible"  // Animation triggered every time it comes into view
@@ -97,5 +98,10 @@ const FinancialOverview = () => {
         </section>
     );
 };
+
+FinancialOverview.propTypes = {
+    cardBg: PropTypes.string
+}
+
 
 export default FinancialOverview;

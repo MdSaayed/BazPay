@@ -49,8 +49,8 @@ const ComparePlans = () => {
         {/* Pricing Cards Grid */}
         <Reveal>
           <div className="flex flex-wrap items-center justify-end gap-8">
-            {plans?.map((plan) => (
-              <div  key={plan?.id}  className="border rounded-lg p-8 min-w-full md:min-w-[250px]">
+            {plans?.map((plan,idx) => (
+              <div  key={plan?.id}  className="bg-white rounded-lg p-8 min-w-full md:min-w-[250px]">
                 <h3 className="text-2xl text-center font-bold mb-2">{plan?.title}</h3>
 
                 {/* Showing Price Conditionally */}
@@ -66,9 +66,9 @@ const ComparePlans = () => {
 
                 <Button
                   text="View Details"
-                  bgColor="bg-whiteSmoke"
+                  bgColor={`${idx == 0? 'bg-lightGreen' :'bg-lightSilver'} `}
                   hoverBgColor="hover:bg-lightGreen"
-                  border="border-whiteSmoke"
+                  border="border-lightSilver"
                   hoverBorder="hover:border-lightGreen"
                   fullWidth={true}
                   link={`/pricing/${plan?.id}`}

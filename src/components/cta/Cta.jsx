@@ -48,7 +48,7 @@ const Cta = () => {
 
           {/* Subscription Form */}
           <motion.div className="mt-12 flex justify-center" variants={fadeUp}>
-            <SubscribeForm formWidth="w-[100%] md:w-[80%] lg:w-[50%]" btnBg="bg-limeGreen" btnText="Get Started" formBg="bg-primary" borderColor="border-davyGray" />
+            <SubscribeForm textColor='text-softWhite' formWidth="w-[100%] md:w-[80%] lg:w-[50%]" btnBg="bg-limeGreen" btnText="Get Started" formBg="bg-primary" borderColor="border-davyGray" />
           </motion.div>
 
           {/* Floating Background Images */}

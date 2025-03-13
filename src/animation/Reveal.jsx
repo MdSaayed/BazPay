@@ -34,7 +34,7 @@ const Reveal = ({ children }) => {
     }, [isInView, mainControls])
 
     return (
-        <div ref={ref} className='relative overflow-hidden'>
+        <div ref={ref} className='relative w-full'>
             <motion.div
                 variants={{
                     hidden: { opacity: 0, y: 75 }, // Initial state (hidden)
@@ -43,6 +43,7 @@ const Reveal = ({ children }) => {
                 initial="hidden"
                 animate={mainControls}
                 transition={{ duration: 0.5, delay: 0.25 }}
+                className='h-full w-full'
             >
                 {children} {/* Render child elements inside the animated wrapper */}
             </motion.div>

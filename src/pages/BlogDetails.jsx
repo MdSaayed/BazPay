@@ -3,7 +3,6 @@ import { useLoaderData } from "react-router-dom";
 import LoadingAnimation from "../components/loadingAnimation/LoadingAnimation";
 import Title from "../components/title/Title";
 import ErrorMessage from "../components/errorMessage/ErrorMessage";
-import Blog from "./Blog";
 import Reveal from "../animation/Reveal";
 
 const BlogDetails = () => {

@@ -85,7 +85,7 @@ const Pricing = () => {
           {data.slice(0, 2).map((plan, index) => (
             <Reveal key={index}>
               <div
-                className={`group pricing-card rounded-2xl py-8 text-primary hover:bg-primary hover:text-softWhite transition-all cursor-pointer ${
+                className={`min-h-full group pricing-card rounded-2xl py-8 text-primary hover:bg-primary hover:text-softWhite transition-all cursor-pointer ${
                   index === 1 ? "bg-primary text-softWhite" : ""
                 }`}
               >

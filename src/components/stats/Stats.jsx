@@ -75,20 +75,18 @@ const Stats = ({ bgColor = "bg-transparent", textColor = "text-primary" }) => {
             /> 
           
               {/* Stats Counters */}
-                <div className="flex flex-wrap items-center justify-center md:justify-between gap-8 lg:gap-10 col-span-2">
-              <Reveal>
-                {/* Happy Customers */}
-                <StatItem value={count1} suffix="+" label="Happy Customers" textColor={textColor} />
-              </Reveal>
-              <Reveal>
-                {/* Secure Transactions */}
-                <StatItem value={`$${count2.toFixed(2)}`} suffix=" Billion+" label="Secure Transactions" textColor={textColor} />
-              </Reveal>
-              <Reveal>
-                  {/* Smooth Uptime */}
-                  <StatItem value={`${count3.toFixed(1)}`} suffix="%" label="Smooth Uptime" textColor={textColor} />
-              </Reveal>
-            </div>
+              <div className="col-span-2">
+                <Reveal>
+                  <div className="flex flex-wrap items-center justify-center md:justify-between gap-8 lg:gap-10">
+                    {/* Happy Customers */}
+                    <StatItem value={count1} suffix="+" label="Happy Customers" textColor={textColor} />
+                    {/* Secure Transactions */}
+                    <StatItem value={`$${count2.toFixed(2)}`} suffix=" Billion+" label="Secure Transactions" textColor={textColor} />
+                      {/* Smooth Uptime */}
+                    <StatItem value={`${count3.toFixed(1)}`} suffix="%" label="Smooth Uptime" textColor={textColor} />
+                  </div>
+                </Reveal>
+              </div>
         </div>
       </div>
     </section>

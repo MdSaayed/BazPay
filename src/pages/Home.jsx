@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import appleIcon from '/assets/icons/apple.svg';
 import googleIcon from '/assets/icons/google.svg';
 import heroImg from '/assets/img/hero/hero-dashboard.png';
 import featureThree from '/assets/img/features/feature-3.png';
@@ -20,6 +19,8 @@ import Slider from '../components/slider/Slider';
 import FinancialOverview from '../components/financialOverview/FinancialOverview.jsx';
 import { motion } from 'framer-motion';
 import Reveal from '../animation/Reveal.jsx';
+import { FaApple } from "react-icons/fa";
+
 
 
 const Home = () => {
@@ -29,6 +30,7 @@ const Home = () => {
     '/assets/img/cards/credit-card-1.png',
     '/assets/img/cards/credit-card-2.png',
     '/assets/img/cards/credit-card-3.png',
+    '/assets/img/cards/credit-card-4.png'
   ];
 
   // Integration Logos Array
@@ -42,12 +44,6 @@ const Home = () => {
     '/assets/img/global/integrations-logo-7.png',
     '/assets/img/global/integrations-logo-8.png',
   ];
-
-  // animation
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
 
 
   return (
@@ -80,10 +76,10 @@ const Home = () => {
                 <div>
                   <Link
                     to="https://www.apple.com/store"
-                    className="flex items-center justify-center gap-2 px-4 py-2 rounded-[32px] bg-lightGreen whitespace-nowrap hover:bg-lightGray border hover:border-lightSilver"
+                    className="flex items-center justify-center gap-2 px-4 py-2 rounded-[32px] bg-lightGreen hover:bg-primary hover:text-white whitespace-nowrap hover:bg-lightGray border hover:border-primary"
                     aria-label="Download BazPay for iOS"
                   >
-                    <img src={appleIcon} alt="Download on the App Store" />
+                    <FaApple className='text-2xl' />
                     <span>Download for iOS</span>
                   </Link>
                 </div>
@@ -94,7 +90,7 @@ const Home = () => {
                 <div>
                   <Link
                     to="https://play.google.com/"
-                    className="flex items-center justify-center gap-2 px-4 py-2 rounded-[32px] bg-lightGray border border-lightSilver whitespace-nowrap hover:bg-lightGreen hover:border-lightGreen"
+                    className="flex items-center justify-center gap-2 px-4 py-2 rounded-[32px] bg-lightGray border border-lightSilver whitespace-nowrap hover:bg-primary hover:text-white hover:border-primary"
                     aria-label="Download BazPay for Android"
                   >
                     <img src={googleIcon} alt="Get it on Google Play" />
@@ -152,14 +148,11 @@ const Home = () => {
               </div>
 
               {/* Cards Slider with Optimized Background Image */}
-              <motion.div
+              <div
                   className="rounded-md pt-28 pb-8 mt-10 premium-card-bg"
-                  variants={fadeInUp}
-                  initial="hidden"
-                  whileInView="visible"
               >
                   <Slider items={cards} speed={4000} />
-              </motion.div>
+              </div>
           </div>
       </section>
 
@@ -182,7 +175,7 @@ const Home = () => {
                   <Reveal>
                   <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-12 gap-8 pt-20">
                       {/* Card One */}
-                      <div className="xl:col-span-7 flex flex-col xl:flex-row justify-between items-center gap-10 bg-lightGray rounded-3xl px-4 md:px-8 py-10 xl:py-12"
+                      <div className="bg-lightGrayishWhite xl:col-span-7 flex flex-col xl:flex-row justify-between items-center gap-10 bg-lightGray rounded-3xl px-4 md:px-8 py-10 xl:py-12"
                          >
                           <div>
                               <h3 className="text-primary text-4xl font-semibold leading-normal text-center xl:text-left">
@@ -196,7 +189,7 @@ const Home = () => {
                       </div>
 
                       {/* Card Two */}
-                      <div className="xl:col-span-5 flex flex-col xl:justify-between items-center gap-10 bg-lightGray rounded-3xl px-4 md:px-8 py-10"
+                      <div className="bg-lightGrayishWhite xl:col-span-5 flex flex-col xl:justify-between items-center gap-10 bg-lightGray rounded-3xl px-4 md:px-8 py-10"
                          >
                           <div>
                               <h3 className="text-primary text-4xl font-semibold leading-normal text-center xl:text-left">
@@ -210,7 +203,7 @@ const Home = () => {
                       </div>
 
                       {/* Card Three */}
-                      <div className="xl:col-span-6 flex flex-col xl:justify-between items-center gap-10 bg-lightGray rounded-3xl px-4 md:px-8 py-10"
+                      <div className="bg-lightGrayishWhite xl:col-span-6 flex flex-col xl:justify-between items-center gap-10 bg-lightGray rounded-3xl px-4 md:px-8 py-10"
                          >
                           <div>
                               <h3 className="text-primary text-4xl font-semibold leading-normal text-center">
@@ -229,7 +222,7 @@ const Home = () => {
                       </div>
 
                       {/* Card Four */}
-                      <div className="xl:col-span-6 flex flex-col-reverse lg:flex-col xl:justify-between items-center gap-10 bg-lightGray rounded-3xl px-4 md:px-8 py-10"
+                      <div className="bg-lightGrayishWhite xl:col-span-6 flex flex-col-reverse lg:flex-col xl:justify-between items-center gap-10 bg-lightGray rounded-3xl px-4 md:px-8 py-10"
                          >
                           <img src={featureFive} alt="Payment Solutions" />
                           <div>

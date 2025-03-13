@@ -8,6 +8,7 @@ const SubscribeForm = ({
   formWidth = "w-full", // Form Width Class
   formBg = "bg-softWhite", // Form Background Class
   borderColor = "bg-softWhite", // Form Background Class
+  textColor='text-primary'
 }) => {
   const [email, setEmail] = useState(""); // State For Email Input
   const [error, setError] = useState(""); // State For Error Message
@@ -45,7 +46,7 @@ const SubscribeForm = ({
           placeholder="Enter Your Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className={`w-full px-4 py-1 rounded-l-[32px] border-none focus:outline-none bg-transparent ${
+          className={`w-full px-4 py-1 rounded-l-[32px] border-none focus:outline-none bg-transparent ${textColor? textColor :'text-primary'} ${
             error ? "border-red-500" : "border-davyGray"
           }`}
           aria-label="Email Address"
@@ -78,6 +79,7 @@ SubscribeForm.propTypes = {
   formWidth: PropTypes.string, // Form Width Class
   formBg: PropTypes.string, // Form Background Class
   borderColor: PropTypes.string, // Form Background Class
+  textColor: PropTypes.string, // Form Background Class
 };
 
 // Default Props
@@ -88,6 +90,7 @@ SubscribeForm.defaultProps = {
   formWidth: "w-full",
   formBg: "bg-softWhite",
   borderColor: "bg-softWhite",
+  textColor: "text-primary",
 };
 
 export default SubscribeForm;

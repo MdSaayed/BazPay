@@ -90,7 +90,7 @@ const Team = () => {
           <Swiper
             onSwiper={setSwiper} // This function will get called with the swiper instance
             loop={true} // Enable infinite loop
-            speed={3000} // Set speed of transition between slides
+            speed={4500} // Set speed of transition between slides
             slidesPerView={'auto'} // Slides per view is auto to make it responsive
             autoplay={{
               delay: 0, // No delay to keep it responsive

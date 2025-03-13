@@ -38,7 +38,7 @@ const PricingCard = () => {
       {/* Map over each pricing item and display it */}
         {data?.map((item,idx) => (
           <Reveal  key={item?.id || idx}>
-            <div className="rounded-3xl bg-white shadow-lg">
+            <div className="bg-white rounded-3xl h-full relative z-10">
               {/* Card Header */}
               <div
                 className={`${
