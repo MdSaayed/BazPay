@@ -158,7 +158,7 @@ const Navbar = () => {
                             { path: '/terms', label: 'Terms' },
                             { path: '/error', label: 'Error' },
                           ].map(({ path, label }) => (
-                            <li key={path} className="mb-4">
+                            <li key={path} className="mb-2">
                               <CustomNavLink to={path} mobileMenu setIsMobileMenuOpen={setIsMobileMenuOpen}>
                                 {label}
                               </CustomNavLink>
