@@ -1,0 +1,96 @@
+[
+  {
+    "id": 1,
+    "title": "Basic Plan",
+    "price": {
+      "monthly": 10,
+      "annual": 50
+    },
+    "isPopular": true,
+    "description": "Basic features for up to 10 users.",
+    "buttonText": "Get Started",
+    "highlighted": false,
+    "features": {
+      "monthly": [
+        "Access to all core features",
+        "5GB Cloud Storage",
+        "Basic analytics & reports",
+        "Community support",
+        "Limited integrations",
+        "Standard security",
+        "Mobile access"
+      ],
+      "annual": [
+        "Access to all core features",
+        "50GB Cloud Storage",
+        "Advanced analytics & reports",
+        "Priority email support",
+        "All premium integrations",
+        "Enhanced security with SSL",
+        "Offline mode support"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "title": "Business Plan",
+    "price": {
+      "monthly": 20,
+      "annual": 100
+    },
+    "description": "Advanced features for growing businesses.",
+    "buttonText": "Get Started",
+    "highlighted": true,
+    "features": {
+      "monthly": [
+        "Everything in Basic Plan",
+        "Support for unlimited accounts",
+        "100 GB of storage per user",
+        "Priority email support",
+        "Custom integrations available",
+        "Advanced analytics",
+        "Real-time data updates"
+      ],
+      "annual": [
+        "Everything in Basic Plan",
+        "Unlimited accounts and teams",
+        "200 GB of storage per user",
+        "Priority email & chat support",
+        "Advanced analytics with AI",
+        "Real-time data updates",
+        "Access to exclusive features"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "title": "Enterprise Plan",
+    "price": {
+      "monthly": 50,
+      "annual": 250
+    },
+    "description": "Custom solutions for large teams.",
+    "buttonText": "Contact Us",
+    "highlighted": false,
+    "features": {
+      "monthly": [
+        "All features in Business Plan",
+        "Dedicated account manager",
+        "Unlimited storage",
+        "24/7 premium support",
+        "Advanced security & compliance",
+        "Enterprise-grade analytics",
+        "Custom feature development"
+      ],
+      "annual": [
+        "All features in Business Plan",
+        "Dedicated account manager with SLA",
+        "Unlimited storage with backups",
+        "24/7 premium support with dedicated reps",
+        "Advanced security & compliance audits",
+        "Enterprise-grade analytics with custom reports",
+        "Custom feature development & scaling"
+      ]
+    }
+  }
+]

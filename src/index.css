@@ -1,0 +1,122 @@
+@import url('/fonts/fonts.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* font family */
+body {
+    @apply font-inter;
+    color: #252B37;
+    font-weight: normal;
+}
+
+/* btn style */
+.btn-primary {
+    display: flex;
+    align-items: center;
+}
+
+/* Inside Button Text */
+.btn-primary span {
+    font-size: 16px;
+    background-color: #181D27;
+    color: #FAFAFA !important;
+    padding: 8px 18px;
+    border-radius: 32px;
+}
+
+/* Button Arrow */
+.btn-primary .btn-arrow {
+    background-color: #181D27;
+    color: #FAFAFA !important;
+    padding: 10px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-left: -10px;
+}
+
+/* Button Secondary */
+.btn-secondary {
+    font-size: 16px;
+    background-color: #BCFC6A;
+    color: #181D27 !important;
+    padding: 8px 18px;
+    border-radius: 32px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Button Hover */
+.btn-secondary:hover {
+    background-color: #F7F8F8;
+}
+
+/* Button White */
+.btn-white {
+    font-size: 16px;
+    background-color: #F7F8F8;
+    color: #181D27 !important;
+    padding: 8px 18px;
+    border-radius: 32px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-white:hover {
+    background-color: #BCFC6A;
+}
+
+/* Section Title */
+.section-title{
+    display: block;
+    margin-top: 1rem;
+    line-height: 1.2 !important;
+}
+
+/* Section title inside span */
+.section-title span{
+    color: #6BC33F; 
+}
+
+/* Swiper Slider Wrapper */
+.swiper-wrapper {
+    transition-timing-function: linear !important;
+    display: flex;
+    align-items: center;
+}
+
+
+/* Subtile Icon */
+.subtile-icon{
+    width: 24px;
+    height: 24px;
+}
+
+/* Subtitle Wrapper */
+.subtitle-wrapper {
+    padding: 0.25rem 1rem;  
+    border-radius: 1.5rem;  
+    gap: 0.5rem;   
+}
+
+/* subtitle */
+.subtitle{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Card Shadow */
+.card-shadow {
+    box-shadow: 0px 32px 64px -12px rgba(10, 13, 18, 0.14), 
+                0px 5px 5px -2.5px rgba(10, 13, 18, 0.04);
+  }
+
+/* Premium Card Slider Bg */
+.premium-card-bg {
+background-image: url('/assets/img/global/phone-mockup.png');
+background-repeat: no-repeat;
+background-position: bottom;
+background-size: contain;
+}
+  

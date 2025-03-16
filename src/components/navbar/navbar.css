@@ -1,0 +1,33 @@
+
+.desktop-menu{
+  height: 90px;
+}
+
+.desktop-menu,.mobile-meu a{
+  color: #181D27;
+  font-weight: normal;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+/* Mob Menu Btn */
+
+.mob-menu-btn{
+  font-size: 16px;
+  color: white !important;
+  background-color: #181D27;
+  display: block;
+  padding: 8px 16px;
+  text-align: center;
+  border-radius: 32px;
+}
+
+
+/* responsive code */
+@media (max-width: 639px) {
+  .desktop-menu {
+    height: 70px;
+  }
+}
+
+

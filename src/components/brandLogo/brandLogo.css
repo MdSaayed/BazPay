@@ -1,0 +1,64 @@
+
+
+.title span{
+    color:#6BC33F;
+}
+
+/* Circle */
+.brand-area {
+    position: relative; /* Ensures absolute positioning works correctly */
+}
+
+/* Left Side Circle */
+.brand-area::after,
+.brand-area::before {
+    content: "";
+    position: absolute;
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    background-color: #FFF; 
+    top: 50%;
+    transform: translateY(-50%);
+    filter: blur(17.44px);  
+    z-index: 2;
+}
+
+/* Left Side */
+.brand-area::after {
+    left: 0;
+}
+
+/* Right Side */
+.brand-area::before {
+    right: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) { /* Tablet */
+    .brand-area::after,
+    .brand-area::before {
+        width: 80px;
+        height: 80px;
+        filter: blur(12px);
+    }
+}
+
+@media (max-width: 768px) { /* Mobile */
+    .brand-area::after,
+    .brand-area::before {
+        width: 60px;
+        height: 60px;
+    }
+
+    .brand-area::after {
+        left: -20;
+    }
+
+    .brand-area::before {
+        right: -20;
+    }
+}
+
+
+
