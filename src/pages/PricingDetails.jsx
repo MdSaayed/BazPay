@@ -7,6 +7,8 @@ import LoadingAnimation from '../components/loadingAnimation/LoadingAnimation';
 import ErrorMessage from '../components/errorMessage/ErrorMessage';
 import Reveal from '../animation/Reveal';
 import { useLoading } from '../context/LoadingContext';
+import Swal from 'sweetalert2';
+
 
 const PricingDetails = () => {
   const pricingData = useLoaderData(); // Get data from the loader
@@ -27,6 +29,17 @@ const PricingDetails = () => {
   }, [pricingData]);
 
 
+
+  // Handle Purchase
+  const handlePurchase = () => {
+    Swal.fire({
+      title: "Thank You!",
+      text: "Thank you for purchasing!",
+      icon: "success",
+      confirmButtonText: "OK",
+    });
+  };
+  
   // Extract prices dynamically from JSON
   const monthlyPrice = pricingData?.price?.monthly || "N/A";
   const yearlyPrice = pricingData?.price?.annual || "N/A";
@@ -100,8 +113,21 @@ const PricingDetails = () => {
                     </select>
                   </div>
 
-                  {/* Add to Cart Button */}
-                  <Button text="Buy Now" fullWidth={true} link="/checkout" />
+                  {/* Buy Now Button */}
+                  <button
+                      className="
+                        border px-4 py-[6px] rounded-[32px] 
+                        w-full text-center block 
+                        text-primary hover:text-primary 
+                        bg-lightGreen hover:bg-lightGrayishWhite 
+                        border-lightGreen hover:border-lightGrayishWhite 
+                        transition-all duration-300 ease-in-out
+                      "
+                      onClick={handlePurchase} // Attach the event handler here
+                    >
+                      Buy Now
+                    </button>
+
                 </div>
               </div>
             </div>
