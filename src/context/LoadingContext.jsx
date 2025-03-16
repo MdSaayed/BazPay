@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { createContext, useContext, useState, useEffect } from "react";
 
 const LoadingContext = createContext();
@@ -22,6 +23,11 @@ export const LoadingProvider = ({ children }) => {
       {children}
     </LoadingContext.Provider>
   );
+};
+
+// PropTypes validation
+LoadingProvider.propTypes = {
+  children: PropTypes.node.isRequired,  // Validate that children is a valid React node
 };
 
 export const useLoading = () => useContext(LoadingContext);
