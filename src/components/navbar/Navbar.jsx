@@ -74,7 +74,7 @@ const Navbar = () => {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <ul className="space-y-1 h-full">
+                  <ul className="space-y-2 h-full">
                     <li><CustomNavLink to='/'>Home V1</CustomNavLink></li>
                     <li><CustomNavLink to='/homev2'>Home V2</CustomNavLink></li>
                     <li><CustomNavLink to='/features'>Features</CustomNavLink></li>
