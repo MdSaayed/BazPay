@@ -74,7 +74,7 @@ const Navbar = () => {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <ul className="space-y-2 h-full">
+                  <ul className="h-full">
                     <li><CustomNavLink to='/'>Home V1</CustomNavLink></li>
                     <li><CustomNavLink to='/homev2'>Home V2</CustomNavLink></li>
                     <li><CustomNavLink to='/features'>Features</CustomNavLink></li>
@@ -117,7 +117,7 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <motion.div className="lg:hidden fixed inset-0 top-16 z-30 bg-white" initial={{ opacity: 0, top: "-100%" }} animate={{ opacity: 1, top: 80 }} exit={{ opacity: 0, top: "-100%" }} transition={{ duration: 0.3 }}>
             <div className="container py-4 h-full overflow-y-auto">
-              <nav className="flex flex-col space-y-2">
+              <nav className="flex flex-col space-y-3">
                 <CustomNavLink to='/' mobileMenu={true} setIsMobileMenuOpen={() => setIsMobileMenuOpen(false)}>Home</CustomNavLink>
                 <CustomNavLink to='/features' mobileMenu={true} setIsMobileMenuOpen={() => setIsMobileMenuOpen(false)}>Features</CustomNavLink>
                 <CustomNavLink to='/about' mobileMenu={true} setIsMobileMenuOpen={() => setIsMobileMenuOpen(false)}>About</CustomNavLink>
@@ -143,7 +143,7 @@ const Navbar = () => {
                 </button>
                 {isAllPagesOpen && (
                       <div className="bg-softWhite rounded-lg p-3">
-                        <ul className="space-y-2">
+                        <ul className="space-y-3">
                           {[
                             { path: '/', label: 'Home V1' },
                             { path: '/homev2', label: 'Home V2' },
@@ -159,7 +159,7 @@ const Navbar = () => {
                             { path: '/terms', label: 'Terms' },
                             { path: '/error', label: 'Error' },
                           ].map(({ path, label }) => (
-                            <li key={path} className="mb-2">
+                            <li key={path}>
                               <CustomNavLink to={path} mobileMenu setIsMobileMenuOpen={setIsMobileMenuOpen}>
                                 {label}
                               </CustomNavLink>
