@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { MdOutlineArrowOutward, MdClose } from "react-icons/md"; // Import close icon
+import { MdOutlineArrowOutward, MdClose } from "react-icons/md";
 import { motion } from "framer-motion";
+import { NavLink } from 'react-router-dom';
+import CustomNavLink from "./CustomNavLink";
 
 const Navbar = () => {
   const [isAllPagesOpen, setAllPagesOpen] = useState(false);
@@ -9,15 +10,13 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
   const timeoutRef = useRef(null);
 
-  // Handles hover interaction for the dropdown
   const handleMouseEnter = () => {
     if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current); // Prevent hiding if user hovers back quickly
+      clearTimeout(timeoutRef.current);
     }
     setAllPagesOpen(true);
   };
 
-  // Handles mouse leave to hide dropdown
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       if (!dropdownRef.current.contains(document.querySelector(":hover"))) {
@@ -26,23 +25,13 @@ const Navbar = () => {
     }, 200);
   };
 
-
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden"; // Disable scrolling
-    } else {
-      document.body.style.overflow = "auto"; // Enable scrolling
-    }
-  
-    // Cleanup to reset the style when component unmounts or when mobile menu is closed
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "auto";
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [isMobileMenuOpen]);
-  
-  
 
-  // Handle mobile menu toggle
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -50,138 +39,62 @@ const Navbar = () => {
   return (
     <header className="bg-lightGrayishWhite">
       <div className="container py-0">
-        <div className="flex items-center justify-between h-20  z-40">
+        <div className="flex items-center justify-between h-20 z-40">
           <div className="flex-shrink-0 flex items-center">
             <NavLink to="/" className="flex items-center space-x-2">
               <img className="max-w-[134px]" src="/logo.png" alt="Logo" />
             </NavLink>
           </div>
 
-          {/* Desktop Menu */}
           <nav className="hidden lg:flex items-center space-x-6">
-            <Link to="/" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-              Home
-            </Link>
-            <Link to="/features" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-              Features
-            </Link>
-            <Link to="/about" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-              About
-            </Link>
-            <Link to="/blog" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-              Blog
-            </Link>
+            <CustomNavLink to='/'>Home</CustomNavLink>           
+            <CustomNavLink to='/features'>Features</CustomNavLink>           
+            <CustomNavLink to='/about'>About</CustomNavLink>           
+            <CustomNavLink to='/blog'>Blog</CustomNavLink>           
 
-            {/* Features Dropdown */}
             <div
               ref={dropdownRef}
               className="relative"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <button
-                className="nav-item px-3 py-2 text-sm font-medium transition-colors flex items-center gap-1"
-              >
+              <button className="nav-item px-3 py-2 text-sm font-medium transition-colors flex items-center gap-1">
                 All Pages
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  className={`w-4 h-4 transform transition-transform ${
-                    isAllPagesOpen ? "rotate-180" : ""
-                  }`} // Rotate when open
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className={`w-4 h-4 transform transition-transform ${isAllPagesOpen ? "rotate-180" : ""}`}>
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
 
-              {/* Dropdown with Animation */}
               {isAllPagesOpen && (
                 <motion.div
                   className="absolute top-full left-0 mt-2 w-56 z-30 bg-white text-primary rounded-lg shadow-lg border"
-                  initial={{ opacity: 0, y: -20 }} // Initial position and opacity
-                  animate={{ opacity: 1, y: 0 }} // Animate to visible
-                  exit={{ opacity: 0, y: -20 }} // Exit animation
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
                 >
                   <ul className="space-y-1 h-full">
-                    <li>
-                      <Link to="/" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                        Home V1
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/homev2" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                        Home V2
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/features" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                        Features
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/about" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                        About
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/contact" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                      Contact
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/blog" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                      Blog 
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/blog/3" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                      Blog Details  
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/pricing" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                      Pricing
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/pricing/1" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                      Pricing Details  
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/licenses" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                      Licenses   
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/privacypolicy" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                      Privacy & Policy    
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/terms" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                      Terms   
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/error  " className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                       Error     
-                      </Link>
-                    </li>
+                    <li><CustomNavLink to='/'>Home V1</CustomNavLink></li>
+                    <li><CustomNavLink to='/homev2'>Home V2</CustomNavLink></li>
+                    <li><CustomNavLink to='/features'>Features</CustomNavLink></li>
+                    <li><CustomNavLink to='/about'>About</CustomNavLink></li>
+                    <li><CustomNavLink to='/contact'>Contact</CustomNavLink></li>
+                    <li><CustomNavLink to='/blog'>Blog</CustomNavLink></li>
+                    <li><CustomNavLink to='/blog/3'>Blog Details</CustomNavLink></li>
+                    <li><CustomNavLink to='/pricing'>Pricing</CustomNavLink></li>
+                    <li><CustomNavLink to='/pricing/1'>Pricing Details</CustomNavLink></li>
+                    <li><CustomNavLink to='/licenses'>Licenses</CustomNavLink></li>
+                    <li><CustomNavLink to='/privacypolicy'>Privacy & Policy</CustomNavLink></li>
+                    <li><CustomNavLink to='/terms'>Terms</CustomNavLink></li>
+                    <li><CustomNavLink to='/error'>Error</CustomNavLink></li>
                   </ul>
                 </motion.div>
               )}
             </div>
 
-            <Link to="/contact" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-              Contact
-            </Link>
+            <CustomNavLink to='/contact'>Contact</CustomNavLink>
           </nav>
 
-          {/* nav button */}
           <div className="btn-wrapper hidden lg:block">
             <NavLink to="/pricing" className="btn-primary">
               <span>Get Started</span>
@@ -189,12 +102,9 @@ const Navbar = () => {
             </NavLink>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center">
             <button onClick={toggleMobileMenu} className="text-primary">
-              {isMobileMenuOpen ? (
-                <MdClose className="w-6 h-6" />
-              ) : (
+              {isMobileMenuOpen ? <MdClose className="w-6 h-6" /> : (
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -202,31 +112,15 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-        
-        {/* Mobile Dropdown Menu with Height Animation */}
+
         {isMobileMenuOpen && (
-          <motion.div
-            className="lg:hidden fixed inset-0 top-16 z-30 bg-white"
-            initial={{ opacity: 0, top: "-100%" }} // Initial state (off-screen)
-            animate={{ opacity: 1, top: 80 }} // Animate to top-0 (visible)
-            exit={{ opacity: 0, top: "-100%" }} // Exit animation (move off-screen)
-            transition={{ duration: 0.3 }}
-          >
+          <motion.div className="lg:hidden fixed inset-0 top-16 z-30 bg-white" initial={{ opacity: 0, top: "-100%" }} animate={{ opacity: 1, top: 80 }} exit={{ opacity: 0, top: "-100%" }} transition={{ duration: 0.3 }}>
             <div className="container py-4 h-full overflow-y-auto">
               <nav className="flex flex-col space-y-2">
-                <Link onClick={() => setIsMobileMenuOpen(false)}  to="/" className="text-primary font-medium py-2">
-                  Home
-                </Link>
-                <Link onClick={() => setIsMobileMenuOpen(false)} to="/features" className="text-primary font-medium py-2">
-                  Features
-                </Link>
-                <Link onClick={() => setIsMobileMenuOpen(false)} to="/about" className="text-primary font-medium py-2">
-                  About
-                </Link>
-                <Link onClick={() => setIsMobileMenuOpen(false)} to="/blog" className="text-primary font-medium py-2">
-                  Blog
-                </Link>
-
+                <CustomNavLink to='/' mobileMenu={true} setIsMobileMenuOpen={() => setIsMobileMenuOpen(false)}>Home</CustomNavLink>
+                <CustomNavLink to='/features' mobileMenu={true} setIsMobileMenuOpen={() => setIsMobileMenuOpen(false)}>Features</CustomNavLink>
+                <CustomNavLink to='/about' mobileMenu={true} setIsMobileMenuOpen={() => setIsMobileMenuOpen(false)}>About</CustomNavLink>
+                <CustomNavLink to='/blog' mobileMenu={true} setIsMobileMenuOpen={() => setIsMobileMenuOpen(false)}>Blog</CustomNavLink>
                 {/* Features Dropdown in Mobile */}
                 <button
                   onClick={() => setAllPagesOpen(!isAllPagesOpen)}
@@ -244,82 +138,37 @@ const Navbar = () => {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                   </svg>
+                  
                 </button>
+                {isAllPagesOpen && (
+                      <div className="bg-softWhite rounded-lg p-3">
+                        <ul className="space-y-2">
+                          {[
+                            { path: '/', label: 'Home V1' },
+                            { path: '/homev2', label: 'Home V2' },
+                            { path: '/features', label: 'Features' },
+                            { path: '/about', label: 'About' },
+                            { path: '/contact', label: 'Contact' },
+                            { path: '/blog', label: 'Blog' },
+                            { path: '/blog/4', label: 'Blog Details' },
+                            { path: '/pricing', label: 'Pricing' },
+                            { path: '/pricing/1', label: 'Pricing Details' },
+                            { path: '/licenses', label: 'Licenses' },
+                            { path: '/privacypolicy', label: 'Privacy & Policy' },
+                            { path: '/terms', label: 'Terms' },
+                            { path: '/error', label: 'Error' },
+                          ].map(({ path, label }) => (
+                            <li key={path} className="mb-4">
+                              <CustomNavLink to={path} mobileMenu setIsMobileMenuOpen={setIsMobileMenuOpen}>
+                                {label}
+                              </CustomNavLink>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
 
-                  {isAllPagesOpen && (
-                    <div className="bg-softWhite rounded-lg p-3">
-                      <ul className="space-y-1">
-                        <li>
-                          <Link onClick={() => setIsMobileMenuOpen(false)}  to="/" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                            Home V1
-                          </Link>
-                        </li>
-                        <li>
-                          <Link onClick={() => setIsMobileMenuOpen(false)}  to="homev2" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                            Home V2
-                          </Link>
-                        </li>
-                        <li>
-                          <Link onClick={() => setIsMobileMenuOpen(false)}  to="/features" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                            Features
-                          </Link>
-                        </li>
-                        <li>
-                          <Link onClick={() => setIsMobileMenuOpen(false)}  to="/about" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                            About
-                          </Link>
-                        </li>
-                        <li>
-                          <Link onClick={() => setIsMobileMenuOpen(false)}  to="/contact" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                            Contact
-                          </Link>
-                        </li>
-                        <li>
-                          <Link onClick={() => setIsMobileMenuOpen(false)}  to="/blog" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                            Blog
-                          </Link>
-                        </li>
-                        <li>
-                          <Link onClick={() => setIsMobileMenuOpen(false)}  to="/blog/4" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                            Blog Details 
-                          </Link>
-                        </li>
-                        <li>
-                          <Link onClick={() => setIsMobileMenuOpen(false)}  to="/pricing" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                            Pricing 
-                          </Link>
-                        </li>
-                        <li>
-                          <Link onClick={() => setIsMobileMenuOpen(false)}  to="/pricing/1" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                            Pricing Details 
-                          </Link>
-                        </li>
-                        <li>
-                          <Link onClick={() => setIsMobileMenuOpen(false)}  to="/licenses" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                            Licenses 
-                          </Link>
-                        </li>
-                        <li>
-                          <Link onClick={() => setIsMobileMenuOpen(false)}  to="/privacypolicy" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                            Privacy & Policy 
-                          </Link>
-                        </li>
-                        <li>
-                          <Link onClick={() => setIsMobileMenuOpen(false)}  to="/terms" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                            Terms 
-                          </Link>
-                        </li>
-                        <li>
-                          <Link onClick={() => setIsMobileMenuOpen(false)}  to="/error" className="nav-item px-3 py-2 text-sm font-medium transition-colors block">
-                            Error 
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  )}
-                <Link onClick={() => setIsMobileMenuOpen(false)}  to="/contact" className="text-primary font-medium py-2">
-                  Contact
-                </Link>
+                <CustomNavLink to='/contact' mobileMenu={true} setIsMobileMenuOpen={() => setIsMobileMenuOpen(false)}>Contact</CustomNavLink>
               </nav>
             </div>
           </motion.div>
@@ -329,4 +178,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;
