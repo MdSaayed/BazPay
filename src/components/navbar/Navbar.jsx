@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { NavLink } from 'react-router-dom';
 import CustomNavLink from "./CustomNavLink";
 
+
 const Navbar = () => {
   const [isAllPagesOpen, setAllPagesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
