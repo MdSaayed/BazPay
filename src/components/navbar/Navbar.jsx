@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { NavLink } from 'react-router-dom';
 import CustomNavLink from "./CustomNavLink";
 
+// Nav Menu Items
 const menuItems = [
   { path: '/', label: 'Home' },
   { path: '/features', label: 'Features' },
@@ -12,6 +13,7 @@ const menuItems = [
   { path: '/contact', label: 'Contact' }
 ];
 
+// Dropdown
 const dropdownItems = [
   { path: '/', label: 'Home V1' },
   { path: '/homev2', label: 'Home V2' },
@@ -34,6 +36,7 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
   const timeoutRef = useRef(null);
 
+  // Handle Show Dropdown
   const handleMouseEnter = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -49,6 +52,7 @@ const Navbar = () => {
     }, 200);
   };
 
+  // Overflow Hidden When Open Mobile Menu
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? "hidden" : "auto";
     return () => {
@@ -56,7 +60,6 @@ const Navbar = () => {
     };
   }, [isMobileMenuOpen]);
 
-  console.log(isMobileMenuOpen);
 
   return (
     <header className="bg-lightGrayishWhite">

@@ -110,7 +110,7 @@ const Team = () => {
             }}
           >
             {/* Loop through members and create a SwiperSlide for each one */}
-            {members.concat(members).map((member, index) => (
+            {(members?.length > 0 ? members.concat(members) : Array(6).fill({})).map((member, index) => (
               <SwiperSlide key={`${member?.name}-${index}`}>
                 {/* Each slide represents a team member */}
                 <div className="card p-2 rounded-lg border-2 border-whiteSmoke hover:shadow-lg transition-shadow duration-300">
