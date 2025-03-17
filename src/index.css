@@ -1,27 +1,32 @@
-/* Import font from Google Fonts */
+/* =====================================
+   1. Import Fonts & Tailwind CSS
+===================================== */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Inter:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
- 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-/* font family */
+/* =====================================
+   2. Global Styles
+===================================== */
 body {
     @apply font-inter;
     color: #252B37;
     font-weight: normal;
 }
 
-/* btn style */
+/* =====================================
+   3. Button Styles
+===================================== */
+
+/* Primary Button */
 .btn-primary {
     display: flex;
     align-items: center;
 }
 
-/* Inside Button Text */
 .btn-primary span {
     font-size: 16px;
     background-color: #181D27;
@@ -30,7 +35,6 @@ body {
     border-radius: 32px;
 }
 
-/* Button Arrow */
 .btn-primary .btn-arrow {
     background-color: #181D27;
     color: #FAFAFA !important;
@@ -41,7 +45,7 @@ body {
     margin-left: -10px;
 }
 
-/* Button Secondary */
+/* Secondary Button */
 .btn-secondary {
     font-size: 16px;
     background-color: #BCFC6A;
@@ -51,12 +55,11 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Button Hover */
 .btn-secondary:hover {
     background-color: #F7F8F8;
 }
 
-/* Button White */
+/* White Button */
 .btn-white {
     font-size: 16px;
     background-color: #F7F8F8;
@@ -65,32 +68,44 @@ body {
     border-radius: 32px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 .btn-white:hover {
     background-color: #BCFC6A;
 }
 
-/* Section Title */
-.section-title{
+/* =====================================
+   4. Typography
+===================================== */
+.section-title {
     display: block;
     margin-top: 1rem;
     line-height: 1.2 !important;
 }
 
-/* Section title inside span */
-.section-title span{
+.section-title span {
     color: #6BC33F; 
 }
 
-/* Swiper Slider Wrapper */
+.subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* =====================================
+   5. Slider
+===================================== */
+
+/* Swiper Slider */
 .swiper-wrapper {
     transition-timing-function: linear !important;
     display: flex;
     align-items: center;
 }
 
-
-/* Subtile Icon */
-.subtile-icon{
+/* Subtitle Icon */
+.subtile-icon {
     width: 24px;
     height: 24px;
 }
@@ -102,25 +117,74 @@ body {
     gap: 0.5rem;   
 }
 
-/* subtitle */
-.subtitle{
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.5;
-    text-align: center;
-}
-
 /* Card Shadow */
 .card-shadow {
     box-shadow: 0px 32px 64px -12px rgba(10, 13, 18, 0.14), 
                 0px 5px 5px -2.5px rgba(10, 13, 18, 0.04);
-  }
-
-/* Premium Card Slider Bg */
-.premium-card-bg {
-background-image: url('/assets/img/global/phone-mockup.png');
-background-repeat: no-repeat;
-background-position: bottom;
-background-size: contain;
 }
-  
+
+/* Premium Card Background */
+.premium-card-bg {
+    background-image: url('/assets/img/global/phone-mockup.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+}
+
+/* =====================================
+   6. Brand Section
+===================================== */
+.brand-area {
+    position: relative; 
+}
+
+.brand-area::after,
+.brand-area::before {
+    content: "";
+    position: absolute;
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    background-color: #FFF; 
+    top: 50%;
+    transform: translateY(-50%);
+    filter: blur(17.44px);  
+    z-index: 2;
+}
+
+.brand-area::after {
+    left: 0;
+}
+
+.brand-area::before {
+    right: 0;
+}
+
+/* =====================================
+   7. Responsive Styles
+===================================== */
+
+@media (max-width: 1024px) { /* Tablet */
+    .brand-area::after,
+    .brand-area::before {
+        width: 80px;
+        height: 80px;
+        filter: blur(12px);
+    }
+}
+
+@media (max-width: 768px) { /* Mobile */
+    .brand-area::after,
+    .brand-area::before {
+        width: 60px;
+        height: 60px;
+    }
+
+    .brand-area::after {
+        left: -20px;
+    }
+
+    .brand-area::before {
+        right: -20px;
+    }
+}

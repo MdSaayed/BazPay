@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'; // Import PropTypes
-import "./brandLogo.css";
 import Slider from '../slider/Slider';
 
 const BrandLogo = ({ title, desc }) => {
