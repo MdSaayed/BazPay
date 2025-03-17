@@ -9,8 +9,7 @@ export default {
       center: true, // Centers the container
       padding: {
         DEFAULT: "10px", // Default padding for larger screens
-        'sm': '10px',    // Padding for small screens (640px and up)
-        'md': '20px',    // Padding for medium screens (768px and up)
+        'md': '10px',    // Padding for medium screens (768px and up)
         'lg': '40px',    // Padding for large screens (1024px and up)
         'xl': '80px',    // Padding for extra-large screens (1280px and up)
       },

@@ -11,12 +11,10 @@
 - **Fully Responsive** – Works seamlessly on all devices
 - **Modern & Clean Design** – Professional UI for a high-quality look
 - **Built with React & Vite** – Fast performance and modern development
-- **Dark & Light Mode** – User-friendly theme switching
 - **SEO Optimized** – Best practices for search engine ranking
 - **Well Documented** – Easy-to-understand code and documentation
 - **Cross-Browser Compatible** – Works on Chrome, Firefox, Safari, Edge, etc.
 - **Smooth Animations & Transitions** – Enhanced user experience with Framer Motion
-- **Functional Contact Form** – Form handling with React Hook Form
 - **Retina Ready** – High-resolution graphics for crisp visuals
 - **Easy Customization** – Modular and reusable components
 
@@ -46,11 +44,13 @@
 - Framer Motion (Animations)
 - React Hook Form (Form Handling)
 - React Toastify (Notifications)
+- Sweetalert2
 - Swiper.js (Sliders)
 - Lucide React Icons
 - DOMPurify (Security & Sanitization)
 - Lottie React & Lottie Web (Animations)
 - Font Awesome & React Icons
+- Google Font
 - React CountUp (Number Animations)
 - Prop Types (Type Checking)
 
@@ -83,7 +83,7 @@
 - To change colors, modify the `tailwind.config.js` file.
 - Edit components in the `src/components/` folder to fit your needs.
 - Update global styles in `src/index.css`.
-- Modify the `routes` in `src/routes.js` to customize page navigation.
+- Modify the `routers` in `src/routers.js` to customize page navigation.
 
 ## Build for Production
 

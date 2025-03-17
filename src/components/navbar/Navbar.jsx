@@ -62,11 +62,14 @@ const Navbar = () => {
     <header className="bg-lightGrayishWhite">
       <div className="container py-0">
         <div className="flex items-center justify-between h-20 z-40">
+          {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <NavLink to="/" className="flex items-center space-x-2">
               <img className="max-w-[134px]" src="/logo.png" alt="Logo" />
             </NavLink>
           </div>
+
+          {/* Desktop Menu */}
           <nav className="hidden lg:flex items-center space-x-6">
             {menuItems.map(({ path, label }) => (
               <CustomNavLink key={path} to={path}>{label}</CustomNavLink>
@@ -90,6 +93,7 @@ const Navbar = () => {
             </div>
           </nav>
 
+          {/* Button */}
           <div className="btn-wrapper hidden lg:block">
             <NavLink to="/pricing" className="btn-primary">
               <span>Get Started</span>
@@ -97,6 +101,7 @@ const Navbar = () => {
             </NavLink>
           </div>
 
+          {/* Mobile Menu Icon */}
           <div className="lg:hidden flex items-center">
             <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-primary">
               {isMobileMenuOpen ? <MdClose className="w-6 h-6" /> : (
@@ -106,33 +111,36 @@ const Navbar = () => {
               )}
             </button>
           </div>
+
+          {isMobileMenuOpen && (
+            <motion.div className="lg:hidden fixed inset-0 top-16 z-30 bg-white" initial={{ opacity: 0, top: "-100%" }} animate={{ opacity: 1, top: 80 }} exit={{ opacity: 0, top: "-100%" }} transition={{ duration: 0.3 }}>
+              <div className="container py-4 h-full overflow-y-auto">
+                <nav className="flex flex-col space-y-3 text-lg">
+                  {menuItems.map(({ path, label }) => (
+                    <CustomNavLink key={path} to={path} mobileMenu setIsMobileMenuOpen={setIsMobileMenuOpen}>{label}</CustomNavLink>
+                  ))}
+                  <button onClick={() => setAllPagesOpen(!isAllPagesOpen)} className="text-primary font-medium py-2 flex justify-between items-center">
+                    All Pages
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className={`w-4 h-4 transform transition-transform ${isAllPagesOpen ? "rotate-180" : ""}`}>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </button>
+                  {isAllPagesOpen && (
+                    <div className="bg-softWhite rounded-lg p-3">
+                      <ul className="space-y-3 text-base">
+                        {dropdownItems.map(({ path, label }) => (
+                          <li key={path}><CustomNavLink to={path} mobileMenu setIsMobileMenuOpen={setIsMobileMenuOpen}>{label}</CustomNavLink></li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </nav>
+              </div>
+            </motion.div>
+          )}
         </div>
-        {isMobileMenuOpen && (
-          <motion.div className="lg:hidden fixed inset-0 top-16 z-30 bg-white" initial={{ opacity: 0, top: "-100%" }} animate={{ opacity: 1, top: 80 }} exit={{ opacity: 0, top: "-100%" }} transition={{ duration: 0.3 }}>
-            <div className="container py-4 h-full overflow-y-auto">
-              <nav className="flex flex-col space-y-3">
-                {menuItems.map(({ path, label }) => (
-                  <CustomNavLink key={path} to={path} mobileMenu setIsMobileMenuOpen={setIsMobileMenuOpen}>{label}</CustomNavLink>
-                ))}
-                <button onClick={() => setAllPagesOpen(!isAllPagesOpen)} className="text-primary font-medium py-2 flex justify-between items-center">
-                  All Pages
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className={`w-4 h-4 transform transition-transform ${isAllPagesOpen ? "rotate-180" : ""}`}>
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </button>
-                {isAllPagesOpen && (
-                  <div className="bg-softWhite rounded-lg p-3">
-                    <ul className="space-y-3">
-                      {dropdownItems.map(({ path, label }) => (
-                        <li key={path}><CustomNavLink to={path} mobileMenu setIsMobileMenuOpen={setIsMobileMenuOpen}>{label}</CustomNavLink></li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </nav>
-            </div>
-          </motion.div>
-        )}
+
+
       </div>
     </header>
   );

@@ -40,7 +40,7 @@ const About = () => {
                     {/* Button */}
                     <Reveal>
                         <div className="flex justify-center mt-14 mb-20">
-                            <Button text="Contact Us" ariaLabel="Contact BazPay team" />
+                            <Button text="Contact Us" link='/contact' ariaLabel="Contact BazPay team" />
                         </div>
                     </Reveal>
 
