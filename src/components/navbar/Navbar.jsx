@@ -122,7 +122,7 @@ const Navbar = () => {
                   {menuItems.map(({ path, label }) => (
                     <CustomNavLink key={path} to={path} mobileMenu setIsMobileMenuOpen={setIsMobileMenuOpen}>{label}</CustomNavLink>
                   ))}
-                  <button onClick={() => setAllPagesOpen(!isAllPagesOpen)} className="text-primary font-medium py-2 flex justify-between items-center">
+                  <button onClick={() => setAllPagesOpen(!isAllPagesOpen)} className="text-primary font-medium flex justify-between items-center">
                     All Pages
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className={`w-4 h-4 transform transition-transform ${isAllPagesOpen ? "rotate-180" : ""}`}>
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>

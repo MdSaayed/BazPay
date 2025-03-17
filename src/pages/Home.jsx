@@ -279,7 +279,7 @@ const Home = () => {
                   {/* Card One */}
                   <Reveal>
                     <div
-                        className="bg-primary rounded-3xl px-4 pt-10"
+                        className="bg-primary rounded-3xl px-4 pt-10 h-full"
                         >
                         <h3 className="text-softWhite font-semibold text-center text-4xl leading-[1.3] mb-6">
                             Real-Time Analytics & Reporting
