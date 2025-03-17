@@ -8,8 +8,8 @@ export default {
     container: {
       center: true, // Centers the container
       padding: {
-        DEFAULT: "10px", // Default padding for larger screens
-        'md': '10px',    // Padding for medium screens (768px and up)
+        DEFAULT: "20px", // Default padding for larger screens
+        'md': '30px',    // Padding for medium screens (768px and up)
         'lg': '40px',    // Padding for large screens (1024px and up)
         'xl': '80px',    // Padding for extra-large screens (1280px and up)
       },

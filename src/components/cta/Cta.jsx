@@ -61,7 +61,7 @@ const Cta = () => {
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           />
           <motion.img 
-            className="absolute -bottom-10 md:bottom-0 z-0"
+            className="absolute -bottom-16 md:-bottom-14 lg:bottom-0 z-0"
             src={ctaBgBottom}
             alt=""
             aria-hidden="true"

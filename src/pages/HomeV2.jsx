@@ -126,7 +126,7 @@ const HomeV1 = () => {
                     <Subtitle subTitle='Pricing' borderColor='border-paleGreen' bgColor='bg-paleGreen' />
                     <Title 
                         title={<>Give it a shot for free and take charge of <span>your finances!</span></>} 
-                        maxWidth="max-w-[768px]" size='text-4xl lg:text-5xl' 
+                        maxWidth="max-w-[640px] lg:max-w-[768px]" size='text-4xl lg:text-5xl' 
                         fontWeight='font-medium' />
 
                     {/* Cards */}

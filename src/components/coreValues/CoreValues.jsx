@@ -23,7 +23,7 @@ const CoreValues = () => {
         />
         <Title 
           title={<>What drives BazPay, our core <span>values</span></>} 
-          maxWidth="max-w-[560px]" 
+          maxWidth="max-w-xl lg:max-w-[650px]" 
         />
         <Description 
           text="At BazPay, our values shape everything we do, ensuring we deliver a platform that truly transforms how you manage your finances." 

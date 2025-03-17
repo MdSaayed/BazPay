@@ -20,6 +20,8 @@ import FinancialOverview from '../components/financialOverview/FinancialOverview
 import { motion } from 'framer-motion';
 import Reveal from '../animation/Reveal.jsx';
 import { FaApple } from "react-icons/fa";
+import { IoLogoGoogleplus } from "react-icons/io";
+
 
 import BgImage from '/assets/img/global/phone-mockup.png';
 import BgImageFront from '/assets/img/global/phone-mockup-front.png';
@@ -67,7 +69,7 @@ const Home = () => {
             {/* Right Side - Description & Download Buttons */}
             <div>
              <Reveal>
-                <p className="mb-6 text-lg leading-7 text-center sm:text-left">
+                <p className="mb-6 text-lg leading-7 text-center sm:text-left max-w-xl">
                     Check out our all-in-one solution for easy transactions, quick money transfers, and total financial control!
                 </p>
              </Reveal>
@@ -96,7 +98,7 @@ const Home = () => {
                     className="flex items-center justify-center gap-2 px-4 py-2 rounded-[32px] bg-lightGray border border-lightSilver whitespace-nowrap hover:bg-primary hover:text-white hover:border-primary"
                     aria-label="Download BazPay for Android"
                   >
-                    <img src={googleIcon} alt="Get it on Google Play" />
+                    <IoLogoGoogleplus className='text-2xl'/>
                     <span>Download for Android</span>
                   </Link>
                 </div>
@@ -151,7 +153,7 @@ const Home = () => {
               </div>
 
               {/* Cards Slider with Optimized Background Image */}
-              <div className="relative rounded-md pt-28 pb-8 mt-10 overflow-hidden">
+              <div className="relative rounded-md pt-16 pb-12  mt-20 overflow-hidden">
                 <img src={BgImage} className="absolute top-0 left-1/2 -translate-x-1/2 px-16 h-full" />
                 <img src={BgImageFront} className="absolute top-0 left-1/2 -translate-x-1/2 z-20 px-16 h-full" />
                 <Slider items={cards} speed={5000} />

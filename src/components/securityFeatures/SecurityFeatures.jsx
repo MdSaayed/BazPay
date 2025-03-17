@@ -59,7 +59,7 @@ const SecurityFeatures = () => {
               <div className="mt-6">
                 <h3 className="mb-2 text-primary font-semibold text-2xl">Zero Hidden Fees</h3>
                 <p className="text-base text-davyGray">
-                  Enjoy clear pricing with no hidden fees—just honest rates.
+                  Enjoy clear pricing with no hidden fees just honest rates.
                 </p>
               </div>
             </div>

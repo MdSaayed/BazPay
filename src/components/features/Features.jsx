@@ -87,13 +87,13 @@ const SecuritySection = () => {
 
           {/* Right Side Big Card - Mobile Banking Security */}
           <Reveal>
-            <div className="bg-primary h-full text-white p-5 rounded-3xl">
-              <img src={BarLine} className="mt-12" alt="Bar Line" />
-              <div className="mt-20">
-                <h3 className="text-3xl text-softWhite font-semibold">Mobile Banking with Full Protection</h3>
-                <p className="text-softWhite text-base my-4">Enjoy seamless mobile banking with end-to-end encryption, making your transactions secure and reliable.</p>
-              </div>
+          <div className="bg-primary h-full text-white p-5 rounded-3xl">
+            <img src={BarLine} className="mt-12 mx-auto w-full" alt="Bar Line" />
+            <div className="mt-20">
+              <h3 className="text-3xl text-softWhite font-semibold">Mobile Banking with Full Protection</h3>
+              <p className="text-softWhite text-base my-4">Enjoy seamless mobile banking with end-to-end encryption, making your transactions secure and reliable.</p>
             </div>
+          </div>
           </Reveal>
         </div>
       </div>

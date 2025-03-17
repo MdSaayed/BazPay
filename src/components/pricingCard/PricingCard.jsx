@@ -52,9 +52,9 @@ const PricingCard = () => {
                   <span className="font-semibold text-lg text-softWhite">{item?.title}</span>
                   {/* Show "Popular" tag if the item is highlighted */}
                   {item?.highlighted && (
-                    <span className="bg-limeGreen text-softWhite text-xs font-bold px-3 py-1 rounded-full">
+                    <span className="bg-lightGreen text-softWhite text-xs font-bold px-3 py-1 rounded-full">
                       Popular
-                    </span>
+                    </span> 
                   )}
                 </div>
                 {/* Price and Duration */}
@@ -87,7 +87,7 @@ const PricingCard = () => {
                   {item?.features?.monthly?.map((feature, index) => (
                     <li key={index} className="flex items-center gap-3 mb-4">
                       {/* Check icon for features */}
-                      <FaRegCircleCheck className="text-lightGreen text-xl" />
+                      <FaRegCircleCheck className="text-davyGray text-xl" />
                       <span className="font-normal text-base text-davyGray">{feature}</span>
                     </li>
                   ))}

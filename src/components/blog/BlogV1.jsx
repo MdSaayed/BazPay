@@ -43,14 +43,14 @@ const BlogV1 = () => {
       <div className="container py-24">
         {/* Section Header */}
         <Reveal>
-          <div className="flex flex-col gap-20 lg:gap-4 lg:flex-row justify-between items-start lg:items-center mb-10 transition-opacity duration-700 opacity-100">
+          <div className="flex flex-col gap-6 lg:gap-4 lg:flex-row justify-between items-center mb-10 transition-opacity duration-700 opacity-100">
             <div>
-              <Subtitle subTitle="Blog" borderColor="border-whiteSmoke" bgColor="bg-paleGreen" align="justify-start" />
-              <Title title="Our latest News & Resources" textAlign="text-left" maxWidth="max-w-[560px]" />
+              <Subtitle subTitle="Blog" borderColor="border-whiteSmoke" bgColor="bg-paleGreen" align="justify-center lg:justify-start" />
+              <Title title="Our latest News & Resources" textAlign="text-center lg:text-left" maxWidth="max-w-[560px]" />
             </div>
 
             {/* Browse all articles button */}
-              <div className="mt-10 lg:mt-0 flex justify-end w-full lg:w-fit">
+              <div className="flex justify-center lg:justify-end w-full lg:w-fit">
                 <Link to="/blog" className="border px-4 py-2 rounded-[32px] bg-lightGreen hover:border-primary hover:bg-transparent w-fit text-center transition-all duration-300 ease-in-out">
                   Browse all articles
                 </Link>

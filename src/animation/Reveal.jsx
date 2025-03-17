@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { motion, useAnimation, useInView } from "framer-motion"
 
@@ -6,54 +6,48 @@ import { motion, useAnimation, useInView } from "framer-motion"
  * Reveal Component
  * ----------------
  * This component animates its children when they enter the viewport.
- * It uses Framer Motion for smooth entrance animations and resets the animation when out of view.
+ * It uses Framer Motion for smooth entrance animations and triggers the animation only once.
  * 
  * Features:
- * - Animates elements each time they come into view
+ * - Animates elements only once when they come into view
  * - Uses `useInView` to track visibility
  * - Controlled with `useAnimation` for flexibility
  * - Fully compatible with ThemeForest coding standards
  */
 
 const Reveal = ({ children }) => {
-    // Create a reference to track the component
     const ref = useRef(null)
-
-    // Detect when the element enters the viewport
     const isInView = useInView(ref)
-
-    // Animation control hook
     const mainControls = useAnimation()
+    const [hasAnimated, setHasAnimated] = useState(false)
 
     useEffect(() => {
-        if (isInView) {
-            mainControls.start("visible") // Start animation when in view
-        } else {
-            mainControls.start("hidden") // Reset animation when out of view
+        if (isInView && !hasAnimated) {
+            mainControls.start("visible")
+            setHasAnimated(true) // Prevent further animations
         }
-    }, [isInView, mainControls])
+    }, [isInView, mainControls, hasAnimated])
 
     return (
         <div ref={ref} className='relative w-full'>
             <motion.div
                 variants={{
-                    hidden: { opacity: 0, y: 75 }, // Initial state (hidden)
-                    visible: { opacity: 1, y: 0 }  // Target state (visible)
+                    hidden: { opacity: 0, y: 75 },
+                    visible: { opacity: 1, y: 0 }
                 }}
                 initial="hidden"
                 animate={mainControls}
                 transition={{ duration: 0.5, delay: 0.25 }}
                 className='h-full w-full'
             >
-                {children} {/* Render child elements inside the animated wrapper */}
+                {children}
             </motion.div>
         </div>
     )
 }
 
-// ✅ Prop Validation (Ensures `children` is a valid React node)
 Reveal.propTypes = {
-    children: PropTypes.node.isRequired, // Only valid React elements are allowed
+    children: PropTypes.node.isRequired,
 }
 
 export default Reveal

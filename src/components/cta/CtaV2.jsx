@@ -28,20 +28,21 @@ const CtaV1 = () => {
                             subTitle="Pricing" 
                             color="text-softWhite" 
                             borderColor="border-softWhite" 
-                            align="justify-start" 
+                            align="justify-center lg:justify-start" 
                         />
 
                         {/* Main Title */}
                         <Title 
                             title="Growth performance tracking made easy" 
                             color="text-softWhite" 
-                            textAlign="text-left" 
+                            textAlign="text-center lg:text-left" 
                             size="text-4xl lg:text-5xl" 
+                            maxWidth='max-w-lg mx-auto lg:ml-0'
                         />
 
                         {/* Feature: Cloud Sync */}
                         <Reveal>
-                            <div className="mt-8 flex gap-6 items-center">
+                            <div className="mt-8 flex gap-6  justify-center lg:justify-start items-center">
                                 <img  src={CloudIcon}   alt="Cloud Sync Icon" />
                                 <div className="flex flex-col">
                                     <span className="text-lg font-medium leading-normal text-softWhite">
@@ -56,7 +57,7 @@ const CtaV1 = () => {
 
                         {/* App Download Links */}
                         <Reveal>
-                            <div className="mt-8 flex gap-6 items-center">
+                            <div className="mt-8 flex gap-6 justify-center lg:justify-start items-center">
                                 <Link to="https://play.google.com" target="_blank" rel="noopener noreferrer">
                                     <img src={PlayStoreImg} alt="Download on Google Play Store" />
                                 </Link>
@@ -69,7 +70,7 @@ const CtaV1 = () => {
                         {/* User Ratings Section */}
                         <Reveal>
                             <div className="mt-12">
-                                <img src={UserRatingImg} alt="User Ratings and Reviews" />
+                                <img className='mx-auto lg:m-0' src={UserRatingImg} alt="User Ratings and Reviews" />
                             </div>
                         </Reveal>
                     </div>
@@ -78,7 +79,7 @@ const CtaV1 = () => {
                     <Reveal>
                         <div 
                             className="-mb-6 md:-mb-10 relative mx-auto">
-                            <img src={PhoneCtaV1} alt="App interface preview on mobile" />
+                            <img className='mx-auto' src={PhoneCtaV1} alt="App interface preview on mobile" />
 
                             {/* Decorative Frame */}
                             <img 

@@ -99,7 +99,7 @@ const Pricing = () => {
                       <h2 className="text-2xl font-bold">{plan?.title}</h2>
                       {plan?.isPopular && (
                         <span
-                          className={`px-3 py-1 text-xs border text-primary group-hover:text-softWhite bg-limeGreen group-hover:bg-transparent border-paleGreen rounded-full transition-all ${
+                          className={`px-3 py-1 text-xs border text-primary group-hover:text-softWhite bg-lightGreen group-hover:bg-transparent border-paleGreen rounded-full transition-all ${
                             index === 1 ? "text-softWhite bg-transparent border-softWhite" : ""
                           }`}
                         >
@@ -115,7 +115,11 @@ const Pricing = () => {
                     <span className="text-4xl font-medium">$</span>
                     <span className="text-5xl font-medium">{isAnnual ? plan?.price?.annual : plan?.price?.monthly}</span>
                     <span className="ml-2 text-base opacity-80">per month</span>
-                    {isAnnual && <span className="ml-2 text-sm text-green-500">(Save 20%)</span>}
+                    {isAnnual && (
+                      <span className={`ml-2 text-sm ${index === 1 ? 'text-lightGreen' : ''} group-hover:text-lightGreen`}>
+                        (Save 20%)
+                      </span>
+                    )}
                   </div>
                 </div>
 

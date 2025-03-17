@@ -59,11 +59,10 @@ const PricingDetails = () => {
       <section className="bg-lightGrayishWhite">
         <div className="container py-10 lg:py-24">
           <Reveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 md:gap-16 lg:gap-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
               
               {/* Left Column - Features List */}
-              <div className="md:col-span-2">
-                <div>
+                <div className="lg:col-span-2">
                   <Title title={pricingData?.title} textAlign='text-left' />
                   <div className="mt-8">
                     {/* Features List */}
@@ -76,18 +75,9 @@ const PricingDetails = () => {
                     </ul>
                   </div>
                 </div>
-                
-                {/* Plan Description */}
-                <div className="mt-20">
-                  <h3 className="text-davyGray text-3xl font-semibold mb-4">Inclusive Plans</h3>
-                  <p className="text-base font-normal text-davyGray">
-                    {pricingData?.description}
-                  </p>
-                </div>
-              </div>
 
               {/* Right Column - Pricing Card */}
-              <div className="order-first xl:order-last">
+              <div className="order-first md:-order-none">
                 <div className="bg-white rounded-lg card-shadow px-10 py-12 border border-gray-100">
                   <span className="text-lg text-primary font-normal">Get Your Plan Today</span>
                   <h3 className="text-4xl text-primary font-semibold my-4">
@@ -126,11 +116,21 @@ const PricingDetails = () => {
                       onClick={handlePurchase} // Attach the event handler here
                     >
                       Buy Now
-                    </button>
+                  </button>
 
                 </div>
               </div>
+                
+              {/* Plan Description */}
+              <div className="mt-20 lg:col-span-2">
+                <h3 className="text-davyGray text-3xl font-semibold mb-4">Inclusive Plans</h3>
+                <p className="text-base font-normal text-davyGray">
+                  {pricingData?.description}
+                </p>
+              </div>
             </div>
+
+
           </Reveal>
         </div>
       </section>

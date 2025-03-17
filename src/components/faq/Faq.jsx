@@ -107,7 +107,7 @@ const Faq = () => {
                                                 animate={{ opacity: 1, height: 'auto' }}
                                                 exit={{ opacity: 0, height: 0 }}
                                                 transition={{ duration: 0.3 }}
-                                                className="overflow-hidden"
+                                                className="overflow-hidden  pr-4 md:pr-10 lg:pr-12"
                                             >
                                                 <div className="text-davyGray font-normal leading-normal text-base mt-2">
                                                     <p>{faq.answer}</p>

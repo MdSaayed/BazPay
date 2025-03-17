@@ -28,7 +28,7 @@ const About = () => {
                     {/* Title */}
                     <Title 
                         title={<>Say hi to the awesome crew at <span className="text-primary">BazPay!</span></>} 
-                        maxWidth="max-w-[650px]" 
+                        maxWidth="max-w-xl lg:max-w-[650px]" 
                     />
 
                     {/* Description */}
