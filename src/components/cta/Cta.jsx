@@ -27,7 +27,7 @@ const Cta = () => {
       className="cta bg-lightGrayishWhite"
       initial="hidden"
       whileInView="visible" // Triggers animation on scroll
-      viewport={{ once: false, amount: 0.2 }} // Animate every time section enters viewport
+      viewport={{ once: true, amount: 0.2 }} // Animate only once
       variants={staggerContainer}
     >
       <div className="container py-20">
@@ -37,7 +37,6 @@ const Cta = () => {
           variants={fadeUp}
         >
           {/* Subtitle */}
-
           <Subtitle subTitle="Pricing" color="text-softWhite" bgColor="bg-primary" borderColor="border-blueGray" />
 
           {/* Title */}

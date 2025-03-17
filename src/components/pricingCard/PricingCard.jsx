@@ -69,7 +69,7 @@ const PricingCard = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-whiteSmoke text-base font-normal mt-6 mb-8">{item?.description}</p>
+                <p className="text-whiteSmoke text-base font-normal mt-6 mb-8">{item?.excerpt}</p>
 
                 {/* "Get Started" Button */}
                 <Button text="Get Started" link={`/pricing/${item?.id}`} fullWidth={true} />
@@ -79,7 +79,7 @@ const PricingCard = () => {
               <div className="p-8">
                 <p className="text-primary text-base font-semibold">FEATURES</p>
                 <p className="text-davyGray text-base font-normal mt-1 mb-6">
-                  Standard item grants you access to exclusive features
+                  {item?.featureDesc}
                 </p>
 
                 {/* Loop through the features and display each one */}

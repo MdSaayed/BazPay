@@ -8,6 +8,7 @@
     },
     "isPopular": true,
     "description": "The Basic Plan is perfect for individuals and small teams looking to access core features without breaking the bank. For just $10 per month or $50 annually, users can enjoy access to essential tools and services. This plan includes 5GB of cloud storage, basic analytics and reports, community support, limited integrations, standard security, and mobile access. When opting for the annual subscription, users unlock 50GB of cloud storage, advanced analytics and reports, priority email support, all premium integrations, enhanced security with SSL, and offline mode support. This plan is ideal for those who need reliable, straightforward solutions to manage their projects efficiently. With the Basic Plan, users can streamline their workflow, enhance collaboration, and maintain productivity while keeping costs low. The flexibility of both monthly and annual options allows users to choose what works best for their budget and needs. The Basic Plan’s community support ensures users have access to a helpful network of peers and experts. Additionally, standard security measures keep your data safe. Whether you're just starting or managing a small team, the Basic Plan provides a solid foundation for growth and success. Upgrade to the annual plan for enhanced benefits and cost savings. Take the first step towards better productivity today!",
+    "excerpt": "Ideal for small teams, offering core features and tools at an affordable price.",
     "buttonText": "Get Started",
     "highlighted": false,
     "features": {
@@ -29,7 +30,8 @@
         "Enhanced security with SSL",
         "Offline mode support"
       ]
-    }
+    },
+    "featureDesc": "Access essential tools and features for individuals and small teams at an affordable price."
   },
   {
     "id": 2,
@@ -39,6 +41,7 @@
       "annual": 100
     },
     "description": "The Business Plan is designed for growing businesses and teams that require more advanced features and enhanced support. At $20 per month or $100 annually, this plan offers comprehensive tools and services to help you scale efficiently. With the monthly plan, users gain access to everything in the Basic Plan, support for unlimited accounts, 100GB of storage per user, priority email support, custom integrations, advanced analytics, and real-time data updates. The annual plan takes it further by providing unlimited accounts and teams, 200GB of storage per user, priority email and chat support, advanced AI-powered analytics, and exclusive feature access. The Business Plan is perfect for teams that need seamless collaboration, robust data analysis, and real-time performance tracking. With priority support and custom integrations, your business can operate with efficiency and flexibility. Real-time data updates ensure that you stay on top of key metrics and make informed decisions. By opting for the annual plan, you unlock additional storage and exclusive features that give you a competitive edge. The Business Plan is tailored to help you manage your resources, enhance productivity, and achieve your business goals. Upgrade today and experience the power of advanced tools and dedicated support.",
+    "excerpt": "Advanced tools and support for growing businesses and efficient team collaboration.",
     "buttonText": "Get Started",
     "highlighted": true,
     "features": {
@@ -60,7 +63,8 @@
         "Real-time data updates",
         "Access to exclusive features"
       ]
-    }
+    },
+    "featureDesc": "Advanced features and priority support to help growing teams scale efficiently."
   },
   {
     "id": 3,
@@ -70,6 +74,7 @@
       "annual": 250
     },
     "description": "The Enterprise Plan is the ultimate solution for large teams and organizations seeking custom, scalable solutions. For $50 per month or $250 annually, this plan offers comprehensive, enterprise-grade tools and support. With the monthly plan, users gain access to all Business Plan features, a dedicated account manager, unlimited storage, 24/7 premium support, advanced security and compliance, enterprise-grade analytics, and custom feature development. The annual plan provides additional benefits, including a dedicated account manager with an SLA, unlimited storage with backups, 24/7 premium support with dedicated representatives, advanced security and compliance audits, enterprise-grade analytics with custom reports, and custom feature development and scaling. This plan is perfect for organizations with complex needs and high-security standards. The dedicated account manager ensures personalized service and seamless implementation. Unlimited storage and custom feature development allow your organization to scale efficiently. With 24/7 premium support and advanced compliance measures, your data remains secure, and your team stays productive. By opting for the annual plan, you unlock even more powerful features and services. The Enterprise Plan is the ideal choice for large teams that demand top-tier tools and dedicated support to achieve their goals. Upgrade to the Enterprise Plan and take your organization to the next level.",
+    "excerpt": "Comprehensive, scalable solutions with premium support for large organizations.",
     "buttonText": "Contact Us",
     "highlighted": false,
     "features": {
@@ -91,6 +96,7 @@
         "Enterprise-grade analytics with custom reports",
         "Custom feature development & scaling"
       ]
-    }
+    },
+    "featureDesc": "Tailored solutions with 24/7 support and enterprise-grade features for large teams."
   }
 ]

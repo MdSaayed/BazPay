@@ -107,7 +107,7 @@ const Pricing = () => {
                         </span>
                       )}
                     </div>
-                    <p className="text-sm mb-4">{plan?.description}</p>
+                    <p className="text-sm mb-4">{plan?.excerpt}</p>
                   </div>
 
                   {/* Price */}
@@ -128,7 +128,7 @@ const Pricing = () => {
                   className={`feature-list py-8 border-y px-8 mt-2 transition-all ${index === 1 ? "border-blueGray" : "border-lightSilver group-hover:border-blueGray"}`}
                 >
                   <h2 className="text-base font-semibold">{plan?.featuresTitle}</h2>
-                  <p className="text-base">{plan?.featuresDescription}</p>
+                  <p className="text-base">{plan?.featureDesc}</p>
                   <div className="grid md:grid-cols-2 gap-x-6 gap-y-4 mt-6">
                     {plan?.features[isAnnual ? "annual" : "monthly"]?.map((feature, featureIndex) => (
                       <div key={featureIndex} className="feature-item flex items-start gap-2">

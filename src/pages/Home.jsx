@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import googleIcon from '/assets/icons/google.svg';
 import heroImg from '/assets/img/hero/hero-dashboard.png';
@@ -17,7 +17,7 @@ import BlogGrid from '../components/blog/BlogGrid';
 import Pricing from '../components/pricing/Pricing';
 import Slider from '../components/slider/Slider';
 import FinancialOverview from '../components/financialOverview/FinancialOverview.jsx';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import Reveal from '../animation/Reveal.jsx';
 import { FaApple } from "react-icons/fa";
 import { IoLogoGoogleplus } from "react-icons/io";
@@ -29,6 +29,15 @@ import BgImageFront from '/assets/img/global/phone-mockup-front.png';
 
 
 const Home = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (isInView && !hasAnimated) {
+      setHasAnimated(true) // Lock the animation once it's triggered
+    }
+  }, [isInView, hasAnimated])
 
   // Cards Array 
   const cards = [
@@ -49,6 +58,8 @@ const Home = () => {
     '/assets/img/global/integrations-logo-7.png',
     '/assets/img/global/integrations-logo-8.png',
   ];
+
+
 
 
   return (
@@ -108,14 +119,15 @@ const Home = () => {
           </div>
 
           {/* Hero Image Section */}
-          <motion.div 
-            className="mt-20 rounded-md overflow-hidden"
-            initial={{ opacity: 0, scale: 0.5 }} 
-            whileInView={{ opacity: 1, scale: 1 }} 
-            transition={{ duration: 0.6 }}
-          >
-            <img src={heroImg} alt="BazPay Dashboard" loading="lazy" />
-          </motion.div>
+          <motion.div
+              ref={ref}
+              className="mt-20 rounded-md overflow-hidden" 
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={hasAnimated ? { opacity: 1, scale: 1 } : undefined}
+              transition={{ duration: 0.6 }}
+            >
+              <img src={heroImg} alt="BazPay Dashboard" loading="lazy" />
+            </motion.div>
 
         </div>
       </section>

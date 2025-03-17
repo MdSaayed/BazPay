@@ -78,7 +78,7 @@ const CtaV1 = () => {
                     {/* Right Content: Mobile Preview Image */}
                     <Reveal>
                         <div 
-                            className="-mb-6 md:-mb-10 relative mx-auto">
+                            className="-mb-10 lg:-mb-44 xl:-mb-16 relative mx-auto">
                             <img className='mx-auto' src={PhoneCtaV1} alt="App interface preview on mobile" />
 
                             {/* Decorative Frame */}
