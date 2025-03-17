@@ -54,7 +54,10 @@ const Footer = () => {
 
                     {/* Copyright Section */}
                     <div className="border-t border-lightSilver mt-8 pt-8 flex flex-wrap justify-center md:justify-start items-center gap-y-2 gap-x-4">
-                        <p className="text-davyGray leading-normal text-base">&copy;2025 <Link to={"https://www.uibazar.com"} className='text-limeGreen'>Ulbazar. </Link>All rights reserved.</p>
+                        <p 
+                        className="text-davyGray leading-normal text-base">&copy;2025 
+                        <Link to={"https://www.uibazar.com"} 
+                        className='text-limeGreen'>Ulbazar. </Link> All rights reserved.</p>
                         <div className="flex justify-center lg:text-left space-x-4">
                             <Link to="/terms" className="text-davyGray leading-normal text-base hover:text-blue-500">Terms</Link>
                             <Link to="/privacypolicy" className="text-davyGray leading-normal text-base hover:text-blue-500">Privacy</Link>
