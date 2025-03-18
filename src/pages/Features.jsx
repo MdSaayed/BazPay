@@ -4,7 +4,7 @@ import Team from '../components/team/Team';
 import FaqV2 from '../components/faq/FaqV2';
 import CtaV1 from '../components/cta/CtaV2';
 import BlogV1 from '../components/blog/BlogV1';
-import FeaturesSection from './../components/features/Features';
+import FeaturesSection from '../components/featuresSection/FeaturesSection';
 
 const Features = () => {
     return (

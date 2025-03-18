@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
 import Layout from "../layout/Layout";
-import HomeV2 from "../pages/homev2";
 import Features from "../pages/Features";
 import About from "../pages/About";
 import Blog from "../pages/Blog";
@@ -23,7 +22,6 @@ const router = createBrowserRouter([
         errorElement: <Error />, // Fallback error page
         children: [
             { path: '/', element: <Home /> },
-            { path: 'homev2', element: <HomeV2 /> },
             { path: '/features', element: <Features /> },
             { path: '/about', element: <About /> },
             { path: '/blog', element: <Blog /> },

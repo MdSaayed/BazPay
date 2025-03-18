@@ -63,7 +63,7 @@ const BlogDetails = () => {
           {/* Blog Title */}
           {title && (
             <div className="mb-20">
-              <Title title={title} textAlign="text-center" />
+              <Title title={title} size="text-4xl	md:text-6xl" textAlign="text-center" />
             </div>
           )}
 
