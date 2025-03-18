@@ -158,7 +158,7 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <FeaturesSection />
+      <FeaturesSection /> 
 
       {/* Constantly Section */}
       <section className="bg-lightGrayishWhite">

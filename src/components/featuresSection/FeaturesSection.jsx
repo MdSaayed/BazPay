@@ -23,7 +23,7 @@ const FeaturesSection = () => {
     ];
   return (
     <section className="bg-lightGrayishWhite">
-    <div className="container py-24">
+    <div className="container py-10 lg:py-20">
         <div className="content-wrapper bg-lightLavender py-12 px-2 md:px-10 rounded-2xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-5 gap-x-10 justify-between items-center">
                 {/* Title */}
