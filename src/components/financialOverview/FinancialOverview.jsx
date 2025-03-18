@@ -41,7 +41,7 @@ const FinancialOverview = ({ cardBg = 'bg-lightLavender' }) => {
           maxWidth="max-w-[568px]"
         />
 
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-8 mt-20">
+        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8 mt-20">
           <motion.div
             className={`feature-card ${cardBg} md:col-span-6 lg:col-span-5 p-6 rounded-2xl shadow-sm`}
             variants={fadeInUp}

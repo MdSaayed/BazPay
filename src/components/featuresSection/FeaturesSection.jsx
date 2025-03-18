@@ -107,13 +107,13 @@ const FeaturesSection = () => {
               <div className="flex flex-col md:flex-row justify-center items-center mt-16 gap-6">
                 <Link
                     to="/contact"
-                    className="btn-secondary block w-full text-center md:inline-block md:w-fit"
+                    className="btn-secondary hover:bg-primary hover:text-white block w-full text-center md:inline-block md:w-fit"
                 >
                     Contact Us
                 </Link>
                 <Link
                     to="/pricing"
-                    className="btn-white block w-full text-center md:inline-block md:w-fit"
+                    className="btn-black block w-full text-center md:inline-block md:w-fit"
                 >
                     Pricing
                 </Link>

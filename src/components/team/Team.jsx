@@ -84,7 +84,7 @@ const Team = () => {
         {/* Section for title and subtitle */}
         <div className="px-[10px] sm:px-5 md:px-10 xl:px-20">
           <Subtitle subTitle="Team" bgColor="bg-paleGreen" borderColor="border-paleGreen" />
-          <Title title={<>Meet the incredible <span>team</span></>} />
+          <Title title={<>Meet the incredible <span>team</span></>} maxWidth='max-w-[574px] lg:max-w-[768px]' />
           <Description text="We pride ourselves on being the best of the best, and our team encapsulates that." maxWidth="max-w-[536px]" />
         </div>
 

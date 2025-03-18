@@ -56,7 +56,7 @@ const SubscribeForm = ({
         {/* Subscribe Button */}
         <button
           type="submit"
-          className={`opacity-95 px-6 p-1 md:py-2 rounded-[32px] hover:opacity-100 transition-colors whitespace-nowrap ${btnBg} ${btnColor}`}
+          className={`opacity-95 px-6 p-1 md:py-2 rounded-[32px] transition-colors whitespace-nowrap ${btnBg} ${btnColor}`}
         >
           {btnText}
         </button>

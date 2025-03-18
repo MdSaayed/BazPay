@@ -25,7 +25,7 @@ const TermsOfServices = () => {
                         <div className="space-y-4 mt-12">
                         <h3 className='text-primary font-semibold text-2xl'>1. Acceptance of Terms</h3>
                         <p className='leading-normal mt-4 text-lg text-davyGray text-left'>
-                            By accessing or using Enova website, services, or products (collectively, the "Services"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our Services.
+                            By accessing or using Bazpay website, services, or products (collectively, the "Services"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our Services.
                         </p>
                         </div>
                     </Reveal>
@@ -35,7 +35,7 @@ const TermsOfServices = () => {
                         <div className="space-y-4 mt-12">
                         <h3 className='text-primary font-semibold text-2xl'>2. Description of Services</h3>
                         <p className='leading-normal mt-4 text-lg text-davyGray text-left'>
-                            Enova is a digital agency providing web design, development, marketing, and related digital services. The specific services we offer may change over time.
+                            Bazpay is a digital agency providing web design, development, marketing, and related digital services. The specific services we offer may change over time.
                         </p>
                         </div>
                     </Reveal>
@@ -64,7 +64,7 @@ const TermsOfServices = () => {
                                 Interfere with or disrupt the integrity or performance of the Services.
                             </li>
                             <li className="relative text-base font-normal text-davyGray before:content-['\2022'] before:absolute before:left-0 before:text-davyGray before:text-xl before:leading-none before:top-3 before:-translate-y-1/2 pl-5">
-                                Reproduce, duplicate, copy, sell, resell, or exploit any portion of the Services without express written permission from Enova.
+                                Reproduce, duplicate, copy, sell, resell, or exploit any portion of the Services without express written permission from Bazpay.
                             </li>
                         </ul>
                         </div>
@@ -75,7 +75,7 @@ const TermsOfServices = () => {
                         <div className="space-y-4 mt-12">
                         <h3 className='text-primary font-semibold text-2xl'>4. Intellectual Property</h3>
                         <p className='leading-normal mt-4 text-lg text-davyGray text-left'>
-                            All content, features, and functionality of our Services are owned by Enova or its licensors and are protected by copyright, trademark, and other intellectual property laws.
+                            All content, features, and functionality of our Services are owned by Bazpay or its licensors and are protected by copyright, trademark, and other intellectual property laws.
                         </p>
                         </div>
                     </Reveal>
@@ -113,7 +113,7 @@ const TermsOfServices = () => {
                     {/* Footer note */}
                     <Reveal>
                         <div className='mt-12'>
-                        <p className='text-base font-normal text-davyGray'>Enova</p>
+                        <p className='text-base font-normal text-davyGray'>Bazpay</p>
                         </div>
                     </Reveal>
 

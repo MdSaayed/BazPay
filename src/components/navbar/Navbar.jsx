@@ -32,8 +32,27 @@ const dropdownItems = [
 const Navbar = () => {
   const [isAllPagesOpen, setAllPagesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false); // Track scroll state
   const dropdownRef = useRef(null);
   const timeoutRef = useRef(null);
+
+  // Handle Scroll Event
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setIsScrolled(true); // Add shadow when scrolled
+    } else {
+      setIsScrolled(false); // Remove shadow when at the top
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   // Handle Show Dropdown
   const handleMouseEnter = () => {
@@ -59,9 +78,8 @@ const Navbar = () => {
     };
   }, [isMobileMenuOpen]);
 
-
   return (
-    <header className="bg-lightGrayishWhite">
+    <header className={`bg-lightGrayishWhite sticky top-0 z-50 ${isScrolled ? "shadow-sm lg:opacity-90" : "shadow-none"}`}>
       <div className="container py-0">
         <div className="flex items-center justify-between h-20 z-40">
           {/* Logo */}
@@ -141,8 +159,6 @@ const Navbar = () => {
             </motion.div>
           )}
         </div>
-
-
       </div>
     </header>
   );

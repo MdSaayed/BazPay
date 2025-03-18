@@ -68,7 +68,7 @@ const LatestPost = () => {
                   aria-label={`Filter by ${category}`}
                   className={`filter-btn px-5 py-2 rounded-full transition-colors ${
                     filter === category 
-                      ? 'bg-limeGreen text-softWhite text-base font-medium' 
+                      ? 'bg-limeGreen text-primary text-base font-medium' 
                       : 'text-primary text-base font-normal'
                   }`}
                 >

@@ -87,8 +87,7 @@ const Licenses = () => {
                             <Reveal>
                                 <div>
                                     <p className="text-davyGray font-normal text-lg mt-12">
-                                        All images used in the Enova Webflow <Link to="https://example.com" className="text-limeGreen underline" title="Link to CRM SAAS Template">CRM SAAS Template</Link>
-                                        are licensed for free personal and commercial use. If you'd like to use any specific image, you can
+                                        All images used in the Bazpay Webflow <Link to="#" className="text-limeGreen underline" title="Link to Fintech SAAS Template"> Fintech SAAS Template</Link> are licensed for free personal and commercial use. If you'd like to use any specific image, you can
                                         check the licenses and download the images for free on Lummi.
                                     </p>
                                 </div>

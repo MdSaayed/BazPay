@@ -31,7 +31,7 @@ const Cta = () => {
           {/* Subscription Form */}
           <Reveal>
           <div className="mt-12 flex justify-center">
-            <SubscribeForm textColor='text-softWhite' formWidth="w-[100%] md:w-[80%] lg:w-[50%]" btnBg="bg-limeGreen" btnText="Get Started" formBg="bg-primary" borderColor="border-davyGray" />
+            <SubscribeForm textColor='text-softWhite' formWidth="w-[100%] md:w-[80%] lg:w-[50%]" btnBg="bg-limeGreen" btnText="Get Started" formBg="bg-primary" btnColor="text-primary" borderColor="border-davyGray" />
           </div>
           </Reveal>
 

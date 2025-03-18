@@ -175,7 +175,7 @@ const Home = () => {
                 />
 
               {/* Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 mt-20">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 mt-20">
                   {/* Card One */}
                   <Reveal>
                     <div

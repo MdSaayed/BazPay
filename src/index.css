@@ -49,28 +49,30 @@ body {
 .btn-secondary {
     font-size: 16px;
     background-color: #BCFC6A;
-    color: #181D27 !important;
+    color: #181D27;
     padding: 8px 18px;
     border-radius: 32px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-secondary:hover {
-    background-color: #F7F8F8;
+    background-color: #181D27;
+    color: #fff;
 }
 
 /* White Button */
-.btn-white {
+.btn-black {
     font-size: 16px;
-    background-color: #F7F8F8;
-    color: #181D27 !important;
+    background-color: #181D27;
+    color: #fff;
     padding: 8px 18px;
     border-radius: 32px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.btn-white:hover {
+.btn-black:hover {
     background-color: #BCFC6A;
+    color: #181D27;
 }
 
 /* =====================================
