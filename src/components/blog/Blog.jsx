@@ -8,7 +8,7 @@ import ErrorMessage from "../errorMessage/ErrorMessage";
 import Reveal from "../../animation/Reveal";
 import { useLoading } from "../../context/LoadingContext";
 
-const BlogV1 = () => {
+const Blog = () => {
   const { isLoading, startLoading, stopLoading } = useLoading(); // State to manage loading state
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
@@ -114,4 +114,4 @@ const BlogV1 = () => {
   );
 };
 
-export default BlogV1;
+export default Blog;

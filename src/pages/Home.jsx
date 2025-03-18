@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import heroImg from '/assets/img/hero/hero-dashboard.png';
-
 import phoneMockup from '/assets/img/global/phone-mockup-with-card.png';
 import barChat from '/assets/img/global/bar-chat.png';
 import BrandLogo from '../components/brandLogo/BrandLogo';
@@ -18,8 +17,6 @@ import { motion, useInView } from 'framer-motion';
 import Reveal from '../animation/Reveal.jsx';
 import { FaApple } from "react-icons/fa";
 import { IoLogoGoogleplus } from "react-icons/io";
-
-
 import BgImage from '/assets/img/global/phone-mockup.png';
 import BgImageFront from '/assets/img/global/phone-mockup-front.png';
 import FeaturesSection from '../components/featuresSection/FeaturesSection.jsx';

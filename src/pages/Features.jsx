@@ -1,10 +1,10 @@
 import React from 'react';
 import FinancialOverview from '../components/financialOverview/FinancialOverview';
 import Team from '../components/team/Team';
-import FaqV2 from '../components/faq/FaqV2';
-import CtaV1 from '../components/cta/CtaV2';
-import BlogV1 from '../components/blog/BlogV1';
+import Blog from '../components/blog/Blog';
 import FeaturesSection from '../components/featuresSection/FeaturesSection';
+import Faq from '../components/faq/Faq';
+import Cta from '../components/cta/Cta';
 
 const Features = () => {
     return (
@@ -19,13 +19,13 @@ const Features = () => {
             <Team />
             
             {/* Faq */}
-            <FaqV2 />
+            <Faq />
 
             {/* CTA */}
-            <CtaV1 />
+            <Cta />
 
             {/* Blog */}
-            <BlogV1 />
+            <Blog />
         </>
     );
 };

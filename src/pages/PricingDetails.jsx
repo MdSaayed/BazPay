@@ -1,13 +1,12 @@
 import { useLoaderData } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Title from './../components/title/Title';
-import CtaV1 from '../components/cta/CtaV2';
-import Button from './../components/ui/Button';
 import LoadingAnimation from '../components/loadingAnimation/LoadingAnimation';
 import ErrorMessage from '../components/errorMessage/ErrorMessage';
 import Reveal from '../animation/Reveal';
 import { useLoading } from '../context/LoadingContext';
 import Swal from 'sweetalert2';
+import Cta from '../components/cta/Cta';
 
 
 const PricingDetails = () => {
@@ -136,7 +135,7 @@ const PricingDetails = () => {
       </section>
 
       {/* CTA Section */}
-      <CtaV1 />
+      <Cta />
     </>
   );
 };

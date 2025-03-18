@@ -1,7 +1,6 @@
 import React from 'react';
 import Team from '../components/team/Team';
-import FaqV2 from '../components/faq/FaqV2';
-import BlogV1 from '../components/blog/BlogV1';
+import Blog from '../components/blog/Blog';
 import Cta from '../components/cta/Cta';
 import Stats from '../components/stats/Stats';
 import Subtitle from '../components/subtitle/Subtitle';
@@ -11,6 +10,7 @@ import Button from '../components/ui/Button';
 import HeroImg from "/assets/img/global/about-hero.png";
 import CoreValues from '../components/coreValues/CoreValues';
 import Reveal from '../animation/Reveal';
+import Faq from '../components/faq/Faq';
 
 const About = () => {
     return (
@@ -67,13 +67,13 @@ const About = () => {
             <Team />
 
             {/* Faq */}
-            <FaqV2 />
+            <Faq />
 
             {/* CTA */}
             <Cta />
 
             {/* Blog */}
-            <BlogV1 />
+            <Blog />
         </>
     );
 };

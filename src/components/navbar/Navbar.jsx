@@ -15,7 +15,7 @@ const menuItems = [
 
 // Dropdown
 const dropdownItems = [
-  { path: '/', label: 'Home V1' },
+  { path: '/', label: 'Home' },
   { path: '/features', label: 'Features' },
   { path: '/about', label: 'About' },
   { path: '/contact', label: 'Contact' },

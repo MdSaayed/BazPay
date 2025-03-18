@@ -46,7 +46,7 @@ const Stats = ({ bgColor = "bg-transparent", textColor = "text-primary" }) => {
     const animateCounters = () => {
       setCount1((prev) => (prev < targetCount1 ? prev + 100 : targetCount1));
       setCount2((prev) => (prev < targetCount2 ? prev + 0.05 : targetCount2)); // Smooth increment
-      setCount3((prev) => (prev < targetCount3 ? prev + 0.5 : targetCount3));
+      setCount3((prev) => (prev < targetCount3 ? prev + 0.8 : targetCount3));
 
       frame = requestAnimationFrame(animateCounters);
     };

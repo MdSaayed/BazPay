@@ -3,9 +3,9 @@ import BlogGrid from './../components/blog/BlogGrid';
 import Subtitle from '../components/subtitle/Subtitle';
 import Title from '../components/title/Title';
 import Description from '../components/description/Description';
-import CtaV1 from '../components/cta/CtaV2';
-import FaqV2 from '../components/faq/FaqV2';
 import LatestPost from '../components/latestPost/LatestPost';
+import Faq from '../components/faq/Faq';
+import Cta from '../components/cta/Cta';
 
 const Blog = () => {
     return (
@@ -36,13 +36,13 @@ const Blog = () => {
             </section>
 
             {/* CTA */}
-            <CtaV1 />
+            <Cta />
 
             {/* Latest Post */}
             <LatestPost />
 
             {/* Faqs */}
-            <FaqV2 />
+            <Faq />
         </ >
     );
 };
