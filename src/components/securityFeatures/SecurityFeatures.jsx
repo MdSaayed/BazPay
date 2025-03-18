@@ -1,8 +1,6 @@
 import React from "react";
-import { MdOutlineNotificationsActive } from "react-icons/md";
 import Subtitle from "../subtitle/Subtitle";
 import Title from "../title/Title";
-import { SiSecurityscorecard } from "react-icons/si";
 import Reveal from "../../animation/Reveal";
 import Notification from "/assets/img/global/notification.png";
 import Finger from "/assets/img/global/finger.png";

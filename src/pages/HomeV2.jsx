@@ -10,9 +10,9 @@ import CtaV2 from '../components/cta/CtaV2';
 import Stats from '../components/stats/Stats';
 import FaqV2 from '../components/faq/FaqV2';
 import BlogV1 from '../components/blog/BlogV1';
-import FeaturesSection from '../components/features/Features'; 
 import { motion } from "framer-motion";
 import SecurityFeatures from '../components/securityFeatures/SecurityFeatures';
+import FeaturesSection from './../components/features/Features';
 
 
 

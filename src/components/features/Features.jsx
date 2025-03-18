@@ -11,7 +11,7 @@ import ShieldIcon from "/assets/icons/card-icon-payout.svg";
 import GraphIcon from "/assets/icons/light-icon-payout.svg";
 import Reveal from "../../animation/Reveal";
 
-const SecuritySection = () => {
+const FeaturesSection = () => {
   return (
     <section className="bg-lightGrayishWhite">
       <div className="container py-10 lg:py-24">
@@ -53,15 +53,17 @@ const SecuritySection = () => {
               </Reveal>
               <Reveal>
                 {/* Card Three - Budgeting Tools */}
-                <div className="h-full bg-lightLavender p-4 rounded-2xl shadow-sm">
-                  {/* Icon */}
-                  <div className="mb-3">
-                    <img className="bg-linenWhite rounded p-3 w-12 h-12" src={ShieldIcon} alt="Revenue" />
-                  </div>
-                  {/* Title */}
-                  <div className="my-4">
-                    <h4 className="text-primary font-semibold text-xl">Manage Your Budget Efficiently</h4>
-                  </div>
+                <div className="flex flex-col justify-between h-full bg-lightLavender p-4 pb-0 rounded-2xl shadow-sm">
+                 <div>
+                   {/* Icon */}
+                    <div className="mb-3">
+                      <img className="bg-linenWhite rounded p-3 w-12 h-12" src={ShieldIcon} alt="Revenue" />
+                    </div>
+                    {/* Title */}
+                    <div className="my-4">
+                      <h4 className="text-primary font-semibold text-xl">Manage Your Budget Efficiently</h4>
+                    </div>
+                 </div>
                   {/* Image */}
                   <img src={MasterCard} alt="Financial Growth" />
                 </div>
@@ -69,15 +71,17 @@ const SecuritySection = () => {
 
                 {/* Card Four - Secure Financial Growth */}
               <Reveal>
-                <div className="h-full bg-lightAloe p-4 rounded-2xl shadow-sm">
-                  {/* Icon */}
-                  <div className="mb-3">
-                    <img className="bg-linenWhite rounded p-3 w-12 h-12" src={GraphIcon} alt="Shield Icon" />
-                  </div>
-                  {/* Title */}
-                  <div className="my-4">
-                    <h4 className="text-primary font-semibold text-xl">Secure Financial Growth</h4>
-                  </div>
+                <div className="flex flex-col justify-between h-full bg-lightAloe p-4 pb-0 rounded-2xl shadow-sm">
+                 <div>
+                     {/* Icon */}
+                    <div className="mb-3">
+                      <img className="bg-linenWhite rounded p-3 w-12 h-12" src={GraphIcon} alt="Shield Icon" />
+                    </div>
+                    {/* Title */}
+                    <div className="my-4">
+                      <h4 className="text-primary font-semibold text-xl">Secure Financial Growth</h4>
+                    </div>
+                 </div>
                   {/* Image */}
                   <img src={SendMoneyRevenue} alt="Financial Growth" />
                 </div>
@@ -101,4 +105,4 @@ const SecuritySection = () => {
   );
 };
 
-export default SecuritySection;
+export default FeaturesSection;

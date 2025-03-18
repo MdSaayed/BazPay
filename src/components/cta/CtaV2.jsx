@@ -76,19 +76,21 @@ const CtaV1 = () => {
                     </div>
 
                     {/* Right Content: Mobile Preview Image */}
-                    <Reveal>
-                        <div 
-                            className="-mb-10 lg:-mb-44 xl:-mb-16 relative mx-auto">
-                            <img className='mx-auto' src={PhoneCtaV1} alt="App interface preview on mobile" />
+                    <div className="flex items-end h-full">
+                        <Reveal>
+                            <div 
+                                className="-mb-16 relative mx-auto">
+                                <img className='mx-auto' src={PhoneCtaV1} alt="App interface preview on mobile" />
 
-                            {/* Decorative Frame */}
-                            <img 
-                                className="frame absolute top-2 md:top-1/3 right-5 lg:-left-20" 
-                                src={FrameImg} 
-                                alt="Decorative frame" 
-                            />
-                        </div>
-                    </Reveal>
+                                {/* Decorative Frame */}
+                                <img 
+                                    className="frame absolute top-32 md:top-1/3 -right-2 md:right-5 lg:-left-8" 
+                                    src={FrameImg} 
+                                    alt="Decorative frame" 
+                                />
+                            </div>
+                        </Reveal>
+                    </div>
                 </div>
             </div>
         </section>
