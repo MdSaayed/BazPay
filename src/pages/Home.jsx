@@ -20,6 +20,7 @@ import { IoLogoGoogleplus } from "react-icons/io";
 import BgImage from '/assets/img/global/phone-mockup.png';
 import BgImageFront from '/assets/img/global/phone-mockup-front.png';
 import FeaturesSection from '../components/featuresSection/FeaturesSection.jsx';
+ 
 
 
 
@@ -41,10 +42,6 @@ const Home = () => {
     '/assets/img/cards/credit-card-3.png',
     '/assets/img/cards/credit-card-4.png'
   ];
-
-
-
-
 
 
   return (
@@ -128,32 +125,33 @@ const Home = () => {
 
       {/* Premium Card Slider */}
       <section className="bg-lightGrayishWhite">
-          <div className="container pt-20 px-0 bg-primary rounded-2xl overflow-hidden">
-              <div className="px-2 sm:px-5 md:px-10 lg:px-14 xl:px-20">
+          <div className="container py-10 px-2 md:px-5 lg:px-10 ">
+              <div className='pt-20 bg-primary rounded-2xl overflow-hidden'>
+                <div className="px-2 sm:px-5 md:px-10 lg:px-14 xl:px-20">
+                  {/* Subtitle with theme-based colors */}
+                  <Subtitle
+                      subTitle="Security"
+                      color="text-softWhite"
+                      bgColor="bg-darkBlue"
+                      borderColor="border-darkGrayishBlue"
+                  />
+                  {/* Title */}
+                  <Title title="Check our premium cards" color="text-softWhite" />
 
-                {/* Subtitle with theme-based colors */}
-                 <Subtitle
-                    subTitle="Security"
-                    color="text-softWhite"
-                    bgColor="bg-darkBlue"
-                    borderColor="border-darkGrayishBlue"
-                 />
-                {/* Title */}
-                <Title title="Check our premium cards" color="text-softWhite" />
+                  {/* Description */}
+                  <Description
+                      text="Discover a seamless platform designed for easy payments, quick money transfers, and all your financial needs."
+                      color="text-softWhite"
+                      maxWidth="max-w-lg"
+                  />
+                  </div>
 
-                {/* Description */}
-                <Description
-                    text="Discover a seamless platform designed for easy payments, quick money transfers, and all your financial needs."
-                    color="text-softWhite"
-                    maxWidth="max-w-lg"
-                />
-              </div>
-
-              {/* Cards Slider with Optimized Background Image */}
-              <div className="relative rounded-md pt-16 pb-12  mt-20 overflow-hidden">
-                <img src={BgImage} className="absolute top-0 left-1/2 -translate-x-1/2 px-16 h-full" />
-                <img src={BgImageFront} className="absolute top-0 left-1/2 -translate-x-1/2 z-20 px-16 h-full" />
-                <Slider items={cards} speed={5000} />
+                  {/* Cards Slider with Optimized Background Image */}
+                  <div className="relative rounded-md pt-16 pb-12  mt-20 overflow-hidden">
+                  <img src={BgImage} className="absolute top-0 left-1/2 -translate-x-1/2 px-16 h-full" />
+                  <img src={BgImageFront} className="absolute top-0 left-1/2 -translate-x-1/2 z-20 px-16 h-full" />
+                  <Slider items={cards} speed={5000} />
+                </div>
               </div>
 
           </div>
