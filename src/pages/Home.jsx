@@ -146,12 +146,14 @@ const Home = () => {
                   />
                   </div>
 
-                  {/* Cards Slider with Optimized Background Image */}
-                  <div className="relative rounded-md pt-16 pb-12  mt-20 overflow-hidden">
-                  <img src={BgImage} className="absolute top-0 left-1/2 -translate-x-1/2 px-16 h-full" />
-                  <img src={BgImageFront} className="absolute top-0 left-1/2 -translate-x-1/2 z-20 px-16 h-full" />
-                  <Slider items={cards} speed={5000} />
-                </div>
+                  <Reveal>
+                    {/* Cards Slider with Optimized Background Image */}
+                    <div className="relative rounded-md pt-16 pb-12  mt-20 overflow-hidden">
+                      <img src={BgImage} className="absolute top-0 left-1/2 -translate-x-1/2 px-16 h-full" />
+                      <img src={BgImageFront} className="absolute top-0 left-1/2 -translate-x-1/2 z-20 px-16 h-full" />
+                      <Slider items={cards} speed={5000} />
+                    </div>
+                  </Reveal>
               </div>
 
           </div>
