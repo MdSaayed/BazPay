@@ -52,7 +52,7 @@ const PricingCard = () => {
                   <span className="font-semibold text-lg text-softWhite">{item?.title}</span>
                   {/* Show "Popular" tag if the item is highlighted */}
                   {item?.highlighted && (
-                    <span className="bg-lightGreen text-softWhite text-xs font-bold px-3 py-1 rounded-full">
+                    <span className="bg-lightGreen text-primary text-xs font-bold px-3 py-1 rounded-full">
                       Popular
                     </span> 
                   )}
