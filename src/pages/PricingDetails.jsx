@@ -121,7 +121,7 @@ const PricingDetails = () => {
               </div>
                 
               {/* Plan Description */}
-              <div className="mt-20 lg:col-span-2">
+              <div className="mt-20 md:col-span-2 lg:col-span-3">
                 <h3 className="text-davyGray text-3xl font-semibold mb-4">Inclusive Plans</h3>
                 <p className="text-base font-normal text-davyGray">
                   {pricingData?.description}

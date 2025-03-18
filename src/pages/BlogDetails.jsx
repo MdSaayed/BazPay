@@ -11,7 +11,6 @@ const BlogDetails = () => {
   const { isLoading, startLoading, stopLoading } = useLoading();
   const [error, setError] = useState(null); // State to handle errors
 
-  
     
   useEffect(() => {
     startLoading();

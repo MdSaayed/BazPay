@@ -8,6 +8,7 @@ import Faq from '../components/faq/Faq';
 import Cta from '../components/cta/Cta';
 
 const Blog = () => {
+
     return (
         < >
             {/* Blog Section */}
