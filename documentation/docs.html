@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BazPay Documentation</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; padding: 20px; }
+        h1, h2, h3 { color: #333; }
+        pre { background: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { color: #d63384; }
+        ul { padding-left: 20px; }
+        img { 
+            max-width: 70%; 
+            height: auto; 
+            margin: 10px 0; 
+            display: block; 
+        } /* Default image size for desktop */
+     
+        @media (max-width: 820px) {
+            img {
+                max-width: 100%; /* 100% for tablet and mobile devices */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>BazPay Documentation</h1>
+    
+    <h2>1. Introduction</h2>
+    <p>This React project is built with React Router, Tailwind CSS, and additional libraries for enhanced user experience. Designed for easy customization and scalability.</p>
+    
+    <h2>2. Installation</h2>
+    <h3>Prerequisites</h3>
+    <ul>
+        <li>Node.js (latest LTS recommended)</li>
+        <li>npm or yarn</li>
+    </ul>
+    <h3>Steps</h3>
+    <pre><code>cd BazPay
+npm install # or yarn install
+npm run dev # or yarn run dev</code></pre>
+    <p>Project runs at <code>http://localhost:3000/</code></p>
+    
+    <h2>3. Folder Structure</h2>
+    <pre><code>BAZPAY/
+├── dist/                     # Production build output
+├── node_modules/             # Installed dependencies
+├── public/                   # Static assets (e.g., images, fonts)
+├── src/                      # Source code
+│   ├── animation/            # Animation-related files
+│   ├── components/           # Reusable components
+│   │   ├── blog/             # Blog-related components
+│   │   ├── brandLogo/        # Brand logo component
+│   │   ├── comparePlans/     # Plan comparison components
+│   │   ├── coreValues/       # Core values components
+│   │   ├── cta/              # Call-to-action components
+│   │   ├── description/      # Description components
+│   │   ├── errorMessage/     # Error message components
+│   │   ├── faq/              # FAQ components
+│   │   ├── features/         # Feature-related components
+│   │   ├── financialOverview/# Financial overview components
+│   │   ├── footer/           # Footer component
+│   │   ├── latestPost/       # Latest blog post components
+│   │   ├── loadingAnimation/ # Loading animation components
+│   │   ├── navbar/           # Navigation bar component
+│   │   ├── pricing/          # Pricing-related components
+│   │   ├── pricingCard/      # Pricing card components
+│   │   ├── ScrollToTop/      # Scroll-to-top component
+│   │   ├── securityFeatures/ # Security features components
+│   │   ├── slider/           # Slider components
+│   │   ├── stats/            # Stats components
+│   │   ├── subscribeForm/    # Subscription form components
+│   │   ├── subtitle/         # Subtitle components
+│   │   ├── team/             # Team-related components
+│   │   ├── title/            # Title components
+│   │   ├── ui/               # UI-related components
+│   ├── context/              # Context API files
+│   ├── layout/               # Layout-related files
+│   ├── pages/                # Page components
+│   ├── routers/              # Routing configuration
+│   ├── index.css             # Global CSS file
+│   ├── main.jsx              # Main entry point
+├── .gitignore                # Git ignore file
+├── docs.html                 # Documentation HTML file
+├── DOCUMENTATION.md          # Documentation markdown file
+├── eslint.config.js          # ESLint configuration
+├── index.html                # Main HTML file
+├── package-lock.json         # Lock file for npm
+├── package.json              # Project dependencies and scripts
+├── postcss.config.js         # PostCSS configuration
+├── README.md                 # Project README file
+├── tailwind.config.js        # Tailwind CSS configuration
+├── vite.config.js            # Vite configuration</code></pre>
+    
+    <h2>4. Customization</h2>
+    <h3>Customizing Components</h3>
+    <p>To customize components, navigate to the <code>src/components/</code> directory. Each component is modular and can be easily modified.</p>
+    
+    <h3>Customizing Styles</h3>
+    <p>This project uses Tailwind CSS for styling. You can customize the styles by editing the <code>tailwind.config.js</code> file or by adding custom CSS in the <code>src/index.css/</code> directory.</p>
+    <img src="./assets/tailwind-customize.png" alt="Customizing Styles" >
+    
+    <h3>Adding New Pages</h3>
+    <p>To add new pages, create a new file in the <code>src/pages/</code> directory and then add the route in the <code>src/routers/Router.jsx</code> directory.</p>
+    <img src="./assets/add-new-page.png" alt="Adding New Pages" >
+    
+    <h3>Customizing Navbar Logo, Footer Text, Footer Logo, and Favicon</h3>
+    <p>You can easily customize the following elements:</p>
+    <ul>
+        <li>
+            <strong>Navbar Logo</strong>:
+            <ul>
+                <li>Replace the existing logo file at <code>/public/assets/logo.png</code> with your own logo.</li>
+                <li>Update the logo path in the <code>Navbar</code> component if necessary.</li>
+            </ul>
+            <img src="./assets/logo.png" alt="Customizing Navbar Logo" >
+        </li>
+        <li>
+            <strong>Footer Text</strong>:
+            <ul>
+                <li>Edit the footer text in the <code>Footer</code> component located at <code>src/components/footer/</code>.</li>
+            </ul>
+            <img src="./assets/copyright-text-and-link.png" alt="Customizing Footer Text" >
+        </li>
+        <li>
+            <strong>Footer Logo</strong>:
+            <ul>
+                <li>Replace the existing footer logo file at <code>/public/assets/footer-logo.png</code> with your own logo.</li>
+                <li>Update the logo path in the <code>Footer</code> component if necessary.</li>
+            </ul>
+            <img src="./assets/footer-logo.png" alt="Customizing Footer Logo" >
+        </li>
+        <li>
+            <strong>Favicon</strong>:
+            <ul>
+                <li>Replace the existing favicon file at <code>/public/favicon.png</code> with your own favicon.</li>
+                <li>Ensure the favicon is linked correctly in the <code>index.html</code> file.</li>
+            </ul>
+            <img src="./assets/favicon.png" alt="Customizing Favicon" >
+        </li>
+    </ul>
+    <p>Example of updating the favicon in <code>index.html</code>:</p>
+    <pre><code>&lt;link rel="icon" type="image/png" href="./assets/favicon.png" /&gt;</code></pre>
+    
+    <h2>5. Deployment</h2>
+    <p>If you want to use the ready-to-production <code>dist/</code> folder, follow these steps:</p>
+    <ol>
+        <li>Run the production build:</li>
+        <pre><code>npm run build</code></pre>
+        <li>Deploy <code>dist/</code> folder:</li>
+        <ul>
+            <li><strong>Netlify</strong>: Drag and drop <code>dist/</code> into Netlify dashboard.</li>
+            <li><strong>Vercel</strong>: Run <code>vercel deploy</code> inside <code>dist/</code>.</li>
+            <li><strong>FTP/SFTP</strong>: Upload <code>dist/</code> to your hosting server.</li>
+            <li><strong>cPanel</strong>: Upload <code>dist/</code> via File Manager and extract it.</li>
+        </ul>
+    </ol>
+    
+    <h2>6. Support</h2>
+    <p>For any issues, contact support:</p>
+    <ul>
+        <li>Email: <a href="mailto:contact.uibazar@gmail.com">contact.uibazar@gmail.com</a></li>
+    </ul>
+    
+    <p>Thank you for using our React Router theme!</p>
+</body>
+</html>

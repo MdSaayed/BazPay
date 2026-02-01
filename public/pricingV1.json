@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "title": "Basic Plan",
+    "price": {
+      "monthly": 10,
+      "annual": 50
+    },
+    "isPopular": true,
+    "description": "The Basic Plan is perfect for individuals and small teams looking to access core features without breaking the bank. For just $10 per month or $50 annually, users can enjoy access to essential tools and services.",
+    "excerpt": "Ideal for small teams, offering core features and tools at an affordable price.",
+    "buttonText": "Get Started",
+    "highlighted": false,
+    "features": {
+      "monthly": [
+        "Access to all core platform features",
+        "Includes 5GB of cloud storage",
+        "Standard reports & basic analytics",
+        "Community-driven support access",
+        "Integrations with limited tools",
+        "Secure platform with basic protection",
+        "Available on mobile and tablet"
+      ],
+      "annual": [
+        "Access to all core platform features",
+        "Includes 50GB of cloud storage",
+        "Detailed reports & advanced analytics",
+        "Priority email and chat support",
+        "Access to all premium integrations",
+        "Enhanced security with SSL included",
+        "Offline access and sync feature"
+      ]
+    },
+    "featureDesc": "Access essential tools and features for individuals and small teams at an affordable price."
+  },
+  {
+    "id": 2,
+    "title": "Business Plan",
+    "price": {
+      "monthly": 20,
+      "annual": 100
+    },
+    "description": "The Business Plan is designed for growing businesses and teams that require more advanced features and enhanced support.",
+    "excerpt": "Advanced tools and support for growing businesses and efficient team collaboration.",
+    "buttonText": "Get Started",
+    "highlighted": true,
+    "features": {
+      "monthly": [
+        "Everything in the Basic Plan included",
+        "Unlimited user accounts supported",
+        "Storage space up to 100GB per user",
+        "Priority email support available",
+        "Custom API and tool integrations",
+        "Enhanced analytics and insights",
+        "Real-time tracking and live updates"
+      ],
+      "annual": [
+        "Everything in the Basic Plan included",
+        "Unlimited users and team members",
+        "Storage space up to 200GB per user",
+        "Priority email and chat support",
+        "AI-powered advanced analytics tools",
+        "Real-time tracking and live updates",
+        "Exclusive feature access for teams"
+      ]
+    },
+    "featureDesc": "Advanced features and priority support to help growing teams scale efficiently."
+  },
+  {
+    "id": 3,
+    "title": "Enterprise Plan",
+    "price": {
+      "monthly": 50,
+      "annual": 250
+    },
+    "description": "The Enterprise Plan is the ultimate solution for large teams and organizations seeking custom, scalable solutions.",
+    "excerpt": "Comprehensive, scalable solutions with premium support for large organizations.",
+    "buttonText": "Contact Us",
+    "highlighted": false,
+    "features": {
+      "monthly": [
+        "Includes all Business Plan features",
+        "Personal account manager assigned",
+        "Unlimited storage space provided",
+        "24/7 premium support available",
+        "Enterprise-grade security protection",
+        "Custom reports and data analytics",
+        "Bespoke feature development plans"
+      ],
+      "annual": [
+        "Includes all Business Plan features",
+        "Dedicated manager with SLA contract",
+        "Unlimited storage with data backups",
+        "24/7 premium support team access",
+        "Full security compliance audits",
+        "Custom analytics and reporting tools",
+        "Scalable feature development roadmap"
+      ]
+    },
+    "featureDesc": "Tailored solutions with 24/7 support and enterprise-grade features for large teams."
+  }
+]
