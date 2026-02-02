@@ -18,7 +18,7 @@ const BlogGrid = () => {
     const fetchBlogs = async () => {
       try {
         // Fetch the blog data from the JSON file
-        const res = await fetch("/blogData.json");
+        const res = await fetch("/latestPost.json");
         if (!res.ok) {
           // If the fetch failed, throw an error
           throw new Error("Failed to fetch blogs");
@@ -39,20 +39,20 @@ const BlogGrid = () => {
   }, []); // Empty dependency array means this runs only once when the component mounts
 
 
-  
+
   // If loading, show a loading message
-  if (isLoading)  return <LoadingAnimation />;
+  if (isLoading) return <LoadingAnimation />;
   // If there's an error, display the error message
-  if (error) return <ErrorMessage />; 
+  if (error) return <ErrorMessage />;
 
   // Render the blog cards once the data is fetched
   return (
     <div className="mt-20">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Map over the blogs and render a BlogCard for each one */}
-        {blogs?.slice(0, 2)?.map((blog) => (
+        {blogs?.slice(0, 2)?.map((blog, index) => (
           <Reveal key={blog?.id}>
-            <BlogCard blog={blog} />
+            <BlogCard blog={blog} index={index} />
           </Reveal>
         ))}
       </div>

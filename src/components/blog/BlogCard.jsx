@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 const BlogCard = ({ blog, index }) => {
   const { image, title, date, id, excerpt, tags } = blog;
 
+  console.log(index);
+
   return (
-    <div className={`flex flex-col gap-3 ${index === 2 ? "md:flex-col-reverse" : ""}`}>
+    <div className={`flex flex-col gap-3 ${index == 1 ? "md:flex-col-reverse" : ""}`}>
       {/* Blog Image With Link */}
       <Link to={`/blog/${id}`} className="rounded-2xl block overflow-hidden">
         <img
